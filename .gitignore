@@ -1,0 +1,11 @@
+.idea/
+.DS_Store
+node_modules/
+static/css/*.css
+staticfiles/
+__pycache__/
+*.py[cod]
+*.log
+*.mo
+*.sqlite3
+
