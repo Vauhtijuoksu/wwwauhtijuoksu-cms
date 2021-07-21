@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e1670bb6a630c22e809a48d9ecda83f75e92ec37430b68771c0d114a4aee5237"
+            "sha256": "72775f31dd0d88af1903d5e2d981d18736bbb059cb9e67dc26b8db7e7aea827d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -158,14 +158,6 @@
             ],
             "index": "pypi",
             "version": "==4.0.0"
-        },
-        "djangocms-video": {
-            "hashes": [
-                "sha256:00bf964675be377ddefb488efbff498cc1d904aa00fbf5e4f4679c6904453ca1",
-                "sha256:053df39db1d7405f60a15cce6d0f8591893dfa2e434d582fcd09157f8533db79"
-            ],
-            "index": "pypi",
-            "version": "==3.0.0"
         },
         "easy-thumbnails": {
             "hashes": [

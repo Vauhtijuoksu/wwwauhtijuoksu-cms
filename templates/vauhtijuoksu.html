@@ -1,9 +1,10 @@
-{% load cms_tags sekizai_tags %}
+{% load static cms_tags sekizai_tags %}
 <html>
 
 <head>
   <meta charset="UTF-8">
   <title>{% page_attribute "page_title" %}</title>
+  {% addtoblock "css" %}<link href="{% static "vauhtijuoksu/css/style.css" %}" media="screen" rel="stylesheet" type="text/css" />{% endaddtoblock %}
   {% render_block "css" %}
 </head>
 

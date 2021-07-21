@@ -10,7 +10,6 @@ djangocms-text-ckeditor = "*"
 djangocms-link = "*"
 djangocms-file = "*"
 djangocms-picture = "*"
-djangocms-video = "*"
 djangocms-snippet = "*"
 djangocms-style = "*"
 
