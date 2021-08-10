@@ -12,6 +12,7 @@ djangocms-file = "*"
 djangocms-picture = "*"
 djangocms-snippet = "*"
 djangocms-style = "*"
+django-bootstrap-v5 = "*"
 
 [dev-packages]
 

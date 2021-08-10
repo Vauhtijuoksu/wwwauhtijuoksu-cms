@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'filer',
     'easy_thumbnails',
     'mptt',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [

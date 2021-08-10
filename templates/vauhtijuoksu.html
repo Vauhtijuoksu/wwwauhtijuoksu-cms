@@ -1,17 +1,25 @@
-{% load static cms_tags sekizai_tags %}
-<html>
+{% extends "generic_base.html" %}
+{% load static cms_tags sekizai_tags bootstrap5 %}
 
-<head>
-  <meta charset="UTF-8">
-  <title>{% page_attribute "page_title" %}</title>
+
+
+{% block body %}
+  {% addtoblock "css" %}{% bootstrap_css %}{% endaddtoblock %}
   {% addtoblock "css" %}<link href="{% static "vauhtijuoksu/css/style.css" %}" media="screen" rel="stylesheet" type="text/css" />{% endaddtoblock %}
-  {% render_block "css" %}
-</head>
+  {% addtoblock "js" %}{% bootstrap_javascript %}{% endaddtoblock %}
 
-<body>
-  {% cms_toolbar %}
-  {% placeholder "content" %}
-  {% render_block "js" %}
-</body>
-
-</html>
+  <div id="container">
+    <div class="container header">
+      <img class="header-logo" src="{% static "vauhtijuoksu/img/pixelheader_chars.png" %}">
+      <img class="header-logo" src="{% static "vauhtijuoksu/img/menubg.png" %}">
+      <div class="header-menu">
+        <div>
+          <a href="#">Vauhtijuoksu</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      {% placeholder "content" %}
+    </div>
+  </div>
+{% endblock body %}
