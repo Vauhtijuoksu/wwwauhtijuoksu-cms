@@ -6,6 +6,12 @@ The project is built using Django and Django CMS.
 
 **Note**: The project is currently a work in progress, and not in production.
 
+## Technologies
+
+* [Django](https://www.djangoproject.com/) 3.2
+* [Django CMS](https://www.django-cms.org/en/) 3.9 
+* [Bootstrap](https://getbootstrap.com/) 5
+
 ## Dependencies
 
 **Required**:
