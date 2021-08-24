@@ -1,0 +1,31 @@
+{% extends "generic_base.html" %}
+{% load cms_tags sekizai_tags bootstrap5 menu_tags %}
+{% block head %}
+  {% addtoblock "js" %}{% bootstrap_javascript %}{% endaddtoblock %}
+  {% addtoblock "css" %}{% bootstrap_css %}{% endaddtoblock %}
+{% endblock head %}
+
+{% block body %}
+  <main>
+    {% block main_menu %}
+      <div class="container">
+        <header class="d-flex justify-content-center">
+          <nav class="nav">
+            {% show_menu %}
+          </nav>
+        </header>
+      </div>
+    {% endblock %}
+  {% block content %}
+    <div class="container">
+      {% placeholder "content" %}
+    </div>
+  {% endblock %}
+  {% block footer %}
+    <div class="container">
+      <footer>
+        {% static_placeholder "footer" %}
+      </footer>
+    </div>
+  {% endblock %}
+{% endblock %}

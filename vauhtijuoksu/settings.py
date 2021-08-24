@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'mptt',
     'bootstrap5',
+    'active_link',
 ]
 
 MIDDLEWARE = [
@@ -96,7 +97,8 @@ TEMPLATES = [
 
 # List of templates that can be used for CMS pages
 CMS_TEMPLATES = [
-    ('vauhtijuoksu2021.html', 'VJ 2021 theme'),
+    ('vauhtijuoksu/vj2021plus.html', 'VJ 2021+ theme'),
+    ('vauhtijuoksu/vj2021.html', 'VJ 2021 theme'),
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
