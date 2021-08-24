@@ -96,7 +96,7 @@ TEMPLATES = [
 
 # List of templates that can be used for CMS pages
 CMS_TEMPLATES = [
-    ('vauhtijuoksu.html', 'VJ default'),
+    ('vauhtijuoksu2021.html', 'VJ 2021 theme'),
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'

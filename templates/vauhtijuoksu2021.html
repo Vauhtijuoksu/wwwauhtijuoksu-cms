@@ -1,0 +1,28 @@
+{% extends "generic_base.html" %}
+{% load static cms_tags sekizai_tags bootstrap5 %}
+
+
+
+{% block body %}
+  {% addtoblock "css" %}<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">{% endaddtoblock %}
+  {% addtoblock "css" %}<link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>{% endaddtoblock %}
+  {% addtoblock "css" %}<link href="{% static "vauhtijuoksu/css/style.css" %}" media="screen" rel="stylesheet" type="text/css" />{% endaddtoblock %}
+  {% addtoblock "js" %}<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>{% endaddtoblock %}
+  {% addtoblock "js" %}<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>{% endaddtoblock %}
+  {% addtoblock "js" %}<script src="{% static "vauhtijuoksu/js/script.js" %}"></script>{% endaddtoblock %}
+
+  <div id="container">
+    <div class="container header">
+      <img class="header-logo" src="{% static "vauhtijuoksu/img/pixelheader_chars.png" %}">
+      <img class="header-logo" src="{% static "vauhtijuoksu/img/menubg.png" %}">
+      <div class="header-menu">
+        <div>
+          <a href="#">Vauhtijuoksu</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      {% placeholder "content" %}
+    </div>
+  </div>
+{% endblock body %}
