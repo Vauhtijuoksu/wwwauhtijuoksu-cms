@@ -8,4 +8,4 @@ __pycache__/
 *.log
 *.mo
 *.sqlite3
-
+*.sqlite3-journal
