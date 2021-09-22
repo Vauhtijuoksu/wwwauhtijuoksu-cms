@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'filer',
     'easy_thumbnails',
     'mptt',
+    'sass_processor',
     'bootstrap5',
 ]
 
@@ -162,11 +163,18 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
+    BASE_DIR / 'node_modules' / 'bootstrap' / 'dist' / 'js',
 ]
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
+
+# Include node_modules to import Bootstrap styles in SASS
+SASS_PROCESSOR_INCLUDE_DIRS = [
+    str(BASE_DIR / 'node_modules')
 ]
 
 # Media
