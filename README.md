@@ -25,6 +25,8 @@ The project is built using Django and Django CMS.
 
 1. Python dependencies are defined in the `Pipfile`, and can be installed with Pipenv:
     `pipenv install`
+1. Activate the virtual env created by pipenv with:
+    `pipenv shell`
 1. Initialize database
     `python manage.py migrate`
 1. Create the admin user
@@ -32,3 +34,10 @@ The project is built using Django and Django CMS.
 1. Run the development server
     `python manage.py runserver`
 1. Server should now be up running at http://localhost:8080
+
+### Using docker
+
+`docker-compose up` should build & start the app in a Docker container.
+
+This is a development setup only!
+
