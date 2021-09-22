@@ -39,5 +39,30 @@ The project is built using Django and Django CMS.
 
 `docker-compose up` should build & start the app in a Docker container.
 
-This is a development setup only!
+This is intended for development only!
+
+## Using the CMS
+
+### First time
+
+After installing & running the server for the first time, there is not yet any content on our webpage, so we must start by creating some.
+
+1. Navigate to the admin site at http://localhost:8000/admin and log in with your newly created superuser credentials
+1. The default page creation wizard won't work here, so close it. Press "example.com" in the cms toolbar at the top of the page
+1. Go to "Pages" and press Add new Page. Give it a name ("frontpage" or whatever) and press Save at the Bottom
+1. In the page listing, press the eye symbol to navigate to the new page. It has no content yet, but the menu should pop up including the page itself.
+
+### Adding content
+
+1. In the CMS toolbar, open the sidebar from the top right
+1. In the sidebar, you can press the "plus" button to add Plugins to your CMS page. Plugins are basically pieces of content that will be rendered on the page.
+1. Select the type of plugin you want to add, then modify the content to whatever you want
+
+Plugins can be reordered and modified however you want. Some plugins can even be nested!
+
+### Publishing
+
+Any changes you make to your pages won't actually go live until you publish the changes. Publishing is easy, just press the button in the upper right corner!
+
+You can see the status of all pages in the Pages listing visited before
 
