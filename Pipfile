@@ -13,8 +13,7 @@ djangocms-picture = "*"
 djangocms-snippet = "*"
 djangocms-style = "*"
 django-bootstrap-v5 = "*"
-
-[dev-packages]
+whitenoise = "*"
 
 [requires]
 python_version = "3.9"
