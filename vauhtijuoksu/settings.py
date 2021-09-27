@@ -177,6 +177,8 @@ SASS_PROCESSOR_INCLUDE_DIRS = [
     str(BASE_DIR / 'node_modules')
 ]
 
+SASS_PRECISION = 8
+
 # Media
 
 MEDIA_URL = '/media/'
