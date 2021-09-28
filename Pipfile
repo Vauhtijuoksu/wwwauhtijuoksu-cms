@@ -17,9 +17,13 @@ django-sass-processor = "*"
 libsass = "*"
 whitenoise = "*"
 django-compressor = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.9"
 
 [scripts]
-test = "python manage.py test"
+start = "python manage.py runserver"
+mm = "python manage.py makemigrations"
+migrate = "python manage.py migrate"
+test = "python manage.py test --settings=vauhtijuoksu.settings.tests"
