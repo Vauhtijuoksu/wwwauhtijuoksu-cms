@@ -17,12 +17,16 @@ The project is built using Django and Django CMS.
 **Required**:
 * Python 3.9 (recommended), 3.7 or later is likely to work.
 * pip
+* NodeJS/NPM
+
+OR use Docker for development (see below)
 
 **Recommended**:
 * [Pipenv](https://github.com/pypa/pipenv) is recommended for package & environment management
 
 ## Installing & running
 
+1. Install NPM dependencies with `npm install`
 1. Python dependencies are defined in the `Pipfile`, and can be installed with Pipenv:
     `pipenv install`
 1. Activate the virtual env created by pipenv with:
@@ -37,7 +41,10 @@ The project is built using Django and Django CMS.
 
 ### Using docker
 
-`docker-compose up` should build & start the app in a Docker container.
+1. `docker-compose build`
+1. `docker-compose up` should build & start the app in a Docker container.
+1. `docker-compose exec web migrate`
+1. `docker-compose exec web createsuperuser`
 
 This is intended for development only!
 

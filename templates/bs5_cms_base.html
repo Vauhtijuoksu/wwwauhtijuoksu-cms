@@ -1,8 +1,8 @@
 {% extends "generic_base.html" %}
-{% load cms_tags sekizai_tags bootstrap5 menu_tags %}
+{% load cms_tags sekizai_tags bootstrap5 menu_tags sass_tags static %}
 {% block head %}
-  {% addtoblock "js" %}{% bootstrap_javascript %}{% endaddtoblock %}
-  {% addtoblock "css" %}{% bootstrap_css %}{% endaddtoblock %}
+  {% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}">{% endaddtoblock %}
+  {% addtoblock "css" %}<link href="{% sass_src 'css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
 {% endblock head %}
 
 {% block body %}

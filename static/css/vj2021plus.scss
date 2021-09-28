@@ -1,0 +1,12 @@
+// Override variables (from _variables.scss and bootstrap)
+
+// Examples
+$white: #fff;
+$black: #000;
+
+@import "base";
+// Actual styles here
+
+body {
+  background-color: $white;
+}
