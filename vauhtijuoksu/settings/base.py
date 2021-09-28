@@ -138,9 +138,9 @@ CMS_LANGUAGES = {
     ]
 }
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'fi'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = config('TIME_ZONE', default='Europe/Helsinki')
 
 USE_I18N = False
 
