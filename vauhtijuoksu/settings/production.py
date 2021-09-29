@@ -1,5 +1,5 @@
 from .base import *
-from decouple import config
+from decouple import config, Csv
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -30,3 +30,5 @@ DATABASES = {
         'PASSWORD': config('POSTGRES_PASSWORD'),
     }
 }
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
