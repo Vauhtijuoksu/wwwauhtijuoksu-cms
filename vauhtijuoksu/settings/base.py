@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8uvqb1l%txv#3u56j&@3#d8z8abp2e3$jqife%8@ze8djlj&dc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Required for django.contrib.sites
 
