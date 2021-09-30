@@ -1,0 +1,73 @@
+// Override variables (from _variables.scss and bootstrap)
+
+// Examples
+$white: #fcfefe;
+$black: #18191f;
+$header-h: 496px;
+
+@import "static/css/base";
+// Actual styles here
+
+@font-face {
+    font-family: 'lunchds';
+    src: url('../misc/lunchds.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'orangekid';
+    src: url('../misc/orangekid.ttf') format('truetype');
+}
+
+body {
+  font-family: 'orangekid';
+  background-image: url("../img/background.png");
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background-size: 1280px;
+  background-color: $black;
+  color: white;
+  font-size: 42px;
+  background-repeat: repeat-x;
+  background-position: top center;
+}
+
+.header-image{
+  background-size: 1280px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: 100%;
+  height: $header-h;
+}
+.ice-bottom{
+  background-image: url("../img/icebottom.png");
+}
+.water{
+  background-image: url("../img/water.png");
+  background-repeat: repeat-x;
+}
+.ice-top{
+  background-image: url("../img/icetop.png");
+}
+
+.header{
+  position: absolute;
+  top: 0;
+  height: $header-h;
+  width: 100%;
+}
+.tittle{
+  font-family: 'lunchds';
+  color: #728697;
+  justify-content: space-around;
+  display: flex;
+  font-size: 64px;
+}
+.content{
+  text-shadow: 2px 2px $black;
+}
+
+.divider{
+  width: 128px;
+  margin: auto;
+  display: block;
+}
