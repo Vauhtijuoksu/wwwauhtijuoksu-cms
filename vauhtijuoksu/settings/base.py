@@ -166,6 +166,13 @@ STATICFILES_FINDERS = [
     'sass_processor.finders.CssFinder',
 ]
 
+# Use separate storage solution for sass-processor
+SASS_PROCESSOR_STORAGE = 'django.contrib.staticfiles.storage.FileSystemStorage'
+SASS_PROCESSOR_STORAGE_OPTIONS = {
+    'location': STATIC_ROOT,
+    'base_url': STATIC_URL,
+}
+
 # Include node_modules to import Bootstrap styles in SASS
 SASS_PROCESSOR_INCLUDE_DIRS = [
     str(BASE_DIR / 'node_modules')
@@ -176,9 +183,8 @@ SASS_PRECISION = 8
 # Media
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = config('DJANGO_MEDIA_ROOT', default=BASE_DIR / 'media')
 
-THUMBNAIL_HIGH_RESOLUTION = True
 
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
