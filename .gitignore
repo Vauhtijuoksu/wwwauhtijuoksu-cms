@@ -1,7 +1,7 @@
 .idea/
 .DS_Store
 node_modules/
-static/css/*.css
+sassfiles/
 staticfiles/
 __pycache__/
 *.py[cod]

@@ -153,11 +153,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATICFILES_STORAGE ='vauhtijuoksu.storage.WhiteNoiseStaticFilesStorage'
 
+# manage.py compilescss -> this folder
+SASS_PROCESSOR_ROOT = config('DJANGO_SASS_ROOT', default=str(BASE_DIR / 'sassfiles'))
+
 STATIC_URL = config('DJANGO_STATIC_URL', default='/static/')
 STATIC_ROOT = config('DJANGO_STATIC_ROOT', default=BASE_DIR / 'staticfiles')
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'node_modules' / 'bootstrap' / 'dist' / 'js',
+    SASS_PROCESSOR_ROOT,
 ]
 
 STATICFILES_FINDERS = [
@@ -166,23 +170,18 @@ STATICFILES_FINDERS = [
     'sass_processor.finders.CssFinder',
 ]
 
-# Use separate storage solution for sass-processor
-SASS_PROCESSOR_STORAGE = 'django.contrib.staticfiles.storage.FileSystemStorage'
-SASS_PROCESSOR_STORAGE_OPTIONS = {
-    'location': STATIC_ROOT,
-    'base_url': STATIC_URL,
-}
 
 # Include node_modules to import Bootstrap styles in SASS
 SASS_PROCESSOR_INCLUDE_DIRS = [
     str(BASE_DIR / 'node_modules')
 ]
 
+
 SASS_PRECISION = 8
 
 # Media
 
-MEDIA_URL = '/media/'
+MEDIA_URL = config('DJANGO_MEDIA_URL', '/media/')
 MEDIA_ROOT = config('DJANGO_MEDIA_ROOT', default=BASE_DIR / 'media')
 
 
