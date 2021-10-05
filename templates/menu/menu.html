@@ -1,6 +1,6 @@
 {% load menu_tags %}
 {% for child in children %}
-  <a class="nav-link {% if child.selected %}active{% endif %}"
+  <a class="menu-link {% if child.selected %}active{% endif %}"
      href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">
     {{ child.get_menu_title }}
   </a>
