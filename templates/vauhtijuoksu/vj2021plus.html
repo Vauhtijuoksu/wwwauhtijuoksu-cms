@@ -1,5 +1,5 @@
 {% extends "generic_base.html" %}
-{% load static cms_tags menu_tags sekizai_tags sass_tags bootstrap5 %}
+{% load static cms_tags menu_tags sekizai_tags sass_tags %}
 
 {% block body %}
     {% addtoblock "css" %}<link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>{% endaddtoblock %}
@@ -23,7 +23,7 @@
                     {% show_menu %}
 
                 </div>
-                </div>
+              </div>
             {% placeholder "content" %}
         </div>
     </div>
