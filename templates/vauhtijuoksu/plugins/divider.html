@@ -1,1 +1,12 @@
-<hr />
+{% load static %}
+{% if number == 0 %}
+  <img alt="divider" src="{% static 'vauhtijuoksu2021plus/img/divider_0.png' %}">
+{% elif number == 1 %}
+  <img alt="divider" src="{% static 'vauhtijuoksu2021plus/img/divider_1.png' %}">
+{% elif number == 2 %}
+  <img alt="divider" src="{% static 'vauhtijuoksu2021plus/img/divider_2.png' %}">
+{% elif number == 3 %}
+  <img alt="divider" src="{% static 'vauhtijuoksu2021plus/img/divider_3.png' %}">
+{% else %}
+  <img alt="divider" src="{% static 'vauhtijuoksu2021plus/img/divider_0.png' %}">
+{% endif %}
