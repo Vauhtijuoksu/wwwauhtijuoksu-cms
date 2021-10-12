@@ -3,16 +3,23 @@ from django.db import models
 
 
 class GameInfo(models.Model):
-    api_id = models.UUIDField(unique=True)
-    game = models.TextField()
-    device = models.TextField()
-    player = models.TextField()
-    player_twitch = models.TextField()
-    published = models.TextField()
+    # From API
+    api_id = models.UUIDField(primary_key=True)
+    game = models.TextField('name')
+    device = models.TextField('device')
+    player = models.TextField('player nick')
+    player_twitch = models.TextField('twitch', blank=True)
+    published = models.TextField('publishing year', blank=True)
     start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
-    vod_link = models.TextField()
+    end_time = models.DateTimeField(blank=True)
+    vod_link = models.URLField(blank=True)
+
+    # Custom added fields
+    icon = models.ImageField(null=True, blank=True)
+    estimate = models.PositiveIntegerField('estimate in seconds')
+    hide = models.BooleanField(default=False)
 
 
-class GameInfoPlugin(CMSPlugin):
-    game = models.ForeignKey(GameInfo, on_delete=models.CASCADE)
+class Timetable(CMSPlugin):
+    hide_past = models.BooleanField()
+    show_vods = models.BooleanField()

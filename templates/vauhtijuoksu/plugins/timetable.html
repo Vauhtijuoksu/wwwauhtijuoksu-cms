@@ -1,0 +1,19 @@
+{% load vj_extras %}
+<div class="timetable">
+  {% for game in games %}
+    <div class="game">
+      <h3>{{ game.game }}</h3>
+      <ul>
+        <li>{{ game.player }}</li>
+        <li>{{ game.device }}</li>
+        <li>{{ game.published }}</li>
+        <li>{{ game.start_time }}</li>
+        <li>{{ game.estimate | duration }}</li>
+      </ul>
+    </div>
+  {% empty %}
+    <div class="nogames">
+      <h2>Pelit julkaistaan pian!</h2>
+    </div>
+  {% endfor %}
+</div>
