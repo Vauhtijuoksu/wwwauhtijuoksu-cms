@@ -1,14 +1,31 @@
-version: '3.8'
+version: '3'
 
 services:
   web:
+    container_name: vj-cms
     build:
       context: .
       dockerfile: Dockerfile
-    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      DJANGO_SETTINGS_MODULE: vauhtijuoksu.settings.docker
+    entrypoint: /home/cms/scripts/docker_entrypoint.sh
     volumes:
       - ./vauhtijuoksu:/home/cms/vauhtijuoksu
       - ./templates:/home/cms/templates
       - ./static:/home/cms/static
+      - ./sassfiles:/home/cms/sassfiles
     ports:
       - 8000:8000
+
+  db:
+    container_name: vj-cms-db
+    image: postgres:11
+    environment:
+      POSTGRES_USER: vjcms
+      POSTGRES_PASSWORD: vjcmsPasswd
+      POSTGRES_DB: vjcms
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
