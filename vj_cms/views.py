@@ -10,6 +10,7 @@ from vj_cms.models import GameInfo
 
 client = VJClient(settings.VJ_API_URL)
 
+
 def update_timetable(request):
     games = client.games()
     for game in games:

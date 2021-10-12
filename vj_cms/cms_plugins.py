@@ -30,5 +30,5 @@ class TimetablePlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
 
-        context['games'] = GameInfo.objects.all()
+        context['games'] = GameInfo.objects.all().order_by('start_time')
         return context
