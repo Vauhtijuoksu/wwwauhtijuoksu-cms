@@ -19,6 +19,7 @@ whitenoise = "*"
 django-compressor = "*"
 python-decouple = "*"
 psycopg2 = "*"
+requests = "*"
 
 [requires]
 python_version = "3.9"

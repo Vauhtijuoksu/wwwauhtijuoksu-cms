@@ -196,3 +196,7 @@ THUMBNAIL_PROCESSORS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+
+## Vauhtijuoksu API
+VJ_API_URL = 'https://mockapi.dev.vauhtijuoksu.fi'

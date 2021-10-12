@@ -16,3 +16,7 @@ class DividerPlugin(CMSPluginBase):
         context = super().render(context, instance, placeholder)
         context['number'] = randint(0, 3)
         return context
+
+class TimetablePlugin(CMSPluginBase):
+    name = 'Timetable'
+    model = CMSPlugin
