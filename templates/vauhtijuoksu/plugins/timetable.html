@@ -1,18 +1,79 @@
-{% load vj_extras %}
+{% load vj_extras static %}
+
 <div class="timetable">
-  {% for game in games %}
-    <div class="game">
-      <h3>{{ game.game }}</h3>
-      <ul>
-        <li>{{ game.player }}</li>
-        <li>{{ game.device }}, {{ game.published }}</li>
-        <li>{{ game.start_time }}</li>
-        <li>{{ game.estimate | duration }}</li>
-      </ul>
-    </div>
-  {% empty %}
-    <div class="nogames">
-      <h2>Pelit julkaistaan pian!</h2>
-    </div>
-  {% endfor %}
+
+    {% for day in games %}
+        <div class="ttplay">
+            <div class="playdate">{{ day.0.start_time|date:"w"|fiweekday }} {{ day.0.start_time|date:"j.n." }}</div>
+        </div>
+        {% for game in day %}
+            <div class="ttplay">
+                <div class="playleft">
+                    <div class="playstart">{{ game.start_time|date:"H:i" }}-{{ game.end_time|date:"H:i" }}</div>
+                    <div class="playduration playcategory">{{ game.duration }}</div>
+                </div>
+                <div class="playblob">
+                    <div class="timetable-char">
+                        <img class="char" src="{% static "vauhtijuoksu2021plus/img/char/" %}{{ game.img_filename }}">
+                    </div>
+                </div>
+                <div class="playright">
+                    <div class="playgame">{{ game.game }}</div>
+                    {% if game.category %}
+                        <div class="playcategory">{{ game.category }}</div>
+                    {% endif %}
+                    <div class="playplayer">
+                        {% with game.player|split:"," as players %}
+                            {% with game.player_twitch|split:"," as twitchs %}
+                                {% for p, t in players|zip:twitchs %}
+                                    {% if forloop.counter0 > 0 %}
+                                        &
+                                    {% endif %}
+                                    {% if t %}
+                                        <a class="twitch-link" target="_blank" href="https://www.twitch.tv/{{ t }}">{{ p }} <img class="twitch-icon" src="{% static "vauhtijuoksu2021plus/img/twitch.png" %}"></a>
+                                    {% else %}
+                                        {{ p }}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endwith %}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% empty %}
+        <div class="nogames">
+            <h2>Pelit julkaistaan pian!</h2>
+        </div>
+    {% endfor %}
 </div>
+
+{% comment %}
+<div class="plays">
+
+    {% set day_glob = [] %}
+    {% for game in timetable %}
+        {% if day_glob[-1] != game.start.split()[0] %}
+            <div class="ttplay">
+                <div class="playdate">{{ game.start.split()[0].replace("/", ".") }}</div>
+            </div>
+            {% if day_glob.append(game.start.split()[0]) %}{% endif %}
+        {% endif %}
+        <div class="ttplay">
+            <div class="playleft">
+                <div class="playstart">{{ game.start.split()[1] }}</div>
+                <div class="playduration playcategory">{{ game.duration }}</div>
+            </div>
+            <div class="playblob">
+                <div class="timetable-char" style="background-image: url('{{ url_for('static',filename='img/gamespecifics/') }}{{ game.img }}')">
+                </div>
+            </div>
+            <div class="playright">
+                <div class="playgame">{{ game.game }}{% if game.category %}
+                    <br><div class="playcategory">{{ game.category }}</div>{% endif %}</div>
+                <div class="playplayer">{{ game.player }}</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endcomment %}

@@ -1,0 +1,15 @@
+{% load vj_extras static %}
+
+<div class="float_chars">
+    {% for char in chars %}
+        <img class="char floaty" src="{% static "vauhtijuoksu2021plus/img/char/" %}{{ char.file }}" style="top: {{ char.top }}; left: {{ char.left }};  opacity: {{ char.opacity }}; transform: translate(-50%, -50%) scale({{ char.xscale }},2); animation-delay: {{ char.delay }}">
+    {% endfor %}
+</div>
+<script>
+    // Make the float wrapper document length.
+    document.addEventListener("DOMContentLoaded", function() {
+        var body = document.body, html = document.documentElement;
+        var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ); //get max height
+        document.getElementsByClassName("float_chars")[0].style.height = height-600 + "px"; // -600px to avoid overflow
+    });
+</script>
