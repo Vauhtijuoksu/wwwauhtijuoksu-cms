@@ -15,7 +15,7 @@ djangocms-style = "*"
 django-bootstrap-v5 = "*"
 django-sass-processor = "*"
 libsass = "*"
-whitenoise = "*"
+whitenoise = {extras = ["brotli"], version = "*"}
 django-compressor = "*"
 python-decouple = "*"
 psycopg2 = "*"

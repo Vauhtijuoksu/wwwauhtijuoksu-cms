@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-8uvqb1l%txv#3u56j&@3#d8z8abp2e3$jqife%8@ze8djlj&dc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True#config('DEBUG', default=False, cast=bool)
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -150,7 +150,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATICFILES_STORAGE ='vauhtijuoksu.storage.WhiteNoiseStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # manage.py compilescss -> this folder
 SASS_PROCESSOR_ROOT = config('DJANGO_SASS_ROOT', default=str(BASE_DIR / 'sassfiles'))
