@@ -53,3 +53,11 @@ LOGGING = {
         },
     },
 }
+
+if config('STORAGE_AZURE', default=True, cast=bool):
+    DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+    AZURE_ACCOUNT_NAME = config('STORAGE_ACCOUNT_NAME')
+    AZURE_ACCOUNT_KEY = config('STORAGE_ACCOUNT_KEY')
+    AZURE_CONTAINER = config('STORAGE_CONTAINER')
+    AZURE_SSL = True
+    AZURE_LOCATION = 'media'

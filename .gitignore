@@ -1,5 +1,6 @@
 .idea/
 .DS_Store
+media/
 node_modules/
 sassfiles/
 staticfiles/
