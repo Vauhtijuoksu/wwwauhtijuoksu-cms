@@ -99,6 +99,7 @@ TEMPLATES = [
 # List of templates that can be used for CMS pages
 CMS_TEMPLATES = [
     ('vauhtijuoksu/vj2021plus.html', 'VJ 2021+ theme'),
+    ('vauhtijuoksu/vj2021plus_fullscreen.html', 'VJ 2021+ fullscreen theme'),
     ('vauhtijuoksu/vj2021.html', 'VJ 2021 theme'),
 ]
 
