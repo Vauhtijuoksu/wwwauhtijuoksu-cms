@@ -77,24 +77,26 @@ class TabletimetablePlugin(CMSPluginBase):
                 day_was = game.end_time.strftime("%m.%d.%Y")
                 start_percent = (game.start_time.hour * 60 + game.start_time.minute) / (24 * 60) * 100
                 end_percent = 0
-                data.update({
+                start = {
                     "start_time": game.start_time,
                     "start_percent": start_percent,
                     "end_percent": end_percent,
                     "cut_style": "end-cut"
-                })
-                day.append(data)
+                }
+                start.update(data)
+                day.append(start)
                 days.append(day[:])
                 day = []
                 start_percent = 0
                 end_percent = 100-(game.end_time.hour * 60 + game.end_time.minute)/(24*60) * 100
-                data.update({
+                end = {
                     "start_time": game.start_time,
                     "start_percent": start_percent,
                     "end_percent": end_percent,
-                    "cut_style": "start-cut",
-                })
-                day.append(data)
+                    "cut_style": "start-cut"
+                }
+                end.update(data)
+                day.append(end)
             else:
                 start_percent = (game.start_time.hour * 60 + game.start_time.minute)/(24*60) * 100
                 end_percent = 100-(game.end_time.hour * 60 + game.end_time.minute)/(24*60) * 100
@@ -102,7 +104,7 @@ class TabletimetablePlugin(CMSPluginBase):
                     "start_time":  game.start_time,
                     "start_percent": start_percent,
                     "end_percent": end_percent,
-                    "cut_style": "",
+                    "cut_style": ""
                 })
                 day.append(data)
         if day:
