@@ -7,7 +7,7 @@
     {% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}">{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static "vauhtijuoksu2021plus/js/script.js" %}"></script>{% endaddtoblock %}
 
-    <div id="container">
+    <div id="container" class="fullscreen">
         <div class="header-image ice-bottom">
             <div class="header-image water">
                 <div class="header-image ice-top">
@@ -15,16 +15,15 @@
             </div>
         </div>
         <div class="header">
-            <div class="tittle"><div>V</div><div>A</div><div>U</div><div>H</div><div>T</div><div>I</div><div>J</div><div>U</div><div>O</div><div>K</div><div>S</div><div>U</div></div>
+            <div class="tittle"><div>V</div><div>A</div><div>U</div><div>H</div><div>T</div><div>I</div><div>J</div><div>U</div><div>O</div><div>K</div><div>S</div><div>U</div><div>+</div><div>2021</div></div>
         </div>
-        <div class="container content">
+        <div class="content">
             <div class="menu-wrapper">
-                <div class="menu">
-                    {% show_menu %}
-
-                </div>
             </div>
             {% placeholder "content" %}
+        </div>
+        <div class="menu">
+            {% show_menu %}
         </div>
     </div>
 {% endblock body %}
