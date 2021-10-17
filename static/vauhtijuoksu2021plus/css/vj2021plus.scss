@@ -6,14 +6,10 @@ $black: #18191f;
 $blue_ice: #67c9e7;
 $dark_glow: #2c2b48;
 $header-h: 496px;
-$font-size-base: 36;
-$h1-font-size: $font-size-base * 2.5 !default;
-$h2-font-size: $font-size-base * 2 !default;
-$h3-font-size: $font-size-base * 1.75 !default;
-$h4-font-size: $font-size-base * 1.5 !default;
-$h5-font-size: $font-size-base * 1.25 !default;
+$font-size-root: 36px;
 
 @import "static/css/base";
+
 // Actual styles here
 
 @font-face {
