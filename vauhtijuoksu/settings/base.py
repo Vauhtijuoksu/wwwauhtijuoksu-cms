@@ -150,7 +150,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'vauhtijuoksu.storage.WhiteNoiseStaticFilesStorage'
 
 # manage.py compilescss -> this folder
 SASS_PROCESSOR_ROOT = config('DJANGO_SASS_ROOT', default=str(BASE_DIR / 'sassfiles'))
