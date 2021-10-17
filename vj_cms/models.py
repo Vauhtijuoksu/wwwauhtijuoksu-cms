@@ -26,6 +26,9 @@ class GameInfo(models.Model):
             self.estimate = (self.end_time - self.start_time).total_seconds()
         super().save(*args, **kwargs)
 
+    def __str__(self):
+        return self.game
+
 
 class Timetable(CMSPlugin):
     hide_past = models.BooleanField()

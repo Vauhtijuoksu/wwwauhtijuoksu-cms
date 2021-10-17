@@ -13,6 +13,8 @@ client = VJClient(settings.VJ_API_URL)
 
 def update_timetable(request):
     games = client.games()
+    # TODO: Don't delete once api ID's are fixed
+    GameInfo.objects.all().delete()
     for game in games:
         api_id = game.pop('id')
         GameInfo.objects.update_or_create(
