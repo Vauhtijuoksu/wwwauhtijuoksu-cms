@@ -37,9 +37,9 @@ WORKDIR /home/cms
 
 COPY --from=npm-deps /npm/node_modules ./node_modules
 
-USER cms
 
 # Install application into container
 COPY . .
 
+RUN ["chmod", "+x", "/home/cms/scripts/docker_entrypoint.sh"]
 
