@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-8uvqb1l%txv#3u56j&@3#d8z8abp2e3$jqife%8@ze8djlj&dc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True#config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -195,3 +195,7 @@ THUMBNAIL_PROCESSORS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+
+## Vauhtijuoksu API
+VJ_API_URL = 'https://api.dev.vauhtijuoksu.fi'

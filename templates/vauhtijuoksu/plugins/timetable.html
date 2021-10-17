@@ -1,0 +1,49 @@
+{% load vj_extras static %}
+
+<div class="timetable">
+
+    {% for day in games %}
+        <div class="ttplay">
+            <div class="playdate">{{ day.0.start_time|date:"w"|fiweekday }} {{ day.0.start_time|date:"j.n." }}</div>
+        </div>
+        {% for game in day %}
+            <div class="ttplay">
+                <div class="playleft">
+                    <div class="playstart">{{ game.start_time|date:"H:i" }}-{{ game.end_time|date:"H:i" }}</div>
+                    <div class="playduration playcategory">{{ game.duration }}</div>
+                </div>
+                <div class="playblob">
+                    <div class="timetable-char">
+                        <img class="char" src="{% static "vauhtijuoksu2021plus/img/char/" %}{{ game.img_filename }}">
+                    </div>
+                </div>
+                <div class="playright">
+                    <div class="playgame">{{ game.game }}</div>
+                    {% if game.category %}
+                        <div class="playcategory">{{ game.category }}</div>
+                    {% endif %}
+                    <div class="playplayer">
+                        {% with game.player|split:"," as players %}
+                            {% with game.player_twitch|split:"," as twitchs %}
+                                {% for p, t in players|zip:twitchs %}
+                                    {% if forloop.counter0 > 0 %}
+                                        &
+                                    {% endif %}
+                                    {% if t %}
+                                        <a class="twitch-link" target="_blank" href="https://www.twitch.tv/{{ t }}">{{ p }} <img class="twitch-icon" src="{% static "vauhtijuoksu2021plus/img/twitch.png" %}"></a>
+                                    {% else %}
+                                        {{ p }}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endwith %}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% empty %}
+        <div class="nogames">
+            <h2>Pelit julkaistaan pian!</h2>
+        </div>
+    {% endfor %}
+</div>
