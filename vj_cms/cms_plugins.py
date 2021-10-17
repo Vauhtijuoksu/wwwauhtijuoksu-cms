@@ -47,6 +47,70 @@ class TimetablePlugin(CMSPluginBase):
 
 
 @plugin_pool.register_plugin
+class TabletimetablePlugin(CMSPluginBase):
+    name = 'Tabletimetable'
+    model = CMSPlugin
+    render_template = "vauhtijuoksu/plugins/tabletimetable.html"
+    cache = False
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        games = GameInfo.objects.all().order_by('start_time')
+        days = []
+        day_was = ""
+        day = []
+        for game in games:
+            data = {
+                "game": game.game,
+                "img": game.img_filename,
+                "player": game.player,
+                "player_twitch": game.player_twitch,
+                "category": game.category
+            }
+            if day_was != game.start_time.strftime("%m.%d.%Y"):
+                day_was = game.start_time.strftime("%m.%d.%Y")
+                if day:
+                    days.append(day[:])
+                day = []
+            # cut night games
+            if day_was != game.end_time.strftime("%m.%d.%Y"):
+                day_was = game.end_time.strftime("%m.%d.%Y")
+                start_percent = (game.start_time.hour * 60 + game.start_time.minute) / (24 * 60) * 100
+                end_percent = 0
+                data.update({
+                    "start_time": game.start_time,
+                    "start_percent": start_percent,
+                    "end_percent": end_percent,
+                    "cut_style": "end-cut"
+                })
+                day.append(data)
+                days.append(day[:])
+                day = []
+                start_percent = 0
+                end_percent = 100-(game.end_time.hour * 60 + game.end_time.minute)/(24*60) * 100
+                data.update({
+                    "start_time": game.start_time,
+                    "start_percent": start_percent,
+                    "end_percent": end_percent,
+                    "cut_style": "start-cut",
+                })
+                day.append(data)
+            else:
+                start_percent = (game.start_time.hour * 60 + game.start_time.minute)/(24*60) * 100
+                end_percent = 100-(game.end_time.hour * 60 + game.end_time.minute)/(24*60) * 100
+                data.update({
+                    "start_time":  game.start_time,
+                    "start_percent": start_percent,
+                    "end_percent": end_percent,
+                    "cut_style": "",
+                })
+                day.append(data)
+        if day:
+            days.append(day[:])
+        context['games'] = days[:]
+        return context
+
+@plugin_pool.register_plugin
 class FloatycharsPlugin(CMSPluginBase):
     name = 'Floatychars'
     model = CMSPlugin

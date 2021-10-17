@@ -47,33 +47,3 @@
         </div>
     {% endfor %}
 </div>
-
-{% comment %}
-<div class="plays">
-
-    {% set day_glob = [] %}
-    {% for game in timetable %}
-        {% if day_glob[-1] != game.start.split()[0] %}
-            <div class="ttplay">
-                <div class="playdate">{{ game.start.split()[0].replace("/", ".") }}</div>
-            </div>
-            {% if day_glob.append(game.start.split()[0]) %}{% endif %}
-        {% endif %}
-        <div class="ttplay">
-            <div class="playleft">
-                <div class="playstart">{{ game.start.split()[1] }}</div>
-                <div class="playduration playcategory">{{ game.duration }}</div>
-            </div>
-            <div class="playblob">
-                <div class="timetable-char" style="background-image: url('{{ url_for('static',filename='img/gamespecifics/') }}{{ game.img }}')">
-                </div>
-            </div>
-            <div class="playright">
-                <div class="playgame">{{ game.game }}{% if game.category %}
-                    <br><div class="playcategory">{{ game.category }}</div>{% endif %}</div>
-                <div class="playplayer">{{ game.player }}</div>
-            </div>
-        </div>
-    {% endfor %}
-</div>
-{% endcomment %}
