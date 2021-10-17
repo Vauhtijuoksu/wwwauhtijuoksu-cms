@@ -1,4 +1,5 @@
 .github/
+media/
 docker/
 node_modules/
 *.sqlite3

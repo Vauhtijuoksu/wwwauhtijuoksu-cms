@@ -19,6 +19,8 @@ whitenoise = "*"
 django-compressor = "*"
 python-decouple = "*"
 psycopg2 = "*"
+requests = "*"
+django-storages = {extras = ["azure"], version = "*"}
 
 [requires]
 python_version = "3.9"

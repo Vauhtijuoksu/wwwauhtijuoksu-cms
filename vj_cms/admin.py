@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from vj_cms.models import GameInfo
+
+
+@admin.register(GameInfo)
+class GameInfoAdmin(admin.ModelAdmin):
+    pass
