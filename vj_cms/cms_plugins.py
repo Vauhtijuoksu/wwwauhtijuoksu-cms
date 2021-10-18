@@ -34,8 +34,8 @@ class TimetablePlugin(CMSPluginBase):
         day_was = ""
         day = []
         for game in games:
-            if day_was != game.start_time.strftime("%m.%d.%Y"):
-                day_was = game.start_time.strftime("%m.%d.%Y")
+            if day_was != game.start_time.astimezone().strftime("%m.%d.%Y"):
+                day_was = game.start_time.astimezone().strftime("%m.%d.%Y")
                 if day:
                     days.append(day[:])
                 day = []
@@ -62,23 +62,25 @@ class TabletimetablePlugin(CMSPluginBase):
         for game in games:
             data = {
                 "game": game.game,
-                "img": game.img_filename,
+                "img_filename": game.img_filename,
                 "player": game.player,
                 "player_twitch": game.player_twitch,
-                "category": game.category
+                "category": game.category,
+                "start_time":  game.start_time,
+                "end_time":  game.end_time,
+                "estimate":  game.estimate
             }
-            if day_was != game.start_time.strftime("%m.%d.%Y"):
-                day_was = game.start_time.strftime("%m.%d.%Y")
+            if day_was != game.start_time.astimezone().strftime("%m.%d.%Y"):
+                day_was = game.start_time.astimezone().strftime("%m.%d.%Y")
                 if day:
                     days.append(day[:])
                 day = []
             # cut night games
-            if day_was != game.end_time.strftime("%m.%d.%Y"):
-                day_was = game.end_time.strftime("%m.%d.%Y")
-                start_percent = (game.start_time.hour * 60 + game.start_time.minute) / (24 * 60) * 100
+            if day_was != game.end_time.astimezone().strftime("%m.%d.%Y"):
+                day_was = game.end_time.astimezone().strftime("%m.%d.%Y")
+                start_percent = (game.start_time.astimezone().hour * 60 + game.start_time.astimezone().minute) / (24 * 60) * 100
                 end_percent = 0
                 start = {
-                    "start_time": game.start_time,
                     "start_percent": start_percent,
                     "end_percent": end_percent,
                     "cut_style": "end-cut"
@@ -88,9 +90,8 @@ class TabletimetablePlugin(CMSPluginBase):
                 days.append(day[:])
                 day = []
                 start_percent = 0
-                end_percent = 100-(game.end_time.hour * 60 + game.end_time.minute)/(24*60) * 100
+                end_percent = 100-(game.end_time.astimezone().hour * 60 + game.end_time.astimezone().minute)/(24*60) * 100
                 end = {
-                    "start_time": game.start_time,
                     "start_percent": start_percent,
                     "end_percent": end_percent,
                     "cut_style": "start-cut"
@@ -98,10 +99,9 @@ class TabletimetablePlugin(CMSPluginBase):
                 end.update(data)
                 day.append(end)
             else:
-                start_percent = (game.start_time.hour * 60 + game.start_time.minute)/(24*60) * 100
-                end_percent = 100-(game.end_time.hour * 60 + game.end_time.minute)/(24*60) * 100
+                start_percent = (game.start_time.astimezone().hour * 60 + game.start_time.astimezone().minute)/(24*60) * 100
+                end_percent = 100-(game.end_time.astimezone().hour * 60 + game.end_time.astimezone().minute)/(24*60) * 100
                 data.update({
-                    "start_time":  game.start_time,
                     "start_percent": start_percent,
                     "end_percent": end_percent,
                     "cut_style": ""
