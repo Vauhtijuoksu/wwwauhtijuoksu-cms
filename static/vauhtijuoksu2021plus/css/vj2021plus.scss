@@ -155,6 +155,12 @@ a:hover{
 .menu-link:hover {
   color: $blue_ice;
 }
+.menu-link:active{
+  color: $white;
+}
+.menu-link:visited{
+  color: $white;
+}
 
 .twitch-link{
   color: $white;
