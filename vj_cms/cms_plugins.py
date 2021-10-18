@@ -60,17 +60,15 @@ class TabletimetablePlugin(CMSPluginBase):
         day_was = ""
         day = []
         for game in games:
-            duration = (game.end_time - game.start_time).total_seconds()
-            duration = str(int(duration // 3600)) +"h " + str(int((duration % 3600) // 60)) + "min"
             data = {
                 "game": game.game,
-                "img": game.img_filename,
+                "img_filename": game.img_filename,
                 "player": game.player,
                 "player_twitch": game.player_twitch,
                 "category": game.category,
                 "start_time":  game.start_time,
                 "end_time":  game.end_time,
-                "duration":  duration
+                "estimate":  game.estimate
             }
             if day_was != game.start_time.astimezone().strftime("%m.%d.%Y"):
                 day_was = game.start_time.astimezone().strftime("%m.%d.%Y")
