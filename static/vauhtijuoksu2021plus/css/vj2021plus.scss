@@ -133,10 +133,6 @@ a{
   text-decoration: none;
   color: $blue_ice;
 }
-a:active{
-  text-decoration: none;
-  color: $blue_ice;
-}
 a:visited{
   text-decoration: none;
   color: $blue_ice;
@@ -145,20 +141,23 @@ a:hover{
   text-decoration: none;
   color: $white;
 }
+a:active{
+  text-decoration: none;
+  color: $blue_ice;
+}
 
 .menu-link {
   color: $white;
   padding-left: 20px;
   padding-right: 20px;
 }
-
+.menu-link:visited{
+  color: $white;
+}
 .menu-link:hover {
   color: $blue_ice;
 }
 .menu-link:active{
-  color: $white;
-}
-.menu-link:visited{
   color: $white;
 }
 
@@ -181,6 +180,7 @@ a:hover{
 .twitch-link:hover .small-twitch-icon{
   margin-top: -20px;
 }
+
 .timetable{
     display: flex;
     flex-direction: column;
