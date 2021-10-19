@@ -14,7 +14,7 @@
                 </div>
                 <div class="playblob">
                     <div class="timetable-char">
-                        <img class="char" src="{% static "vauhtijuoksu2021plus/img/char/" %}{{ game.img_filename }}">
+                        <img class="char" src="{% static "vauhtijuoksu2021plus/img/char/"|add:game.img_filename %}">
                     </div>
                 </div>
                 <div class="playright">
