@@ -85,6 +85,6 @@ jobs:
           app-name: 'vauhtijuoksu-cms-dev'
           slot-name: staging
           publish-profile:
-            ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3CE4CF36C08540C9B1F9CA3133282B67 }}ging:
+            ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3CE4CF36C08540C9B1F9CA3133282B67 }}
 
 
