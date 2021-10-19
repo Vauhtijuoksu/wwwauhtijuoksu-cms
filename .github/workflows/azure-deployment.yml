@@ -8,7 +8,10 @@ on:
   push:
     branches:
       - trunk
-  workflow_dispatch:
+      - develop
+
+env:
+  DEPLOYMENT_SLOT: ${{ contains(github.ref, 'trunk') && 'Production' || 'Staging' }}
 
 jobs:
   build:
@@ -44,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
+      name: env.DEPLOYMENT_SLOT
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -59,5 +62,5 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'vauhtijuoksu-cms-dev'
-          slot-name: 'Production'
+          slot-name: env.DEPLOYMENT_SLOT
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3CE4CF36C08540C9B1F9CA3133282B67 }}
