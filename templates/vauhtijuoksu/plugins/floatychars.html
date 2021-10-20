@@ -2,7 +2,7 @@
 
 <div class="float_chars">
     {% for char in chars %}
-        <img class="char floaty" src="{% static "vauhtijuoksu2021plus/img/char/" %}{{ char.file }}" style="top: {{ char.top }}; left: {{ char.left }};  opacity: {{ char.opacity }}; transform: translate(-50%, -50%) scale({{ char.xscale }},2); animation-delay: {{ char.delay }}">
+        <img class="char floaty" src="{% static "vauhtijuoksu2021plus/img/char/"|add:char.file %}" style="top: {{ char.top }}; left: {{ char.left }};  opacity: {{ char.opacity }}; transform: translate(-50%, -50%) scale({{ char.xscale }},2); animation-delay: {{ char.delay }}">
     {% endfor %}
 </div>
 <script>

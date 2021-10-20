@@ -44,7 +44,7 @@
                 {% for game in day %}
                     <div class="tttgame {{ game.cut_style }}" style="top: {{ game.start_percent }}%; bottom: {{ game.end_percent }}%">
                         <div>
-                            <div class="tttimg"><img src="{% static "vauhtijuoksu2021plus/img/char/" %}{{ game.img_filename }}"></div>
+                            <div class="tttimg"><img src="{% static "vauhtijuoksu2021plus/img/char/"|add:game.img_filename %}"></div>
                             <div>
                                 <p>
                                 {{ game.game }}
