@@ -200,3 +200,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 ## Vauhtijuoksu API
 VJ_API_URL = 'https://api.dev.vauhtijuoksu.fi'
+VJ_LEGACY_API_URL = 'https://legacy.vauhtijuoksu.fi/api'

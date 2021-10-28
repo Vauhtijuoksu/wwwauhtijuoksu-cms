@@ -3,12 +3,15 @@ import math
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
+from vj_cms.client import LegacyClient
 from vj_cms.models import GameInfo, Timetable
 from datetime import datetime
 import requests
 
+legacy_client = LegacyClient(settings.VJ_LEGACY_API_URL)
 
 @plugin_pool.register_plugin
 class DividerPlugin(CMSPluginBase):
@@ -156,43 +159,8 @@ class IncentivesPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
-        #legacy api url:
-        incentives = requests.get("https://legacy.vauhtijuoksu.fi/api/incentives").json()
-        games = []
-        game_was = ""
-        game = []
-        i = 0
-        for incentive in incentives["incentives"]:
-            if game_was != incentive["game"]:
-                game_was = incentive["game"]
-                if game:
-                    games.append(game[:])
-                game = []
-            endtime = datetime.strptime(incentive["endtime"], "%a, %d %b %Y %H:%M:%S %Z")
-            if endtime > datetime.now():
-                incentive["amount"] = 0
-                incentive["max"] = 0
-                if incentive["type"] == "option":
-                    if str(incentive["id"]) in incentives["amount"].keys():
-                        if str(i) in incentives["amount"][str(incentive["id"])].keys():
-                            incentive["amount"] = incentives["amount"][str(incentive["id"])]
-                    if str(incentive["id"]) in incentives["max"].keys():
-                        incentive["max"] = incentives["max"][str(incentive["id"])]
-                if incentive["type"] == "upgrade":
-                    if str(incentive["id"]) in incentives["amount"].keys():
-                        if None in incentives["amount"][str(incentive["id"])].keys():
-                            incentive["amount"] = incentives["amount"][str(incentive["id"])]
-                    if str(incentive["id"]) in incentives["max"].keys():
-                        incentive["max"] = incentives["max"][str(incentive["id"])]
-                if incentive["type"] == "open":
-                    if str(incentive["id"]) in incentives["amount"].keys():
-                        if str(i) in incentives["amount"][str(incentive["id"])].keys():
-                            incentive["amount"] = incentives["amount"][str(incentive["id"])]
-                    if str(incentive["id"]) in incentives["max"].keys():
-                        incentive["max"] = incentives["max"][str(incentive["id"])]
-                game.append(incentive)
-            i += 1
-        if game:
-            games.append(game[:])
-        context['incentives'] = games[:]
+
+        incentives = legacy_client.incentives()
+
+        context['incentives'] = incentives[:]
         return context
