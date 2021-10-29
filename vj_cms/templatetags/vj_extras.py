@@ -34,7 +34,10 @@ def to_int(s):
 
 @register.filter(name='percentof')
 def percent_of(a,b):
-  return float(a)/float(b)*100
+    if a == 0 or b == 0:
+        return 0
+    else:
+        return float(a)/float(b)*100
 
 @register.filter(name='fiweekday')
 def weekday_fi(daynumber):

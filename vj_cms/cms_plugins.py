@@ -162,5 +162,5 @@ class IncentivesPlugin(CMSPluginBase):
 
         incentives = legacy_client.incentives()
 
-        context['incentives'] = incentives[:]
+        context['incentives'] = incentives
         return context
