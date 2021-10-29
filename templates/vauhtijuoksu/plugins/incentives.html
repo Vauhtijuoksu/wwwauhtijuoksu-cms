@@ -1,0 +1,114 @@
+{% load vj_extras sekizai_tags static %}
+{% addtoblock 'js' %}
+<script src="{% static 'js/incentives/script.js' %}"></script>
+{% endaddtoblock %}
+
+
+<div class="incentives">
+    {% for game, gameincentives in incentives.items %}
+        <div class="incentive_game">{{ game }}</div>
+        {% for incentive in gameincentives %}
+            <div class="incentive intend">
+                <div class="incentive_dropdown">
+                    <div class="incentive_dropdown_text">
+                        {{ incentive.title }}
+                    </div>
+                    <div class="dropdown_arrow rotate">
+                        >
+                    </div>
+                </div>
+
+                <div class="incentive_expand intend hide">
+                    <p>{{ incentive.info }}</p>
+                    {% if incentive.type == "option" %}
+                        {% for option in incentive.options %}
+                            <div>
+                                <input type="checkbox" id="{{ incentive.id }}_{{ forloop.counter }}_button"
+                                       name="{{ incentive.id }}_{{ forloop.counter }}_button" value="choice"
+                                       class="incentive_choices">
+                                <label for="{{ incentive.id }}_{{ forloop.counter }}_button">{{ option.option }}</label>
+
+                                - Tälle vaihtoehdolle on nyt kerätty {{ option.amount|floatformat:-2 }} euroa.
+
+                                <div class="incentive_bar">
+                                <div class="incentive_bar_fill"
+                                     style="width:{{ option.amount|percentof:incentive.max }}%"></div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                        <span class="small">Kannustin lukitaan {{ incentive.endtime|date:"j.n. H:i" }}.</span>
+                    {% elif incentive.type == "upgrade" %}
+
+
+                        {% if incentive.total >= incentive.max %}
+                            <b>
+                                Tavoite saavutettu!
+                            </b> <br>
+                        {% endif %}
+
+                        Tavoite tälle kannustimelle on {{ incentive.max|toint }} euroa.
+                        <br>
+                        <input type="checkbox" id="{{ incentive.id }}_button" name="{{ incentive.id }}_button"
+                               value="choice" class="incentive_choices">
+                        <label for="{{ incentive.id }}_button"> Valitse tämä kannustin</label>
+                        - Tälle kannustimelle on nyt kerätty {{ incentive.total|floatformat:-2 }} euroa.
+                        <div class="incentive_bar">
+                            <div class="incentive_bar_fill"
+                             style="width: {{ incentive.total|percentof:incentive.max }}%; max-width: 100%"></div>
+                        </div>
+                        <span class="small">Kannustin lukitaan {{ incentive.endtime|date:"j.n. H:i" }}.</span>
+
+                    {% elif incentive.type == "open" %}
+                        <label for="{{ incentive.id }}_0_field">Ehdotuksesi: </label>
+                        <input type="text" maxlength="50" id="{{ incentive.id }}_0_field"
+                               name="{{ incentive.id }}_field" class="incentive_field"><br>
+                        <input type="checkbox" id="{{ incentive.id }}_0_button" name="{{ incentive.id }}_0_button"
+                               value="field" class="incentive_choices">
+                        <label for="{{ incentive.id }}_0_button"> Valitse tämä kannustin</label>
+
+                        <br>Muiden ehdotuksia tälle kannustimelle:<br>
+                        {% for option in incentive.options %}
+                            <div>
+                                - "<span class="highlight">{{ option.option }}</span>"
+                                    {{ option.amount|floatformat:-2 }}e <label for="{{ incentive.id }}_{{ forloop.counter }}_field"></label> <input type="text"
+                                                                   id="{{ incentive.id }}_{{ forloop.counter }}_field"
+                                                                   name="{{ incentive.id }}_{{ forloop.counter }}_field"
+                                                                   class="incentive_field hide"
+                                                                   value="{{ option.option }}"><br>
+                                <input type="checkbox" id="{{ incentive.id }}_{{ forloop.counter }}_button"
+                                       name="{{ incentive.id }}_{{ forloop.counter }}_button" value="field"
+                                       class="incentive_choices">
+                                <label for="{{ incentive.id }}_{{ forloop.counter }}_button"> Valitse tämä
+                                    kannustin</label>
+                            </div>
+                            <div class="incentive_bar">
+                            <div class="incentive_bar_fill"
+                                 style="width:
+                                         {{ option.amount|percentof:incentive.max }}%"></div>
+                            </div>
+                        {% endfor %}
+
+                        <span class="small">Kannustin lukitaan {{ incentive.endtime|date:"j.n. H:i" }}.</span>
+                    {% endif %}
+                </div>
+            </div>
+
+        {% endfor %}
+    {% endfor %}
+</div>
+<div class="multiincentive"><p>Olet valinnut <span id="incentivecount"></span> kannustinta.<br>Mikäli
+    valitset useamman kuin yhden kannustimen, jaetaan lahoittamasi summa tasan niiden kesken.
+</p></div>
+
+<button onclick="get_code()" class="btn btn-default generate incentive_gen_button" name="btn" value="inventive_generate">
+    Generoi kannustinkoodi
+</button>
+<br>
+<div id="incentive_code_holder">
+    Kannustinkoodisi on: <br>
+    <div id="incentive_code" class="incentive_code"></div>
+    <div class="copybtn copy" style="display: block;">Kopioi koodi leikepöydälle</div>
+    Liitä koodi lahjoitusviestiisi niin kannustimesi lisätään pottiin!
+    <br>Voit halutessasi kertoa viestissä myös mitä kannustit ja miksi!
+</div>

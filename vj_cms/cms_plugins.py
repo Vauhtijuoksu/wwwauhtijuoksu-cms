@@ -3,10 +3,15 @@ import math
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
+from vj_cms.client import LegacyClient
 from vj_cms.models import GameInfo, Timetable
 from datetime import datetime
+import requests
+
+legacy_client = LegacyClient(settings.VJ_LEGACY_API_URL)
 
 @plugin_pool.register_plugin
 class DividerPlugin(CMSPluginBase):
@@ -141,4 +146,21 @@ class FloatycharsPlugin(CMSPluginBase):
                 })
             i+=1
         context['chars'] = chars
+        return context
+    
+
+@plugin_pool.register_plugin
+class IncentivesPlugin(CMSPluginBase):
+    #Whole incentive system is still using the legacy api so it will change later
+    name = 'Incentives'
+    model = CMSPlugin
+    render_template = "vauhtijuoksu/plugins/incentives.html"
+    cache = False
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+
+        incentives = legacy_client.incentives()
+
+        context['incentives'] = incentives
         return context
