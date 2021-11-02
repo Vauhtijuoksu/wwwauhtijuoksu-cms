@@ -1,0 +1,13 @@
+{% load vj_extras %}
+<div class="donate-bar">
+    {% if donation_sum >= instance.goal %}
+        <div class="bar full"></div>
+    {% else %}
+        <div class="bar" style="width:{{ donation_sum|percentof:instance.goal }}%"></div>
+    {% endif %}
+    <div class="sum bar-text">{{ donation_sum|toint }}€</div>
+    <div class="goal bar-text">{{ instance.goal }}€</div>
+    {% if donation_sum >= instance.goal %}
+        <div class="bar-done bar-text">Tavoite saavutettu!</div>
+    {% endif %}
+</div>

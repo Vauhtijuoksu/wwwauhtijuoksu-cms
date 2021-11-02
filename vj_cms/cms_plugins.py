@@ -7,7 +7,7 @@ from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 from vj_cms.client import LegacyClient
-from vj_cms.models import GameInfo, Timetable
+from vj_cms.models import GameInfo, Timetable, Donatebar
 from datetime import datetime
 import requests
 
@@ -163,4 +163,23 @@ class IncentivesPlugin(CMSPluginBase):
         incentives = legacy_client.incentives()
 
         context['incentives'] = incentives
+        return context
+
+
+@plugin_pool.register_plugin
+class DonatebarPlugin(CMSPluginBase):
+    name = 'Donatebar'
+    model = Donatebar
+    render_template = "vauhtijuoksu/plugins/donatebar.html"
+    cache = False
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+
+        donations = requests.get("https://api.dev.vauhtijuoksu.fi/donations").json()
+        sum = 0
+        for d in donations:
+            sum += d["amount"]
+
+        context['donation_sum'] = sum
         return context

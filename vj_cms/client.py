@@ -1,9 +1,15 @@
 from datetime import datetime
 from dateutil.parser import parse
+import logging
 
 from django.conf import settings
-import requests
 
+import requests
+import requests_cache
+
+requests_cache.install_cache(expire_after=60)
+
+logger = logging.getLogger(__name__)
 
 class VJClient:
     def __init__(self, base_url=None):
@@ -14,6 +20,8 @@ class VJClient:
     def get(self, path):
         url = f'{self.base_url}/{path}'
         r = requests.get(url)
+        if r.from_cache:
+            logger.info(f'Using cached response for {url}')
         return r.json()
 
     def games(self):
@@ -22,6 +30,10 @@ class VJClient:
             game['start_time'] = datetime.strptime(game['start_time'], "%Y-%m-%dT%H:%M:%S.%f%z")
             game['end_time'] = datetime.strptime(game['end_time'], "%Y-%m-%dT%H:%M:%S.%f%z")
         return games
+
+    def donations(self):
+        donations = self.get('donations')
+        return donations
 
 
 class LegacyClient(VJClient):
