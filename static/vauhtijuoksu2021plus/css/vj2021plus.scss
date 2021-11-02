@@ -7,6 +7,7 @@ $blue_ice: #67c9e7;
 $dark_glow: #2c2b48;
 $header-h: 496px;
 $font-size-root: 36px;
+$donate_bar_height: 50px;
 
 @import "static/css/base";
 
@@ -350,4 +351,121 @@ a:active{
 }
 .tttimg > img{
   float: right;
+}
+
+.hide {
+  display: none;
+}
+
+.incentives {
+  text-align: left;
+}
+
+.incentives label{
+  color: $blue_ice;
+}
+
+.incentive_dropdown{
+    min-height: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $blue_ice;
+}
+.incentive_dropdown:hover{
+    color: #8feeee;
+}
+.incentive_dropdown_text{
+  text-decoration: underline;
+}
+.intend{
+  margin-left: 20px;
+}
+.rotate{
+    transform: rotate(90deg);
+}
+
+input[type='checkbox'] {
+    width:30px;
+    height:30px;
+    background: $white;
+}
+.incentive_bar{
+  height: 5px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  background-color: $black;
+}
+.incentive_bar_fill{
+  background-color: $blue_ice;
+  height: 100%;
+
+}
+.highlight{
+    color: #8feeee;
+}
+
+.incentive_code{
+    font-size: 128px;
+}
+#incentivecount{
+    color: $blue_ice;
+}
+.multiincentive{
+  margin-top: 50px;
+}
+.incentive_gen_button{
+    background-color: #da9f8a;
+  font-size: 64px;
+  padding: 20px 60px;
+  margin: 50px 0;
+}
+.copybtn {
+    margin-top: 30px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: $blue_ice;
+}
+.copybtn:hover {
+    color: $white;
+}
+
+.donate-bar{
+  width: 100%;
+  background-color: $black;
+  height: $donate_bar_height;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px 0;
+}
+.donate-bar .bar{
+  background-color: $blue_ice;
+  height: 100%;
+  border-radius: 5px;
+  width: 100%;
+}
+.donate-bar .full{
+  background-color: #436ca5;
+  width: 100%;
+}
+
+.donate-bar .bar-text{
+  position: absolute;
+  top: -2px;
+  line-height: $donate_bar_height;
+  padding: 0 20px;
+}
+.donate-bar .goal{
+  right: 0;
+}
+.donate-bar .bar-done{
+  right: 0;
+  left: 0;
+  text-align: center;
 }

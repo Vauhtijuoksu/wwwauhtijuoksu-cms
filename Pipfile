@@ -21,6 +21,8 @@ python-decouple = "*"
 psycopg2 = "*"
 requests = "*"
 django-storages = {extras = ["azure"], version = "*"}
+python-dateutil = "*"
+requests-cache = "*"
 
 [requires]
 python_version = "3.9"

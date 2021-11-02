@@ -28,9 +28,16 @@ def split(value, key):
 def zip_lists(a, b):
   return zip(a, b)
 
-@register.filter(name='zip')
-def zip_lists(a, b):
-  return zip(a, b)
+@register.filter(name='toint')
+def to_int(s):
+  return int(s)
+
+@register.filter(name='percentof')
+def percent_of(a,b):
+    if a == 0 or b == 0:
+        return 0
+    else:
+        return float(a)/float(b)*100
 
 @register.filter(name='fiweekday')
 def weekday_fi(daynumber):

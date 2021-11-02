@@ -33,3 +33,7 @@ class GameInfo(models.Model):
 class Timetable(CMSPlugin):
     hide_past = models.BooleanField()
     show_vods = models.BooleanField()
+
+
+class Donatebar(CMSPlugin):
+    goal = models.PositiveIntegerField('Goal', default=1000)
