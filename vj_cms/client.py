@@ -60,7 +60,6 @@ class LegacyClient(VJClient):
                             'amount': float(amt)
                         } for opt, amt in amount.items()
                     ]
-                options.sort(key=lambda opt: opt['amount'], reverse=True)
                 total = sum(opt['amount'] for opt in options)
                 if options:
                     max = options[0]['amount']
