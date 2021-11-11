@@ -61,10 +61,11 @@ class LegacyClient(VJClient):
                         } for opt, amt in amount.items()
                     ]
                 total = sum(opt['amount'] for opt in options)
+                max = 0.0
                 if options:
-                    max = options[0]['amount']
-                else:
-                    max = 0.0
+                    for option in options:
+                        if option['amount'] > max:
+                            max = option['amount']
             elif i['type'] == 'upgrade':
                 options = []
                 total = amount.get("null", 0.0)
