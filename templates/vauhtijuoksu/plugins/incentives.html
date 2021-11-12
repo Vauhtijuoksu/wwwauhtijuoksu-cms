@@ -59,7 +59,7 @@
                         Tavoite tälle kannustimelle on {{ incentive.max|toint }} euroa.
                         <br>
                         {% if incentive.endtime < now %}
-                            {{ option.option }} - Tälle kannustimelle kerättiin {{ option.amount|floatformat:-2 }} euroa.
+                            {{ option.option }} - Tälle kannustimelle kerättiin {{ incentive.total|floatformat:-2 }} euroa.
                         {% else %}
                             <input type="checkbox" id="{{ incentive.id }}_button" name="{{ incentive.id }}_button"
                                    value="choice" class="incentive_choices">
