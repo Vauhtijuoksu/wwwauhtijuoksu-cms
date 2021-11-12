@@ -162,6 +162,7 @@ class IncentivesPlugin(CMSPluginBase):
 
         incentives = legacy_client.incentives()
 
+        context['now'] = datetime.now()
         context['incentives'] = incentives
         return context
 
