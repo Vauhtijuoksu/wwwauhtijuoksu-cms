@@ -22,7 +22,10 @@ class Event(models.Model):
     reg_open = models.DateTimeField(blank=True, null=True)
     reg_close = models.DateTimeField(blank=True, null=True)
 
-    slug = models.SlugField(unique=True, blank=False, null=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 
     def save(self, *args, **kwargs):
         if not self.slug:
