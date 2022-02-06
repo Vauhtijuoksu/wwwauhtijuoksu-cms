@@ -1,7 +1,7 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
-from .forms import SubmissionForm, PlayerFormSet
+from .forms import SubmissionForm, PlayerForm
 from .models import Event, Submission, MarathonPlugin
 
 @plugin_pool.register_plugin
@@ -11,7 +11,7 @@ class SubmissionListPlugin(CMSPluginBase):
     render_template = 'marathon/plugins/submission_list.html'
 
     def render(self, context, instance, placeholder):
-        context = super().render(self, context, instance, placeholder)
+        context = super().render(context, instance, placeholder)
 
         if instance.event:
             submissions = Submission.objects.filter(event=instance.event, hidden=False)
@@ -32,9 +32,9 @@ class SubmissionFormPlugin(CMSPluginBase):
         context = super().render(context, instance, placeholder)
 
         form = SubmissionForm()
-        players_formset = PlayerFormSet()
+        player_form = PlayerForm(prefix='player')
 
         context['form'] = form
-        context['players_formset'] = players_formset
+        context['player_form'] = player_form
         context['event'] = instance.event
         return context

@@ -16,7 +16,8 @@ class EventTestCase(TestCase):
         self.assertEqual(event.slug, 'vauhtijuoksu-2022')
 
     def test_manual_slug(self):
-        event = Event.objects.create(name='Manual', slug='test-slug')
+        Event.objects.create(name='Manual', slug='test-slug')
+        event = Event.objects.get(name='Manual')
         self.assertEqual(event.slug, 'test-slug')
 
     def test_event_details(self):
@@ -26,4 +27,4 @@ class EventTestCase(TestCase):
 
     def test_new_submission_view_render(self):
         response = self.client.get('/vauhtijuoksu-2022/submission/')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 404, 'Submission page should not be found')

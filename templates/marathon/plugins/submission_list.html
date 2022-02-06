@@ -12,7 +12,7 @@
 {% for submission in submissions %}
   <tr>
   <td class="player">
-    {% for player in submission.players %}
+    {% for player in submission.players.all %}
       {% if not forloop.first %}{% if forloop.last %} & {% else %}, {% endif %}{% endif %}{{ player.nickname }}
     {% endfor %}
   </td>

@@ -1,9 +1,13 @@
 from django import forms
-from django.forms import modelformset_factory
+from django.forms import formset_factory
 
 from .models import Submission, Player
 
 
+class PlayerForm(forms.ModelForm):
+    class Meta:
+        model = Player
+        exclude = ['user']
 
 class SubmissionForm(forms.ModelForm):
     class Meta:
@@ -13,5 +17,3 @@ class SubmissionForm(forms.ModelForm):
             'players',
             'hidden'
         ]
-
-PlayerFormSet = modelformset_factory(Player, exclude=('user',), extra=0)
