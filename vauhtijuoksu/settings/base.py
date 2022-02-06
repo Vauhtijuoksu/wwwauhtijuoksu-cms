@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'mptt',
     'sass_processor',
+    'bootstrap5',
     'marathon',
     'vj_cms'
 ]

@@ -1,0 +1,28 @@
+{%  if submissions %}
+<table class="table games">
+<thead>
+  <tr>
+    <th scope="col">Pelaaja</th>
+    <th scope="col">Peli</th>
+    <th scope="col">Kategoria</th>
+    <th scope="col">Arvio</th>
+  </tr>
+</thead>
+<tbody>
+{% for submission in submissions %}
+  <tr>
+  <td class="player">
+    {% for player in submission.players %}
+      {% if not forloop.first %}{% if forloop.last %} & {% else %}, {% endif %}{% endif %}{{ player.nickname }}
+    {% endfor %}
+  </td>
+  <td class="game-title">{{ submission.game_title }}</td>
+  <td class="game-category">{{ submission.category }}</td>
+  <td class="game-estimate">{{ submission.estimate }}</td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+  <p class="no-games">Täällä ei oo vielä kettään! Laitahan ilmoten.</p>
+{% endif %}

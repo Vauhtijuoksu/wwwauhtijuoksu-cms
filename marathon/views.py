@@ -23,11 +23,9 @@ def event_detail(request, event):
 def new_submission(request, event):
     event = get_object_or_404(Event, slug=event)
     form = SubmissionForm()
-    formset = PlayerFormSet()
 
     context = {
         'form': form,
-        'player_formset': formset
     }
 
     return render(request, 'marathon/submission_form.html', context)

@@ -1,10 +1,15 @@
+from cms.models import CMSPlugin
 from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
 
 
 class Player(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        null=True,
+        on_delete=models.SET_NULL
+    )
 
     nickname = models.CharField(max_length=30)
     discord = models.CharField(max_length=50)
@@ -62,3 +67,6 @@ class Submission(models.Model):
     def __str__(self):
         return f'{self.game_title} {self.category} ({self.event})'
 
+
+class MarathonPlugin(CMSPlugin):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, blank=True, null=True)

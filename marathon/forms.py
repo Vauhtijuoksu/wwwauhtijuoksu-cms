@@ -1,6 +1,8 @@
 from django import forms
+from django.forms import modelformset_factory
 
 from .models import Submission, Player
+
 
 
 class SubmissionForm(forms.ModelForm):
@@ -12,4 +14,4 @@ class SubmissionForm(forms.ModelForm):
             'hidden'
         ]
 
-PlayerFormSet = forms.inlineformset_factory(Submission, Submission.players.through, fields='__all__')
+PlayerFormSet = modelformset_factory(Player, exclude=('user',))
