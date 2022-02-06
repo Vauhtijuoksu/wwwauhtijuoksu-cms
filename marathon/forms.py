@@ -14,4 +14,4 @@ class SubmissionForm(forms.ModelForm):
             'hidden'
         ]
 
-PlayerFormSet = modelformset_factory(Player, exclude=('user',))
+PlayerFormSet = modelformset_factory(Player, exclude=('user',), extra=0)

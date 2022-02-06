@@ -1,8 +1,8 @@
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
 from .models import Event, Player, Submission
-from .forms import SubmissionForm
+from .forms import SubmissionForm, PlayerFormSet
 
 
 def active_event(request):
@@ -22,10 +22,18 @@ def event_detail(request, event):
 
 def new_submission(request, event):
     event = get_object_or_404(Event, slug=event)
-    form = SubmissionForm()
+    if request.method == 'POST':
+        players_formset = PlayerFormSet(request.POST)
+        form = SubmissionForm(request.POST)
+        # TODO: Save submission
+        if form.is_valid():
+            # TODO: Show success message
+            pass
+        else:
+            # TODO: Show error message
+            pass
+        return HttpResponseRedirect(request.GET.get('next', '/'))
+    raise Http404('Tämmöstä ei oo')
 
-    context = {
-        'form': form,
-    }
-
-    return render(request, 'marathon/submission_form.html', context)
+def thanks(request):
+    return

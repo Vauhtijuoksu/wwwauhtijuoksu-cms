@@ -21,6 +21,7 @@ class SubmissionListPlugin(CMSPluginBase):
         context['submissions'] = submissions
         return context
 
+
 @plugin_pool.register_plugin
 class SubmissionFormPlugin(CMSPluginBase):
     name = 'Submission Form'
@@ -29,8 +30,11 @@ class SubmissionFormPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
-        players_formset = PlayerFormSet()
+
         form = SubmissionForm()
+        players_formset = PlayerFormSet()
+
         context['form'] = form
         context['players_formset'] = players_formset
+        context['event'] = instance.event
         return context

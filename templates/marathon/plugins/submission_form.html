@@ -1,7 +1,20 @@
-{% load bootstrap5 %}
-<form class="form" action="" method="post">
+{% load bootstrap5 sekizai_tags %}
+<form class="form" action="{% url 'new-submission' event=event.slug %}?next={{ request.path }}" method="post">
+  {% csrf_token %}
   <!-- Player forms -->
-  {% bootstrap_formset players_formset %}
+  <div id="player-form">
+  {% for form in players_formset %}
+    {% bootstrap_form form layout="horizontal" %}
+    {% if not forloop.first %}
+      <input type="hidden">
+      <button class="btn btn-danger">Poista pelaaja</button>
+    {% endif %}
+    {% if not forloop.last %}
+      <button class="btn btn-success">Lisää pelaaja</button>
+    {% endif %}
+  {% endfor %}
+  </div>
   <!-- Submission form -->
-  {% bootstrap_form form %}
+  {% bootstrap_form form layout="horizontal" %}
+  {% bootstrap_button "Lähetä" button_type="submit" button_class="btn-primary" %}
 </form>
