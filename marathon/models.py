@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils.text import slugify
 
 
 class Player(models.Model):
@@ -16,10 +17,17 @@ class Player(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=100)
-    start = models.DateField()
-    end = models.DateField()
-    reg_open = models.DateTimeField()
-    reg_close = models.DateTimeField()
+    start = models.DateField(blank=True, null=True)
+    end = models.DateField(blank=True, null=True)
+    reg_open = models.DateTimeField(blank=True, null=True)
+    reg_close = models.DateTimeField(blank=True, null=True)
+
+    slug = models.SlugField(unique=True, blank=False, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+            super().save(*args, **kwargs)
 
 
 class Submission(models.Model):
