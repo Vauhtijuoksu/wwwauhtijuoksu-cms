@@ -53,8 +53,8 @@ class Submission(models.Model):
 
     # Extras
     time_constraints = models.TextField()
-    age_restrictions = models.CharField(max_length=250)
-    warnings = models.CharField(max_length=250)
+    for_children = models.BooleanField(default=False)
+    flashing_lights = models.BooleanField(default=False)
 
     # Meta
     hidden = models.BooleanField(default=False)
