@@ -20,6 +20,10 @@ class EventTestCase(TestCase):
         self.assertEqual(event.slug, 'test-slug')
 
     def test_event_details(self):
-        response = self.client.get('/events/vauhtijuoksu-2022/')
+        response = self.client.get('/vauhtijuoksu-2022/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['event'].name, 'Vauhtijuoksu 2022')
+
+    def test_new_submission_view_render(self):
+        response = self.client.get('/vauhtijuoksu-2022/submission/')
+        self.assertEqual(response.status_code, 200)

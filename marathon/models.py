@@ -6,13 +6,14 @@ from django.utils.text import slugify
 class Player(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
-    phone = models.CharField(max_length=15)
-
     nickname = models.CharField(max_length=30)
     discord = models.CharField(max_length=50)
-    twitch = models.CharField(max_length=50)
+    twitch = models.CharField(max_length=50, blank=True)
 
-    allergies = models.TextField()
+    allergies = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.nickname
 
 
 class Event(models.Model):
@@ -35,7 +36,7 @@ class Event(models.Model):
 
 class Submission(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    players = models.ManyToManyField(Player)
+    players = models.ManyToManyField(Player, related_name='submissions')
 
     # Game info
     game_title = models.CharField(max_length=100)
@@ -57,4 +58,7 @@ class Submission(models.Model):
 
     # Meta
     hidden = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.game_title} {self.category} ({self.event})'
 
