@@ -59,7 +59,8 @@ class Submission(models.Model):
 
     # Extras
     time_constraints = models.TextField(_('aikataulurajoitteet'), blank=True)
-    for_children = models.BooleanField(_('sopiva lapsille'), default=False)
+    for_children = models.BooleanField(_('sopiva lapsille'), default=False,
+                                       help_text=_('Runin sisältö ja selostus ovat lapsiyleisölle sopivia'))
     flashing_lights = models.BooleanField(_('sisältää nopeasti vilkkuvia valoja'), default=False)
 
     # Meta
