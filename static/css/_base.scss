@@ -6,6 +6,7 @@
 // Required bootstrap
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
 
 // 4. Include any optional Bootstrap components as you like
 @import "bootstrap/scss/root";
@@ -37,3 +38,5 @@
 @import "bootstrap/scss/button-group";
 @import "bootstrap/scss/card";
 @import "bootstrap/scss/carousel";
+
+@import "bootstrap/scss/utilities/api";

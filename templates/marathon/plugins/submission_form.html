@@ -1,0 +1,26 @@
+{% load bootstrap5 sekizai_tags %}
+<form class="form" action="{% url 'new-submission' event=event.slug %}?next={{ request.path }}" method="post">
+  {% csrf_token %}
+  <!-- Player forms -->
+  <div id="player-form">
+    {% bootstrap_field player_form.nickname placeholder="Nimimerkki pelaajalistaukseen" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field player_form.discord placeholder="Nick#1337" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field player_form.twitch placeholder="nimi_merkki" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field player_form.allergies placeholder="Tapahtuman aikaista ruokahuoltoa varten" layout="horizontal" form_group_class="mb-1" %}
+  </div>
+  <!-- Submission form -->
+  <div id="game-form" class="mt-3">
+    {% bootstrap_field form.game_title placeholder="Sakarin Villapaitapeli" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field form.publish_year placeholder="1969" layout="horizontal"  form_group_class="mb-1"%}
+    {% bootstrap_field form.console placeholder="PS2" layout="horizontal"  form_group_class="mb-1"%}
+    {% bootstrap_field form.category placeholder="Any% NMS" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field form.estimate placeholder="10h 30min" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field form.description placeholder="Miksi tämä runi olisi kiva nähdä Vauhtijuoksussa?" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field form.time_constraints placeholder="Toiveita tai rajoitteita pelisi ajoituksen suhteen" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field form.video_link placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field form.scoreboard_link placeholder="https://www.speedrun.com/smb1" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field form.for_children layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field form.flashing_lights layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_button "Lähetä" button_type="submit" button_class="btn-primary" %}
+  </div>
+</form>

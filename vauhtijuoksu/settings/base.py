@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 from decouple import config
 
@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'mptt',
     'sass_processor',
+    'bootstrap5',
+    'marathon',
     'vj_cms'
 ]
 
@@ -114,7 +116,7 @@ WSGI_APPLICATION = 'vauhtijuoksu.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(os.path.join(BASE_DIR, 'db.sqlite3')),
     }
 }
 
