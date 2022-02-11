@@ -200,6 +200,13 @@ THUMBNAIL_PROCESSORS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
+# django-bootstrap-v5 settings
+# https://django-bootstrap-v5.readthedocs.io/en/latest/settings.html
+
+BOOTSTRAP5 = {
+    'required_css_class': 'required-field'
+}
+
 
 ## Vauhtijuoksu API
 VJ_API_URL = 'https://api.dev.vauhtijuoksu.fi'
