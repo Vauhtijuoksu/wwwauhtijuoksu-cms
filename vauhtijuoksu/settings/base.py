@@ -100,6 +100,7 @@ TEMPLATES = [
 
 # List of templates that can be used for CMS pages
 CMS_TEMPLATES = [
+    ('vauhtijuoksu/vauhtijuoksu.html', 'VJ Generic theme'),
     ('vauhtijuoksu/vj2021plus.html', 'VJ 2021+ theme'),
     ('vauhtijuoksu/vj2021plus_fullscreen.html', 'VJ 2021+ fullscreen theme'),
     ('vauhtijuoksu/vj2021.html', 'VJ 2021 theme'),
@@ -198,6 +199,13 @@ THUMBNAIL_PROCESSORS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+# django-bootstrap-v5 settings
+# https://django-bootstrap-v5.readthedocs.io/en/latest/settings.html
+
+BOOTSTRAP5 = {
+    'required_css_class': 'required-field'
+}
 
 
 ## Vauhtijuoksu API
