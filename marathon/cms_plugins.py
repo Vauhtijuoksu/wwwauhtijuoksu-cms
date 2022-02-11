@@ -9,6 +9,7 @@ class SubmissionListPlugin(CMSPluginBase):
     name = 'Submission List'
     model = MarathonPlugin
     render_template = 'marathon/plugins/submission_list.html'
+    cache = False
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
@@ -27,6 +28,7 @@ class SubmissionFormPlugin(CMSPluginBase):
     name = 'Submission Form'
     model = MarathonPlugin
     render_template = 'marathon/plugins/submission_form.html'
+    cache = False
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
