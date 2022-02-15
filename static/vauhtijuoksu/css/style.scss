@@ -27,12 +27,17 @@ $donate_bar_height: 50px;
     src: url('../misc/orangekid.ttf') format('truetype');
 }
 
+body, html{
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-size: 1280px;
-  background-color: $blue;
+  background-image: url("../img/bg.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-color: $violet;
   color: $black;
-  background-repeat: repeat-x;
-  background-position: top center;
 }
 
 
@@ -43,7 +48,6 @@ body {
 }
 
 .title{
-  margin-top: 20px;
   font-family: 'offsett';
   color: $black;
   justify-content: space-around;
@@ -55,7 +59,11 @@ body {
 }
 
 .content{
+  background-color: $blue;
   text-align: center;
+  padding: 30px 20px 20px;
+  margin: 10px auto 30px;
+  filter: drop-shadow(10px 10px 0px $black);
 }
 
 .divider{
@@ -75,6 +83,12 @@ body {
     background-color: $green;
     border-color: $green;
 }
+
+.table{
+  color: $black;
+  border-color: $black;
+}
+
 
 .menu-wrapper{
   padding-bottom: 30px;
@@ -138,19 +152,19 @@ body {
 }
 a{
   text-decoration: none;
-  color: $orange;
+  color: $white;
 }
 a:visited{
   text-decoration: none;
-  color: $orange;
+  color: $white;
 }
 a:hover{
   text-decoration: none;
-  color: $white;
+  color: $orange;
 }
 a:active{
   text-decoration: none;
-  color: $orange;
+  color: $white;
 }
 
 .menu-link {
