@@ -1,5 +1,6 @@
 from django import forms
 from django.forms import formset_factory
+from django.utils.translation import gettext_lazy as _
 
 from .models import Submission, Player
 
@@ -14,6 +15,7 @@ class PlayerForm(forms.ModelForm):
         }
 
 class SubmissionForm(forms.ModelForm):
+    gdpr = forms.BooleanField(required=True, label=_('Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti'))
     class Meta:
         model = Submission
         exclude = [

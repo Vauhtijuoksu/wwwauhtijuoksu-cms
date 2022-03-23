@@ -31,6 +31,8 @@ class Event(models.Model):
 
     slug = models.SlugField(unique=True, blank=True, null=True)
 
+    gdpr_notice = models.FileField(verbose_name=_("Tietosuojaseloste"), blank=True, null=True)
+
     def __str__(self):
         return self.name
 
@@ -62,6 +64,9 @@ class Submission(models.Model):
     for_children = models.BooleanField(_('sopiva lapsille'), default=False,
                                        help_text=_('Runin sisältö ja selostus ovat lapsiyleisölle sopivia'))
     flashing_lights = models.BooleanField(_('sisältää nopeasti vilkkuvia valoja'), default=False)
+
+    # Mandatory
+    gdpr = models.BooleanField(default=False)
 
     # Meta
     hidden = models.BooleanField(default=False)
