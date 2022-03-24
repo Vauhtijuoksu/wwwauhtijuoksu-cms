@@ -10,6 +10,7 @@ services:
       DJANGO_SETTINGS_MODULE: vauhtijuoksu.settings.docker
     entrypoint: /home/cms/scripts/docker_entrypoint.sh
     volumes:
+      - ./marathon:/home/cms/marathon
       - ./vauhtijuoksu:/home/cms/vauhtijuoksu
       - ./templates:/home/cms/templates
       - ./static:/home/cms/static
