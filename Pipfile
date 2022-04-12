@@ -23,6 +23,7 @@ requests = "*"
 django-storages = {extras = ["azure"], version = "*"}
 python-dateutil = "*"
 requests-cache = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.9"
