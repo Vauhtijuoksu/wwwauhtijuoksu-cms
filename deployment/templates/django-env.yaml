@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: django-env
+data:
+  DJANGO_SETTINGS_MODULE: "{{ .Values.django.settings_module }}"
+  DJANGO_LOG_LEVEL: "{{ .Values.django.log_level }}"
+  DJANGO_STATIC_ROOT: "{{ .Values.django.static_root }}"
+  DJANGO_STATIC_URL: "{{ .Values.django.static_url }}"
+  DJANGO_MEDIA_ROOT: "{{ .Values.django.media_root }}"
+  DJANGO_MEDIA_URL: "{{ .Values.django.media_url }}"
+  ALLOWED_HOSTS: "{{ .Values.django.allowed_hosts }}"
+  POSTGRES_DB_NAME: "{{ .Values.database.database }}"
+  POSTGRES_HOST: "{{ .Values.database.address }}"
+  POSTGRES_PORT: "{{ .Values.database.port }}"
+  POSTGRES_USER: "{{ .Values.database.user }}"
+  STORAGE_BACKEND: "{{ .Values.storage.backend }}"

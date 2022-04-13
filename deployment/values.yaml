@@ -1,0 +1,31 @@
+image:
+  registry: vauhtijuoksu.azurecr.io/
+  repository: vauhtijuoksu/vjcms
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+django:
+  settings_module: vauhtijuoksu.settings.production
+  allowed_hosts: https://dev.vauhtijuoksu.fi
+  log_level: INFO
+  secret: django
+  static_root: /home/staticfiles
+  static_url: https://vjcms-dev.azureedge.net/static/
+  media_root: ''
+  media_url: ''
+
+
+storage: 
+  backend: azure
+  account_name: vjcms-dev
+  container: media
+  secret: vjcms-storage
+
+
+database:
+  address: postgres-postgresql.default.svc.cluster.local
+  port: 5432
+  database: vjcms
+  # Create a secret: `kubectl create secret generic vjcms-psql --from-literal=password=myPwassrod!`
+  secret: vjcms-psql
+  user: postgres
