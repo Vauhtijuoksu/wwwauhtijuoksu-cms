@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: vjcms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vjcms
+  template:
+    metadata:
+      labels:
+        app: vjcms
+    spec:
+      containers:
+      - name: vjcms
+        image: "{{ .Values.image.registry }}{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.imagePullPolicy }}
+        ports:
+        - name: http
+          containerPort: 8000
+          protocol: TCP
+        command:
+          - gunicorn
+          - vauhtijuoksu.wsgi:application
+          - --bind
+          - 0.0.0.0:8000
+        envFrom:
+          - configMapRef:
+              name: django-env
+        env:
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.database.secret }}
+                key: password
+                optional: false
+          - name: DJANGO_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.django.secret }}
+                key: secret
+                optional: false
+          - name: STORAGE_ACCOUNT_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.storage.secret }}
+                key: key
+                optional: true
