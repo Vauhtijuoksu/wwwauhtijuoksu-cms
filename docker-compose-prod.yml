@@ -9,12 +9,13 @@ services:
     environment:
       DJANGO_SECRET_KEY: 2eiajfi3
       DJANGO_SETTINGS_MODULE: vauhtijuoksu.settings.production
+      STORAGE_BACKEND: ""
       POSTGRES_DB_NAME: vjcms
       POSTGRES_HOST: db
       POSTGRES_PORT: 5432
       POSTGRES_USER: vjcms
       POSTGRES_PASSWORD: vjcmsPasswd
-      ALLOWED_HOSTS: http://localhost:8000,http://0.0.0.0:8000
+      ALLOWED_HOSTS: "*"
     command: gunicorn vauhtijuoksu.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./marathon:/home/cms/marathon
