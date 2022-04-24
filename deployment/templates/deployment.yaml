@@ -23,29 +23,35 @@ spec:
           containerPort: 8000
           protocol: TCP
         command:
-          - gunicorn
-          - vauhtijuoksu.wsgi:application
-          - --bind
-          - 0.0.0.0:8000
+        - gunicorn
+        - vauhtijuoksu.wsgi:application
+        - --bind
+        - 0.0.0.0:8000
+        volumeMounts:
+        - mountPath: {{ .Values.django.static_root }}
+          name: django-static
         envFrom:
-          - configMapRef:
-              name: django-env
+        - configMapRef:
+            name: django-env
         env:
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.database.secret }}
-                key: password
-                optional: false
-          - name: DJANGO_SECRET_KEY
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.django.secret }}
-                key: secret
-                optional: false
-          - name: STORAGE_ACCOUNT_KEY
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.storage.secret }}
-                key: key
-                optional: true
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.database.secret }}
+              key: password
+              optional: false
+        - name: DJANGO_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.django.secret }}
+              key: secret
+              optional: false
+        - name: STORAGE_ACCOUNT_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.storage.secret }}
+              key: key
+              optional: true
+      volumes:
+      - name: django-static
+        emptyDir: {}
