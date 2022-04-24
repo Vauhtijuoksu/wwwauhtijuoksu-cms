@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: {{ .Chart.Name }}
 spec:
+  type: LoadBalancer
   selector:
     app: {{ .Chart.Name }}
   ports:
