@@ -1,5 +1,24 @@
+# Dev tools
 .github/
-media/
-docker/
+.idea/
+.vscode/
+.tool-versions
+.gitignore
+
+# Compile time files
+__pycache__/
+staticfiles/
+sassfiles/
 node_modules/
+
+# Ephemeral
+media/
+
+# Non-functional
+deployment/
+docker/
+Dockerfile*
 *.sqlite3
+*.sqlite
+*.md
+*.txt

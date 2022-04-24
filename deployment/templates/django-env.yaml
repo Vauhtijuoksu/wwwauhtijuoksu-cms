@@ -5,6 +5,7 @@ metadata:
 data:
   DJANGO_SETTINGS_MODULE: "{{ .Values.django.settings_module }}"
   DJANGO_LOG_LEVEL: "{{ .Values.django.log_level }}"
+  DJANGO_SASS_ROOT: "{{ .Values.django.sass_root }}"
   DJANGO_STATIC_ROOT: "{{ .Values.django.static_root }}"
   DJANGO_STATIC_URL: "{{ .Values.django.static_url }}"
   DJANGO_MEDIA_ROOT: "{{ .Values.django.media_root }}"
@@ -15,3 +16,5 @@ data:
   POSTGRES_PORT: "{{ .Values.database.port }}"
   POSTGRES_USER: "{{ .Values.database.user }}"
   STORAGE_BACKEND: "{{ .Values.storage.backend }}"
+  VJ_API_URL: "{{ .Values.django.vj_api_url }}"
+  VJ_LEGACY_API_URL: "{{ .Values.django.vj_legacy_api_url }}"
