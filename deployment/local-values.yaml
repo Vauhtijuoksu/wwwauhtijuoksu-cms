@@ -6,6 +6,7 @@ image:
 
 django:
   allowed_hosts: localhost
+  static_url: /static/
 
 storage:
   backend: 'local'

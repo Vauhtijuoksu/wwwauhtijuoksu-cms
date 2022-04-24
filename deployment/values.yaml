@@ -4,16 +4,21 @@ image:
   tag: "latest"
   pullPolicy: IfNotPresent
 
+http:
+  host: dev.vauhtijuoksu.fi
+
 django:
   settings_module: vauhtijuoksu.settings.production
   allowed_hosts: https://dev.vauhtijuoksu.fi
   log_level: INFO
   secret: django
-  static_root: /home/staticfiles
+  sass_root: /home/cms/sassfiles
+  static_root: /home/cms/staticfiles
   static_url: https://vjcms-dev.azureedge.net/static/
-  media_root: ''
+  media_root: /home/cms/media
   media_url: ''
-
+  vj_api_url: ''
+  vj_legacy_api_url: ''
 
 storage: 
   backend: azure
