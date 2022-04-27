@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   name: {{ .Chart.Name }}
   labels:
-    app: vjcms
+    app: cms
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vjcms
+      app: cms
   template:
     metadata:
       labels:
-        app: vjcms
+        app: cms
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/django-env.yaml") . | sha256sum }}
         rollme: {{ randAlphaNum 5 | quote }}
     spec:
       containers:
-      - name: vjcms
+      - name: cms
         image: "{{ .Values.image.registry }}{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.imagePullPolicy }}
         ports:

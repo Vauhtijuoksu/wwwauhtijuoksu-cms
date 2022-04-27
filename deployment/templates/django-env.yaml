@@ -16,5 +16,7 @@ data:
   POSTGRES_PORT: "{{ .Values.database.port }}"
   POSTGRES_USER: "{{ .Values.database.user }}"
   STORAGE_BACKEND: "{{ .Values.storage.backend }}"
+  STORAGE_ACCOUNT_NAME: "{{ .Values.storage.account_name }}"
+  STORAGE_CONTAINER: "{{ .Values.storage.container }}"
   VJ_API_URL: "{{ .Values.django.vj_api_url }}"
   VJ_LEGACY_API_URL: "{{ .Values.django.vj_legacy_api_url }}"
