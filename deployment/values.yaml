@@ -1,6 +1,6 @@
 image:
   registry: vauhtijuoksu.azurecr.io/
-  repository: vauhtijuoksu/vjcms
+  repository: vauhtijuoksu/cms
   tag: "latest"
   pullPolicy: IfNotPresent
 
@@ -17,20 +17,20 @@ django:
   static_url: https://vjcms-dev.azureedge.net/static/
   media_root: /home/cms/media
   media_url: ''
-  vj_api_url: ''
+  vj_api_url: vauhtijuoksu-api.default.svc.cluster.local
   vj_legacy_api_url: ''
 
 storage: 
   backend: azure
-  account_name: vjcms-dev
+  account_name: vjcms
   container: media
   secret: vjcms-storage
 
 
 database:
-  address: postgres-postgresql.default.svc.cluster.local
+  address: vauhtijuoksu-db.postgres.database.azure.com
   port: 5432
-  database: vjcms
+  database: vjcms_staging
   # Create a secret: `kubectl create secret generic vjcms-psql --from-literal=password=myPwassrod!`
   secret: vjcms-psql
-  user: postgres
+  user: vjcms_staging@vauhtijuoksu-db
