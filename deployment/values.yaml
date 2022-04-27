@@ -9,7 +9,7 @@ http:
 
 django:
   settings_module: vauhtijuoksu.settings.production
-  allowed_hosts: https://dev.vauhtijuoksu.fi
+  allowed_hosts: cms.dev.vauhtijuoksu.fi
   log_level: INFO
   secret: django
   sass_root: /home/cms/sassfiles
