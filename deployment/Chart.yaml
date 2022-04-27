@@ -2,7 +2,7 @@ apiVersion: v2
 name: cms
 description: Vauhtijuoksu Django CMS server
 type: application
-version: 0.1.3
+version: 0.1.5
 maintainers:
   - name: Uula Ranta
     email: uula.ranta@vauhtijuoksu.fi

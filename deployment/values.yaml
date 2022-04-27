@@ -2,7 +2,7 @@ image:
   registry: vauhtijuoksu.azurecr.io/
   repository: vauhtijuoksu/cms
   tag: "latest"
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 http:
   host: cms.dev.vauhtijuoksu.fi

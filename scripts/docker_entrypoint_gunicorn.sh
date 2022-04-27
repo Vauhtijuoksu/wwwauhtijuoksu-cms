@@ -14,4 +14,7 @@ python manage.py collectstatic --noinput --ignore=*.scss
 
 python manage.py migrate --noinput
 
+# TODO: Write to file that pod is ready
+touch /tmp/ready
+
 exec "$@"
