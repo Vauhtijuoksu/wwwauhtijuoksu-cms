@@ -9,9 +9,9 @@
         <div class="incentive_game">{{ game }}</div>
         {% for incentive in gameincentives %}
             <div class="incentive intend">
-                <div class="incentive_dropdown {% if incentive.endtime < now %}i_closed{% endif %}">
+                <div class="incentive_dropdown {% if incentive.end_time < now %}i_closed{% endif %}">
                     <div class="incentive_dropdown_text">
-                        {{ incentive.title }} {% if incentive.endtime < now %}(Suljettu){% endif %}
+                        {{ incentive.title }} {% if incentive.end_time < now %}(Suljettu){% endif %}
                     </div>
                     <div class="dropdown_arrow rotate">
                         >
@@ -21,9 +21,9 @@
                 <div class="incentive_expand intend hide">
                     <p>{{ incentive.info }}</p>
                     {% if incentive.type == "option" %}
-                        {% for option in incentive.options %}
+                        {% for option in incentive.status %}
                             <div>
-                                {% if incentive.endtime < now %}
+                                {% if incentive.end_time < now %}
                                     {{ option.option }} - Tälle vaihtoehdolle kerättiin {{ option.amount|floatformat:-2 }} euroa.
                                 {% else %}
                                     <input type="checkbox" id="{{ incentive.id }}_{{ forloop.counter }}_button"
@@ -36,49 +36,49 @@
 
                                 <div class="incentive_bar">
                                 <div class="incentive_bar_fill"
-                                     style="width:{{ option.amount|percentof:incentive.max }}%"></div>
+                                     style="width:{{ option.amount|percentof:incentive.total_amount }}%"></div>
                                 </div>
                             </div>
 
                         {% endfor %}
 
-                        {% if incentive.endtime < now %}
-                            <span class="small">Kannustin lukittiin {{ incentive.endtime|date:"j.n. H:i" }}.</span>
+                        {% if incentive.end_time < now %}
+                            <span class="small">Kannustin lukittiin {{ incentive.end_time|date:"j.n. H:i" }}.</span>
                         {% else %}
-                            <span class="small">Kannustin lukitaan {{ incentive.endtime|date:"j.n. H:i" }}.</span>
+                            <span class="small">Kannustin lukitaan {{ incentive.end_time|date:"j.n. H:i" }}.</span>
                         {% endif %}
-                    {% elif incentive.type == "upgrade" %}
+                    {% elif incentive.type == "milestone" %}
 
 
-                        {% if incentive.total >= incentive.max %}
+                        {% if incentive.status.0.status == "COMPLETE" %}
                             <b>
                                 Tavoite saavutettu!
                             </b> <br>
                         {% endif %}
 
-                        Tavoite tälle kannustimelle on {{ incentive.max|toint }} euroa.
+                        Tavoite tälle kannustimelle on {{ incentive.milestones.0|toint }} euroa.
                         <br>
-                        {% if incentive.endtime < now %}
-                            {{ option.option }} - Tälle kannustimelle kerättiin {{ incentive.total|floatformat:-2 }} euroa.
+                        {% if incentive.end_time < now %}
+                            {{ option.option }} - Tälle kannustimelle kerättiin {{ incentive.total_amount|floatformat:-2 }} euroa.
                         {% else %}
                             <input type="checkbox" id="{{ incentive.id }}_button" name="{{ incentive.id }}_button"
                                    value="choice" class="incentive_choices">
                             <label for="{{ incentive.id }}_button"> Valitse tämä kannustin</label>
-                            - Tälle kannustimelle on nyt kerätty {{ incentive.total|floatformat:-2 }} euroa.
+                            - Tälle kannustimelle on nyt kerätty {{ incentive.total_amount|floatformat:-2 }} euroa.
                         {% endif %}
                         <div class="incentive_bar">
                             <div class="incentive_bar_fill"
-                             style="width: {{ incentive.total|percentof:incentive.max }}%; max-width: 100%"></div>
+                             style="width: {{ incentive.total_amount|percentof:incentive.milestones.0 }}%; max-width: 100%"></div>
                         </div>
-                        {% if incentive.endtime < now %}
-                            <span class="small">Kannustin lukittiin {{ incentive.endtime|date:"j.n. H:i" }}.</span>
+                        {% if incentive.end_time < now %}
+                            <span class="small">Kannustin lukittiin {{ incentive.end_time|date:"j.n. H:i" }}.</span>
                         {% else %}
-                            <span class="small">Kannustin lukitaan {{ incentive.endtime|date:"j.n. H:i" }}.</span>
+                            <span class="small">Kannustin lukitaan {{ incentive.end_time|date:"j.n. H:i" }}.</span>
                         {% endif %}
 
                     {% elif incentive.type == "open" %}
 
-                        {% if incentive.endtime < now %}
+                        {% if incentive.end_time < now %}
                             Ehdotukset tälle kannustimelle olivat:
                             {% for option in incentive.options %}
                                 <div>
@@ -88,7 +88,7 @@
                                 <div class="incentive_bar">
                                 <div class="incentive_bar_fill"
                                      style="width:
-                                             {{ option.amount|percentof:incentive.max }}%"></div>
+                                             {{ option.amount|percentof:incentive.total_amount }}%"></div>
                                 </div>
                             {% endfor %}
                         {% else %}
@@ -101,7 +101,7 @@
 
 
                             <br>Muiden ehdotuksia tälle kannustimelle:<br>
-                            {% for option in incentive.options %}
+                            {% for option in incentive.status %}
                                 <div>
                                     - "<span class="highlight">{{ option.option }}</span>"
                                         {{ option.amount|floatformat:-2 }}e <label for="{{ incentive.id }}_{{ forloop.counter }}_field"></label> <input type="text"
@@ -118,14 +118,14 @@
                                 <div class="incentive_bar">
                                 <div class="incentive_bar_fill"
                                      style="width:
-                                             {{ option.amount|percentof:incentive.max }}%"></div>
+                                             {{ option.amount|percentof:incentive.total_amount }}%"></div>
                                 </div>
                             {% endfor %}
                         {% endif %}
-                        {% if incentive.endtime < now %}
-                            <span class="small">Kannustin lukittiin {{ incentive.endtime|date:"j.n. H:i" }}.</span>
+                        {% if incentive.end_time < now %}
+                            <span class="small">Kannustin lukittiin {{ incentive.end_time|date:"j.n. H:i" }}.</span>
                         {% else %}
-                            <span class="small">Kannustin lukitaan {{ incentive.endtime|date:"j.n. H:i" }}.</span>
+                            <span class="small">Kannustin lukitaan {{ incentive.end_time|date:"j.n. H:i" }}.</span>
                         {% endif %}
                     {% endif %}
                 </div>

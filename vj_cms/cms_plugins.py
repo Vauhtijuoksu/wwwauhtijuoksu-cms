@@ -1,3 +1,4 @@
+from collections import defaultdict
 from random import randint, shuffle, random
 import math
 from cms.plugin_base import CMSPluginBase
@@ -6,12 +7,12 @@ from cms.models.pluginmodel import CMSPlugin
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
-from vj_cms.client import LegacyClient
+from vj_cms.client import VJClient
 from vj_cms.models import GameInfo, Timetable, Donatebar
 from datetime import datetime
 import requests
 
-legacy_client = LegacyClient(settings.VJ_LEGACY_API_URL)
+client = VJClient(settings.VJ_API_URL)
 
 @plugin_pool.register_plugin
 class DividerPlugin(CMSPluginBase):
@@ -160,10 +161,21 @@ class IncentivesPlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
 
-        incentives = legacy_client.incentives()
+        incentives = client.incentives()
+        game_ids = set(i['game_id'] for i in incentives)
 
+        games = GameInfo.objects.filter(api_id__in=game_ids).order_by('start_time')
+
+        game_incentives = {}
+
+        for game in games:
+            game_is = [incentive for incentive in incentives if incentive['game_id'] == str(game.api_id)]
+            print(game_is)
+            if game_is:
+                game_incentives[game.game] = game_is
         context['now'] = datetime.now()
-        context['incentives'] = incentives
+        context['incentives'] = game_incentives
+
         return context
 
 

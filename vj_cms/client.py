@@ -36,6 +36,9 @@ class VJClient:
         donations = self.get('donations')
         return donations
 
+    def incentives(self):
+        incentives = self.get('incentives')
+        return incentives
 
 class LegacyClient(VJClient):
     def incentives(self):
