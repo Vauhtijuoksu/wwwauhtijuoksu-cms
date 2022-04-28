@@ -33,7 +33,7 @@ class GameInfo(models.Model):
         return self.game
 
     def _meta_field(self, field):
-        return field in self.meta.split(',')
+        return self.meta and field in self.meta.split(',')
 
     @property
     def childsafe(self):

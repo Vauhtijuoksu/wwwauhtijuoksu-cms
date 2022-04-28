@@ -22,6 +22,14 @@
                     {% if game.category %}
                         <div class="playcategory">{{ game.category }}</div>
                     {% endif %}
+                    <div class="meta">
+                    {% if game.childsafe %}
+                      <span>Childsafe</span>
+                    {% endif %}
+                    {% if game.flashing %}
+                      <span>Flashing lights</span>
+                    {% endif %}
+                    </div>
                     <div class="playplayer">
                         {% with game.player|split:"," as players %}
                             {% with game.player_twitch|split:"," as twitchs %}
