@@ -26,6 +26,7 @@ class VJClient:
 
     def games(self):
         games = self.get('gamedata')
+        game_names = {}
         for game in games:
             game['start_time'] = datetime.strptime(game['start_time'], "%Y-%m-%dT%H:%M:%S.%f%z")
             game['end_time'] = datetime.strptime(game['end_time'], "%Y-%m-%dT%H:%M:%S.%f%z")
