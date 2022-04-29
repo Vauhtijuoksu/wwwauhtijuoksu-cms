@@ -38,6 +38,9 @@ class VJClient:
 
     def incentives(self):
         incentives = self.get('incentives')
+
+        for incentive in incentives:
+            incentive['end_time'] = datetime.strptime(incentive['end_time'], "%Y-%m-%dT%H:%M:%S%z")
         return incentives
 
 class LegacyClient(VJClient):
