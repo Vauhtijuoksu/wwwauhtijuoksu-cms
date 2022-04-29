@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from cms.models import CMSPlugin
 from django.db import models
 
@@ -15,6 +17,7 @@ class GameInfo(models.Model):
     end_time = models.DateTimeField(null=True, blank=True)
     vod_link = models.URLField(null=True, blank=True)
     img_filename = models.CharField(null=True, blank=True, max_length=127)
+    meta = models.CharField(null=True, default="", max_length=255)
 
     # Custom added fields
     icon = models.ImageField(null=True, blank=True)
@@ -29,6 +32,16 @@ class GameInfo(models.Model):
     def __str__(self):
         return self.game
 
+    def _meta_field(self, field):
+        return self.meta and field in self.meta.split(',')
+
+    @property
+    def childsafe(self):
+        return self._meta_field('childsafe')
+
+    @property
+    def flashing(self):
+        return self._meta_field('flashing')
 
 class Timetable(CMSPlugin):
     hide_past = models.BooleanField()
