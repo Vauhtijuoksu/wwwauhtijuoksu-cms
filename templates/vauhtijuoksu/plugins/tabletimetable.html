@@ -73,6 +73,16 @@
                                     <br>
                                 {{ game.start_time|date:"H:i" }} - {{ game.end_time|date:"H:i" }}
                                 </p>
+                                {% if game.childsafe or game.flashing %}
+                                <div class="meta">
+                                    {% if game.childsafe %}
+                                      <div title="Pelaaja on merkinnyt runin lapsiystävälliseksi" class="warning w-childsafe"></div>
+                                    {% endif %}
+                                    {% if game.flashing %}
+                                      <div title="Pelaaja on merkinnyt runin sisältävän välkkyviä valoja" class="warning w-flashing"></div>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

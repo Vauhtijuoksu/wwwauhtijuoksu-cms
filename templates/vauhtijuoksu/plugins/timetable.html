@@ -20,16 +20,18 @@
                 <div class="playright">
                     <div class="playgame">{{ game.game }}</div>
                     {% if game.category %}
-                        <div class="playcategory">{{ game.category }}</div>
+                        <div class="playcategory">{{ game.category }}
+                        <div class="meta inline">
+                            {% if game.childsafe %}
+                              <div title="Pelaaja on merkinnyt runin lapsiystävälliseksi" class="warning w-childsafe"></div>
+                            {% endif %}
+                            {% if game.flashing %}
+                              <div title="Pelaaja on merkinnyt runin sisältävän välkkyviä valoja" class="warning w-flashing"></div>
+                            {% endif %}
+                            </div>
+                        </div>
                     {% endif %}
-                    <div class="meta">
-                    {% if game.childsafe %}
-                      <span>Childsafe</span>
-                    {% endif %}
-                    {% if game.flashing %}
-                      <span>Flashing lights</span>
-                    {% endif %}
-                    </div>
+
                     <div class="playplayer">
                         {% with game.player|split:"," as players %}
                             {% with game.player_twitch|split:"," as twitchs %}

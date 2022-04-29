@@ -74,7 +74,9 @@ class TabletimetablePlugin(CMSPluginBase):
                 "category": game.category,
                 "start_time":  game.start_time,
                 "end_time":  game.end_time,
-                "estimate":  game.estimate
+                "estimate":  game.estimate,
+                "flashing":  game.flashing,
+                "childsafe":  game.childsafe
             }
             if day_was != game.start_time.astimezone().strftime("%m.%d.%Y"):
                 day_was = game.start_time.astimezone().strftime("%m.%d.%Y")

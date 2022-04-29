@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="incentive_expand intend hide">
-                    <p>{{ incentive.info }}</p>
+                    <p>{{ incentive.info | safe }}</p>
                     {% if incentive.type == "option" %}
                         {% for option in incentive.status %}
                             <div>
