@@ -28,7 +28,7 @@ $( document ).ready(function() {
 function get_code() {
     var choices = get_choices()
     console.log(JSON.stringify(choices))
-    fetch('https://legacy.vauhtijuoksu.fi/api/incentive_code', {
+    fetch('https://api.dev.vauhtijuoksu.fi/generate-incentive-code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -58,13 +58,12 @@ function get_choices() {
                 var value = $(this).attr('id').split("_")
                 if (value.length === 2){
                     choices.push({
-                        id: value[0],
-                        choice: null
+                        id: value[0]
                     })
                 } else if (value.length === 3){
                     choices.push({
                         id: value[0],
-                        choice: value[1]
+                        parameter: value[1]
                     })
                 }
             }
@@ -74,7 +73,7 @@ function get_choices() {
                 if (value.length === 3){
                     choices.push({
                         id: value[0],
-                        choice: $(field).val()
+                        parameter: $(field).val()
                     })
                 }
                 $(field).prop("disabled", true);

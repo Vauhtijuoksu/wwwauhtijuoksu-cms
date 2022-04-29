@@ -26,10 +26,10 @@
                                 {% if incentive.end_time < now %}
                                     {{ option.option }} - Tälle vaihtoehdolle kerättiin {{ option.amount|floatformat:-2 }} euroa.
                                 {% else %}
-                                    <input type="checkbox" id="{{ incentive.id }}_{{ forloop.counter }}_button"
-                                           name="{{ incentive.id }}_{{ forloop.counter }}_button" value="choice"
+                                    <input type="checkbox" id="{{ incentive.id }}_{{ option.option }}_button"
+                                           name="{{ incentive.id }}_{{ option.option }}_button" value="choice"
                                            class="incentive_choices">
-                                    <label for="{{ incentive.id }}_{{ forloop.counter }}_button">{{ option.option }}</label>
+                                    <label for="{{ incentive.id }}_{{ option.option }}_button">{{ option.option }}</label>
                                     - Tälle vaihtoehdolle on nyt kerätty {{ option.amount|floatformat:-2 }} euroa.
                                 {% endif %}
 
@@ -93,7 +93,7 @@
                             {% endfor %}
                         {% else %}
                             <label for="{{ incentive.id }}_0_field">Ehdotuksesi: </label>
-                            <input type="text" maxlength="50" id="{{ incentive.id }}_0_field"
+                            <input type="text" maxlength="{{ incentive.open_char_limit }}" id="{{ incentive.id }}_0_field"
                                    name="{{ incentive.id }}_field" class="incentive_field"><br>
                             <input type="checkbox" id="{{ incentive.id }}_0_button" name="{{ incentive.id }}_0_button"
                                    value="field" class="incentive_choices">
@@ -104,15 +104,15 @@
                             {% for option in incentive.status %}
                                 <div>
                                     - "<span class="highlight">{{ option.option }}</span>"
-                                        {{ option.amount|floatformat:-2 }}e <label for="{{ incentive.id }}_{{ forloop.counter }}_field"></label> <input type="text"
-                                                                       id="{{ incentive.id }}_{{ forloop.counter }}_field"
-                                                                       name="{{ incentive.id }}_{{ forloop.counter }}_field"
+                                        {{ option.amount|floatformat:-2 }}e <label for="{{ incentive.id }}_{{ option.option }}_field"></label> <input type="text"
+                                                                       id="{{ incentive.id }}_{{ option.option }}_field"
+                                                                       name="{{ incentive.id }}_{{ option.option }}_field"
                                                                        class="incentive_field hide"
                                                                        value="{{ option.option }}"><br>
-                                    <input type="checkbox" id="{{ incentive.id }}_{{ forloop.counter }}_button"
-                                           name="{{ incentive.id }}_{{ forloop.counter }}_button" value="field"
+                                    <input type="checkbox" id="{{ incentive.id }}_{{ option.option }}_button"
+                                           name="{{ incentive.id }}_{{ option.option }}_button" value="field"
                                            class="incentive_choices">
-                                    <label for="{{ incentive.id }}_{{ forloop.counter }}_button"> Valitse tämä
+                                    <label for="{{ incentive.id }}_{{ option.option }}_button"> Valitse tämä
                                         kannustin</label>
                                 </div>
                                 <div class="incentive_bar">
