@@ -10,7 +10,6 @@ from django.utils.translation import gettext_lazy as _
 from vj_cms.client import VJClient
 from vj_cms.models import GameInfo, Timetable, Donatebar
 from datetime import datetime
-import requests
 
 client = VJClient(settings.VJ_API_URL)
 
@@ -191,7 +190,7 @@ class DonatebarPlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
 
-        donations = requests.get("https://api.dev.vauhtijuoksu.fi/donations").json()
+        donations = client.get("donations")
         sum = 0
         for d in donations:
             sum += d["amount"]
