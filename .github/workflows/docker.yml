@@ -1,0 +1,65 @@
+name: docker
+
+on:
+  push:
+    branches:
+    - develop
+    - trunk
+    tags:
+    - 'v*'
+  pull_request:
+    branches:
+    - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      push: ${{ github.event_name == 'push' }}
+    steps:
+      - name: Docker build
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: Dockerfile.production
+          load: true
+          tags: vauhtijuoksu/cms:test
+
+      - name: Extract Docker metadata
+        if: env.push
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: |
+            name=${{ secrets.ACR_ENDPOINT}}/vauhtijuoksu/cms
+          tags: |
+            # sha for all triggers
+            type=sha,prefix={{branch}}-
+            # semver only for version tags
+            type=semver,pattern={{version}}
+
+      - name: Log in to ACR
+        if: env.push
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ secrets.ACR_ENDPOINT }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      # This will use cached image for amd64, build fresh for arm64
+      - name: Build and push image
+        if: env.push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: Dockerfile.production
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ stepts.meta.outputs.labels }}
+
+
+        
+
+
+
