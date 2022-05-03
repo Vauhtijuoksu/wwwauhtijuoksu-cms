@@ -14,11 +14,10 @@ django:
   secret: django
   sass_root: /home/cms/sassfiles
   static_root: /home/cms/staticfiles
-  static_url: https://vjcms-dev.azureedge.net/static/
+  static_url: https://vjcms-kubedev.azureedge.net/static/
   media_root: /home/cms/media
   media_url: https://vjcms-media.azureedge.net/media/
-  vj_api_url: vauhtijuoksu-api.default.svc.cluster.local
-  vj_legacy_api_url: ''
+  vj_api_url: https://api.dev.vauhtijuoksu.fi
 
 storage: 
   backend: azure
