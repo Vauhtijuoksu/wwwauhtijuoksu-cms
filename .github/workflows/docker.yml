@@ -14,8 +14,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      push: ${{ github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v2
       - name: Docker build
@@ -27,7 +25,7 @@ jobs:
           tags: vauhtijuoksu/cms:test
 
       - name: Extract Docker metadata
-        if: env.push
+        if: github.event_name == 'push'
         id: meta
         uses: docker/metadata-action@v3
         with:
@@ -40,7 +38,7 @@ jobs:
             type=semver,pattern={{version}}
 
       - name: Log in to ACR
-        if: env.push
+        if: github.event_name == 'push'
         uses: docker/login-action@v1
         with:
           registry: ${{ secrets.ACR_ENDPOINT }}
@@ -49,7 +47,7 @@ jobs:
 
       # This will use cached image for amd64, build fresh for arm64
       - name: Build and push images
-        if: env.push
+        if: github.event_name == 'push'
         uses: docker/build-push-action@v2
         with:
           context: .
