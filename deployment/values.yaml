@@ -1,0 +1,36 @@
+image:
+  registry: vauhtijuoksu.azurecr.io/
+  repository: vauhtijuoksu/cms
+  tag: "latest"
+  pullPolicy: Always
+
+http:
+  host: cms.dev.vauhtijuoksu.fi
+
+django:
+  settings_module: vauhtijuoksu.settings.production
+  allowed_hosts: cms.dev.vauhtijuoksu.fi
+  log_level: INFO
+  secret: django
+  sass_root: /home/cms/sassfiles
+  static_root: /home/cms/staticfiles
+  static_url: https://vjcms-dev.azureedge.net/static/
+  media_root: /home/cms/media
+  media_url: https://vjcms-media.azureedge.net/media/
+  vj_api_url: vauhtijuoksu-api.default.svc.cluster.local
+  vj_legacy_api_url: ''
+
+storage: 
+  backend: azure
+  account_name: vjcms
+  container: media
+  secret: vjcms-storage
+
+
+database:
+  address: vauhtijuoksu-db.postgres.database.azure.com
+  port: 5432
+  database: vjcms_staging
+  # Create a secret: `kubectl create secret generic vjcms-psql --from-literal=password=myPwassrod!`
+  secret: vjcms-psql
+  user: vjcms_staging@vauhtijuoksu-db

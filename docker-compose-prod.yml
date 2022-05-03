@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  web:
+    container_name: vj-cms
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    environment:
+      DJANGO_SECRET_KEY: 2eiajfi3
+      DJANGO_SETTINGS_MODULE: vauhtijuoksu.settings.production
+      STORAGE_BACKEND: ""
+      POSTGRES_DB_NAME: vjcms
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: vjcms
+      POSTGRES_PASSWORD: vjcmsPasswd
+      ALLOWED_HOSTS: "*"
+    command: gunicorn vauhtijuoksu.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - ./marathon:/home/cms/marathon
+      - ./vauhtijuoksu:/home/cms/vauhtijuoksu
+      - ./templates:/home/cms/templates
+      - ./static:/home/cms/static
+      - ./sassfiles:/home/cms/sassfiles
+      - cms-media:/home/cms/media
+    ports:
+      - 8000:8000
+
+  db:
+    container_name: vj-cms-db
+    image: postgres:11
+    environment:
+      POSTGRES_USER: vjcms
+      POSTGRES_PASSWORD: vjcmsPasswd
+      POSTGRES_DB: vjcms
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+  cms-media:

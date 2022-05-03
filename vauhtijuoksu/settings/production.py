@@ -56,7 +56,7 @@ LOGGING = {
     },
 }
 
-if config('STORAGE_AZURE', default=True, cast=bool):
+if config('STORAGE_BACKEND', default='azure') == 'azure':
     DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
     AZURE_ACCOUNT_NAME = config('STORAGE_ACCOUNT_NAME')
     AZURE_ACCOUNT_KEY = config('STORAGE_ACCOUNT_KEY')

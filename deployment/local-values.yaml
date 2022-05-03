@@ -1,0 +1,18 @@
+image:
+  registry: ''
+  repository: runtu/vjcms
+  tag: latest
+  pullPolicy: Always
+
+django:
+  allowed_hosts: localhost
+  static_url: /static/
+
+storage:
+  backend: 'local'
+
+database:
+  address: vjcms-db-postgresql.default.svc.cluster.local
+  database: vjcms
+  user: vjcms
+
