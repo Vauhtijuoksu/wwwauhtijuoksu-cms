@@ -32,7 +32,8 @@ jobs:
           images: |
             name=${{ secrets.ACR_ENDPOINT}}/vauhtijuoksu/cms
           tags: |
-            # sha for all triggers
+            # branch and sha for branch push
+            type=ref,event=branch
             type=sha,prefix={{branch}}-
             # semver only for version tags
             type=semver,pattern={{version}}
