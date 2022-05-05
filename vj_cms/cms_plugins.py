@@ -6,6 +6,7 @@ from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 
 from vj_cms.client import VJClient
 from vj_cms.models import GameInfo, Timetable, Donatebar
@@ -171,10 +172,9 @@ class IncentivesPlugin(CMSPluginBase):
 
         for game in games:
             game_is = [incentive for incentive in incentives if incentive['game_id'] == str(game.api_id)]
-            print(game_is)
             if game_is:
                 game_incentives[game.game] = game_is
-        context['now'] = datetime.now()
+        context['now'] = timezone.now()
         context['incentives'] = game_incentives
 
         return context
