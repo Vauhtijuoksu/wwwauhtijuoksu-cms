@@ -10,6 +10,28 @@ $green: #63ffba;
 $orange: #ff8c5c;
 $red: #ff79ae;
 $yellow: #fff982;
+
+$mimipalette1: #180219;
+$mimipalette2: #34083d;
+$mimipalette3: #770052;
+$mimipalette4: #b70b86;
+$mimipalette5: #dc5bb0;
+$mimipalette6: #875bbf;
+$mimipalette7: #5325a0;
+$mimipalette8: #271685;
+$mimipalette9: #170358;
+$mimipalette10: #436274;
+
+$content-background-color: $mimipalette1;
+$background-color: $mimipalette2;
+$content-shadow: $mimipalette1;
+$title-color: $mimipalette4;
+$link-normal-color: $mimipalette5;
+$menu-link-normal-color: $mimipalette5;
+$text-color: $mimipalette6;
+$link-hover-color: $mimipalette6;
+$menu-link-hover-color: $mimipalette7;
+
 $font-size-root: 22px;
 $donate_bar_height: 50px;
 
@@ -34,10 +56,8 @@ body, html{
 
 body {
   background-image: url("../img/bg.png");
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-color: $violet;
-  color: $black;
+  background-color: $background-color;
+  color: $text-color;
 }
 
 
@@ -48,8 +68,9 @@ body {
 }
 
 .title{
+  margin-top: 10px;
   font-family: 'offsett';
-  color: $black;
+  color: $title-color;
   justify-content: space-around;
   display: flex;
   font-size: 84px;
@@ -59,11 +80,11 @@ body {
 }
 
 .content{
-  background-color: $blue;
+  background-color: $content-background-color;
   text-align: center;
   padding: 30px 20px 20px;
   margin: 10px auto 30px;
-  filter: drop-shadow(10px 10px 0px $black);
+  filter: drop-shadow(6px 6px 0px $content-shadow);
 }
 
 .divider{
@@ -91,7 +112,8 @@ body {
 
 
 .menu-wrapper{
-  padding-bottom: 30px;
+  padding-bottom: 70px;
+  padding-top: 40px;
 }
 
 .fullscreen .menu-wrapper{
@@ -110,7 +132,7 @@ body {
   flex-wrap: wrap;
   font-size: 32px;
   line-height: 56px;
-  text-shadow: 2px 2px $black;
+  text-shadow: 2px 2px $c2;
 }
 
 .twitch-icon{
@@ -152,34 +174,34 @@ body {
 }
 a{
   text-decoration: none;
-  color: $white;
+  color: $link-normal-color;
 }
 a:visited{
   text-decoration: none;
-  color: $white;
+  color: $link-normal-color;
 }
 a:hover{
   text-decoration: none;
-  color: $orange;
+  color: $link-hover-color;
 }
 a:active{
   text-decoration: none;
-  color: $white;
+  color: $link-normal-color;
 }
 
 .menu-link {
-  color: $white;
+  color: $menu-link-normal-color;
   padding-left: 20px;
   padding-right: 20px;
 }
 .menu-link:visited{
-  color: $white;
+  color: $menu-link-normal-color;
 }
 .menu-link:hover {
-  color: $orange;
+  color: $menu-link-hover-color;
 }
 .menu-link:active{
-  color: $white;
+  color: $menu-link-normal-color;
 }
 
 .twitch-link{
