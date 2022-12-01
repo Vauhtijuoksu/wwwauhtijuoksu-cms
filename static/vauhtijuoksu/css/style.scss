@@ -24,6 +24,7 @@ $mimipalette10: #436274;
 
 $content-background-color: $mimipalette1;
 $background-color: $mimipalette2;
+$menu-link-drop-shadow: $mimipalette2;
 $content-shadow: $mimipalette1;
 $title-color: $mimipalette4;
 $link-normal-color: $mimipalette5;
@@ -132,7 +133,7 @@ body {
   flex-wrap: wrap;
   font-size: 32px;
   line-height: 56px;
-  text-shadow: 2px 2px $c2;
+  text-shadow: 2px 2px $menu-link-drop-shadow;
 }
 
 .twitch-icon{
