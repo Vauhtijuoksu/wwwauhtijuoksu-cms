@@ -10,6 +10,19 @@ $green: #63ffba;
 $orange: #ff8c5c;
 $red: #ff79ae;
 $yellow: #fff982;
+
+
+$c1: #180219;
+$c2: #34083d;
+$c3: #770052;
+$c4: #b70b86;
+$c5: #dc5bb0;
+$c6: #875bbf;
+$c7: #5325a0;
+$c8: #271685;
+$c9: #170358;
+$c10: #436274;
+
 $font-size-root: 22px;
 $donate_bar_height: 50px;
 
@@ -34,10 +47,8 @@ body, html{
 
 body {
   background-image: url("../img/bg.png");
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-color: $violet;
-  color: $black;
+  background-color: $c2;
+  color: $c6;
 }
 
 
@@ -48,8 +59,9 @@ body {
 }
 
 .title{
+  margin-top: 10px;
   font-family: 'offsett';
-  color: $black;
+  color: $c4;
   justify-content: space-around;
   display: flex;
   font-size: 84px;
@@ -59,11 +71,11 @@ body {
 }
 
 .content{
-  background-color: $blue;
+  background-color: $c1;
   text-align: center;
   padding: 30px 20px 20px;
   margin: 10px auto 30px;
-  filter: drop-shadow(10px 10px 0px $black);
+  filter: drop-shadow(6px 6px 0px $c2);
 }
 
 .divider{
@@ -91,7 +103,8 @@ body {
 
 
 .menu-wrapper{
-  padding-bottom: 30px;
+  padding-bottom: 70px;
+  padding-top: 40px;
 }
 
 .fullscreen .menu-wrapper{
@@ -110,7 +123,7 @@ body {
   flex-wrap: wrap;
   font-size: 32px;
   line-height: 56px;
-  text-shadow: 2px 2px $black;
+  text-shadow: 2px 2px $c2;
 }
 
 .twitch-icon{
@@ -152,34 +165,34 @@ body {
 }
 a{
   text-decoration: none;
-  color: $white;
+  color: $c5;
 }
 a:visited{
   text-decoration: none;
-  color: $white;
+  color: $c5;
 }
 a:hover{
   text-decoration: none;
-  color: $orange;
+  color: $c6;
 }
 a:active{
   text-decoration: none;
-  color: $white;
+  color: $c5;
 }
 
 .menu-link {
-  color: $white;
+  color: $c5;
   padding-left: 20px;
   padding-right: 20px;
 }
 .menu-link:visited{
-  color: $white;
+  color: $c5;
 }
 .menu-link:hover {
-  color: $orange;
+  color: $c7;
 }
 .menu-link:active{
-  color: $white;
+  color: $c5;
 }
 
 .twitch-link{
