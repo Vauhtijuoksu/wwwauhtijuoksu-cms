@@ -80,7 +80,7 @@
 
                         {% if incentive.end_time < now %}
                             Ehdotukset tälle kannustimelle olivat:
-                            {% for option in incentive.options %}
+                            {% for option in incentive.status %}
                                 <div>
                                     - "<span class="highlight">{{ option.option }}</span>"
                                         {{ option.amount|floatformat:-2 }}e
