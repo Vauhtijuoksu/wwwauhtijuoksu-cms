@@ -12,16 +12,19 @@ $red: #ff79ae;
 $yellow: #fff982;
 
 
-$c1: #180219;
-$c2: #34083d;
-$c3: #770052;
-$c4: #b70b86;
-$c5: #dc5bb0;
-$c6: #875bbf;
-$c7: #5325a0;
-$c8: #271685;
-$c9: #170358;
-$c10: #436274;
+$content-background-color: #180219;
+$background-color: #34083d;
+$content-shadow: #34083d;
+$notusedpalettecolor3: #770052;
+$title-color: #b70b86;
+$link-normal-color: #dc5bb0;
+$menu-link-normal-color: #dc5bb0;
+$text-color: #875bbf;
+$link-hover-color: #875bbf;
+$menu-link-hover-color: #5325a0;
+$notusedpalettecolor8: #271685;
+$notusedpalettecolor9: #170358;
+$notusedpalettecolor10: #436274;
 
 $font-size-root: 22px;
 $donate_bar_height: 50px;
@@ -47,8 +50,8 @@ body, html{
 
 body {
   background-image: url("../img/bg.png");
-  background-color: $c2;
-  color: $c6;
+  background-color: $background-color;
+  color: $text-color;
 }
 
 
@@ -61,7 +64,7 @@ body {
 .title{
   margin-top: 10px;
   font-family: 'offsett';
-  color: $c4;
+  color: $title-color;
   justify-content: space-around;
   display: flex;
   font-size: 84px;
@@ -71,11 +74,11 @@ body {
 }
 
 .content{
-  background-color: $c1;
+  background-color: $content-background-color;
   text-align: center;
   padding: 30px 20px 20px;
   margin: 10px auto 30px;
-  filter: drop-shadow(6px 6px 0px $c2);
+  filter: drop-shadow(6px 6px 0px $content-shadow);
 }
 
 .divider{
@@ -165,34 +168,34 @@ body {
 }
 a{
   text-decoration: none;
-  color: $c5;
+  color: $link-normal-color;
 }
 a:visited{
   text-decoration: none;
-  color: $c5;
+  color: $link-normal-color;
 }
 a:hover{
   text-decoration: none;
-  color: $c6;
+  color: $link-hover-color;
 }
 a:active{
   text-decoration: none;
-  color: $c5;
+  color: $link-normal-color;
 }
 
 .menu-link {
-  color: $c5;
+  color: $menu-link-normal-color;
   padding-left: 20px;
   padding-right: 20px;
 }
 .menu-link:visited{
-  color: $c5;
+  color: $menu-link-normal-color;
 }
 .menu-link:hover {
-  color: $c7;
+  color: $menu-link-hover-color;
 }
 .menu-link:active{
-  color: $c5;
+  color: $menu-link-normal-color;
 }
 
 .twitch-link{
