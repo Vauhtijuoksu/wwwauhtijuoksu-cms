@@ -18,6 +18,7 @@ media/
 deployment/
 docker/
 Dockerfile*
+docker-compose*.yml
 *.sqlite3
 *.sqlite
 *.md
