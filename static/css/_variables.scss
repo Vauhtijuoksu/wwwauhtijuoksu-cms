@@ -1,1 +1,6 @@
 // Default variables here
+
+// Set to 4 instead of bootstrap default 4.5
+// This avoids warnings about too small contrast in SASS compilation
+// Note: This means accessibility may be compromised.
+$min-contrast-ratio: 4;
