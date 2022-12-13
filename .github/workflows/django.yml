@@ -49,5 +49,5 @@ jobs:
         pipenv run test
     - name: Compile SASS
       run: |
-        python manage.py compilescss --traceback
+        pipenv run python manage.py compilescss --traceback
 
