@@ -10,7 +10,7 @@ data:
   DJANGO_STATIC_URL: "{{ .Values.django.static_url }}"
   DJANGO_MEDIA_ROOT: "{{ .Values.django.media_root }}"
   DJANGO_MEDIA_URL: "{{ .Values.django.media_url }}"
-  ALLOWED_HOSTS: "{{ .Values.django.allowed_hosts }}"
+  ALLOWED_HOSTS: "{{ join "," .Values.django.allowed_hosts }}"
   POSTGRES_DB_NAME: "{{ .Values.database.database }}"
   POSTGRES_HOST: "{{ .Values.database.address }}"
   POSTGRES_PORT: "{{ .Values.database.port }}"
@@ -20,3 +20,6 @@ data:
   STORAGE_CONTAINER: "{{ .Values.storage.container }}"
   VJ_API_URL: "{{ .Values.django.vj_api_url }}"
   VJ_LEGACY_API_URL: "{{ .Values.django.vj_legacy_api_url }}"
+  {{- range $key, $value := .Values.django.extraEnv }}
+  {{ $key }}: "{{ $value }}"
+  {{- end }}
