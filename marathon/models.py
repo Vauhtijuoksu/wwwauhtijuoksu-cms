@@ -15,6 +15,13 @@ class Player(models.Model):
     nickname = models.CharField(_('nimimerkki'), max_length=30)
     discord = models.CharField(_('discord-tunnus'), max_length=50)
     twitch = models.CharField(_('twitch-tunnus'), max_length=50, blank=True)
+    gmail = models.EmailField(
+        _('sähköpostiosoite'),
+        blank=True,
+        null=True,
+        help_text=_("""Mieluiten Gmail-osoite jota käytetään tiedotukseen sekä
+        tapahtumaan liittyvien tiedostojen, kuten aikataulun jakamiseen"""),
+    )
 
     allergies = models.TextField(_('erityisruokavalio'), blank=True)
 
