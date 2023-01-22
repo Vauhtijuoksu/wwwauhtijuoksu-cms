@@ -19,9 +19,11 @@
     {% bootstrap_field form.description placeholder="Miksi tämä runi olisi kiva nähdä Vauhtijuoksussa?" layout="horizontal" form_group_class="mb-1" %}
     {% bootstrap_field form.time_constraints placeholder="Toiveita tai rajoitteita pelisi ajoituksen suhteen" layout="horizontal" form_group_class="mb-1" %}
     {% bootstrap_field form.video_link placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" layout="horizontal" form_group_class="mb-1" %}
+    {% comment %}
     {% bootstrap_field form.scoreboard_link placeholder="https://www.speedrun.com/smb1" layout="horizontal" form_group_class="mb-1" %}
     {% bootstrap_field form.for_children layout="horizontal" form_group_class="mb-1" %}
     {% bootstrap_field form.flashing_lights layout="horizontal" form_group_class="mb-3" %}
+    {% endcomment %}
     {% bootstrap_field form.gdpr layout="horizontal" form_group_class="mt-2" %}
     {% if event.gdpr_notice %}
     <div class="mb-3 row">

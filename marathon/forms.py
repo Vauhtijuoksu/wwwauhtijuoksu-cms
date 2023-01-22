@@ -23,6 +23,9 @@ class SubmissionForm(forms.ModelForm):
             'players',
             'hidden',
             'console_display',
+            'scoreboard_link',
+            'for_children',
+            'flashing_lights'
         ]
         widgets = {
             'time_constraints': forms.Textarea(attrs=TEXTAREA_ATTRS),
