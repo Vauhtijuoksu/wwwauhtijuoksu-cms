@@ -61,7 +61,11 @@ class Submission(models.Model):
 
     # Run details
     category = models.CharField(_('kategoria'), max_length=100)
-    estimate = models.CharField(_('aika-arvio'), max_length=20)
+    estimate = models.CharField(
+        _('aika-arvio'),
+        max_length=20,
+        help_text=_('Arvioi runin kestolle yläraja (tunnit:minuutit) alusta loppuun viiden minuutin tarkkuudella.'),
+    )
     description = models.TextField(_('perustelut'), blank=True)
     video_link = models.URLField(_('videolinkki'), blank=True)
     scoreboard_link = models.URLField(_('rankinglistalinkki'), blank=True)
