@@ -56,6 +56,7 @@ class SubmissionForm(forms.ModelForm):
             'event',
             'players',
             'hidden',
+            'video_link'
             'scoreboard_link',
             'for_children',
             'flashing_lights'

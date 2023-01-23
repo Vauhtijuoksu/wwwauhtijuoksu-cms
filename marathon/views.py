@@ -1,5 +1,7 @@
+from django.contrib import messages
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.utils.translation import gettext_lazy as _
 
 from .models import Event, Player, Submission
 from .forms import SubmissionForm, PlayerForm
@@ -35,9 +37,10 @@ def new_submission(request, event):
             submission.players.add(player)
 
             request.session['previous_form'] = None
-            # TODO: Show success message
+            messages.add_message(request, messages.SUCCESS, _('Ilmoittautuminen onnistui!'))
         else:
             request.session['previous_form'] = request.POST
+            messages.add_message(request, messages.ERROR, _('Ilmoittautuminen epäonnistui, tarkista lomake.'))
         return HttpResponseRedirect(request.GET.get('next', '/'))
     raise Http404('Tämmöstä ei oo')
 
