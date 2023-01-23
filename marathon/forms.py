@@ -4,7 +4,6 @@ from django import forms
 from django.forms import formset_factory
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
-from django.core.validators import RegexValidator
 
 from .models import Submission, Player
 
@@ -18,11 +17,6 @@ class PlayerForm(forms.ModelForm):
             'allergies': forms.Textarea(attrs=TEXTAREA_ATTRS)
         }
 
-
-estimate_validator = RegexValidator(
-    regex=r'^\d{1,2}:[0-5][05]$',
-    message=_('aika-arvio muodossa hh:mm, viiden minuutin tarkkuudella.')
-)
 
 class SubmissionForm(forms.ModelForm):
     gdpr = forms.BooleanField(required=True, label=_('Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti'))
