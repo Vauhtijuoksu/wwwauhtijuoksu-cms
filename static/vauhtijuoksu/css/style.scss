@@ -22,6 +22,9 @@ $mimipalette8: #271685;
 $mimipalette9: #170358;
 $mimipalette10: #436274;
 
+$primary-color: $mimipalette4;
+$secondary-color: $mimipalette8;
+
 $content-background-color: $mimipalette1;
 $background-color: $mimipalette2;
 $menu-link-drop-shadow: $mimipalette2;
@@ -32,6 +35,10 @@ $menu-link-normal-color: $mimipalette5;
 $text-color: $mimipalette6;
 $link-hover-color: $mimipalette6;
 $menu-link-hover-color: $mimipalette7;
+
+$table-header-color: $title-color;
+$table-row-color: $text-color;
+$table-border-color: $mimipalette3;
 
 $font-size-root: 22px;
 $donate_bar_height: 50px;
@@ -93,22 +100,35 @@ body {
   margin: auto;
   display: block;
 }
+
 .btn-primary{
-  background-color: $green;
-  border-color: $green;
-}
-.btn-primary:hover{
-  background-color: $orange;
-  border-color: $orange;
-}
-.form-check-input:checked {
-    background-color: $green;
-    border-color: $green;
+  background-color: $primary-color;
+  border-color: $primary-color;
 }
 
-.table{
+.btn-primary:hover{
+  background-color: $secondary-color;
+  border-color: $secondary-color;
+}
+
+.form-check-input:checked {
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+
+.table {
   color: $black;
   border-color: $black;
+}
+
+.table.games {
+  border-color: $table-border-color;
+  th {
+    color: $table-header-color;
+  }
+  tr {
+    color: $table-row-color;
+  }
 }
 
 

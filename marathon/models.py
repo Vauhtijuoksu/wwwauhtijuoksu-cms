@@ -15,6 +15,13 @@ class Player(models.Model):
     nickname = models.CharField(_('nimimerkki'), max_length=30)
     discord = models.CharField(_('discord-tunnus'), max_length=50)
     twitch = models.CharField(_('twitch-tunnus'), max_length=50, blank=True)
+    gmail = models.EmailField(
+        _('sähköpostiosoite'),
+        blank=False,
+        null=True,
+        help_text=_("""Mieluiten Gmail-osoite jota käytetään tiedotukseen sekä
+        tapahtumaan liittyvien tiedostojen, kuten aikataulun jakamiseen"""),
+    )
 
     allergies = models.TextField(_('erityisruokavalio'), blank=True)
 
@@ -50,11 +57,15 @@ class Submission(models.Model):
     game_title = models.CharField(_('peli'), max_length=100)
     publish_year = models.CharField(_('julkaisuvuosi'), max_length=10)
     console = models.CharField(_('laite/konsoli'), max_length=29)
-    console_display = models.CharField(max_length=29, blank=True, null=True)
+    console_display = models.CharField('emuloitava laite/konsoli', max_length=29, blank=True, null=True)
 
     # Run details
     category = models.CharField(_('kategoria'), max_length=100)
-    estimate = models.CharField(_('aika-arvio'), max_length=20)
+    estimate = models.CharField(
+        _('aika-arvio'),
+        max_length=20,
+        help_text=_('Arvioi runin kestolle yläraja (tunnit:minuutit) alusta loppuun viiden minuutin tarkkuudella.'),
+    )
     description = models.TextField(_('perustelut'), blank=True)
     video_link = models.URLField(_('videolinkki'), blank=True)
     scoreboard_link = models.URLField(_('rankinglistalinkki'), blank=True)
