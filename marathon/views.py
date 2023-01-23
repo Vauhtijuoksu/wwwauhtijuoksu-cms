@@ -24,7 +24,7 @@ def new_submission(request, event):
     if request.method == 'POST':
         event = get_object_or_404(Event, slug=event)
         player_form = PlayerForm(request.POST, prefix='player')
-        form = SubmissionForm(request.POST, )
+        form = SubmissionForm(request.POST)
 
         if form.is_valid() and player_form.is_valid():
             submission = form.save(commit=False)
@@ -33,10 +33,11 @@ def new_submission(request, event):
 
             player = player_form.save()
             submission.players.add(player)
+
+            request.session['previous_form'] = None
             # TODO: Show success message
         else:
-            # TODO: Show error message
-            pass
+            request.session['previous_form'] = request.POST
         return HttpResponseRedirect(request.GET.get('next', '/'))
     raise Http404('Tämmöstä ei oo')
 

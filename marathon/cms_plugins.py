@@ -33,8 +33,10 @@ class SubmissionFormPlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
 
-        form = SubmissionForm()
-        player_form = PlayerForm(prefix='player')
+        previous_data = context['request'].session.get('previous_form')
+
+        form = SubmissionForm(previous_data)
+        player_form = PlayerForm(previous_data, prefix='player')
 
         context['form'] = form
         context['player_form'] = player_form
