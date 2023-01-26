@@ -58,7 +58,7 @@ class Submission(models.Model):
     # Game info
     game_title = models.CharField(_('peli'), max_length=100)
     publish_year = models.CharField(_('julkaisuvuosi'), max_length=10)
-    console = models.CharField(_('laite/konsoli'), max_length=29)
+    console = models.CharField(_('laite/konsoli, jolla pelaat'), max_length=29)
     console_display = models.CharField('emuloitava laite/konsoli', max_length=29, blank=True, null=True)
 
     # Run details
