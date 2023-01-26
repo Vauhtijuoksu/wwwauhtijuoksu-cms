@@ -1,9 +1,11 @@
 from cms.models import CMSPlugin
 from django.db import models
 from django.conf import settings
+from django.core.validators import RegexValidator
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
+discord_validator = RegexValidator(r'^.{3,32}#[0-9]{4}$', _('Anna discord-tunnus muodossa <nimi>#<sarjanumero>'))
 
 class Player(models.Model):
     user = models.OneToOneField(
@@ -13,7 +15,7 @@ class Player(models.Model):
     )
 
     nickname = models.CharField(_('nimimerkki'), max_length=30)
-    discord = models.CharField(_('discord-tunnus'), max_length=50)
+    discord = models.CharField(_('discord-tunnus'), max_length=50, validators=[discord_validator])
     twitch = models.CharField(_('twitch-tunnus'), max_length=50, blank=True)
     gmail = models.EmailField(
         _('sähköpostiosoite'),
@@ -64,7 +66,7 @@ class Submission(models.Model):
     estimate = models.CharField(
         _('aika-arvio'),
         max_length=20,
-        help_text=_('Arvioi runin kestolle yläraja (tunnit:minuutit) alusta loppuun viiden minuutin tarkkuudella.'),
+        help_text=_('Arvioi suorituksen kestolle yläraja (tunnit:minuutit) alusta loppuun. Ota arviossa huomioon terveisten lähettämiset ja mahdolliset virheet runissa.'),
     )
     description = models.TextField(_('perustelut'), blank=True)
     video_link = models.URLField(_('videolinkki'), blank=True)
