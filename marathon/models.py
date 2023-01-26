@@ -66,7 +66,7 @@ class Submission(models.Model):
     estimate = models.CharField(
         _('aika-arvio'),
         max_length=20,
-        help_text=_('HH:MM-muodossa, esim 1 tunti 30 min -> 01:30. Jos haluat esitellä varsinaisen runin lisäksi muutakin pelistä, laske se mukaan arvioon'),
+        help_text=_('Arvioi suorituksen kestolle yläraja (tunnit:minuutit) alusta loppuun. Ota arviossa huomioon terveisten lähettämiset ja mahdolliset virheet runissa.'),
     )
     description = models.TextField(_('perustelut'), blank=True)
     video_link = models.URLField(_('videolinkki'), blank=True)
