@@ -1,76 +1,68 @@
+{{- define "vjcms.appEnv" -}}
+{{- if .Values.database.secret }}
+- name: POSTGRES_PASSWORD
+  valueFrom:
+    secretKeyRef:
+      name: {{ .Values.database.secret }}
+      key: password
+      optional: false
+{{- end -}}
+{{- if .Values.django.secret }}
+- name: DJANGO_SECRET_KEY
+  valueFrom:
+    secretKeyRef:
+      name: {{ .Values.django.secret }}
+      key: secret
+      optional: false
+{{- end -}}
+{{- if .Values.storage.secret }}
+- name: STORAGE_ACCOUNT_KEY
+  valueFrom:
+    secretKeyRef:
+      name: {{ .Values.storage.secret }}
+      key: key
+      optional: true
+{{- end -}}
+{{- end -}}
+{{- define "vjcms.envFrom" -}}
+- configMapRef:
+    name: django-env
+{{- end -}}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ include "vjcms.fullname" . }}
   labels:
-    app: cms
+    {{- include "vjcms.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cms
+      {{- include "vjcms.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: cms
+        {{- include "vjcms.selectorLabels" . | nindent 8 }}
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/django-env.yaml") . | sha256sum }}
         rollme: {{ randAlphaNum 5 | quote }}
     spec:
       containers:
-      - name: cms
-        image: "{{ .Values.image.registry }}{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.imagePullPolicy }}
+      - name: {{ include "vjcms.name" . }}
+        image: {{ include "vjcms.image" . }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - name: http
-          containerPort: 8000
+          containerPort: {{ .Values.gunicorn.listenPort }}
           protocol: TCP
         args:
         - gunicorn
-        - vauhtijuoksu.wsgi:application
+        - {{ .Values.gunicorn.application }}
         - --bind
-        - 0.0.0.0:8000
-        readinessProbe:
-          exec:
-            command:
-            - cat
-            - /tmp/ready
-          initialDelaySeconds: 15
-          periodSeconds: 5
-        volumeMounts:
-        - mountPath: {{ .Values.django.static_root }}
-          name: django-static
-        - mountPath: {{ .Values.django.sass_root }}
-          name: django-scss
-        - mountPath: {{ .Values.django.media_root }}
-          name: django-media
+        - 0.0.0.0:{{ .Values.gunicorn.listenPort }}
+        - --workers={{ .Values.gunicorn.workers }}
         envFrom:
-        - configMapRef:
-            name: django-env
+        {{- include "vjcms.envFrom" . | nindent 8 }}
         env:
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Values.database.secret }}
-              key: password
-              optional: false
-        - name: DJANGO_SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Values.django.secret }}
-              key: secret
-              optional: false
-        - name: STORAGE_ACCOUNT_KEY
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Values.storage.secret }}
-              key: key
-              optional: true
-      volumes:
-      - name: django-static
-        emptyDir: {}
-      - name: django-scss
-        emptyDir: {}
-      # TODO: Persistent media volume
-      - name: django-media
-        emptyDir: {}
+        {{- include "vjcms.appEnv" . | nindent 8 }}

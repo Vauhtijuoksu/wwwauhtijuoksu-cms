@@ -4,28 +4,43 @@ image:
   tag: "latest"
   pullPolicy: Always
 
-http:
-  host: cms.dev.vauhtijuoksu.fi
+ingress:
+  enabled: true
+  class: nginx
+  serverAlias: localhost
+  tls:
+    enabled: true
+    certIssuer: letsencrypt-prod
+  hosts:
+  - cms.dev.vauhtijuoksu.fi
+  - vjcms-kubedev.azureedge.net
 
 django:
   settings_module: vauhtijuoksu.settings.production
-  allowed_hosts: cms.dev.vauhtijuoksu.fi
+  allowed_hosts:
+  - localhost
+  - vjcms
+  - cms.dev.vauhtijuoksu.fi
+  - vjcms-kubedev.azureedge.net
   log_level: INFO
   secret: django
   sass_root: /home/cms/sassfiles
   static_root: /home/cms/staticfiles
-  static_url: https://vjcms-dev.azureedge.net/static/
+  static_url: https://vjcms-kubedev.azureedge.net/static/
   media_root: /home/cms/media
   media_url: https://vjcms-media.azureedge.net/media/
-  vj_api_url: vauhtijuoksu-api.default.svc.cluster.local
-  vj_legacy_api_url: ''
+  vj_api_url: https://api.dev.vauhtijuoksu.fi
 
-storage: 
+gunicorn:
+  application: vauhtijuoksu.wsgi:application
+  workers: 3
+  listenPort: 8080
+
+storage:
   backend: azure
   account_name: vjcms
   container: media
   secret: vjcms-storage
-
 
 database:
   address: vauhtijuoksu-db.postgres.database.azure.com
