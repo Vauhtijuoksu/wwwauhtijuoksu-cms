@@ -13,7 +13,7 @@ djangocms-picture = "*"
 djangocms-snippet = "*"
 djangocms-style = "*"
 django-bootstrap-v5 = "*"
-django-sass-processor = "*"
+django-sass-processor = "==1.1"
 libsass = "*"
 whitenoise = {extras = ["brotli"], version = "*"}
 django-compressor = "*"
