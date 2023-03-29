@@ -61,5 +61,7 @@ if config('STORAGE_BACKEND', default='azure') == 'azure':
     AZURE_ACCOUNT_NAME = config('STORAGE_ACCOUNT_NAME')
     AZURE_ACCOUNT_KEY = config('STORAGE_ACCOUNT_KEY')
     AZURE_CONTAINER = config('STORAGE_CONTAINER')
+    if config('STORAGE_CUSTOM_DOMAIN', default=None):
+        AZURE_CUSTOM_DOMAIN = config('STORAGE_CUSTOM_DOMAIN')
     AZURE_SSL = True
     AZURE_LOCATION = 'media'

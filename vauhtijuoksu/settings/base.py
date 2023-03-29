@@ -157,6 +157,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATICFILES_STORAGE = 'vauhtijuoksu.storage.WhiteNoiseStaticFilesStorage'
+SASS_PROCESSOR_STORAGE = STATICFILES_STORAGE
 
 # manage.py compilescss -> this folder
 SASS_PROCESSOR_ROOT = config('DJANGO_SASS_ROOT', default=str(BASE_DIR / 'sassfiles'))
@@ -168,7 +169,6 @@ STATICFILES_DIRS = [
     BASE_DIR / 'node_modules' / 'bootstrap' / 'dist' / 'js',
     SASS_PROCESSOR_ROOT,
 ]
-
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
