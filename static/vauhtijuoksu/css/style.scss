@@ -41,7 +41,7 @@ $table-row-color: $text-color;
 $table-border-color: $mimipalette3;
 
 $font-size-root: 22px;
-$donate_bar_height: 50px;
+$donate-bar-height: 50px;
 
 @import "static/css/base";
 
@@ -500,40 +500,4 @@ input[type='checkbox'] {
 }
 .copybtn:hover {
     color: $white;
-}
-
-.donate-bar{
-  width: 100%;
-  background-color: $black;
-  height: $donate_bar_height;
-  position: relative;
-  overflow: hidden;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 10px 0;
-}
-.donate-bar .bar{
-  background-color: $yellow;
-  height: 100%;
-  border-radius: 5px;
-  width: 100%;
-}
-.donate-bar .full{
-  background-color: $green;
-  width: 100%;
-}
-
-.donate-bar .bar-text{
-  position: absolute;
-  top: -2px;
-  line-height: $donate_bar_height;
-  padding: 0 20px;
-}
-.donate-bar .goal{
-  right: 0;
-}
-.donate-bar .bar-done{
-  right: 0;
-  left: 0;
-  text-align: center;
 }
