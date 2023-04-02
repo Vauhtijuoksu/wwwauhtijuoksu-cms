@@ -1,4 +1,29 @@
 // Global styles that should be applied to _all_ extending stylesheets
+$link-normal-color: $red !default;
+$link-hover-color: $violet !default;
+
+a {
+  text-decoration: none;
+  color: $link-normal-color;
+  &:visited {
+    text-decoration: none;
+    color: $link-normal-color;
+  }
+  &:hover {
+    text-decoration: none;
+    color: $link-hover-color;
+  }
+  &:active {
+    text-decoration: none;
+    color: $link-normal-color;
+  }
+}
+
+.divider{
+  width: 128px;
+  margin: auto;
+  display: block;
+}
 
 .required-field > label::after {
   opacity: 50%;
@@ -12,7 +37,13 @@
   display: none;
 }
 
+.sponsor{
+  margin: 30px 0;
+  max-width: 400px;
+  width: 90%;
+}
 
+@import 'menu';
 @import 'donatebar';
 @import 'incentives';
 @import 'effects';

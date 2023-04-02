@@ -145,3 +145,30 @@ $ttt-game-hover-bg-color: #4b596f;
 .tttimg > img{
   float: right;
 }
+
+.twitch-link{
+  color: $white;
+  white-space: nowrap;
+}
+.twitch-link:active{
+  color: $white;
+}
+.twitch-link:visited{
+  color: $white;
+}
+.twitch-link:hover{
+  color: $orange;
+}
+.twitch-link:hover .twitch-icon{
+  margin-top: -42px;
+}
+.twitch-link:hover .small-twitch-icon{
+  margin-top: -20px;
+}
+.twitch-icon{
+  width: 26px;
+  margin-top: -30px;
+}
+.small-twitch-icon{
+  margin-top: -15px;
+}
