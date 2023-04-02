@@ -4,10 +4,7 @@ import logging
 
 from django.conf import settings
 
-import requests
-import requests_cache
-
-requests_cache.install_cache(expire_after=60)
+from requests_cache import CachedSession
 
 logger = logging.getLogger(__name__)
 
@@ -16,10 +13,11 @@ class VJClient:
         if not base_url:
             base_url = settings.VJ_API_URL
         self.base_url = base_url.strip('/')
+        self.session = CachedSession(expire_after=60)
 
     def get(self, path):
         url = f'{self.base_url}/{path}'
-        r = requests.get(url)
+        r = self.session.get(url)
         if r.from_cache:
             logger.info(f'Using cached response for {url}')
         return r.json()

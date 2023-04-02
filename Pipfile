@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-Django = ">=3.2.13"
+Django = "~=3.2"
 django-filer = "*"
 djangocms-text-ckeditor = "*"
 djangocms-link = "*"
@@ -13,14 +13,14 @@ djangocms-picture = "*"
 djangocms-snippet = "*"
 djangocms-style = "*"
 django-bootstrap-v5 = "*"
-django-sass-processor = "*"
+django-sass-processor = "==1.1"
 libsass = "*"
 whitenoise = {extras = ["brotli"], version = "*"}
 django-compressor = "*"
 python-decouple = "*"
 psycopg2 = "*"
 requests = "*"
-django-storages = {extras = ["azure"], version = "*"}
+django-storages = {extras = ["azure"], version = "~=1.13"}
 python-dateutil = "*"
 requests-cache = "*"
 gunicorn = "*"
