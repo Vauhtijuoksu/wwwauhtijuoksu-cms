@@ -8,5 +8,12 @@
   font-size: .75em;
 }
 
+.hide {
+  display: none;
+}
+
+
 @import 'donatebar';
 @import 'incentives';
+@import 'effects';
+@import 'timetable';
