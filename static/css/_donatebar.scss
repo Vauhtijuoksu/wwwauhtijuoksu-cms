@@ -1,16 +1,3 @@
-// Donate bar
-$donate-bar-height: 50px !default;
-
-$donate-bar-bg-color: $black !default;
-$donate-bar-color: $warning !default;
-$donate-bar-text-color: $primary !default;
-$donate-bar-color-full: $success !default;
-$donate-bar-text-color-full: $donate-bar-text-color !default;
-
-$donate-bar-padding: 5px;
-$donate-bar-margin: 10px 0 !default;
-$donate-bar-border-radius: 5px !default;
-
 .donate-bar {
   width: 100%;
   color: $donate-bar-text-color;
@@ -21,33 +8,33 @@ $donate-bar-border-radius: 5px !default;
   border-radius: $donate-bar-border-radius;
   padding: $donate-bar-padding;
   margin: $donate-bar-margin;
-}
-
-.donate-bar .bar{
-  background-color: $donate-bar-color;
-  height: 100%;
-  border-radius: $donate-bar-border-radius;
-}
-
-.donate-bar .full{
-  background-color: $donate-bar-color-full;
-  width: 100%;
-}
-
-.donate-bar .bar-text{
-  position: absolute;
-  top: -2px;
-  line-height: $donate_bar_height;
-  padding: 0 20px;
-}
-
-.donate-bar .goal {
-  right: 0;
-}
-
-.donate-bar .bar-done{
-  right: 0;
-  left: 0;
-  color: $donate-bar-text-color-full;
-  text-align: center;
+  
+  .bar {
+    background-color: $donate-bar-color;
+    height: 100%;
+    border-radius: $donate-bar-border-radius;
+  }
+  
+  .bar.full {
+    background-color: $donate-bar-color-full;
+    width: 100%;
+  }
+  
+  .bar-text {
+    position: absolute;
+    top: -2px;
+    line-height: $donate_bar_height;
+    padding: 0 20px;
+  }
+  
+  .goal {
+    right: 0;
+  }
+  
+  .bar-done{
+    right: 0;
+    left: 0;
+    color: $donate-bar-text-color-full;
+    text-align: center;
+  }
 }

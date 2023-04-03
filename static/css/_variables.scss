@@ -10,6 +10,7 @@ $orange: #ff8c5c !default;
 $red: #ff79ae !default;
 $yellow: #fff982 !default;
 
+// Theme color palette:
 $palette-darker: #180219 !default;
 $palette-dark: #34083d !default;
 $palette-c1: #b70b86 !default;
@@ -19,7 +20,13 @@ $palette-c2: #5325a0 !default;
 $palette-c2-light: tint-color($palette-c2, 30) !default;
 $palette-c2-dark: shade-color($palette-c2, 30) !default;
 
+// Sizes
 $font-size-root: 22px !default;
+$increment-xs: 5px !default;
+$increment-sm: 2*$increment-xs !default;
+$increment-md: 2*$increment-sm !default;
+$increment-lg: 3*$increment-sm !default;
+$increment-xl: 5*$increment-sm !default;
 
 $body-bg: $palette-dark !default;
 $body-color: $palette-c2-light !default;
@@ -31,8 +38,12 @@ $light: $palette-c2-light !default;
 
 $title-color: $primary !default;
 
-$content-background-color: $palette-darker !default;
-$content-shadow: $content-background-color !default;
+$content-bg: $palette-darker !default;
+$content-shadow: $content-bg !default;
+$content-padding: $increment-lg $increment-md $increment-md !default;
+$content-text-align: center !default;
+$content-margin: $increment-sm auto $increment-lg!default;
+$content-filter: drop-shadow(6px 6px 0px $content-shadow) !default;
 
 $table-header-color: $title-color !default;
 $table-row-color: $body-color !default;
@@ -46,3 +57,55 @@ $link-hover-decoration: none !default;
 $menu-link-drop-shadow: $palette-darker !default;
 $menu-link-color: $link-color !default;
 $menu-link-hover-color: $link-hover-color !default;
+
+$divider-width: 128px !default;
+
+$sponsor-margin: $increment-lg 0 !default;
+$sponsor-max-width: 400px !default;
+$sponsor-width: 90% !default;
+
+// Incentives
+$incentive-label-color: $primary !default;
+$incentive-dropdown-text-color: $primary !default;
+$incentive-dropdown-hover-color: $secondary !default;
+$incentive-closed-text-color: $secondary !default;
+
+$incentive-button-color: $secondary !default;
+$incentive-button-font-size: 3rem !default;
+
+$incentive-copy-button-color: $secondary !default;
+$incentive-copy-button-hover-color: $white !default;
+
+$incentive-checkbox-size: $increment-lg !default;
+
+$incentive-bar-height: $increment-xs !default;
+$incentive-bar-border-radius: 2px !default;
+$incentive-bar-margin-top: -$increment-xs !default;
+$incentive-bar-margin-bottom: $increment-xs !default;
+$incentive-bar-bg-color: $black !default;
+$incentive-bar-fill-color: $yellow !default;
+
+$incentive-count-text-color: $primary !default;
+
+
+// Donate bar
+$donate-bar-height: $increment-xl !default;
+
+$donate-bar-bg-color: $black !default;
+$donate-bar-color: $yellow !default;
+$donate-bar-text-color: $primary !default;
+$donate-bar-color-full: $green !default;
+$donate-bar-text-color-full: $donate-bar-text-color !default;
+
+$donate-bar-padding: $increment-xs;
+$donate-bar-margin: $increment-sm 0 !default;
+$donate-bar-border-radius: $increment-xs !default;
+
+$timetable-date-font-size: 3rem !default;
+$timetable-row-margin-bottom: 1.5rem !default;
+$timetable-left-width: 30% !default;
+$timetable-blob-width: 15% !default;
+$timetable-right-width: 55% !default;
+
+$ttt-game-bg-color: $palette-darker !default;
+$ttt-game-hover-bg-color: $palette-dark !default;

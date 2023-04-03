@@ -6,15 +6,15 @@ body, html{
 }
 
 .content {
-  background-color: $content-background-color;
-  text-align: center;
-  padding: 30px 20px 20px;
-  margin: 10px auto 30px;
-  filter: drop-shadow(6px 6px 0px $content-shadow);
+  background-color: $content-bg;
+  text-align: $content-text-align;
+  padding: $content-padding;
+  margin: $content-margin;
+  filter: $content-filter;
 }
 
-.divider{
-  width: 128px;
+.divider {
+  width: $divider-width;
   margin: auto;
   display: block;
 }
@@ -32,9 +32,9 @@ body, html{
 }
 
 .sponsor {
-  margin: 30px 0;
-  max-width: 400px;
-  width: 90%;
+  margin: $sponsor-margin;
+  max-width: $sponsor-max-width;
+  width: $sponsor-width;
 }
 
 .btn-primary:hover {
