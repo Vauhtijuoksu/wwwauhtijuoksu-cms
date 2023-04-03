@@ -1,7 +1,3 @@
-$menu-link-drop-shadow: $black !default;
-$menu-link-normal-color: $link-normal-color !default;
-$menu-link-hover-color: $link-hover-color !default;
-
 .menu-wrapper {
   padding-bottom: 70px;
   padding-top: 40px;
@@ -28,12 +24,12 @@ $menu-link-hover-color: $link-hover-color !default;
     }
 
     .menu-link {
-      color: $menu-link-normal-color;
+      color: $menu-link-color;
       padding-left: 20px;
       padding-right: 20px;
 
       &:visited {
-        color: $menu-link-normal-color;
+        color: $menu-link-color;
       }
 
       &:hover {
@@ -41,7 +37,7 @@ $menu-link-hover-color: $link-hover-color !default;
       }
 
       &:active {
-        color: $menu-link-normal-color;
+        color: $menu-link-color;
       }
     }
   }
