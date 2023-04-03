@@ -22,20 +22,20 @@ $mimipalette8: #271685;
 $mimipalette9: #170358;
 $mimipalette10: #436274;
 
-$palette-darker: $mimipalette1;
-$palette-dark: $mimipalette2;
-$palette-c1-light: $mimipalette5;
-$palette-c1: $mimipalette4;
-$palette-c1-dark: $mimipalette3;
-$palette-c2-light: $mimipalette6;
-$palette-c2: $mimipalette7;
-$palette-c2-dark: $mimipalette8;
+$darker: $mimipalette1;
+$dark: $mimipalette2;
+$color-1: $mimipalette4;
+$color-2: $mimipalette7;
+$color-1-light: $mimipalette5;
+$color-1-dark: $mimipalette3;
+$color-2-light: $mimipalette6;
+$color-2-dark: $mimipalette8;
 
 $primary: $mimipalette4;
 $secondary: $mimipalette8;
 
 $font-size-root: 22px;
-$donate-bar-height: 50px;
+$increment-sm: 5px;
 
 @import "static/css/base";
 
@@ -60,26 +60,20 @@ body {
   > img {
     height: 100px;
   }
-}
-
-@media only screen and (max-width: 820px) {
-  .title.title.bigletters {
+  @media only screen and (max-width: 820px) {
     font-size: 48px;
     > img {
       height: 80px;
     }
   }
-}
-@media only screen and (max-width: 620px) {
-  .title.bigletters {
+  
+  @media only screen and (max-width: 620px) {
     font-size: 32px;
     > img {
       height: 50px;
     }
   }
-}
-@media only screen and (max-width: 420px) {
-  .title.bigletters {
+  @media only screen and (max-width: 420px) {
     font-size: 22px;
     > img {
       height: 30px;
