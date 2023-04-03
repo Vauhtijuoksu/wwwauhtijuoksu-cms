@@ -1,1 +1,44 @@
 // Default variables here
+
+$white: #ffffff !default;
+$black: #000871 !default;
+$darkblue: #000871 !default;
+$violet: #8854f3 !default;
+$blue: #639bff !default;
+$green: #63ffba !default;
+$orange: #ff8c5c !default;
+$red: #ff79ae !default;
+$yellow: #fff982 !default;
+
+$palette-darker: #180219 !default;
+$palette-dark: #34083d !default;
+$palette-c1-light: #dc5bb0 !default;
+$palette-c1-medium: #b70b86 !default;
+$palette-c1-dark: #770052 !default;
+$palette-c2-light: #875bbf !default;
+$palette-c2-medium: #5325a0 !default;
+$palette-c2-dark: #271685 !default;
+
+$font-size-root: 22px !default;
+
+$primary-color: $palette-c1-medium !default;
+$secondary-color: $palette-c2-dark !default;
+
+$background-color: $palette-dark !default;
+$content-background-color: $palette-darker !default;
+$content-shadow: $content-background-color !default;
+$title-color: $palette-c1-medium !default;
+$link-normal-color: $palette-c1-light !default;
+$text-color: $palette-c2-light !default;
+
+$menu-link-drop-shadow: $palette-dark !default;
+$link-hover-color: $palette-c2-light !default;
+$menu-link-normal-color: $palette-c1-light !default;
+$menu-link-hover-color: $palette-c2-medium !default;
+
+$table-header-color: $title-color !default;
+$table-row-color: $text-color !default;
+$table-border-color: $palette-c1-dark !default;
+
+$link-normal-color: $red !default;
+$link-hover-color: $violet !default;

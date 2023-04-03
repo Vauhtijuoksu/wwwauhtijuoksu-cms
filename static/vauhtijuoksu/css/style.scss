@@ -22,6 +22,15 @@ $mimipalette8: #271685;
 $mimipalette9: #170358;
 $mimipalette10: #436274;
 
+$palette-darker: $mimipalette1;
+$palette-dark: $mimipalette2;
+$palette-c1-light: $mimipalette5;
+$palette-c1-medium: $mimipalette4;
+$palette-c1-dark: $mimipalette3;
+$palette-c2-light: $mimipalette6;
+$palette-c2-medium: $mimipalette7;
+$palette-c2-dark: $mimipalette8;
+
 $primary-color: $mimipalette4;
 $secondary-color: $mimipalette8;
 
@@ -53,100 +62,44 @@ $donate-bar-height: 50px;
     src: url('../misc/Offsett.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'orangekid';
-    src: url('../misc/orangekid.ttf') format('truetype');
-}
-
-body, html{
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background-image: url("../img/bg.png");
-  background-color: $background-color;
-  color: $text-color;
 }
 
-.title{
+.title.bigletters {
   margin-top: 10px;
   font-family: 'offsett';
   color: $title-color;
   justify-content: space-around;
   display: flex;
   font-size: 84px;
-}
-.title > img{
-  height: 100px;
-}
-
-.content{
-  background-color: $content-background-color;
-  text-align: center;
-  padding: 30px 20px 20px;
-  margin: 10px auto 30px;
-  filter: drop-shadow(6px 6px 0px $content-shadow);
-}
-
-.btn-primary{
-  background-color: $primary-color;
-  border-color: $primary-color;
-}
-
-.btn-primary:hover{
-  background-color: $secondary-color;
-  border-color: $secondary-color;
-}
-
-.form-check-input:checked {
-    background-color: $primary-color;
-    border-color: $primary-color;
-}
-
-.table {
-  color: $black;
-  border-color: $black;
-}
-
-.table.games {
-  border-color: $table-border-color;
-  th {
-    color: $table-header-color;
+  > img {
+    height: 100px;
   }
-  tr {
-    color: $table-row-color;
-  }
-}
-
-
-.menu > div{
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 @media only screen and (max-width: 820px) {
-  .title{
+  .title.title.bigletters {
     font-size: 48px;
-  }
-  .title > img {
-    height: 80px;
+    > img {
+      height: 80px;
+    }
   }
 }
 @media only screen and (max-width: 620px) {
-  .title{
+  .title.bigletters {
     font-size: 32px;
-  }
-  .title > img {
-    height: 50px;
+    > img {
+      height: 50px;
+    }
   }
 }
 @media only screen and (max-width: 420px) {
-  .title{
+  .title.bigletters {
     font-size: 22px;
-  }
-  .title > img {
-    height: 30px;
+    > img {
+      height: 30px;
+    }
   }
 }
 

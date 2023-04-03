@@ -22,6 +22,11 @@ $menu-link-hover-color: $link-hover-color !default;
     line-height: 56px;
     text-shadow: 2px 2px $menu-link-drop-shadow;
 
+    > div {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
     .menu-link {
       color: $menu-link-normal-color;
       padding-left: 20px;

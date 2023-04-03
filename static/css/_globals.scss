@@ -1,6 +1,22 @@
 // Global styles that should be applied to _all_ extending stylesheets
-$link-normal-color: $red !default;
-$link-hover-color: $violet !default;
+
+body, html{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.content {
+  background-color: $content-background-color;
+  text-align: center;
+  padding: 30px 20px 20px;
+  margin: 10px auto 30px;
+  filter: drop-shadow(6px 6px 0px $content-shadow);
+}
 
 a {
   text-decoration: none;
@@ -42,6 +58,37 @@ a {
   max-width: 400px;
   width: 90%;
 }
+
+.btn-primary{
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.btn-primary:hover{
+  background-color: $secondary-color;
+  border-color: $secondary-color;
+}
+
+.form-check-input:checked {
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+
+.table {
+  color: $black;
+  border-color: $black;
+  
+  &.games {
+    border-color: $table-border-color;
+    th {
+      color: $table-header-color;
+    }
+    tr {
+      color: $table-row-color;
+    }
+  }
+}
+
 
 @import 'menu';
 @import 'donatebar';
