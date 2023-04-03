@@ -27,13 +27,14 @@ $secondary-color: $mimipalette8;
 
 $content-background-color: $mimipalette1;
 $background-color: $mimipalette2;
-$menu-link-drop-shadow: $mimipalette2;
 $content-shadow: $mimipalette1;
 $title-color: $mimipalette4;
 $link-normal-color: $mimipalette5;
-$menu-link-normal-color: $mimipalette5;
 $text-color: $mimipalette6;
+
+$menu-link-drop-shadow: $mimipalette2;
 $link-hover-color: $mimipalette6;
+$menu-link-normal-color: $mimipalette5;
 $menu-link-hover-color: $mimipalette7;
 
 $table-header-color: $title-color;
@@ -68,13 +69,6 @@ body {
   color: $text-color;
 }
 
-
-.divider{
-  width: 128px;
-  display: block;
-  margin: 10px;
-}
-
 .title{
   margin-top: 10px;
   font-family: 'offsett';
@@ -93,12 +87,6 @@ body {
   padding: 30px 20px 20px;
   margin: 10px auto 30px;
   filter: drop-shadow(6px 6px 0px $content-shadow);
-}
-
-.divider{
-  width: 128px;
-  margin: auto;
-  display: block;
 }
 
 .btn-primary{
@@ -132,38 +120,6 @@ body {
 }
 
 
-.menu-wrapper{
-  padding-bottom: 70px;
-  padding-top: 40px;
-}
-
-.fullscreen .menu-wrapper{
-  margin-top: -230px;
-  padding-bottom: 0px;
-  min-height: 0px;
-
-}
-
-
-.menu{
-  display: flex;
-  z-index: 10000;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: 32px;
-  line-height: 56px;
-  text-shadow: 2px 2px $menu-link-drop-shadow;
-}
-
-.twitch-icon{
-  width: 26px;
-  margin-top: -30px;
-}
-.small-twitch-icon{
-  margin-top: -15px;
-}
-
 .menu > div{
   padding-left: 20px;
   padding-right: 20px;
@@ -193,61 +149,4 @@ body {
     height: 30px;
   }
 }
-a{
-  text-decoration: none;
-  color: $link-normal-color;
-}
-a:visited{
-  text-decoration: none;
-  color: $link-normal-color;
-}
-a:hover{
-  text-decoration: none;
-  color: $link-hover-color;
-}
-a:active{
-  text-decoration: none;
-  color: $link-normal-color;
-}
 
-.menu-link {
-  color: $menu-link-normal-color;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.menu-link:visited{
-  color: $menu-link-normal-color;
-}
-.menu-link:hover {
-  color: $menu-link-hover-color;
-}
-.menu-link:active{
-  color: $menu-link-normal-color;
-}
-
-.twitch-link{
-  color: $white;
-  white-space: nowrap;
-}
-.twitch-link:active{
-  color: $white;
-}
-.twitch-link:visited{
-  color: $white;
-}
-.twitch-link:hover{
-  color: $orange;
-}
-.twitch-link:hover .twitch-icon{
-  margin-top: -42px;
-}
-.twitch-link:hover .small-twitch-icon{
-  margin-top: -20px;
-}
-
-
-.sponsor{
-  margin: 30px 0;
-  max-width: 400px;
-  width: 90%;
-}
