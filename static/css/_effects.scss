@@ -1,0 +1,25 @@
+@keyframes float {
+	0% {
+		margin-top: 0;
+	}
+	50% {
+        margin-top: 20px;
+	}
+	100% {
+		margin-top: 0;
+	}
+}
+
+.float_chars {
+    z-index: -20;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    height: 100%;
+    margin-top: -250px;
+
+    .floaty{
+        animation: float 6s ease-in-out infinite;
+    }
+}

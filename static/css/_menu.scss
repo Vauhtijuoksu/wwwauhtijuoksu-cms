@@ -1,0 +1,44 @@
+.menu-wrapper {
+  padding-bottom: 70px;
+  padding-top: 40px;
+
+  &.fullscreen {
+    margin-top: -230px;
+    padding-bottom: 0px;
+    min-height: 0px;
+  }
+
+  .menu {
+    display: flex;
+    z-index: 10000;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 32px;
+    line-height: 56px;
+    text-shadow: 2px 2px $menu-link-drop-shadow;
+
+    > div {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .menu-link {
+      color: $menu-link-color;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      &:visited {
+        color: $menu-link-color;
+      }
+
+      &:hover {
+        color: $menu-link-hover-color;
+      }
+
+      &:active {
+        color: $menu-link-color;
+      }
+    }
+  }
+}

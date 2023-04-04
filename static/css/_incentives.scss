@@ -1,0 +1,89 @@
+.incentives {
+  text-align: left;
+  label {
+    color: $incentive-label-color;
+  }
+}
+
+.incentive_dropdown {
+    min-height: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $incentive-dropdown-text-color;
+}
+
+.i_closed {
+    color: $incentive-closed-text-color;
+
+}
+
+.incentive_dropdown:hover {
+    color: $incentive-dropdown-hover-color;
+}
+
+.incentive_dropdown_text {
+  text-decoration: underline;
+}
+
+.intend {
+  margin-left: 20px;
+}
+.rotate {
+    transform: rotate(90deg);
+}
+
+input[type='checkbox'] {
+    width: $incentive-checkbox-size;
+    height: $incentive-checkbox-size;
+    background: $white;
+}
+
+.incentive_bar {
+  height: $incentive-bar-height;
+  border-radius: $incentive-bar-border-radius;
+  box-sizing: border-box;
+  margin-top: $incentive-bar-margin-top;
+  margin-bottom: $incentive-bar-margin-bottom;
+  background-color: $incentive-bar-bg-color;
+}
+
+.incentive_bar_fill {
+  background-color: $incentive-bar-fill-color;
+  height: 100%;
+}
+
+.highlight {
+    color: #8feeee;
+}
+
+.incentive_code {
+    font-size: 128px;
+}
+
+.multiincentive {
+  margin-top: 50px;
+  #incentivecount {
+      color: $incentive-count-text-color;
+  }
+}
+
+.incentive_gen_button {
+  background-color: $incentive-button-color;
+  font-size: $incentive-button-font-size;
+  padding: 20px 60px;
+  margin: 50px 0;
+}
+
+.copybtn {
+    margin-top: 30px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: $incentive-copy-button-color;
+}
+
+.copybtn:hover {
+    color: $incentive-copy-button-hover-color;
+}

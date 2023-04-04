@@ -1,5 +1,24 @@
 // Global styles that should be applied to _all_ extending stylesheets
 
+body, html{
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  background-color: $content-bg;
+  text-align: $content-text-align;
+  padding: $content-padding;
+  margin: $content-margin;
+  filter: $content-filter;
+}
+
+.divider {
+  width: $divider-width;
+  margin: auto;
+  display: block;
+}
+
 .required-field > label::after {
   opacity: 50%;
   content: '*';
@@ -7,3 +26,42 @@
   vertical-align: super;
   font-size: .75em;
 }
+
+.hide {
+  display: none;
+}
+
+.sponsor {
+  margin: $sponsor-margin;
+  max-width: $sponsor-max-width;
+  width: $sponsor-width;
+}
+
+.btn-primary:hover {
+    background-color: $secondary;
+    border-color: $secondary;
+}
+
+.form-check-input:checked {
+    background-color: $primary;
+    border-color: $primary;
+}
+
+.table {
+  color: $table-color;
+  border-color: $table-border-color;
+  
+  th {
+    color: $table-header-color;
+  }
+  tr {
+    color: $table-row-color;
+  }
+}
+
+
+@import 'menu';
+@import 'donatebar';
+@import 'incentives';
+@import 'effects';
+@import 'timetable';

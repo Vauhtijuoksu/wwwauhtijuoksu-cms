@@ -22,26 +22,20 @@ $mimipalette8: #271685;
 $mimipalette9: #170358;
 $mimipalette10: #436274;
 
-$primary-color: $mimipalette4;
-$secondary-color: $mimipalette8;
+$darker: $mimipalette1;
+$dark: $mimipalette2;
+$color-1: $mimipalette4;
+$color-2: $mimipalette7;
+$color-1-light: $mimipalette5;
+$color-1-dark: $mimipalette3;
+$color-2-light: $mimipalette6;
+$color-2-dark: $mimipalette8;
 
-$content-background-color: $mimipalette1;
-$background-color: $mimipalette2;
-$menu-link-drop-shadow: $mimipalette2;
-$content-shadow: $mimipalette1;
-$title-color: $mimipalette4;
-$link-normal-color: $mimipalette5;
-$menu-link-normal-color: $mimipalette5;
-$text-color: $mimipalette6;
-$link-hover-color: $mimipalette6;
-$menu-link-hover-color: $mimipalette7;
-
-$table-header-color: $title-color;
-$table-row-color: $text-color;
-$table-border-color: $mimipalette3;
+$primary: $mimipalette4;
+$secondary: $mimipalette8;
 
 $font-size-root: 22px;
-$donate_bar_height: 50px;
+$increment-xs: 5px;
 
 @import "static/css/base";
 
@@ -52,488 +46,38 @@ $donate_bar_height: 50px;
     src: url('../misc/Offsett.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'orangekid';
-    src: url('../misc/orangekid.ttf') format('truetype');
-}
-
-body, html{
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background-image: url("../img/bg.png");
-  background-color: $background-color;
-  color: $text-color;
 }
 
-
-.divider{
-  width: 128px;
-  display: block;
-  margin: 10px;
-}
-
-.title{
+.title.bigletters {
   margin-top: 10px;
   font-family: 'offsett';
   color: $title-color;
   justify-content: space-around;
   display: flex;
   font-size: 84px;
-}
-.title > img{
-  height: 100px;
-}
-
-.content{
-  background-color: $content-background-color;
-  text-align: center;
-  padding: 30px 20px 20px;
-  margin: 10px auto 30px;
-  filter: drop-shadow(6px 6px 0px $content-shadow);
-}
-
-.divider{
-  width: 128px;
-  margin: auto;
-  display: block;
-}
-
-.btn-primary{
-  background-color: $primary-color;
-  border-color: $primary-color;
-}
-
-.btn-primary:hover{
-  background-color: $secondary-color;
-  border-color: $secondary-color;
-}
-
-.form-check-input:checked {
-    background-color: $primary-color;
-    border-color: $primary-color;
-}
-
-.table {
-  color: $black;
-  border-color: $black;
-}
-
-.table.games {
-  border-color: $table-border-color;
-  th {
-    color: $table-header-color;
+  > img {
+    height: 100px;
   }
-  tr {
-    color: $table-row-color;
-  }
-}
-
-
-.menu-wrapper{
-  padding-bottom: 70px;
-  padding-top: 40px;
-}
-
-.fullscreen .menu-wrapper{
-  margin-top: -230px;
-  padding-bottom: 0px;
-  min-height: 0px;
-
-}
-
-
-.menu{
-  display: flex;
-  z-index: 10000;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: 32px;
-  line-height: 56px;
-  text-shadow: 2px 2px $menu-link-drop-shadow;
-}
-
-.twitch-icon{
-  width: 26px;
-  margin-top: -30px;
-}
-.small-twitch-icon{
-  margin-top: -15px;
-}
-
-.menu > div{
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-@media only screen and (max-width: 820px) {
-  .title{
+  @media only screen and (max-width: 820px) {
     font-size: 48px;
+    > img {
+      height: 80px;
+    }
   }
-  .title > img {
-    height: 80px;
-  }
-}
-@media only screen and (max-width: 620px) {
-  .title{
+  
+  @media only screen and (max-width: 620px) {
     font-size: 32px;
+    > img {
+      height: 50px;
+    }
   }
-  .title > img {
-    height: 50px;
-  }
-}
-@media only screen and (max-width: 420px) {
-  .title{
+  @media only screen and (max-width: 420px) {
     font-size: 22px;
+    > img {
+      height: 30px;
+    }
   }
-  .title > img {
-    height: 30px;
-  }
-}
-a{
-  text-decoration: none;
-  color: $link-normal-color;
-}
-a:visited{
-  text-decoration: none;
-  color: $link-normal-color;
-}
-a:hover{
-  text-decoration: none;
-  color: $link-hover-color;
-}
-a:active{
-  text-decoration: none;
-  color: $link-normal-color;
 }
 
-.menu-link {
-  color: $menu-link-normal-color;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.menu-link:visited{
-  color: $menu-link-normal-color;
-}
-.menu-link:hover {
-  color: $menu-link-hover-color;
-}
-.menu-link:active{
-  color: $menu-link-normal-color;
-}
-
-.twitch-link{
-  color: $white;
-  white-space: nowrap;
-}
-.twitch-link:active{
-  color: $white;
-}
-.twitch-link:visited{
-  color: $white;
-}
-.twitch-link:hover{
-  color: $orange;
-}
-.twitch-link:hover .twitch-icon{
-  margin-top: -42px;
-}
-.twitch-link:hover .small-twitch-icon{
-  margin-top: -20px;
-}
-
-.timetable{
-    display: flex;
-    flex-direction: column;
-}
-
-.ttplay{
-    display: flex;
-    flex-direction: row;
-}
-
-.playleft{
-    display: inline-block;
-    text-align: right;
-    width: 30%;
-    margin-bottom: 30px;
-    white-space: nowrap;
-}
-
-.playblob{
-
-    display: flex;
-    width: 15%;
-}
-.timetable-char {
-  position: relative;
-  width: 100%;
-}
-.timetable-char img{
-  position: absolute;
-  right: 5%;
-  top: 50%;
-  z-index: -10;
-}
-
-.char{
-    position: absolute;
-    transform: translate(-50%, -50%) scale(2);
-    filter: drop-shadow(0px 1px 0px $black) drop-shadow(1px 0px 0px $black) drop-shadow(0px -1px 0px $black) drop-shadow(-1px 0px 0px $black)  drop-shadow(0px 1px 0px $black) drop-shadow(1px 0px 0px $black) drop-shadow(0px -1px 0px $black) drop-shadow(-1px 0px 0px $black);
-}
-.floaty{
-  animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-	0% {
-		margin-top: 0;
-	}
-	50% {
-        margin-top: 20px;
-	}
-	100% {
-		margin-top: 0;
-	}
-}
-
-.playright{
-    display: inline-block;
-    text-align: left;
-    width: 55%;
-    margin-bottom: 30px;
-}
-
-.playdate{
-  text-align: left;
-  font-size: 64px;
-}
-.playgame{
-  font-size: 52px;
-  line-height: 40px;
-}
-
-.float_chars{
-  z-index: -20;
-  position: absolute;
-  overflow: hidden;
-  left: 0;
-  right: 0;
-  height: 100%;
-  margin-top: -250px;
-}
-.sponsor{
-  margin: 30px 0;
-  max-width: 400px;
-  width: 90%;
-}
-
-.timestamps{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 80px;
-}
-.timestamps > div{
-  height: 2px;
-  line-height: 2px;
-}
-.tabletimetable {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100vh;
-  gap: 10px;
-}
-.fullscreen .tabletimetable {
-  height: 200vh;
-}
-.tttheader{
-  display: flex;
-  flex-direction: row;
-  gap: 10px
-}
-.tttcontent{
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  gap: 10px
-}
-.tttday{
-  flex: 1;
-  position: relative;
-  min-width: 0;
-  height: 100%;
-}
-.tttgame{
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-  padding-right: 20px;
-  background-color: rgba(75, 89, 111, 0.56);
-  border: $black 1px solid;
-}
-.tttgame:hover{
-  overflow: visible;
-  z-index: 100;
-  padding-left: 20px;
-  padding-right: 0px;
-}
-.end-cut {
-  border-bottom: 2px dotted  $black;
-}
-.start-cut {
-  border-top: 2px dotted  $black;
-}
-.tttgame >div{
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 20px;
-  line-height: 20px;
-  text-align: left;
-  text-shadow: 1px 1px $black;
-  padding-bottom: 10px;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: row;
-  min-height: 100%;
-}
-.tttgame:hover > div{
-  box-shadow: 2px 2px 3px $black;
-  border: $black 1px solid;
-  background-color: #4b596f;
-}
-.tttgame p {
-  margin-bottom: 12px;
-}
-.tttimg{
-  width: 56px;
-  padding-right: 4px;
-}
-.tttimg > img{
-  float: right;
-}
-
-.hide {
-  display: none;
-}
-
-.incentives {
-  text-align: left;
-}
-
-.incentives label{
-  color: $orange;
-}
-
-.incentive_dropdown{
-    min-height: 30px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: $orange;
-}
-.i_closed{
-    color: #728697;
-
-}
-
-.incentive_dropdown:hover{
-    color: #8feeee;
-}
-.incentive_dropdown_text{
-  text-decoration: underline;
-}
-.intend{
-  margin-left: 20px;
-}
-.rotate{
-    transform: rotate(90deg);
-}
-
-input[type='checkbox'] {
-    width:30px;
-    height:30px;
-    background: $white;
-}
-.incentive_bar{
-  height: 5px;
-  border-radius: 2px;
-  box-sizing: border-box;
-  margin-top: -5px;
-  margin-bottom: 5px;
-  background-color: $black;
-}
-.incentive_bar_fill{
-  background-color: $orange;
-  height: 100%;
-
-}
-.highlight{
-    color: #8feeee;
-}
-
-.incentive_code{
-    font-size: 128px;
-}
-#incentivecount{
-    color: $orange;
-}
-.multiincentive{
-  margin-top: 50px;
-}
-.incentive_gen_button{
-    background-color: #da9f8a;
-  font-size: 64px;
-  padding: 20px 60px;
-  margin: 50px 0;
-}
-.copybtn {
-    margin-top: 30px;
-    text-decoration: underline;
-    cursor: pointer;
-    margin-bottom: 20px;
-    color: $orange;
-}
-.copybtn:hover {
-    color: $white;
-}
-
-.donate-bar{
-  width: 100%;
-  background-color: $black;
-  height: $donate_bar_height;
-  position: relative;
-  overflow: hidden;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 10px 0;
-}
-.donate-bar .bar{
-  background-color: $yellow;
-  height: 100%;
-  border-radius: 5px;
-  width: 100%;
-}
-.donate-bar .full{
-  background-color: $green;
-  width: 100%;
-}
-
-.donate-bar .bar-text{
-  position: absolute;
-  top: -2px;
-  line-height: $donate_bar_height;
-  padding: 0 20px;
-}
-.donate-bar .goal{
-  right: 0;
-}
-.donate-bar .bar-done{
-  right: 0;
-  left: 0;
-  text-align: center;
-}
