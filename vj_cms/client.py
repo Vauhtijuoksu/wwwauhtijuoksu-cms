@@ -29,6 +29,11 @@ class VJClient:
             game['start_time'] = datetime.strptime(game['start_time'], "%Y-%m-%dT%H:%M:%S.%f%z")
             game['end_time'] = datetime.strptime(game['end_time'], "%Y-%m-%dT%H:%M:%S.%f%z")
         return games
+    
+    def players(self):
+        players = self.get('players')
+        return players
+
 
     def donations(self):
         donations = self.get('donations')
@@ -38,7 +43,7 @@ class VJClient:
         incentives = self.get('incentives')
 
         for incentive in incentives:
-            incentive['end_time'] = datetime.strptime(incentive['end_time'], "%Y-%m-%dT%H:%M:%S%z")
+            incentive['end_time'] = datetime.strptime(incentive['end_time'], "%Y-%m-%dT%H:%M:%S.%f%z")
         return incentives
 
 class LegacyClient(VJClient):

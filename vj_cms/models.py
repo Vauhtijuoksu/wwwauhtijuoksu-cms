@@ -10,6 +10,7 @@ class GameInfo(models.Model):
     game = models.CharField('name', max_length=255)
     category = models.CharField('category', null=True, blank=True, max_length=255)
     device = models.CharField('device', null=True, blank=True, max_length=255)
+    players = models.ManyToManyField('PlayerInfo', related_name='games')
     player = models.CharField('player nick', null=True, blank=True, max_length=255)
     player_twitch = models.CharField('twitch', null=True, blank=True, max_length=255)
     published = models.CharField('publishing year', null=True, blank=True, max_length=255)
@@ -42,6 +43,13 @@ class GameInfo(models.Model):
     @property
     def flashing(self):
         return self._meta_field('flashing')
+
+class PlayerInfo(models.Model):
+    api_id = models.UUIDField(primary_key=True)
+    discord_nick = models.CharField(null=True, default="", max_length=255)
+    display_name = models.CharField(null=True, default="", max_length=255)
+    twitch_channel = models.CharField(null=True, default="", max_length=255)
+
 
 class Timetable(CMSPlugin):
     hide_past = models.BooleanField()
