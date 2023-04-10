@@ -53,20 +53,16 @@
                                 </p>
                                 <p>
                                 Pelaaja:
-                                    {% with game.player|split:"," as players %}
-                                        {% with game.player_twitch|split:"," as twitchs %}
-                                            {% for p, t in players|zip:twitchs %}
-                                                {% if forloop.counter0 > 0 %}
-                                                    &
-                                                {% endif %}
-                                                {% if t %}
-                                                    <a class="twitch-link" target="_blank" href="https://www.twitch.tv/{{ t }}">{{ p }} <img class="small-twitch-icon" src="{% static "vauhtijuoksu2022/img/twitch.png" %}"></a>
-                                                {% else %}
-                                                    {{ p }}
-                                                {% endif %}
-                                            {% endfor %}
-                                        {% endwith %}
-                                    {% endwith %}
+                                    {% for p in game.players.all %}
+                                        {% if forloop.counter0 > 0 %}
+                                            &
+                                        {% endif %}
+                                        {% if t %}
+                                            <a class="twitch-link" target="_blank" href="https://www.twitch.tv/{{ p.twitch_channel }}">{{ p.display_name }} <img class="small-twitch-icon" src="{% static "vauhtijuoksu2022/img/twitch.png" %}"></a>
+                                        {% else %}
+                                            {{ p.display_name }}
+                                        {% endif %}
+                                    {% endfor %}
                                 </p>
                                 <p>
                                 Arvio: {{ game.estimate|duration }}
