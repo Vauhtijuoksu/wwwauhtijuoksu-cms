@@ -3,16 +3,17 @@
 
 {% block body %}
     {% addtoblock "css" %}<link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>{% endaddtoblock %}
-    {% addtoblock "css" %}<link href="{% static 'vauhtijuoksu2022/css/vj2022.css' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
+    {% addtoblock "css" %}<link href="{% sass_src 'vauhtijuoksu2023/css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}"></script>{% endaddtoblock %}
-    {% addtoblock "js" %}<script src="{% static "vauhtijuoksu2022/js/script.js" %}"></script>{% endaddtoblock %}
+    {% addtoblock "js" %}<script src="{% static "vauhtijuoksu2023/js/script.js" %}"></script>{% endaddtoblock %}
 
-    <img class="full_header" src="{% static "vauhtijuoksu2022/img/header-full.png" %}">
-    <div id="fs-container">
-        <div class="full-content">
+    <div id="container">
+        <div class="container content">
+            <img src="{% static 'vauhtijuoksu2023/img/logo.png' %}" class="header-logo">
             <div class="menu-wrapper">
                 <div class="menu">
                     {% show_menu %}
+
                 </div>
             </div>
             {% placeholder "content" %}

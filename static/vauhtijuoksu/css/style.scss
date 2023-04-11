@@ -22,8 +22,8 @@ $mimipalette8: #271685;
 $mimipalette9: #170358;
 $mimipalette10: #436274;
 
-$darker: $mimipalette1;
-$dark: $mimipalette2;
+$bg-2: $mimipalette1;
+$bg-1: $mimipalette2;
 $color-1: $mimipalette4;
 $color-2: $mimipalette7;
 $color-1-light: $mimipalette5;
@@ -37,6 +37,9 @@ $secondary: $mimipalette8;
 $font-size-root: 22px;
 $increment-xs: 5px;
 
+$body-bg-image: url("../img/bg.png");
+
+
 @import "static/css/base";
 
 // Actual styles here
@@ -44,10 +47,6 @@ $increment-xs: 5px;
 @font-face {
     font-family: 'offsett';
     src: url('../misc/Offsett.ttf') format('truetype');
-}
-
-body {
-  background-image: url("../img/bg.png");
 }
 
 .title.bigletters {
@@ -60,20 +59,20 @@ body {
   > img {
     height: 100px;
   }
-  @media only screen and (max-width: 820px) {
+  @include media-breakpoint-down(lg) {
     font-size: 48px;
     > img {
       height: 80px;
     }
   }
   
-  @media only screen and (max-width: 620px) {
+  @include media-breakpoint-down(md) {
     font-size: 32px;
     > img {
       height: 50px;
     }
   }
-  @media only screen and (max-width: 420px) {
+  @include media-breakpoint-down(sm) {
     font-size: 22px;
     > img {
       height: 30px;

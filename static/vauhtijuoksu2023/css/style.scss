@@ -1,0 +1,114 @@
+// Override variables (from _variables.scss and bootstrap)
+
+// Examples
+$white: #ffffff;
+$black: #000871;
+$darkblue: #000871;
+$violet: #8854f3;
+$blue: #639bff;
+$green: #63ffba;
+$orange: #ff8c5c;
+$red: #ff79ae;
+$yellow: #fff982;
+
+@font-face {
+    font-family: 'ubuntu';
+    src: url('../misc/UbuntuTitling-Bold.ttf') format('truetype');
+}
+
+$font-family-sans-serif: 'ubuntu';
+$body-bg-image: url("../img/bg.png");
+
+$bg-2: #f1eeea;
+$bg-1: #f6f3f2;
+$color-1: blue;
+$color-2: Green;
+$color-1-light: #00baff;
+$color-1-dark: grey;
+$color-2-light: #2f0028;
+$color-2-dark: purple;
+
+$primary: #2f0028;
+$secondary: #9fd5de;
+
+$font-size-root: 22px;
+$increment-xs: 5px;
+
+$menu-link-color: $primary;
+$menu-link-hover-color: $secondary;
+
+$twitch-icon-image: url("../img/twitch.png");
+$twitch-icon-width: 20px;
+$twitch-icon-sm-width: 15px;
+$twitch-link-color: #363772;
+$twitch-link-hover-color: $secondary;
+
+$donate-bar-color: $secondary;
+$donate-bar-text-color: $primary;
+$donate-bar-bg-color: $bg-1;
+$donate-bar-border-radius: 20px;
+$donate-bar-text-color-full: $primary;
+$donate-bar-color-full: #e4ef8a;
+$donate-bar-border: solid 4px $primary;
+$donate-bar-fill-border: $donate-bar-border;
+$donate-bar-padding: 0px;
+
+
+$divider-height: 400px;
+$divider-width: 100%;
+
+@import "static/css/base";
+
+// Actual styles here
+.header-logo-padded{
+  width: 100%;
+  padding: 30px;
+}
+
+.timetable .ttplay .playright .playgame {
+    font-size: 1.8rem;
+    line-height: 1.7rem;
+}
+
+.menu-wrapper {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.divider-0 {
+  background-image: url("../img/divider_0.png");
+}
+.divider-1 {
+  background-image: url("../img/divider_1.png");
+}
+.divider-2 {
+  background-image: url("../img/divider_2.png");
+}
+.divider-3 {
+  background-image: url("../img/divider_3.png");
+}
+.timetable .ttplay:nth-child(odd) .playblob .timetable-char{
+  transform: scaleX(-1);
+}
+
+.donate-bar .bar{
+  box-sizing: content-box;
+  margin: -4px;
+}
+.donate-bar .bar-text {
+  text-shadow: -2px -2px 0 $bg-1, 2px -2px 0 $bg-1, -2px 2px 0 $bg-1, 2px 2px 0 $bg-1;
+  font-size: 26px;
+}
+
+.content {
+  border-radius: 10px;
+  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.44));
+  padding: 64px;
+  @include media-breakpoint-down(lg) {
+    padding: 32px;
+  }
+}
+
+.header-logo{
+  width: 100%;
+}
