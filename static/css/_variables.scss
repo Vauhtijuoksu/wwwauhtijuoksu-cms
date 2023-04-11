@@ -56,7 +56,7 @@ $content-bg: $darker !default;
 $content-shadow: $content-bg !default;
 $content-padding: $increment-lg $increment-md $increment-md !default;
 $content-text-align: center !default;
-$content-margin: $increment-sm auto $increment-lg!default;
+$content-margin: $increment-lg auto $increment-lg!default;
 $content-filter: drop-shadow(6px 6px 0px $content-shadow) !default;
 
 $table-header-color: $title-color !default;
@@ -69,6 +69,7 @@ $menu-link-color: $link-color !default;
 $menu-link-hover-color: $link-hover-color !default;
 
 $divider-width: 128px !default;
+$divider-height: 64px !default;
 
 $sponsor-margin: $increment-lg 0 !default;
 $sponsor-max-width: 400px !default;
@@ -101,15 +102,21 @@ $incentive-count-text-color: $primary !default;
 // Donate bar
 $donate-bar-height: $increment-xl !default;
 
+$donate-bar-border: none !default;
+$donate-bar-fill-border: none !default;
 $donate-bar-bg-color: $black !default;
 $donate-bar-color: $yellow !default;
 $donate-bar-text-color: $primary !default;
 $donate-bar-color-full: $green !default;
 $donate-bar-text-color-full: $donate-bar-text-color !default;
 
-$donate-bar-padding: $increment-xs;
+$donate-bar-padding: $increment-xs !default;
 $donate-bar-margin: $increment-sm 0 !default;
 $donate-bar-border-radius: $increment-xs !default;
+
+// timetable
+$twitch-link-color: $link-color !default;
+$twitch-link-hover-color: $link-hover-color !default;
 
 $timetable-date-font-size: 3rem !default;
 $timetable-row-margin-bottom: 1.5rem !default;

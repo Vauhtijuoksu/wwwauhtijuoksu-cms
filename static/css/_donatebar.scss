@@ -8,11 +8,13 @@
   border-radius: $donate-bar-border-radius;
   padding: $donate-bar-padding;
   margin: $donate-bar-margin;
+  border: $donate-bar-border;
   
   .bar {
     background-color: $donate-bar-color;
     height: 100%;
     border-radius: $donate-bar-border-radius;
+    border: $donate-bar-fill-border;
   }
   
   .bar.full {

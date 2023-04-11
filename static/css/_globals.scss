@@ -14,10 +14,17 @@ body, html{
 }
 
 .divider {
+  height: 30vw;
+  max-height: $divider-height;
   width: $divider-width;
+  background-image: url("../../vauhtijuoksu/img/divider_0.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
   margin: auto;
   display: block;
 }
+
 
 .required-field > label::after {
   opacity: 50%;
