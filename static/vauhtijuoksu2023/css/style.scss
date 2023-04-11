@@ -103,12 +103,11 @@ $divider-width: 100%;
   font-size: 26px;
 }
 
-
 .content {
   border-radius: 10px;
   filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.44));
   padding: 64px;
-  @media only screen and (max-width: 820px) {
+  @include media-breakpoint-down(lg) {
     padding: 32px;
   }
 }

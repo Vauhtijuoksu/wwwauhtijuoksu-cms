@@ -35,6 +35,15 @@ $increment-md: 2*$increment-sm !default;
 $increment-lg: 3*$increment-sm !default;
 $increment-xl: 5*$increment-sm !default;
 
+$grid-breakpoints: (
+    xs: 0,
+    sm: 420px, /* bs: 576px */
+    md: 620px, /* bs: 768px */
+    lg: 820px, /* bs: 992px */
+    xl: 1200px,
+    xxl: 1400px,
+);
+
 // Bootstrap variable defaults. Override these where it might be specifically useful.
 $body-bg: $bg-1 !default;
 $body-color: $color-2-light !default;
