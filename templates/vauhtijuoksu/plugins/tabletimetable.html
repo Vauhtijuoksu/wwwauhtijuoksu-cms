@@ -12,31 +12,19 @@
     </div>
     <div class="tttcontent">
         <div class="timestamps">
-            <div><div>0</div><div>0</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>0</div><div>1</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>0</div><div>2</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>0</div><div>3</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>0</div><div>4</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>0</div><div>5</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>0</div><div>6</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>0</div><div>7</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>0</div><div>8</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>0</div><div>9</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>1</div><div>0</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>1</div><div>1</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>1</div><div>2</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>1</div><div>3</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>1</div><div>4</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>1</div><div>5</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>1</div><div>6</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>1</div><div>7</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>1</div><div>8</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>1</div><div>9</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>2</div><div>0</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>2</div><div>1</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>2</div><div>2</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>2</div><div>3</div><div>:</div><div>0</div><div>0</div></div>
-            <div><div>2</div><div>4</div><div>:</div><div>0</div><div>0</div></div>
+            {% with ''|center:25 as range %}
+            {% for _ in range %}
+            <div>
+              {% with forloop.counter0|stringformat:"02d"|make_list as hour %}
+              <div>{{ hour|first }}</div>
+              <div>{{ hour|last }}</div>
+              {% endwith %}
+              <div>:</div>
+              <div>0</div>
+              <div>0</div>
+            </div>
+            {% endfor %}
+            {% endwith %}
         </div>
 
         {% for day in games %}
