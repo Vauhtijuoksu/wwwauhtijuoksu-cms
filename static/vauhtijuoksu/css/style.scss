@@ -37,6 +37,9 @@ $secondary: $mimipalette8;
 $font-size-root: 22px;
 $increment-xs: 5px;
 
+$body-bg-image: url("../img/bg.png");
+
+
 @import "static/css/base";
 
 // Actual styles here
@@ -44,10 +47,6 @@ $increment-xs: 5px;
 @font-face {
     font-family: 'offsett';
     src: url('../misc/Offsett.ttf') format('truetype');
-}
-
-body {
-  background-image: url("../img/bg.png");
 }
 
 .title.bigletters {
