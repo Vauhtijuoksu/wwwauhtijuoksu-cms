@@ -12,8 +12,8 @@ $red: #ff79ae;
 $yellow: #fff982;
 
 
-$darker: #f1eeea;
-$dark: #f6f3f2;
+$bg-2: #f1eeea;
+$bg-1: #f6f3f2;
 $color-1: blue;
 $color-2: Green;
 $color-1-light: #00baff;
@@ -35,7 +35,7 @@ $twitch-link-hover-color: $secondary;
 
 $donate-bar-color: $secondary;
 $donate-bar-text-color: $primary;
-$donate-bar-bg-color: $dark;
+$donate-bar-bg-color: $bg-1;
 $donate-bar-border-radius: 20px;
 $donate-bar-text-color-full: $primary;
 $donate-bar-color-full: #e4ef8a;
@@ -92,7 +92,7 @@ $divider-width: 100%;
   margin: -4px;
 }
 .donate-bar .bar-text {
-  text-shadow: -2px -2px 0 $dark, 2px -2px 0 $dark, -2px 2px 0 $dark, 2px 2px 0 $dark;
+  text-shadow: -2px -2px 0 $bg-1, 2px -2px 0 $bg-1, -2px 2px 0 $bg-1, 2px 2px 0 $bg-1;
   font-size: 26px;
 }
 

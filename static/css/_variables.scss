@@ -13,10 +13,8 @@ $yellow: #fff982 !default;
 
 // Theme color palette
 // These are used for some global defaults, like background color etc.
-$dark: #34083d !default;
-$darker: shade-color($dark, 50%) !default;
-$light: #ff67cd;
-$lighter: tint-color($light, 50%) !default;
+$bg-1: #34083d !default;
+$bg-2: shade-color($bg-1, 50%) !default;
 $color-1: #b70b86 !default;
 $color-1-light: tint-color($color-1, 30%) !default;
 $color-1-dark: shade-color($color-1, 30%) !default;
@@ -36,7 +34,7 @@ $increment-lg: 3*$increment-sm !default;
 $increment-xl: 5*$increment-sm !default;
 
 // Bootstrap variable defaults. Override these where it might be specifically useful.
-$body-bg: $dark !default;
+$body-bg: $bg-1 !default;
 $body-color: $color-2-light !default;
 
 $primary: $color-1 !default;
@@ -52,7 +50,7 @@ $link-hover-decoration: none !default;
 // Override specific variables for specific results
 $title-color: $primary !default;
 
-$content-bg: $darker !default;
+$content-bg: $bg-2 !default;
 $content-shadow: $content-bg !default;
 $content-padding: $increment-lg $increment-md $increment-md !default;
 $content-text-align: center !default;
@@ -64,7 +62,7 @@ $table-row-color: $body-color !default;
 $table-border-color: $color-1-dark !default;
 
 
-$menu-link-drop-shadow: $darker !default;
+$menu-link-drop-shadow: $bg-2 !default;
 $menu-link-color: $link-color !default;
 $menu-link-hover-color: $link-hover-color !default;
 
@@ -124,5 +122,5 @@ $timetable-left-width: 30% !default;
 $timetable-blob-width: 15% !default;
 $timetable-right-width: 55% !default;
 
-$ttt-game-bg-color: $darker !default;
-$ttt-game-hover-bg-color: $dark !default;
+$ttt-game-bg-color: $bg-2 !default;
+$ttt-game-hover-bg-color: $bg-1 !default;
