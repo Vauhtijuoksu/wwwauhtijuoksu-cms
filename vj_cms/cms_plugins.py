@@ -164,7 +164,7 @@ class IncentivesPlugin(CMSPluginBase):
         context = super().render(context, instance, placeholder)
 
         incentives = client.incentives()
-        game_ids = set(i['game_id'] for i in incentives)
+        game_ids = set(i['game_id'] for i in incentives if 'game_id' in i)
 
         games = GameInfo.objects.filter(api_id__in=game_ids).order_by('start_time')
 
