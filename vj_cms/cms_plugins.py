@@ -23,7 +23,7 @@ class DividerPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
-        context['divider_name'] = f'divider_{randint(0, 3)}.png'
+        context['divider_name'] = f'divider-{randint(0, 3)}'
         return context
 
 @plugin_pool.register_plugin

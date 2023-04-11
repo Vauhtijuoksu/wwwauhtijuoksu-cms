@@ -12,31 +12,31 @@
     </div>
     <div class="tttcontent">
         <div class="timestamps">
-            <div>00:00</div>
-            <div>01:00</div>
-            <div>02:00</div>
-            <div>03:00</div>
-            <div>04:00</div>
-            <div>05:00</div>
-            <div>06:00</div>
-            <div>07:00</div>
-            <div>08:00</div>
-            <div>09:00</div>
-            <div>10:00</div>
-            <div>11:00</div>
-            <div>12:00</div>
-            <div>13:00</div>
-            <div>14:00</div>
-            <div>15:00</div>
-            <div>16:00</div>
-            <div>17:00</div>
-            <div>18:00</div>
-            <div>19:00</div>
-            <div>20:00</div>
-            <div>21:00</div>
-            <div>22:00</div>
-            <div>23:00</div>
-            <div>24:00</div>
+            <div><div>0</div><div>0</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>0</div><div>1</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>0</div><div>2</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>0</div><div>3</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>0</div><div>4</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>0</div><div>5</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>0</div><div>6</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>0</div><div>7</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>0</div><div>8</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>0</div><div>9</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>1</div><div>0</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>1</div><div>1</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>1</div><div>2</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>1</div><div>3</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>1</div><div>4</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>1</div><div>5</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>1</div><div>6</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>1</div><div>7</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>1</div><div>8</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>1</div><div>9</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>2</div><div>0</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>2</div><div>1</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>2</div><div>2</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>2</div><div>3</div><div>:</div><div>0</div><div>0</div></div>
+            <div><div>2</div><div>4</div><div>:</div><div>0</div><div>0</div></div>
         </div>
 
         {% for day in games %}
@@ -44,7 +44,7 @@
                 {% for game in day %}
                     <div class="tttgame {{ game.cut_style }}" style="top: {{ game.start_percent }}%; bottom: {{ game.end_percent }}%">
                         <div>
-                            <div class="tttimg"><img src="{% static "vauhtijuoksu2022/img/char/"|add:game.img_filename %}"></div>
+                            <div class="tttimg"><img src="{% static "vauhtijuoksu2023/img/char/"|add:game.img_filename %}"></div>
                             <div>
                                 <p>
                                 {{ game.game }}
@@ -60,7 +60,7 @@
                                                     &
                                                 {% endif %}
                                                 {% if t %}
-                                                    <a class="twitch-link" target="_blank" href="https://www.twitch.tv/{{ t }}">{{ p }} <img class="small-twitch-icon" src="{% static "vauhtijuoksu2022/img/twitch.png" %}"></a>
+                                                    <a class="twitch-link" target="_blank" href="https://www.twitch.tv/{{ t }}">{{ p }} <img class="small-twitch-icon" src="{% static "vauhtijuoksu2023/img/twitch.png" %}"></a>
                                                 {% else %}
                                                     {{ p }}
                                                 {% endif %}
