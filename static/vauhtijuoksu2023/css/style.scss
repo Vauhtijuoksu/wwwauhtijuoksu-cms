@@ -37,6 +37,9 @@ $increment-xs: 5px;
 $menu-link-color: $primary;
 $menu-link-hover-color: $secondary;
 
+$twitch-icon-image: url("../img/twitch.png");
+$twitch-icon-width: 20px;
+$twitch-icon-sm-width: 15px;
 $twitch-link-color: #363772;
 $twitch-link-hover-color: $secondary;
 
@@ -83,12 +86,6 @@ $divider-width: 100%;
 }
 .divider-3 {
   background-image: url("../img/divider_3.png");
-}
-.twitch-link .twitch-icon {
-  width: 20px;
-}
-.small-twitch-icon {
-  width: 16px;
 }
 .timetable .ttplay:nth-child(odd) .playblob .timetable-char{
   transform: scaleX(-1);

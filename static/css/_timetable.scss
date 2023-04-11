@@ -177,19 +177,22 @@
   }
 
   .twitch-icon {
-    width: 26px;
+    width: $twitch-icon-width;
     margin-top: -30px;
-  }
-  .small-twitch-icon {
-    margin-top: -15px;
+    content: $twitch-icon-image;
+    &.twitch-icon-sm {
+      width: $twitch-icon-sm-width;
+      margin-top: -15px;
+    }
   }
   &:hover {
     color: $twitch-link-hover-color;
     .twitch-icon {
       margin-top: -42px;
-    }
-    .small-twitch-icon {
-      margin-top: -20px;
+
+      &.twitch-icon-sm {
+        margin-top: -20px;
+      }
     }
   }
 }

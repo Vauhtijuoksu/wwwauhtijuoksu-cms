@@ -124,6 +124,9 @@ $donate-bar-margin: $increment-sm 0 !default;
 $donate-bar-border-radius: $increment-xs !default;
 
 // timetable
+$twitch-icon-image: url("../../vauhtijuoksu/img/twitch.png") !default;
+$twitch-icon-width: 26px !default;
+$twitch-icon-sm-width: $twitch-icon-width !default;
 $twitch-link-color: $link-color !default;
 $twitch-link-hover-color: $link-hover-color !default;
 
