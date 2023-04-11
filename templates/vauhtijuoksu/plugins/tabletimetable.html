@@ -45,7 +45,7 @@
                                         {% if forloop.counter0 > 0 %}
                                             &
                                         {% endif %}
-                                        {% if t %}
+                                        {% if p.twitch_channel %}
                                             <a class="twitch-link" target="_blank" href="https://www.twitch.tv/{{ p.twitch_channel }}">{{ p.display_name }} <img class="small-twitch-icon" src="{% static "vauhtijuoksu2023/img/twitch.png" %}"></a>
                                         {% else %}
                                             {{ p.display_name }}

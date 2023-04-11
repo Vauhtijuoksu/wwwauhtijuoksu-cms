@@ -69,8 +69,7 @@ class TabletimetablePlugin(CMSPluginBase):
             data = {
                 "game": game.game,
                 "img_filename": game.img_filename,
-                "player": game.player,
-                "player_twitch": game.player_twitch,
+                "players": game.players.all(),
                 "category": game.category,
                 "start_time":  game.start_time,
                 "end_time":  game.end_time,
