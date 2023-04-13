@@ -1,0 +1,198 @@
+
+.timetable {
+    display: flex;
+    flex-direction: column;
+    
+    .ttplay {
+      display: flex;
+      flex-direction: row;
+
+      .playdate {
+        text-align: left;
+        font-size: $timetable-date-font-size;
+      }
+
+      .playleft {
+        display: inline-block;
+        text-align: right;
+        width: $timetable-left-width;
+        margin-bottom: $timetable-row-margin-bottom;
+        white-space: nowrap;
+      }
+
+      .playblob {
+        display: flex;
+        width: $timetable-blob-width;
+
+        .timetable-char {
+          position: relative;
+          width: 100%;
+          img.char {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            z-index: -10;
+            position: absolute;
+            transform: translate(-50%, -50%) scale(2);
+          }
+        }
+      }
+
+      .playright {
+        display: inline-block;
+        text-align: left;
+        width: $timetable-right-width;
+        margin-bottom: $timetable-row-margin-bottom;
+        .playgame {
+          font-size: 2.2rem;
+          line-height: 2rem;
+        }
+      }
+    }
+}
+
+
+
+.tabletimetable {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  gap: $increment-sm;
+  padding: 0 10px 50px 10px;
+
+  .fullscreen & {
+    height: 200vh;
+  }
+
+  .timestamps {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80px;
+    > div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 60px;
+      height: 2px;
+      line-height: 2px;
+      > div {
+        width: 12px;
+        text-align: center;
+      }
+      > div:nth-child(3) {
+        width: 5px;
+        text-align: center;
+      }
+    }
+  }
+
+  .tttheader {
+    display: flex;
+    flex-direction: row;
+    gap: $increment-sm;
+    .tttday {
+      flex: 1;
+      position: relative;
+      min-width: 0;
+      height: 100%;
+    }
+  }
+  .tttcontent {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: $increment-sm;
+    .tttday {
+      flex: 1;
+      position: relative;
+      min-width: 0;
+      height: 100%;
+      .tttgame {
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        padding-right: 20px;
+        background-color: $ttt-game-bg-color;
+        border: $black 2px solid;
+        p {
+          margin-bottom: 12px;
+        }
+
+        .tttimg {
+          width: 56px;
+          padding-right: 4px;
+          > img {
+            float: right;
+          }
+        }
+
+        &.end-cut {
+          border-bottom: 2px dotted  $black;
+        }
+        &.start-cut {
+          border-top: 2px dotted  $black;
+        }
+
+        > div {
+          padding-left: 10px;
+          padding-right: 10px;
+          font-size: 20px;
+          line-height: 20px;
+          text-align: left;
+          //text-shadow: 1px 1px $black;
+          padding-bottom: 10px;
+          background-repeat: no-repeat;
+          display: flex;
+          flex-direction: row;
+          min-height: 100%;
+        }
+
+        &:hover {
+          overflow: visible;
+          z-index: 100;
+          padding-top: 5px;
+          padding-left: 20px;
+          padding-right: 0;
+          > div {
+            margin-right: -5px;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.26);
+            border: $black 2px solid;
+            box-sizing: content-box;
+            background-color: $ttt-game-hover-bg-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.twitch-link {
+  color: $twitch-link-color;
+  white-space: nowrap;
+
+  &:active, &visited {
+    color: $twitch-link-color;
+  }
+
+  .twitch-icon {
+    width: $twitch-icon-width;
+    margin-top: -30px;
+    content: $twitch-icon-image;
+    &.twitch-icon-sm {
+      width: $twitch-icon-sm-width;
+      margin-top: -15px;
+    }
+  }
+  &:hover {
+    color: $twitch-link-hover-color;
+    .twitch-icon {
+      margin-top: -42px;
+
+      &.twitch-icon-sm {
+        margin-top: -20px;
+      }
+    }
+  }
+}

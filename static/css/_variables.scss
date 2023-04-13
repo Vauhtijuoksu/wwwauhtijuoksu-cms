@@ -1,1 +1,140 @@
 // Default variables here
+
+// Named colors
+// These are used in some specific places, like "success" and "warning" colors.
+$white: #fff !default;
+$black: #000 !default;
+$blue: #639bff !default;
+$green: #63ffba !default;
+$red: #ff79ae !default;
+$orange: #ff8c5c !default;
+$yellow: #fff982 !default;
+// Some other colour definitions are found in the bootstrap variables
+
+$body-bg-image: null !default;
+
+// Theme color palette
+// These are used for some global defaults, like background color etc.
+$bg-1: #34083d !default;
+$bg-2: shade-color($bg-1, 50%) !default;
+$color-1: #b70b86 !default;
+$color-1-light: tint-color($color-1, 30%) !default;
+$color-1-dark: shade-color($color-1, 30%) !default;
+$color-2: #5325a0 !default;
+$color-2-light: tint-color($color-2, 30%) !default;
+$color-2-dark: shade-color($color-2, 30%) !default;
+
+// Sizes
+// root size affects the value of 1rem, so everything
+$font-size-root: 22px !default;
+
+// increment used for some margins, paddings etc
+$increment-xs: 5px !default;
+$increment-sm: 2*$increment-xs !default;
+$increment-md: 2*$increment-sm !default;
+$increment-lg: 3*$increment-sm !default;
+$increment-xl: 5*$increment-sm !default;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 420px, /* bs: 576px */
+    md: 620px, /* bs: 768px */
+    lg: 820px, /* bs: 992px */
+    xl: 1200px,
+    xxl: 1400px,
+);
+
+// Bootstrap variable defaults. Override these where it might be specifically useful.
+$body-bg: $bg-1 !default;
+$body-color: $color-2-light !default;
+
+$primary: $color-1 !default;
+$secondary: $color-2-dark !default;
+
+$link-color: $color-1-light !default;
+$link-decoration: none !default;
+$link-hover-color: $color-2-light !default;
+$link-hover-decoration: none !default;
+// For more bootstrap overridables, check out node_modules/bootstrap/scss/_variables.scss
+
+// App specifical global defaults.
+// Override specific variables for specific results
+$title-color: $primary !default;
+
+$content-bg: $bg-2 !default;
+$content-shadow: $content-bg !default;
+$content-padding: $increment-lg $increment-md $increment-md !default;
+$content-text-align: center !default;
+$content-margin: $increment-lg auto $increment-lg!default;
+$content-filter: drop-shadow(6px 6px 0px $content-shadow) !default;
+
+$table-header-color: $title-color !default;
+$table-row-color: $body-color !default;
+$table-border-color: $color-1-dark !default;
+
+
+$menu-link-drop-shadow: $bg-2 !default;
+$menu-link-color: $link-color !default;
+$menu-link-hover-color: $link-hover-color !default;
+
+$divider-width: 128px !default;
+$divider-height: 64px !default;
+
+$sponsor-margin: $increment-lg 0 !default;
+$sponsor-max-width: 400px !default;
+$sponsor-width: 90% !default;
+
+// Incentives
+$incentive-label-color: $primary !default;
+$incentive-dropdown-text-color: $primary !default;
+$incentive-dropdown-hover-color: $secondary !default;
+$incentive-closed-text-color: $secondary !default;
+
+$incentive-button-color: $secondary !default;
+$incentive-button-font-size: 3rem !default;
+
+$incentive-copy-button-color: $secondary !default;
+$incentive-copy-button-hover-color: $white !default;
+
+$incentive-checkbox-size: $increment-lg !default;
+
+$incentive-bar-height: $increment-xs !default;
+$incentive-bar-border-radius: 2px !default;
+$incentive-bar-margin-top: -$increment-xs !default;
+$incentive-bar-margin-bottom: $increment-xs !default;
+$incentive-bar-bg-color: $black !default;
+$incentive-bar-fill-color: $yellow !default;
+
+$incentive-count-text-color: $primary !default;
+
+
+// Donate bar
+$donate-bar-height: $increment-xl !default;
+
+$donate-bar-border: none !default;
+$donate-bar-fill-border: none !default;
+$donate-bar-bg-color: $black !default;
+$donate-bar-color: $yellow !default;
+$donate-bar-text-color: $primary !default;
+$donate-bar-color-full: $green !default;
+$donate-bar-text-color-full: $donate-bar-text-color !default;
+
+$donate-bar-padding: $increment-xs !default;
+$donate-bar-margin: $increment-sm 0 !default;
+$donate-bar-border-radius: $increment-xs !default;
+
+// timetable
+$twitch-icon-image: url("../../vauhtijuoksu/img/twitch.png") !default;
+$twitch-icon-width: 26px !default;
+$twitch-icon-sm-width: $twitch-icon-width !default;
+$twitch-link-color: $link-color !default;
+$twitch-link-hover-color: $link-hover-color !default;
+
+$timetable-date-font-size: 3rem !default;
+$timetable-row-margin-bottom: 1.5rem !default;
+$timetable-left-width: 30% !default;
+$timetable-blob-width: 15% !default;
+$timetable-right-width: 55% !default;
+
+$ttt-game-bg-color: $bg-2 !default;
+$ttt-game-hover-bg-color: $bg-1 !default;

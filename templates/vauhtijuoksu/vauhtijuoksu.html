@@ -4,12 +4,26 @@
 {% block body %}
     {% addtoblock "css" %}<link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>{% endaddtoblock %}
     {% addtoblock "css" %}<link href="{% sass_src 'vauhtijuoksu/css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
-    {% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}">{% endaddtoblock %}
+    {% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}"></script>{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static "vauhtijuoksu/js/script.js" %}"></script>{% endaddtoblock %}
 
     <div id="container">
         <div class="container content">
-            <div class="title"><img src="{% static 'vauhtijuoksu/img/logo.png' %}"><div>V</div><div>A</div><div>U</div><div>H</div><div>T</div><div>I</div><div>J</div><div>U</div><div>O</div><div>K</div><div>S</div><div>U</div></div>
+            <div class="title bigletters">
+                <img src="{% static 'vauhtijuoksu/img/logo.png' %}">
+                <div class="letter">V</div>
+                <div class="letter">A</div>
+                <div class="letter">U</div>
+                <div class="letter">H</div>
+                <div class="letter">T</div>
+                <div class="letter">I</div>
+                <div class="letter">J</div>
+                <div class="letter">U</div>
+                <div class="letter">O</div>
+                <div class="letter">K</div>
+                <div class="letter">S</div>
+                <div class="letter">U</div>
+            </div>
             <div class="menu-wrapper">
                 <div class="menu">
                     {% show_menu %}

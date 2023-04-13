@@ -23,7 +23,7 @@ class DividerPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
-        context['divider_name'] = f'divider_{randint(0, 3)}.png'
+        context['divider_name'] = f'divider-{randint(0, 3)}'
         return context
 
 @plugin_pool.register_plugin
@@ -69,8 +69,7 @@ class TabletimetablePlugin(CMSPluginBase):
             data = {
                 "game": game.game,
                 "img_filename": game.img_filename,
-                "player": game.player,
-                "player_twitch": game.player_twitch,
+                "players": game.players.all(),
                 "category": game.category,
                 "start_time":  game.start_time,
                 "end_time":  game.end_time,
@@ -164,7 +163,7 @@ class IncentivesPlugin(CMSPluginBase):
         context = super().render(context, instance, placeholder)
 
         incentives = client.incentives()
-        game_ids = set(i['game_id'] for i in incentives)
+        game_ids = set(i['game_id'] for i in incentives if 'game_id' in i)
 
         games = GameInfo.objects.filter(api_id__in=game_ids).order_by('start_time')
 

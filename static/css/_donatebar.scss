@@ -1,0 +1,42 @@
+.donate-bar {
+  width: 100%;
+  color: $donate-bar-text-color;
+  background-color: $donate-bar-bg-color;
+  height: $donate-bar-height;
+  position: relative;
+  overflow: hidden;
+  border-radius: $donate-bar-border-radius;
+  padding: $donate-bar-padding;
+  margin: $donate-bar-margin;
+  border: $donate-bar-border;
+  
+  .bar {
+    background-color: $donate-bar-color;
+    height: 100%;
+    border-radius: $donate-bar-border-radius;
+    border: $donate-bar-fill-border;
+  }
+  
+  .bar.full {
+    background-color: $donate-bar-color-full;
+    width: 100%;
+  }
+  
+  .bar-text {
+    position: absolute;
+    top: -2px;
+    line-height: $donate_bar_height;
+    padding: 0 20px;
+  }
+  
+  .goal {
+    right: 0;
+  }
+  
+  .bar-done{
+    right: 0;
+    left: 0;
+    color: $donate-bar-text-color-full;
+    text-align: center;
+  }
+}
