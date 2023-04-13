@@ -81,13 +81,40 @@ $divider-width: 100%;
   margin-top: -20px;
 }
 .timetable .ttplay .playright .playgame {
-    font-size: 1.8rem;
-    line-height: 1.7rem;
+  font-size: 1.8rem;
+  line-height: 1.7rem;
+}
+.tabletimetable {
+  height: 200vh;
 }
 
+.tabletimetable .tttcontent .tttday .tttgame .tttimg > img {
+  pointer-events:none;
+  float: right;
+  width: 300%;
+  margin-right: -20px;
+  margin-top: -20px;
+  transform: scaleX(-1);
+}
+.tabletimetable .tttcontent .tttday .tttgame:hover .tttimg > img {
+  width: 500%;
+  margin-right: -30px;
+  transform: scaleX(1);
+}
+.tabletimetable .tttcontent .tttday .tttgame > div {
+  font-size: 18px;
+  line-height: 20px;
+  padding-top: 5px;
+}
+.tabletimetable .tttcontent .tttday .tttgame > div > div {
+  width: 100%;
+}
+.tabletimetable .tttcontent .tttday .tttgame .tttimg {
+  width: 56px;
+}
 .menu-wrapper {
-    padding-bottom: 20px;
-    padding-top: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .divider-0 {
