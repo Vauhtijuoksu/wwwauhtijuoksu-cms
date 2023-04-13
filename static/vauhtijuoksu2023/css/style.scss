@@ -64,7 +64,22 @@ $divider-width: 100%;
   width: 100%;
   padding: 30px;
 }
-
+.timetable .ttplay .playblob .timetable-char {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+.timetable .ttplay .playblob .timetable-char img.char {
+  transform: none;
+  position: relative;
+  width: 100%;
+  right: auto;
+  top: auto;
+  float: right;
+  min-width: 100px;
+  margin-top: -20px;
+}
 .timetable .ttplay .playright .playgame {
     font-size: 1.8rem;
     line-height: 1.7rem;
@@ -87,7 +102,7 @@ $divider-width: 100%;
 .divider-3 {
   background-image: url("../img/divider_3.png");
 }
-.timetable .ttplay:nth-child(odd) .playblob .timetable-char{
+.timetable .ttplay:nth-child(odd) .playblob .timetable-char img.char{
   transform: scaleX(-1);
 }
 
