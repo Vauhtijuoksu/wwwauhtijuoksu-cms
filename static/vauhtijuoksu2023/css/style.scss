@@ -57,9 +57,43 @@ $donate-bar-padding: 0px;
 $divider-height: 400px;
 $divider-width: 100%;
 
+$incentive-bar-fill-color: $secondary;
+$incentive-bar-bg-color: $bg-1;
+$incentive-dropdown-text-color: #4f6f95;
+$incentive-dropdown-hover-color: #ef9a2b;
+$incentive-closed-text-color: #73737a;
+
 @import "static/css/base";
 
+
+
 // Actual styles here
+
+.incentive_gen_button{
+  background-color: #2b84a5;
+  border-radius: 15px;
+}
+
+.incentive_gen_button:hover{
+  background-color: #a5b624;
+}
+.incentive_bar {
+  overflow: hidden;
+  border-radius: 10px;
+  height: 14px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.incentive_bar_fill {
+  border-radius: 10px;
+  border: solid 3px #2f0028;
+}
+
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+}
+
 .header-logo-padded{
   width: 100%;
   padding: 30px;
