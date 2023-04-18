@@ -91,7 +91,7 @@ $incentive-dropdown-hover-color: $secondary !default;
 $incentive-closed-text-color: $secondary !default;
 
 $incentive-button-color: $secondary !default;
-$incentive-button-font-size: 3rem !default;
+$incentive-button-font-size: 1.2rem !default;
 
 $incentive-copy-button-color: $secondary !default;
 $incentive-copy-button-hover-color: $white !default;
@@ -106,7 +106,7 @@ $incentive-bar-bg-color: $black !default;
 $incentive-bar-fill-color: $yellow !default;
 
 $incentive-count-text-color: $primary !default;
-
+$incentive-popup-bg-color: $bg-1 !default;
 
 // Donate bar
 $donate-bar-height: $increment-xl !default;

@@ -28,7 +28,7 @@ $color-1-dark: grey;
 $color-2-light: #2f0028;
 $color-2-dark: purple;
 
-$primary: #2f0028;
+$primary: rgba(47, 0, 40, 0.81);
 $secondary: #9fd5de;
 
 $font-size-root: 22px;
@@ -57,9 +57,54 @@ $donate-bar-padding: 0px;
 $divider-height: 400px;
 $divider-width: 100%;
 
+$incentive-bar-fill-color: $secondary;
+$incentive-bar-bg-color: $bg-1;
+$incentive-dropdown-text-color: #4f6f95;
+$incentive-dropdown-hover-color: #ef9a2b;
+$incentive-closed-text-color: #73737a;
+$incentive-copy-button-color: #4f6f95;
+$incentive-copy-button-hover-color: #secondary;
+$incentive-popup-bg-color: #fbfbfa;
 @import "static/css/base";
 
+
+
 // Actual styles here
+
+
+#incentive_action_popup{
+  box-sizing: content-box;
+  border-top: solid 3px $primary;
+  border-bottom: solid 3px $primary;
+}
+
+.incentive_gen_button{
+  background-color: $secondary;
+  border-radius: 15px;
+}
+.incentive_code{
+  color: #ef9a2b;
+}
+.incentive_gen_button:hover{
+  background-color: #a5b624;
+}
+.incentive_bar {
+  overflow: hidden;
+  border-radius: 10px;
+  height: 14px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.incentive_bar_fill {
+  border-radius: 10px;
+  border: solid 3px #2f0028;
+}
+
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+}
+
 .header-logo-padded{
   width: 100%;
   padding: 30px;
