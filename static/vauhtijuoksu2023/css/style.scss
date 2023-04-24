@@ -72,8 +72,7 @@ $incentive-popup-bg-color: #fbfbfa;
 // Actual styles here
 
 
-#incentive_action_popup{
-  box-sizing: content-box;
+#incentive_action_flex{
   border-top: solid 3px $primary;
   border-bottom: solid 3px $primary;
 }
