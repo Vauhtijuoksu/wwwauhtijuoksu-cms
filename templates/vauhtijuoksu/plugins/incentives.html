@@ -135,32 +135,34 @@
     {% endfor %}
 </div>
 <div id="incentive_action_popup">
-    <div id="incentive_generate_code" class="incentive_popup_row">
-        <button onclick="get_code()" class="btn btn-default generate incentive_gen_button" name="btn" value="incentive_generate">
-            Generoi<br>kannustinkoodi
-        </button>
-        <div id="incentive_count_info">
-            <div class="singleincentive">Olet valinnut yhden kannustimen.</div>
-            <div class="multiincentive">Olet valinnut <span id="incentivecount"></span> kannustinta.<br>Mikäli
-                valitset useamman kuin yhden kannustimen, jaetaan lahoittamasi summa tasan niiden kesken.
+    <div id="incentive_action_flex">
+        <div id="incentive_generate_code" class="incentive_popup_row">
+            <button onclick="get_code()" class="btn btn-default generate incentive_gen_button" name="btn" value="incentive_generate">
+                Generoi<br>kannustinkoodi
+            </button>
+            <div id="incentive_count_info">
+                <div class="singleincentive">Olet valinnut yhden kannustimen.</div>
+                <div class="multiincentive">Olet valinnut <span id="incentivecount"></span> kannustinta.<br>Mikäli
+                    valitset useamman kuin yhden kannustimen, jaetaan lahoittamasi summa tasan niiden kesken.
+                </div>
             </div>
         </div>
-    </div>
-    <div id="incentive_show_code" class="incentive_popup_row">
-        <div id="incentive_code_holder">
-            <div id="incentive_code_loading">
-                Kannustinkoodia ladataan...
+        <div id="incentive_show_code" class="incentive_popup_row">
+            <div id="incentive_code_holder">
+                <div id="incentive_code_loading">
+                    Kannustinkoodia ladataan...
+                </div>
+                <div id="incentive_code_ready">
+                    Kannustinkoodisi on: <br>
+                    <div id="incentive_code" class="incentive_code"></div>
+                    <div class="copybtn copy" style="display: block;">Kopioi koodi leikepöydälle</div>
+                </div>
             </div>
-            <div id="incentive_code_ready">
-                Kannustinkoodisi on: <br>
-                <div id="incentive_code" class="incentive_code"></div>
-                <div class="copybtn copy" style="display: block;">Kopioi koodi leikepöydälle</div>
+            <div id="incentive_code_info">
+                Muista liittää koodi lahjoitusviestiisi ja kertoa halutessasi mitä kannustit ja miksi!<br>
+                <a target="_blank" href="https://kerays.syopasaatio.fi/participant/vauhtijuoksu-2023">Siirry Lahjoittamaan!</a>
             </div>
+            <div id="incentive_popup_close">X</div>
         </div>
-        <div id="incentive_code_info">
-            Muista liittää koodi lahjoitusviestiisi ja kertoa halutessasi mitä kannustit ja miksi!<br>
-            <a target="_blank" href="https://kerays.syopasaatio.fi/participant/vauhtijuoksu-2023">Siirry Lahjoittamaan!</a>
-        </div>
-        <div id="incentive_popup_close">X</div>
     </div>
 </div>
