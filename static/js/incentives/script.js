@@ -1,6 +1,7 @@
 
 $( document ).ready(function() {
-    $("#incentive_code_holder").hide()
+    $("#incentive_action_popup").hide()
+    $("#incentive_show_code").hide()
     $( ".incentive_dropdown" ).click(function() {
         $(this).parent().find(".incentive_expand").slideToggle();
         $(this).parent().find(".dropdown_arrow").toggleClass("rotate");
@@ -14,6 +15,11 @@ $( document ).ready(function() {
         copyToClipboard( $($(this).parent()[0]).find(".incentive_code") );
         $(this).text("Koodi kopioitu!");
         $(this).removeClass("copy")
+    });
+    $( "#incentive_popup_close" ).click(function() {
+        $("#incentive_show_code").slideUp()
+        $("#incentive_action_popup").slideUp();
+
     });
 
     function copyToClipboard(element) {
@@ -39,12 +45,14 @@ function get_code() {
             code_get(data)
     ));
     clear_choices()
-    $('.generate').slideUp()
-    $('.multiincentive').slideUp()
+    $("#incentive_generate_code").slideUp()
+    $("#incentive_show_code").slideDown()
+    $("#incentive_code_loading").slideDown();
 }
 
 function code_get(data){
-    $("#incentive_code_holder").slideDown();
+    $("#incentive_code_loading").hide();
+    $("#incentive_code_ready").slideDown();
     $("#incentive_code").text(data.code)
 }
 
@@ -96,19 +104,22 @@ function clear_choices() {
 
 function update_choices() {
     var choices = get_choices()
-    $("#incentivecount").text(choices.length)
     if (choices.length > 0){
         $('.generate').slideDown()
+        $('#incentive_action_popup').slideDown()
+        $("#incentive_generate_code").slideDown()
         if (choices.length > 1){
+            $("#incentivecount").text(choices.length)
             $('.multiincentive').slideDown()
+            $('.singleincentive').slideUp()
         }
         else {
             $('.multiincentive').slideUp()
+            $('.singleincentive').slideDown()
         }
     }
     else {
-        $('.generate').slideUp()
-        $('.multiincentive').slideUp()
+        $('#incentive_action_popup').slideUp()
     }
-    $("#incentive_code_holder").slideUp()
+    $("#incentive_show_code").slideUp()
 }
