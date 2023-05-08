@@ -30,6 +30,7 @@ DATABASES = {
         'PORT': config('POSTGRES_PORT', default='5432'),
         'USER': config('POSTGRES_USER'),
         'PASSWORD': config('POSTGRES_PASSWORD'),
+        'CONN_MAX_AGE': 600,  # in seconds
     }
 }
 
