@@ -35,7 +35,7 @@ class TimetablePlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
-        games = GameInfo.objects.all().order_by('start_time')
+        games = GameInfo.objects.prefetch_related('players').all()
         days = []
         day_was = ""
         day = []
@@ -61,7 +61,7 @@ class TabletimetablePlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
-        games = GameInfo.objects.all().order_by('start_time')
+        games = GameInfo.objects.prefetch_related('players').all()
         days = []
         day_was = ""
         day = []
@@ -69,7 +69,7 @@ class TabletimetablePlugin(CMSPluginBase):
             data = {
                 "game": game.game,
                 "img_filename": game.img_filename,
-                "players": game.players.all(),
+                "players": game.players,
                 "category": game.category,
                 "start_time":  game.start_time,
                 "end_time":  game.end_time,
@@ -128,7 +128,7 @@ class FloatycharsPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
-        games = list(GameInfo.objects.all())
+        games = list(GameInfo.objects.prefetch_related('players').all())
         chars = []
         i = 0
         shuffle(games)
@@ -165,7 +165,7 @@ class IncentivesPlugin(CMSPluginBase):
         incentives = client.incentives()
         game_ids = set(i['game_id'] for i in incentives if 'game_id' in i)
 
-        games = GameInfo.objects.filter(api_id__in=game_ids).order_by('start_time')
+        games = GameInfo.objects.filter(api_id__in=game_ids)
 
         game_incentives = {}
 
