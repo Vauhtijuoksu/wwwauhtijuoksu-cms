@@ -12,6 +12,7 @@ charset-normalizer==3.1.0 ; python_full_version >= '3.7.0'
 cryptography==40.0.1 ; python_version >= '3.6'
 cssselect2==0.7.0 ; python_version >= '3.7'
 django==3.2.18
+django-allauth==0.60.1
 django-appconf==1.0.5 ; python_version >= '3.6'
 django-bootstrap-v5==1.0.11
 django-classy-tags==4.0.0 ; python_version >= '3.7'
