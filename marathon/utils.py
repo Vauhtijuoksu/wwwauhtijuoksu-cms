@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 from django.forms.models import model_to_dict
 from allauth.account.models import EmailAddress
 from .models import Player
@@ -20,9 +21,11 @@ def get_user_primary_email(user: settings.AUTH_USER_MODEL):
     return EmailAddress.objects.get_primary_email(user)
 
 def get_player_info_for_user(user: settings.AUTH_USER_MODEL):
-    player = Player.objects.get(user=user)
-    if player:
+    try:
+        player = Player.objects.get(user=user)
         return model_to_dict(player)
+    except ObjectDoesNotExist:
+        pass
 
     player_info = {}
 
