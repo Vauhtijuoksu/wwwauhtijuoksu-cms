@@ -43,6 +43,8 @@ class SubmissionFormPlugin(CMSPluginBase):
             player_form = PlayerForm(get_player_info_for_user(context['request'].user))
         else:
             player_form = PlayerForm()
+
+        context['require_authentication'] = True
         context['form'] = form
         context['player_form'] = player_form
         context['event'] = instance.event
