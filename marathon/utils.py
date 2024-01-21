@@ -22,7 +22,7 @@ def get_user_primary_email(user: settings.AUTH_USER_MODEL):
 
 def get_player_info_for_user(user: settings.AUTH_USER_MODEL):
     try:
-        player = Player.objects.get(user=user)
+        player = user.player
         return model_to_dict(player)
     except ObjectDoesNotExist:
         pass

@@ -40,10 +40,11 @@ class SubmissionFormPlugin(CMSPluginBase):
         if previous_data:
             player_form = PlayerForm(previous_data, prefix='player')
         elif context['request'].user.is_authenticated:
-            player_form = PlayerForm(get_player_info_for_user(context['request'].user))
+            print('got user')
+            player_info = get_player_info_for_user(context['request'].user)
+            player_form = PlayerForm(initial=player_info, prefix='player')
         else:
-            player_form = PlayerForm()
-
+            player_form = PlayerForm(prefix='player')
         context['require_authentication'] = True
         context['form'] = form
         context['player_form'] = player_form
