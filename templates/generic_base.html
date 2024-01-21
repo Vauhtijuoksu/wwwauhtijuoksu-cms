@@ -1,4 +1,4 @@
-{% load static sekizai_tags cms_tags menu_tags %}
+{% load static sekizai_tags cms_tags menu_tags account socialaccount %}
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +16,20 @@
 
   {% block body %}{% endblock %}
 
-  {% render_block "js" %}
 </body>
-
+<footer>
+  {% block footer %}
+    <div class="footer d-flex justify-content-center my-2">
+      <div>
+        {% if user.is_authenticated %}
+        Hei, {% user_display user %}.
+        <a href="{% url 'account_logout' %}">Kirjaudu ulos</a>
+        {% else %}
+        <a href="{% provider_login_url "discord" next=request.path %}">Kirjaudu sisään</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endblock %}
+</footer>
+{% render_block "js" %}
 </html>
