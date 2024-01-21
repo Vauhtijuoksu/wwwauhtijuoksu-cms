@@ -3,6 +3,7 @@ from cms.plugin_pool import plugin_pool
 
 from .forms import SubmissionForm, PlayerForm
 from .models import Event, Submission, MarathonPlugin
+from .utils import get_player_info_for_user
 
 @plugin_pool.register_plugin
 class SubmissionListPlugin(CMSPluginBase):
@@ -36,8 +37,12 @@ class SubmissionFormPlugin(CMSPluginBase):
         previous_data = context['request'].session.get('previous_form')
 
         form = SubmissionForm(previous_data)
-        player_form = PlayerForm(previous_data, prefix='player')
-
+        if previous_data:
+            player_form = PlayerForm(previous_data, prefix='player')
+        elif context['request'].user.is_authenticated:
+            player_form = PlayerForm(get_player_info_for_user(context['request'].user))
+        else:
+            player_form = PlayerForm()
         context['form'] = form
         context['player_form'] = player_form
         context['event'] = instance.event
