@@ -1,5 +1,7 @@
 from django.conf import settings
+from django.forms.models import model_to_dict
 from allauth.account.models import EmailAddress
+from .models import Player
 
 
 def get_user_discord(user: settings.AUTH_USER_MODEL):
@@ -18,6 +20,10 @@ def get_user_primary_email(user: settings.AUTH_USER_MODEL):
     return EmailAddress.objects.get_primary_email(user)
 
 def get_player_info_for_user(user: settings.AUTH_USER_MODEL):
+    player = Player.objects.get(user=user)
+    if player:
+        return model_to_dict(player)
+
     player_info = {}
 
     discord_info = get_user_discord(user) or {}
