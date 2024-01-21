@@ -58,4 +58,5 @@ class SubmissionForm(forms.ModelForm):
         widgets = {
             'time_constraints': forms.Textarea(attrs=TEXTAREA_ATTRS),
             'description': forms.Textarea(attrs=TEXTAREA_ATTRS),
+            'priority': forms.NumberInput(attrs={'min': '1'}),
         }

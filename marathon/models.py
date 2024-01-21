@@ -1,11 +1,10 @@
 from cms.models import CMSPlugin
 from django.db import models
 from django.conf import settings
-from django.core.validators import RegexValidator
+from django.core.validators import MinValueValidator
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
-discord_validator = RegexValidator(r'^.{3,32}#[0-9]{4}$', _('Anna discord-tunnus muodossa <nimi>#<sarjanumero>'))
 
 class Player(models.Model):
     user = models.OneToOneField(
@@ -15,7 +14,7 @@ class Player(models.Model):
     )
 
     nickname = models.CharField(_('nimimerkki'), max_length=30)
-    discord = models.CharField(_('discord-tunnus'), max_length=50, validators=[discord_validator])
+    discord = models.CharField(_('discord-tunnus'), max_length=50)
     twitch = models.CharField(_('twitch-tunnus'), max_length=50, blank=True)
     gmail = models.EmailField(
         _('sähköpostiosoite'),
@@ -80,6 +79,13 @@ class Submission(models.Model):
 
     # Mandatory
     gdpr = models.BooleanField(default=False)
+
+    priority = models.IntegerField(
+        _('tärkeysjärjestys'),
+        help_text=_('Jos ehdotat useampaa peliä (1=mieluisin)'),
+        default=1,
+        validators=[MinValueValidator(1)],
+    )
 
     # Meta
     hidden = models.BooleanField(default=False)
