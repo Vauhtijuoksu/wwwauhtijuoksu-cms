@@ -24,6 +24,7 @@ django-storages = {extras = ["azure"], version = "~=1.13"}
 python-dateutil = "*"
 requests-cache = "*"
 gunicorn = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.9"
