@@ -54,7 +54,6 @@ INSTALLED_APPS = [
     'sekizai',
     'filer',
     'easy_thumbnails',
-    'mptt',
     'sass_processor',
     'bootstrap5',
     'allauth',
