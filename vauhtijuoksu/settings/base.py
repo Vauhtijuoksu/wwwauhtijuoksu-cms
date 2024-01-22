@@ -173,12 +173,15 @@ LANGUAGE_CODE = 'fi'
 
 TIME_ZONE = config('TIME_ZONE', default='Europe/Helsinki')
 
-USE_I18N = False
+USE_I18N = True
 
 USE_L10N = False
 
 USE_TZ = True
 
+LOCALE_PATHS = [
+    str(BASE_DIR / "translations" / "allauth")
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
