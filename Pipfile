@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 Django = "~=3.2"
+django-cms = "~=3.11"
 django-filer = "*"
 djangocms-text-ckeditor = "*"
 djangocms-link = "*"
@@ -24,6 +25,7 @@ django-storages = {extras = ["azure"], version = "~=1.13"}
 python-dateutil = "*"
 requests-cache = "*"
 gunicorn = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.9"

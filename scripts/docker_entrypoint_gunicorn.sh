@@ -9,6 +9,7 @@ done
 
 echo "PostgreSQL started"
 
+python manage.py compilemessages
 python manage.py compilescss --use-storage
 python manage.py collectstatic --noinput --ignore=*.scss
 

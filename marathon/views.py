@@ -25,7 +25,12 @@ def event_detail(request, event):
 def new_submission(request, event):
     if request.method == 'POST':
         event = get_object_or_404(Event, slug=event)
-        player_form = PlayerForm(request.POST, prefix='player')
+
+        player = None
+        if request.user.is_authenticated:
+            player, created = Player.objects.get_or_create(user=request.user)
+        player_form = PlayerForm(request.POST, prefix='player', instance=player)
+
         form = SubmissionForm(request.POST)
 
         if form.is_valid() and player_form.is_valid():

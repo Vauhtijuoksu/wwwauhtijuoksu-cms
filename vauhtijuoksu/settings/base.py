@@ -54,9 +54,12 @@ INSTALLED_APPS = [
     'sekizai',
     'filer',
     'easy_thumbnails',
-    'mptt',
     'sass_processor',
     'bootstrap5',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.discord',
     'marathon',
     'vj_cms'
 ]
@@ -76,7 +79,27 @@ MIDDLEWARE = [
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+discord_apps = []
+if 'DISCORD_CLIENT_ID' in os.environ:
+    discord_apps = {
+        'client_id': os.environ['DISCORD_CLIENT_ID'],
+        'secret': os.environ['DISCORD_SECRET'],
+        'key': '',
+    }
+SOCIALACCOUNT_PROVIDERS = {
+    "discord": {
+        "APPS": discord_apps
+    }
+}
+SOCIALACCOUNT_AUTO_SIGNUP = True
 
 ROOT_URLCONF = 'vauhtijuoksu.urls'
 
@@ -149,12 +172,15 @@ LANGUAGE_CODE = 'fi'
 
 TIME_ZONE = config('TIME_ZONE', default='Europe/Helsinki')
 
-USE_I18N = False
+USE_I18N = True
 
 USE_L10N = False
 
 USE_TZ = True
 
+LOCALE_PATHS = [
+    str(BASE_DIR / "translations" / "allauth")
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
