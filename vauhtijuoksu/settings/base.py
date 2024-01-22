@@ -89,11 +89,11 @@ AUTHENTICATION_BACKENDS = [
 
 discord_apps = []
 if 'DISCORD_CLIENT_ID' in os.environ:
-    discord_apps = {
+    discord_apps = [{
         'client_id': os.environ['DISCORD_CLIENT_ID'],
         'secret': os.environ['DISCORD_SECRET'],
         'key': '',
-    }
+    }]
 SOCIALACCOUNT_PROVIDERS = {
     "discord": {
         "APPS": discord_apps
