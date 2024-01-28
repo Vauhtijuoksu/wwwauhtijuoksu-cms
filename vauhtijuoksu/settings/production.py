@@ -5,6 +5,9 @@ from decouple import config, Csv
 
 DEBUG = False
 
+# Needed for django-allauth to resolve callback urls properly
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = config('ACCOUNT_DEFAULT_HTTP_PROTOCOL', default='https')
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',

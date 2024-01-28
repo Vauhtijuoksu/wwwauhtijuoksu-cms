@@ -22,6 +22,9 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Install compile dependencies
+        run: sudo apt-get install -y gettext
+
       - name: Create and start virtual environment
         run: |
           python -m venv venv
@@ -31,6 +34,8 @@ jobs:
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+      - name: Compile translations
+        run: python manage.py compilemessages
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2

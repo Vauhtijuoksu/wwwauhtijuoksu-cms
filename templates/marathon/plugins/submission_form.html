@@ -1,7 +1,11 @@
-{% load bootstrap5 sekizai_tags %}
+{% load bootstrap5 sekizai_tags socialaccount %}
+{% bootstrap_messages %}
+{% if require_authentication and not user.is_authenticated %}
+  {% provider_login_url "discord" next=request.path as href %}
+  {% bootstrap_button "Kirjaudu Discord-tunnuksilla" button_type="link" href=href %}
+{% else %}
 <form class="form" action="{% url 'new-submission' event=event.slug %}?next={{ request.path }}" method="post">
   {% csrf_token %}
-  {% bootstrap_messages %}
   <!-- Player forms -->
   <div id="player-form">
     {% bootstrap_field player_form.nickname placeholder="Nimimerkki pelaajalistaukseen" layout="horizontal" form_group_class="mb-1" %}
@@ -19,6 +23,7 @@
     {% bootstrap_field form.category placeholder="Any% NMS" layout="horizontal" form_group_class="mb-1" %}
     {% bootstrap_field form.estimate placeholder="10:30" layout="horizontal" form_group_class="mb-1" %}
     {% bootstrap_field form.description placeholder="Miksi tämä runi olisi kiva nähdä Vauhtijuoksussa?" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field form.priority layout="horizontal" form_group_class="mb-1" %}
     {% bootstrap_field form.time_constraints placeholder="Päivät/kellonajat, jotka EIVÄT käy. Jos kaikki käy, voit jättää kentän tyhjäksi." layout="horizontal" form_group_class="mb-1" %}
     {% comment %}
     {% bootstrap_field form.video_link placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" layout="horizontal" form_group_class="mb-1" %}
@@ -37,3 +42,4 @@
     {% endif %}
   </div>
 </form>
+{% endif %}

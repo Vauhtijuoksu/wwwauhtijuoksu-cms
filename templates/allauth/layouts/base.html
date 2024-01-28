@@ -1,0 +1,25 @@
+{% extends "vauhtijuoksu/vauhtijuoksu.html" %}
+{% load i18n %}
+{% block override %}
+    {% if messages %}
+        <div>
+            <strong>{% trans "Messages:" %}</strong>
+            <ul>
+                {% for message in messages %}<li>{{ message }}</li>{% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <div>
+        <ul>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+    {% block content %}
+    {% endblock content %}
+{% endblock override %}
+{% block extra_body %}
+{% endblock extra_body %}
