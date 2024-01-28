@@ -43,7 +43,7 @@ class SubmissionFormPlugin(CMSPluginBase):
             print('got user')
             player_info = get_player_info_for_user(context['request'].user)
             player_form = PlayerForm(initial=player_info, prefix='player')
-            if player_info['discord']:
+            if player_info.get('discord'):
                 player_form.fields['discord'].disabled = True
         else:
             player_form = PlayerForm(prefix='player')
