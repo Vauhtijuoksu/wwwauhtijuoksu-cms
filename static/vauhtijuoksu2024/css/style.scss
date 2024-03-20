@@ -1,0 +1,243 @@
+// Override variables (from _variables.scss and bootstrap)
+
+// Examples
+$darkblue: #152937;
+$darkgreen: #0b2d24;
+$darkred: #382218;
+$blue: #235576;
+$yellow: #f1d590;
+$grey: #718079;
+$naturalwhite: #d8ccaf;
+$green: #347868;
+$greyblue: #60838a;
+$orange: #de9b39;
+$blueishgrey: #abbdca;
+$white: #ebebdc;
+$lightgreen: #a1c665;
+$lightblue: #abcbbe;
+$red: #c2473b;
+
+@font-face {
+    font-family: 'solway';
+    src: url('../misc/Solway-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'amarante';
+    src: url('../misc/Amarante-Regular.ttf') format('truetype');
+}
+
+$font-family-sans-serif: 'solway';
+$body-bg-image: url("../img/bg.png");
+
+$content-bg: tranparent;
+$content-filter: none;
+
+$link-color: $orange;
+$link-hover-color: $red;
+
+$menu-link-drop-shadow: $darkblue;
+
+$primary: $yellow;
+$secondary: $orange;
+
+$font-size-root: 22px;
+$increment-xs: 5px;
+
+$body-color: $primary;
+
+$menu-link-color: $secondary;
+$menu-link-hover-color: $primary;
+
+$twitch-icon-image: url("../img/twitch.png");
+$twitch-icon-width: 20px;
+$twitch-icon-sm-width: 15px;
+$twitch-link-color: $link-color;
+$twitch-link-hover-color: $link-hover-color;
+
+$donate-bar-color: $lightgreen;
+$donate-bar-text-color: $primary;
+$donate-bar-bg-color: $darkgreen;
+$donate-bar-border-radius: 20px;
+$donate-bar-text-color-full: $primary;
+$donate-bar-color-full: $green;
+$donate-bar-border: solid 4px $orange;
+$donate-bar-fill-border: $donate-bar-border;
+$donate-bar-padding: 0px;
+$donate-bar-text-outline: $darkgreen;
+
+$divider-height: 400px;
+$divider-width: 100%;
+
+$incentive-bar-fill-color: $lightgreen;
+$incentive-bar-bg-color: $darkgreen;
+$incentive-dropdown-text-color: $link-color;
+$incentive-dropdown-hover-color: $link-hover-color;
+$incentive-closed-text-color: $grey;
+$incentive-copy-button-color: $green;
+$incentive-copy-button-hover-color: $lightgreen;
+$incentive-popup-bg-color: $blue;
+@import "static/css/base";
+
+
+
+// Actual styles here
+
+
+#incentive_action_popup{
+  box-sizing: content-box;
+  border-top: solid 3px $primary;
+  border-bottom: solid 3px $primary;
+}
+
+.incentive_gen_button{
+  background-color: $secondary;
+  border-radius: 15px;
+}
+.incentive_code{
+  color: #ef9a2b;
+}
+.incentive_gen_button:hover{
+  background-color: #a5b624;
+}
+.incentive_bar {
+  overflow: hidden;
+  border-radius: 10px;
+  height: 14px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.incentive_bar_fill {
+  border-radius: 10px;
+  border: solid 3px #2f0028;
+}
+
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+}
+
+.header-logo-padded{
+  width: 100%;
+  padding: 30px;
+}
+.header{
+  width: 100%;
+  background: url("../img/header.png");
+}
+.container{
+  padding: 0;
+}
+.timetable .ttplay .playblob .timetable-char {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+.timetable .ttplay .playblob .timetable-char img.char {
+  transform: none;
+  position: relative;
+  width: 100%;
+  right: auto;
+  top: auto;
+  float: right;
+  min-width: 100px;
+  margin-top: -20px;
+}
+.timetable .ttplay .playright .playgame {
+  font-size: 1.8rem;
+  line-height: 1.7rem;
+}
+.tabletimetable {
+  height: 200vh;
+}
+
+.tabletimetable .tttcontent .tttday .tttgame .tttimg > img {
+  pointer-events:none;
+  float: right;
+  width: 300%;
+  margin-right: -20px;
+  margin-top: -20px;
+  transform: scaleX(-1);
+}
+.tabletimetable .tttcontent .tttday .tttgame:hover .tttimg > img {
+  width: 500%;
+  margin-right: -30px;
+  transform: scaleX(1);
+}
+.tabletimetable .tttcontent .tttday .tttgame > div {
+  font-size: 18px;
+  line-height: 20px;
+  padding-top: 5px;
+}
+.tabletimetable .tttcontent .tttday .tttgame > div > div {
+  width: 100%;
+}
+.tabletimetable .tttcontent .tttday .tttgame .tttimg {
+  width: 56px;
+}
+.menu-wrapper {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-family: "amarante";
+}
+h1, h2, h3, h4, .playdate, .playgame{
+  font-family: "amarante";
+}
+.divider{
+  max-width: 550px;
+  max-height: 300px;
+}
+.divider-0 {
+  background-image: url("../img/divider_0.png");
+}
+.divider-1 {
+  background-image: url("../img/divider_1.png");
+}
+.divider-2 {
+  background-image: url("../img/divider_2.png");
+}
+.divider-3 {
+  background-image: url("../img/divider_3.png");
+}
+.timetable .ttplay:nth-child(odd) .playblob .timetable-char img.char{
+  transform: scaleX(-1);
+}
+
+.donate-bar .bar{
+  box-sizing: content-box;
+  margin: -4px;
+}
+.donate-bar .bar-text {
+  text-shadow: -1px -1px 0 $donate-bar-text-outline, 1px -1px 0 $donate-bar-text-outline, -1px 1px 0 $donate-bar-text-outline, 1px 1px 0 $donate-bar-text-outline;
+  font-size: 26px;
+  line-height: 44px;
+}
+
+.overflower {
+  width: 130%;
+  margin: 0 -15%;
+}
+.header-logo{
+  width: 100%;
+}
+#container{
+  margin-top: 30px
+}
+.content{
+  background-image: url("../img/content_top.png"), url("../img/content_bottom.png"),url("../img/content_loop.png");
+  background-repeat: no-repeat, no-repeat, repeat-y;
+  background-size: 100% auto, 100% auto, 100% auto;
+  background-position: top center, bottom center, top center;
+  width: 100%;
+  padding: 0 24% 60px 24%;
+  margin: 0;
+}
+
+body{
+  overflow-x: hidden;
+  background-position: top center;
+  background-repeat: repeat;
+}
+footer{
+  margin-top: -60px;
+}
