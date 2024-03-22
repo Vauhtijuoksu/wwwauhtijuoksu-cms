@@ -29,7 +29,8 @@ $red: #c2473b;
 $font-family-sans-serif: 'solway';
 $body-bg-image: url("../img/bg.png");
 
-$content-bg: tranparent;
+$container-bg: $blue;
+$content-bg: transparent;
 $content-filter: none;
 
 $link-color: $orange;
@@ -54,21 +55,21 @@ $twitch-icon-sm-width: 15px;
 $twitch-link-color: $link-color;
 $twitch-link-hover-color: $link-hover-color;
 
-$donate-bar-color: $lightgreen;
-$donate-bar-text-color: $primary;
-$donate-bar-bg-color: $darkgreen;
+$donate-bar-color: $yellow;
+$donate-bar-text-color: $blueishgrey;
+$donate-bar-bg-color: $blue;
 $donate-bar-border-radius: 20px;
-$donate-bar-text-color-full: $primary;
+$donate-bar-text-color-full: $lightgreen;
 $donate-bar-color-full: $green;
 $donate-bar-border: solid 4px $orange;
 $donate-bar-fill-border: $donate-bar-border;
 $donate-bar-padding: 0px;
-$donate-bar-text-outline: $darkgreen;
+$donate-bar-text-outline: $darkblue;
 
 $divider-height: 400px;
 $divider-width: 100%;
 
-$incentive-bar-fill-color: $lightgreen;
+$incentive-bar-fill-color: $red;
 $incentive-bar-bg-color: $darkgreen;
 $incentive-dropdown-text-color: $link-color;
 $incentive-dropdown-hover-color: $link-hover-color;
@@ -213,21 +214,29 @@ h1, h2, h3, h4, .playdate, .playgame{
   line-height: 44px;
 }
 
+.full > .bar-text{
+  color: $donate-bar-text-color-full;
+}
+
 .overflower {
   width: 130%;
   margin: 0 -15%;
 }
 .header-logo{
   width: 100%;
+  background-image: url("../img/header_bg.png");
+  background-size: 70% 68%;
+  background-repeat: no-repeat;
+  background-position: bottom center;
 }
 #container{
-  margin-top: 30px
+  margin-top: 30px;
 }
 .content{
-  background-image: url("../img/content_top.png"), url("../img/content_bottom.png"),url("../img/content_loop.png");
-  background-repeat: no-repeat, no-repeat, repeat-y;
-  background-size: 100% auto, 100% auto, 100% auto;
-  background-position: top center, bottom center, top center;
+  background-image: url("../img/content_top.png"), url("../img/content_bottom.png"),url("../img/content_loop.png"), url("../img/content_top_bg.png"), url("../img/loop_bg.png");
+  background-repeat: no-repeat, no-repeat, repeat-y, no-repeat, repeat-y;
+  background-size: 100% auto, 100% auto, 100% auto, 70% auto, 70% auto;
+  background-position: top center, bottom center, top center, top center, top center;
   width: 100%;
   padding: 0 24% 60px 24%;
   margin: 0;

@@ -1,5 +1,10 @@
 {% load vj_extras %}
-<div class="donate-bar">
+{% if donation_sum >= instance.goal %}
+
+    <div class="donate-bar full">
+{% else %}
+    <div class="donate-bar">
+    {% endif %}
     {% if donation_sum >= instance.goal %}
         <div class="bar full"></div>
     {% else %}
