@@ -87,13 +87,20 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-discord_apps = []
+
 if 'DISCORD_CLIENT_ID' in os.environ:
     discord_apps = [{
         'client_id': os.environ['DISCORD_CLIENT_ID'],
         'secret': os.environ['DISCORD_SECRET'],
         'key': '',
     }]
+else:
+    discord_apps = [{
+        'client_id': 'whatever',
+        'secret': 'placeholder',
+        'key': '',
+    }]
+
 SOCIALACCOUNT_PROVIDERS = {
     "discord": {
         "APPS": discord_apps
