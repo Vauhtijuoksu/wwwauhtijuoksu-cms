@@ -1,0 +1,24 @@
+{% extends "generic_base.html" %}
+{% load static cms_tags menu_tags sekizai_tags sass_tags %}
+
+{% block body %}
+    {% addtoblock "css" %}<link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>{% endaddtoblock %}
+    {% addtoblock "css" %}<link href="{% sass_src 'vauhtijuoksu2024/css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
+    {% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}"></script>{% endaddtoblock %}
+    {% addtoblock "js" %}<script src="{% static "vauhtijuoksu2024/js/script.js" %}"></script>{% endaddtoblock %}
+
+    <div id="container" class="container">
+        <div class="overflower">
+            <img src="{% static 'vauhtijuoksu2024/img/header.png' %}" class="header-logo">
+            <div class="content">
+            <div class="menu-wrapper">
+                <div class="menu">
+                    {% show_menu %}
+
+                </div>
+            </div>
+            {% placeholder "content" %}
+            </div>
+        </div>
+    </div>
+{% endblock body %}
