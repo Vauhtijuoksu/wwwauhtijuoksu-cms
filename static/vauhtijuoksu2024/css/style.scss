@@ -77,6 +77,9 @@ $incentive-closed-text-color: $grey;
 $incentive-copy-button-color: $green;
 $incentive-copy-button-hover-color: $lightgreen;
 $incentive-popup-bg-color: $blue;
+
+
+
 @import "static/css/base";
 
 
@@ -116,10 +119,14 @@ input[type='checkbox'] {
     width: 20px;
     height: 20px;
 }
-
-.header-logo-padded{
+.widelogoholder{
   width: 100%;
-  padding: 30px;
+  max-height: 200px;
+  text-align: center;
+}
+.header-logo-padded{
+  max-height: 200px;
+  max-width: 100%;
 }
 .header{
   width: 100%;
@@ -127,6 +134,7 @@ input[type='checkbox'] {
 }
 .container{
   padding: 0;
+  max-width: 1200px;
 }
 .timetable .ttplay .playblob .timetable-char {
   display: flex;
@@ -162,7 +170,7 @@ input[type='checkbox'] {
 }
 .tabletimetable .tttcontent .tttday .tttgame:hover .tttimg > img {
   width: 500%;
-  margin-right: -30px;
+  margin-right: -20px;
   transform: scaleX(1);
 }
 .tabletimetable .tttcontent .tttday .tttgame > div {
@@ -174,7 +182,7 @@ input[type='checkbox'] {
   width: 100%;
 }
 .tabletimetable .tttcontent .tttday .tttgame .tttimg {
-  width: 56px;
+  width: 64px;
 }
 .menu-wrapper {
   padding-bottom: 20px;
@@ -213,14 +221,42 @@ h1, h2, h3, h4, .playdate, .playgame{
   font-size: 26px;
   line-height: 44px;
 }
+.timetable .ttplay .playblob .timetable-char img.char{
+  z-index: 0;
+  width: 110%;
+  margin-top: -40px;
+}
+.timetable .ttplay .playright .playgame {
+    font-size: 1.6rem;
+    line-height: 1.5rem;
+}
+
+.timetable .ttplay .playright {
+  text-shadow: -1px -1px 0 $blue, 1px -1px 0 $blue, -1px 1px 0 $blue, 1px 1px 0 $blue;
+  z-index: 10;
+}
+.timetable .ttplay .playleft {
+  text-shadow: -1px -1px 0 $blue, 1px -1px 0 $blue, -1px 1px 0 $blue, 1px 1px 0 $blue;
+  z-index: 10;
+}
+.timetable .ttplay .playblob {
+    display: flex;
+    width: 20%;
+}
+.timetable .ttplay:nth-child(odd) .playblob .timetable-char img.char {
+  margin-left: -50px;
+}
+.timetable .ttplay:nth-child(even) .playblob .timetable-char img.char {
+  margin-left: 30px;
+}
 
 .full > .bar-text{
   color: $donate-bar-text-color-full;
 }
 
 .overflower {
-  width: 130%;
-  margin: 0 -15%;
+  width: 132%;
+  margin: 0 -16%;
 }
 .header-logo{
   width: 100%;
@@ -241,7 +277,10 @@ h1, h2, h3, h4, .playdate, .playgame{
   padding: 0 24% 60px 24%;
   margin: 0;
 }
-
+.twitch-link .twitch-icon {
+  margin-top: -25px;
+  margin-left: -5px;
+}
 body{
   overflow-x: hidden;
   background-position: top center;
@@ -249,4 +288,114 @@ body{
 }
 footer{
   margin-top: -60px;
+}
+.tabletimetable .tttcontent .tttday .tttgame {
+  background-color: $darkblue;
+  border-color: $darkblue;
+}
+.tabletimetable .tttcontent .tttday .tttgame:hover > div{
+  background-color: $blue;
+  border-color: $darkblue;
+}
+@media (max-width: 420px) {
+  .timetable .ttplay .playright .playgame {
+    font-size: 1.1rem;
+    line-height: 1.0rem;
+  }
+  .timetable .ttplay .playdate {
+      font-size: 1.5rem;
+  }
+  .timetable .ttplay .playblob {
+      display: flex;
+      width: 18%;
+  }
+  .timetable .ttplay:nth-child(odd) .playblob .timetable-char img.char {
+    margin-left: -50px;
+  }
+  .timetable .ttplay:nth-child(even) .playblob .timetable-char img.char {
+    margin-left: -10px;
+  }
+  .timetable .ttplay .playblob .timetable-char img.char {
+    margin-top: 0px;
+  }
+
+  .content{
+    padding: 0 20% 60px 20% !important;
+  }
+}
+
+@media (min-width: 420px) {
+  .timetable .ttplay .playright .playgame {
+    font-size: 1.1rem;
+    line-height: 1.0rem;
+  }
+  .timetable .ttplay .playdate {
+      font-size: 1.5rem;
+  }
+  .timetable .ttplay .playblob {
+      display: flex;
+      width: 18%;
+  }
+  .timetable .ttplay:nth-child(odd) .playblob .timetable-char img.char {
+    margin-left: -50px;
+  }
+  .timetable .ttplay:nth-child(even) .playblob .timetable-char img.char {
+    margin-left: -10px;
+  }
+  .timetable .ttplay .playblob .timetable-char img.char {
+    margin-top: 0px;
+  }
+}
+@media (max-width: 620px) {
+  .menu{
+    font-size: 28px !important;
+  }
+  body{
+    font-size: 0.8rem !important;
+  }
+  .donate-bar .bar-done {
+    display: none !important;
+  }
+  .content{
+    padding: 0 22% 60px 22% !important;
+  }
+}
+
+@media (min-width: 620px) {
+  .timetable .ttplay .playright .playgame {
+    font-size: 1.3rem;
+    line-height: 1.2rem;
+  }
+  .timetable .ttplay .playdate {
+      font-size: 2.5rem;
+  }
+  .timetable .ttplay .playblob {
+      display: flex;
+      width: 18%;
+  }
+  .timetable .ttplay:nth-child(odd) .playblob .timetable-char img.char {
+    margin-left: -40px;
+  }
+  .timetable .ttplay:nth-child(even) .playblob .timetable-char img.char {
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 820px) {
+  .timetable .ttplay .playright .playgame {
+    font-size: 1.5rem;
+    line-height: 1.4rem;
+  }
+  .timetable .ttplay .playdate {
+      font-size: 3rem;
+  }
+  .timetable .ttplay:nth-child(odd) .playblob .timetable-char img.char {
+    margin-left: -40px;
+  }
+  .timetable .ttplay:nth-child(even) .playblob .timetable-char img.char {
+    margin-left: 20px;
+  }
+  .timetable .ttplay .playblob .timetable-char img.char {
+    margin-top: -25px;
+  }
 }
