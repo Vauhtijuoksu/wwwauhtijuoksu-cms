@@ -4,10 +4,13 @@
 {% block body %}
     {% addtoblock "css" %}<link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>{% endaddtoblock %}
     {% addtoblock "css" %}<link href="{% sass_src 'vauhtijuoksu2024/css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
+    {% addtoblock "css" %}<link href="{% sass_src 'vauhtijuoksu2024/css/full.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}"></script>{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static "vauhtijuoksu2024/js/script.js" %}"></script>{% endaddtoblock %}
+    <div class="widelogoholder">
+    <img src="{% static 'vauhtijuoksu2024/img/logo_on_line.png' %}" class="header-logo-padded">
 
-    <img src="{% static 'vauhtijuoksu2024/img/logo.png' %}" class="header-logo-padded">
+    </div>
     <div id="fs-container">
         <div class="full-content">
             <div class="menu-wrapper">
