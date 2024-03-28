@@ -87,13 +87,20 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-discord_apps = []
+
 if 'DISCORD_CLIENT_ID' in os.environ:
     discord_apps = [{
         'client_id': os.environ['DISCORD_CLIENT_ID'],
         'secret': os.environ['DISCORD_SECRET'],
         'key': '',
     }]
+else:
+    discord_apps = [{
+        'client_id': 'whatever',
+        'secret': 'placeholder',
+        'key': '',
+    }]
+
 SOCIALACCOUNT_PROVIDERS = {
     "discord": {
         "APPS": discord_apps
@@ -124,6 +131,8 @@ TEMPLATES = [
 # List of templates that can be used for CMS pages
 CMS_TEMPLATES = [
     ('vauhtijuoksu/vauhtijuoksu.html', 'VJ Generic theme'),
+    ('vauhtijuoksu/vj2024.html', 'VJ 2024 theme'),
+    ('vauhtijuoksu/vj2024_fullscreen.html', 'VJ 2024 fullscreen theme'),
     ('vauhtijuoksu/vj2023.html', 'VJ 2023 theme'),
     ('vauhtijuoksu/vj2023_fullscreen.html', 'VJ 2023 fullscreen theme'),
     ('vauhtijuoksu/vj2022_fullscreen.html', 'VJ 2022 fullscreen theme'),
