@@ -69,13 +69,13 @@ $donate-bar-text-outline: $darkblue;
 $divider-height: 400px;
 $divider-width: 100%;
 
-$incentive-bar-fill-color: $red;
-$incentive-bar-bg-color: $darkgreen;
+$incentive-bar-fill-color: $yellow;
+$incentive-bar-bg-color: $darkblue;
 $incentive-dropdown-text-color: $link-color;
 $incentive-dropdown-hover-color: $link-hover-color;
 $incentive-closed-text-color: $grey;
-$incentive-copy-button-color: $green;
-$incentive-copy-button-hover-color: $lightgreen;
+$incentive-copy-button-color: $link-hover-color;
+$incentive-copy-button-hover-color: $link-color;
 $incentive-popup-bg-color: $blue;
 
 
@@ -112,7 +112,6 @@ $incentive-popup-bg-color: $blue;
 }
 .incentive_bar_fill {
   border-radius: 10px;
-  border: solid 3px #2f0028;
 }
 
 input[type='checkbox'] {
@@ -348,7 +347,7 @@ footer{
 }
 @include media-breakpoint-down(md) {
   .menu{
-    font-size: 28px !important;
+    font-size: 24px !important;
   }
   body{
     font-size: 0.8rem !important;
@@ -363,7 +362,7 @@ footer{
 
 @include media-breakpoint-up(md) {
   .timetable .ttplay .playright .playgame {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     line-height: 1.2rem;
   }
   .timetable .ttplay .playdate {
@@ -383,7 +382,7 @@ footer{
 
 @include media-breakpoint-up(lg) {
   .timetable .ttplay .playright .playgame {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
     line-height: 1.4rem;
   }
   .timetable .ttplay .playdate {
