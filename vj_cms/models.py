@@ -58,3 +58,11 @@ class Timetable(CMSPlugin):
 
 class Donatebar(CMSPlugin):
     goal = models.PositiveIntegerField('Goal', default=1000)
+
+class PriorityMessages(CMSPlugin):
+    duration = models.PositiveIntegerField('Carousel message duration (seconds)', default=8)
+
+
+class AnchorLink(CMSPlugin):
+    anchor_tag = models.CharField("Anchor tag", null=True, default="", max_length=255)
+    title = models.CharField("Title in menu (Empty = hidden)", null=True, default="", max_length=255)

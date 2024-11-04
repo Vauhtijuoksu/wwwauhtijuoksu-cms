@@ -9,10 +9,32 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 
 from vj_cms.client import VJClient
-from vj_cms.models import GameInfo, Timetable, Donatebar
+from vj_cms.models import GameInfo, Timetable, Donatebar, PriorityMessages, AnchorLink
 from datetime import datetime
 
 client = VJClient(settings.VJ_API_URL)
+
+@plugin_pool.register_plugin
+class AnchorLink(CMSPluginBase):
+    name = 'Anchor link'
+    model = AnchorLink
+    render_template = "vauhtijuoksu/plugins/anchor.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+@plugin_pool.register_plugin
+class PriorityMessage(CMSPluginBase):
+    name = 'Prioritymessage content'
+    model = PriorityMessages
+    render_template = "vauhtijuoksu/plugins/prioritymessages.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
 
 @plugin_pool.register_plugin
 class DividerPlugin(CMSPluginBase):
