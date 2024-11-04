@@ -31,6 +31,28 @@ $color-1-dark: $mimipalette3;
 $color-2-light: $mimipalette6;
 $color-2-dark: $mimipalette8;
 
+
+$body-bg: $bg-1;
+$body-color: $color-2-light;
+
+$increment-xs: 5px;
+$content-bg: $bg-2;
+$content-shadow: $content-bg;
+$content-padding: $increment-lg $increment-md $increment-md;
+$content-text-align: center;
+$content-margin: $increment-lg auto $increment-lg;
+$content-filter: drop-shadow(6px 6px 0px $content-shadow);
+$content-border-radius 0;
+
+$link-color: $color-1-light;
+$link-decoration: none;
+$link-hover-color: $color-2-light;
+$link-hover-decoration: none;
+
+$menu-link-drop-shadow: $bg-2;
+$menu-link-color: $link-color;
+$menu-link-hover-color: $link-hover-color;
+
 $primary: $mimipalette4;
 $secondary: $mimipalette8;
 
@@ -48,7 +70,55 @@ $body-bg-image: url("../img/bg.png");
     font-family: 'offsett';
     src: url('../misc/Offsett.ttf') format('truetype');
 }
+.menu-wrapper {
+  padding: $menu-padding;
 
+  &.fullscreen {
+    margin-top: -230px;
+    padding-bottom: 0px;
+    min-height: 0px;
+  }
+
+  .menu {
+    display: flex;
+    z-index: 10000;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 32px;
+    line-height: 56px;
+    text-shadow: 2px 2px $menu-link-drop-shadow;
+
+    > div {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .menu-link {
+      color: $menu-link-color;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      &:visited {
+        color: $menu-link-color;
+      }
+
+      &:hover {
+        color: $menu-link-hover-color;
+      }
+
+      &:active {
+        color: $menu-link-color;
+      }
+    }
+  }
+}
+
+
+.menu-wrapper {
+    padding-bottom: 70px;
+    padding-top: 40px;
+}
 .title.bigletters {
   margin-top: 10px;
   font-family: 'offsett';

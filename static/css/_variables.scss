@@ -1,28 +1,22 @@
 // Default variables here
 
 // Named colors
-// These are used in some specific places, like "success" and "warning" colors.
-$white: #fff !default;
-$black: #000 !default;
-$blue: #639bff !default;
-$green: #63ffba !default;
-$red: #ff79ae !default;
-$orange: #ff8c5c !default;
-$yellow: #fff982 !default;
-// Some other colour definitions are found in the bootstrap variables
+$viuhti-violet: #87597B !default;
+$viuhti-orange: #c98c7b !default;
+$viuhti-orangedark: #672e1d !default;
+$viuhti-green: #345f65 !default;
+$viuhti-darkgreen: #214a4f !default;
+$viuhti-white: #ded5d2 !default;
+$viuhti-dark: #16031b !default;
+$viuhti-darkfade: rgba(22, 3, 27, 0.69) !default;
+$viuhti-blue: #70b2d3 !default;
+$ERROR: red !default;
 
 $body-bg-image: null !default;
 
 // Theme color palette
 // These are used for some global defaults, like background color etc.
-$bg-1: #34083d !default;
-$bg-2: shade-color($bg-1, 50%) !default;
-$color-1: #b70b86 !default;
-$color-1-light: tint-color($color-1, 30%) !default;
-$color-1-dark: shade-color($color-1, 30%) !default;
-$color-2: #5325a0 !default;
-$color-2-light: tint-color($color-2, 30%) !default;
-$color-2-dark: shade-color($color-2, 30%) !default;
+
 
 // Sizes
 // root size affects the value of 1rem, so everything
@@ -44,16 +38,18 @@ $grid-breakpoints: (
     xxl: 1400px,
 );
 
-// Bootstrap variable defaults. Override these where it might be specifically useful.
-$body-bg: $bg-1 !default;
-$body-color: $color-2-light !default;
+$body-bg: $viuhti-green !default;
+$body-color: $viuhti-dark !default;
 
-$primary: $color-1 !default;
-$secondary: $color-2-dark !default;
+$primary: $viuhti-orange !default;
+$secondary: $viuhti-violet !default;
 
-$link-color: $color-1-light !default;
+$bg-1: $body-bg !default;
+$bg-2: $primary !default;
+
+$link-color: $viuhti-blue !default;
 $link-decoration: none !default;
-$link-hover-color: $color-2-light !default;
+$link-hover-color: $viuhti-orange !default;
 $link-hover-decoration: none !default;
 // For more bootstrap overridables, check out node_modules/bootstrap/scss/_variables.scss
 
@@ -61,21 +57,24 @@ $link-hover-decoration: none !default;
 // Override specific variables for specific results
 $title-color: $primary !default;
 
-$content-bg: $bg-2 !default;
-$content-shadow: $content-bg !default;
-$content-padding: $increment-lg $increment-md $increment-md !default;
+$content-shadow: none !default;
+$content-bg: $secondary !default;
+$content-padding: $increment-sm !default;
 $content-text-align: center !default;
-$content-margin: $increment-lg auto $increment-lg!default;
-$content-filter: drop-shadow(6px 6px 0px $content-shadow) !default;
+$content-margin: $increment-sm !default;
+$content-filter: none !default;
+$content-border-radius: $increment-md;
 
 $table-header-color: $title-color !default;
 $table-row-color: $body-color !default;
-$table-border-color: $color-1-dark !default;
+$table-border-color: $primary !default;
 
+$speechbubble-bg: $viuhti-white;
 
-$menu-link-drop-shadow: $bg-2 !default;
-$menu-link-color: $link-color !default;
-$menu-link-hover-color: $link-hover-color !default;
+$menu-link-drop-shadow: none !default;
+$menu-link-color: $viuhti-dark !default;
+$menu-link-hover-color: $viuhti-darkfade !default;
+$menu-padding: 0 !default;
 
 $divider-width: 128px !default;
 $divider-height: 64px !default;
@@ -94,7 +93,7 @@ $incentive-button-color: $secondary !default;
 $incentive-button-font-size: 1.2rem !default;
 
 $incentive-copy-button-color: $secondary !default;
-$incentive-copy-button-hover-color: $white !default;
+$incentive-copy-button-hover-color: $viuhti-white !default;
 
 $incentive-checkbox-size: $increment-lg !default;
 
@@ -102,21 +101,21 @@ $incentive-bar-height: $increment-xs !default;
 $incentive-bar-border-radius: 2px !default;
 $incentive-bar-margin-top: -$increment-xs !default;
 $incentive-bar-margin-bottom: $increment-xs !default;
-$incentive-bar-bg-color: $black !default;
-$incentive-bar-fill-color: $yellow !default;
+$incentive-bar-bg-color: $viuhti-dark !default;
+$incentive-bar-fill-color: $viuhti-green !default;
 
-$incentive-count-text-color: $primary !default;
-$incentive-popup-bg-color: $bg-1 !default;
+$incentive-count-text-color: $viuhti-dark !default;
+$incentive-popup-bg-color: $viuhti-white !default;
 
 // Donate bar
 $donate-bar-height: $increment-xl !default;
 
 $donate-bar-border: none !default;
 $donate-bar-fill-border: none !default;
-$donate-bar-bg-color: $black !default;
-$donate-bar-color: $yellow !default;
+$donate-bar-bg-color: $viuhti-dark !default;
+$donate-bar-color: $viuhti-orange !default;
 $donate-bar-text-color: $primary !default;
-$donate-bar-color-full: $green !default;
+$donate-bar-color-full: $viuhti-green !default;
 $donate-bar-text-color-full: $donate-bar-text-color !default;
 
 $donate-bar-padding: $increment-xs !default;

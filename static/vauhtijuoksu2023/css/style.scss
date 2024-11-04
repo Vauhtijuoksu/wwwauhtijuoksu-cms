@@ -11,6 +11,7 @@ $orange: #ff8c5c;
 $red: #ff79ae;
 $yellow: #fff982;
 
+
 @font-face {
     font-family: 'ubuntu';
     src: url('../misc/UbuntuTitling-Bold.ttf') format('truetype');
@@ -27,6 +28,29 @@ $color-1-light: #00baff;
 $color-1-dark: grey;
 $color-2-light: #2f0028;
 $color-2-dark: purple;
+
+
+
+$body-bg: $bg-1;
+$body-color: $color-2-light;
+
+$content-bg: $bg-2;
+$content-shadow: $content-bg;
+$content-padding: $increment-lg $increment-md $increment-md;
+$content-text-align: center;
+$content-margin: $increment-lg auto $increment-lg;
+$content-filter: drop-shadow(6px 6px 0px $content-shadow);
+$content-border-radius 0;
+
+$link-color: $color-1-light;
+$link-decoration: none;
+$link-hover-color: $color-2-light;
+$link-hover-decoration: none;
+
+
+$menu-link-drop-shadow: $bg-2;
+$menu-link-color: $link-color;
+$menu-link-hover-color: $link-hover-color;
 
 $primary: rgba(47, 0, 40, 0.81);
 $secondary: #9fd5de;
