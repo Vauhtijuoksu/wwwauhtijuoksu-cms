@@ -36,13 +36,18 @@ $body-bg: $bg-1;
 $body-color: $color-2-light;
 
 $increment-xs: 5px;
+$increment-sm: 2*$increment-xs;
+$increment-md: 2*$increment-sm;
+$increment-lg: 3*$increment-sm;
+$increment-xl: 5*$increment-sm;
+
 $content-bg: $bg-2;
 $content-shadow: $content-bg;
 $content-padding: $increment-lg $increment-md $increment-md;
 $content-text-align: center;
 $content-margin: $increment-lg auto $increment-lg;
 $content-filter: drop-shadow(6px 6px 0px $content-shadow);
-$content-border-radius 0;
+$content-border-radius: 0;
 
 $link-color: $color-1-light;
 $link-decoration: none;
