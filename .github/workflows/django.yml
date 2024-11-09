@@ -39,7 +39,3 @@ jobs:
     - name: Run Tests
       run: |
         pipenv run test
-
-    - name: Compile SCSS
-      run: |
-        pipenv run compilescss
