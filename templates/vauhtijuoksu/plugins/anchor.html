@@ -1,1 +1,21 @@
-<div id="{{ instance.anchor_tag }}" class="anchor-link-tag" style="visibility: hidden; height: 0; width: 0">{{ instance.title }}</div>
+{% load sekizai_tags %}
+<div id="{{ instance.anchor_tag }}" style="visibility: hidden; height: 0; width: 0"></div>
+{% addtoblock "js" %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        let link = '<a href="#{{ instance.anchor_tag }}" class="menu-link anchor-menu-link">{{ instance.title }}</a>'
+        let anchormenu = $("#vj-plugin-anchor-menu")
+        if (anchormenu){
+            anchormenu.show()
+            $("#vj-plugin-anchor-menu > .menu").append(link)
+        }
+        let scrolldownanchor = $("#vj-plugin-scrolldown-anchor-menu")
+        if (scrolldownanchor){
+            scrolldownanchor.show()
+            scrolldownanchor.append(link)
+            $("#vj-plugin-scrolldown-anchor-menu-divider").show()
+        }
+    });
+</script>
+{% endaddtoblock %}
+

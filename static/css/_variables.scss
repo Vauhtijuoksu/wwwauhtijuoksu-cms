@@ -23,6 +23,7 @@ $body-bg-image: null !default;
 $font-size-root: 22px !default;
 
 // increment used for some margins, paddings etc
+$increment-xxs: 2px !default;
 $increment-xs: 5px !default;
 $increment-sm: 2*$increment-xs !default;
 $increment-md: 2*$increment-sm !default;
@@ -31,9 +32,9 @@ $increment-xl: 5*$increment-sm !default;
 
 $grid-breakpoints: (
     xs: 0,
-    sm: 420px, /* bs: 576px */
-    md: 620px, /* bs: 768px */
-    lg: 820px, /* bs: 992px */
+    sm: 576px, /* bs: 576px */
+    md: 768px, /* bs: 768px */
+    lg: 992px, /* bs: 992px */
     xl: 1200px,
     xxl: 1400px,
 );
@@ -57,13 +58,27 @@ $link-hover-decoration: none !default;
 // Override specific variables for specific results
 $title-color: $primary !default;
 
-$content-shadow: none !default;
-$content-bg: $secondary !default;
-$content-padding: $increment-sm !default;
+$box-border: $viuhti-dark $increment-xxs solid !default;
+$box-border-radius: $increment-md !default;
+
+$main-box-bg: $secondary !default;
+$main-box-border-radius: $box-border-radius !default;
+$main-box-padding: $increment-md !default;
+$main-box-margin: $increment-sm !default;
+
 $content-text-align: center !default;
-$content-margin: $increment-sm !default;
-$content-filter: none !default;
-$content-border-radius: $increment-md;
+$menu-text-align: $content-text-align !default;
+$menu-link-text-color: $viuhti-dark !default;
+$menu-link-bg-color: $viuhti-white !default;
+$menu-link-hover-text-color: $viuhti-darkfade !default;
+$menu-link-hover-bg-color: $viuhti-orange !default;
+$menu-link-font-size-normal: 1.2rem !default;
+$menu-link-font-size-small: 1rem !default;
+$menu-link-border: $box-border !default;
+$menu-link-border-radius: $increment-sm !default;
+$menu-link-padding: 0 8px !default;
+
+$space-between-menu-and-content: $increment-md !default;
 
 $table-header-color: $title-color !default;
 $table-row-color: $body-color !default;
@@ -71,13 +86,11 @@ $table-border-color: $primary !default;
 
 $speechbubble-bg: $viuhti-white;
 
-$menu-link-drop-shadow: none !default;
-$menu-link-color: $viuhti-dark !default;
-$menu-link-hover-color: $viuhti-darkfade !default;
-$menu-padding: 0 !default;
 
 $divider-width: 128px !default;
-$divider-height: 64px !default;
+$divider-height: 12vw !default;
+$divider-max-height: 100px !default;
+$divider-max-width: 100% !default;
 
 $sponsor-margin: $increment-lg 0 !default;
 $sponsor-max-width: 400px !default;
@@ -123,7 +136,6 @@ $donate-bar-margin: $increment-sm 0 !default;
 $donate-bar-border-radius: $increment-xs !default;
 
 // timetable
-$twitch-icon-image: url("../../vauhtijuoksu/img/twitch.png") !default;
 $twitch-icon-width: 26px !default;
 $twitch-icon-sm-width: $twitch-icon-width !default;
 $twitch-link-color: $link-color !default;
@@ -137,3 +149,12 @@ $timetable-right-width: 55% !default;
 
 $ttt-game-bg-color: $bg-2 !default;
 $ttt-game-hover-bg-color: $bg-1 !default;
+
+
+// default images
+
+$twitch-icon-image: url("../../img/twitch.png") !default;
+$divider-0: url("../../img/divider_0.png") !default;
+$divider-1: url("../../img/divider_1.png") !default;
+$divider-2: url("../../img/divider_2.png") !default;
+$divider-3: url("../../img/divider_3.png") !default;

@@ -1,0 +1,21 @@
+{% load sekizai_tags %}
+{% addtoblock "js" %}
+<script type="text/javascript">
+    let ts_message_duration = {{ instance.message_duration }};
+    $(document).ready(function(){
+        {% if not instance.show_login %}
+            $("#vj-user-login").hide()
+            $("#vj-user-login-plugin").hide()
+        {% else %}
+            $("#vj-user-login").show()
+            $("#vj-user-login-plugin").show()
+        {% endif %}
+        {% if not instance.show_scrolldown_menu %}
+            $("#vj-scrolldown-menu").hide()
+        {% else %}
+            $("#vj-scrolldown-menu").show()
+        {% endif %}
+    });
+</script>
+{% endaddtoblock "js" %}
+

@@ -66,3 +66,8 @@ class PriorityMessages(CMSPlugin):
 class AnchorLink(CMSPlugin):
     anchor_tag = models.CharField("Anchor tag", null=True, default="", max_length=255)
     title = models.CharField("Title in menu (Empty = hidden)", null=True, default="", max_length=255)
+
+class TweakSettings(CMSPlugin):
+    message_duration = models.PositiveIntegerField('Carousel message duration (seconds)', default=8)
+    show_scrolldown_menu = models.BooleanField('Show scrolldown menu', default=False)
+    show_login = models.BooleanField('Show login', default=True)

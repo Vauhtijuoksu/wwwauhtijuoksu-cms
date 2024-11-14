@@ -9,10 +9,31 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 
 from vj_cms.client import VJClient
-from vj_cms.models import GameInfo, Timetable, Donatebar, PriorityMessages, AnchorLink
+from vj_cms.models import GameInfo, Timetable, Donatebar, PriorityMessages, AnchorLink, TweakSettings
 from datetime import datetime
 
 client = VJClient(settings.VJ_API_URL)
+
+@plugin_pool.register_plugin
+class MobileSpeechbubble(CMSPluginBase):
+    name = 'Mobile Speechbubble'
+    model = CMSPlugin
+    render_template = "vauhtijuoksu/plugins/mobilespeechbubble.html"
+    cache = False
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+@plugin_pool.register_plugin
+class TweakSettings(CMSPluginBase):
+    name = 'Tweak Settings'
+    model = TweakSettings
+    render_template = "vauhtijuoksu/plugins/tweak_settings.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
 
 @plugin_pool.register_plugin
 class AnchorLink(CMSPluginBase):

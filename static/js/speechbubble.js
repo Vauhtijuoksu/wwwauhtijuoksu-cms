@@ -1,57 +1,53 @@
-let speechcontentindex = 0
-let speechcontents = 0
+let speechbubble_display_index = 0
+let speechbubble_content;
 
-let height = 0;
 $(document).ready(function(){
-    var duration = 10000
-    var durationdiv = $("#prioritymessageduration")
-    speechcontents = $(".prioritymessagecontent").length
-
-    if (durationdiv){
-        duration = (parseInt(durationdiv.text())+2) * 1000
+    if ($("#vj-speechbubble-content-override") || $("#vj-speechbubble-content")) {
+        get_speechbubble_content()
     }
-    if (speechcontents){
-        show_speech()
-        if (speechcontents > 1) {
+});
+
+function get_speechbubble_content(){
+    if ($("#vj-speechbubble-content-override > template").length > 0 || $("#vj-speechbubble-content > template").length > 0){
+        setTimeout(function (){
+            get_speechbubble_content()
+        }, 100)
+        return
+    }
+    let override = $("#vj-speechbubble-content-override > .cms-plugin:not(template)")
+    if (override && override.length > 0){
+        speechbubble_content = override
+    } else {
+        speechbubble_content = $("#vj-speechbubble-content > .cms-plugin:not(template)")
+    }
+
+    let duration = 10000
+    if (typeof ts_message_duration !== 'undefined') {
+        duration = (ts_message_duration +2)*1000
+    }
+    if (speechbubble_content){
+        show_speechbubble()
+        if (speechbubble_content.length > 1) {
             setInterval(function () {
-                next_speech()
+                next_speechbubble()
             }, duration)
         }
     }
-    onscroll = (event) => {get_scroll()}
-    set_scroll(0, 0)
-});
-
-function get_scroll(){
-    let sp = window.scrollY
-    let scroll = window.scrollY/($(document).height()-$(window).height())
-    set_scroll(scroll, sp)
 }
 
-function set_scroll(scroll_ratio, scroll){
-    let win_height = $(window).height()
-    $(".sidebox").css("margin-top", win_height*(scroll_ratio*0.2 -0.05)+"px")
-    let left = 10*Math.sin(scroll*0.0008)
-    $(".sidebox > div > img").css("margin-top", win_height*scroll_ratio*0.05+"px").css("margin-left", left+"px").css("margin-right", -left+"px")
-    $(".sidebox > div > .speechbubble-positioner").css("margin-left", left*0.5+"px").css("margin-right", -left*0.5+"px")
-    $("body").css("background-position-y", Math.round(-scroll*0.02-20)+"px");
-
-}
-
-function next_speech(){
-    speechcontentindex += 1;
-    if (speechcontentindex >= speechcontents){
-        speechcontentindex = 0
+function next_speechbubble(){
+    speechbubble_display_index += 1;
+    if (speechbubble_display_index >= speechbubble_content.length){
+        speechbubble_display_index = 0
     }
-    let bubble = $(".speechbubble")
-    bubble.addClass("fade")
+    $("#vj-speechbubble > .speechbubble").addClass("fade")
+    $("#vj-mobile-speechbubble > div > .speechbubble").addClass("fade")
     setTimeout(function (){
-        show_speech()
+        show_speechbubble()
     }, 1000)
 }
 
-function show_speech(){
-    let bubble = $(".speechbubble")
-    bubble.html($("#prioritymessage_"+speechcontentindex).html())
-    bubble.removeClass("fade")
+function show_speechbubble(){
+    $("#vj-speechbubble > .speechbubble").html(speechbubble_content[speechbubble_display_index]).removeClass("fade");
+    $("#vj-mobile-speechbubble >  div > .speechbubble").html(speechbubble_content.clone()[speechbubble_display_index]).removeClass("fade");
 }

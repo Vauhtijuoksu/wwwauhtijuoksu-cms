@@ -130,8 +130,8 @@ TEMPLATES = [
 
 # List of templates that can be used for CMS pages
 CMS_TEMPLATES = [
-    ('vauhtijuoksu/vauhtijuoksuGenericV2.html', 'VJ Generic theme v2'),
-    ('vauhtijuoksu/vauhtijuoksu.html', 'VJ Generic theme'),
+    ('vauhtijuoksu/genericSideViuhti.html', 'VJ SideViuhti (Generic)'),
+    ('vauhtijuoksu/genericViolet.html', 'VJ OLD Generic violet theme'),
     ('vauhtijuoksu/vj2024.html', 'VJ 2024 theme'),
     ('vauhtijuoksu/vj2024_fullscreen.html', 'VJ 2024 fullscreen theme'),
     ('vauhtijuoksu/vj2023.html', 'VJ 2023 theme'),

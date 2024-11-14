@@ -1,0 +1,7 @@
+{% load account socialaccount %}
+{% if user.is_authenticated %}
+    Hei, {% user_display user %}.
+    <a href="{% url 'account_logout' %}">Kirjaudu ulos</a>
+{% else %}
+    <a href="{% provider_login_url "discord" next=request.path %}">Kirjaudu sisään</a>
+{% endif %}

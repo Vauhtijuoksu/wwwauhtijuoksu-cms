@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    var anchormenu = $("#anchor-menu")
+    return
+    var anchormenu = $("#cms-vj-plugin-anchor-menu")
     if (anchormenu){
         var floating = $("#floating-menu > .floating-menu").html()
         var links = ""
