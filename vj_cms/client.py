@@ -18,6 +18,8 @@ class VJClient:
     def get(self, path):
         url = f'{self.base_url}/{path}'
         r = self.session.get(url)
+        if r.status_code >= 500:
+            return {}
         if r.from_cache:
             logger.info(f'Using cached response for {url}')
         return r.json()

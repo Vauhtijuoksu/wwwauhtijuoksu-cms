@@ -21,14 +21,9 @@
 <footer>
   {% block footer %}
     <div class="footer d-flex justify-content-center my-2">
-      <div>
-        {% if user.is_authenticated %}
-        Hei, {% user_display user %}.
-        <a href="{% url 'account_logout' %}">Kirjaudu ulos</a>
-        {% else %}
-        <a href="{% provider_login_url "discord" next=request.path %}">Kirjaudu sisään</a>
-        {% endif %}
-      </div>
+        <div id="vj-user-login">
+            {% include "socialaccount/login_info.html" %}
+        </div>
     </div>
   {% endblock %}
 </footer>

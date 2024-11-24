@@ -9,19 +9,31 @@ body {
   background-image: $body-bg-image;
 }
 
-.content {
-  background-color: $content-bg;
+.main-box {
+  border-radius: $main-box-border-radius;
+  background-color: $main-box-bg;
+  padding: $main-box-padding;
+  margin: $main-box-margin;
+}
+
+.user-content{
+  margin-top: $space-between-menu-and-content;
   text-align: $content-text-align;
-  padding: $content-padding;
-  margin: $content-margin;
-  filter: $content-filter;
+  > img {
+    max-width: 100%;
+  }
+}
+
+.basic-box {
+  border: $box-border;
+  border-radius: $box-border-radius;
 }
 
 .divider {
-  height: 30vw;
-  max-height: $divider-height;
+  height: $divider-height;
+  max-height: $divider-max-height;
   width: $divider-width;
-  background-image: url("../../vauhtijuoksu/img/divider_0.png");
+  max-width: $divider-max-width;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -29,6 +41,18 @@ body {
   display: block;
 }
 
+.divider-0 {
+  background-image: $divider-0
+}
+.divider-1 {
+  background-image: $divider-1
+}
+.divider-2 {
+  background-image: $divider-2
+}
+.divider-3 {
+  background-image: $divider-3
+}
 
 .required-field > label::after {
   opacity: 50%;
@@ -40,6 +64,10 @@ body {
 
 .hide {
   display: none;
+}
+
+.fixed{
+  position: fixed;
 }
 
 .sponsor {

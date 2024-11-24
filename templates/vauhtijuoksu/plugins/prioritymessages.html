@@ -1,0 +1,9 @@
+{% load cms_tags %}
+<div style="display: none">
+    <div id="prioritymessageduration" style="display: none">{{ instance.duration }}</div>
+    {% for plugin in instance.child_plugin_instances %}
+        <div id="prioritymessage_{{ forloop.counter0 }}" class="prioritymessagecontent">
+            {% render_plugin plugin %}
+        </div>
+    {% endfor %}
+</div>

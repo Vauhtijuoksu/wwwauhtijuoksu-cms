@@ -1,0 +1,12 @@
+{% load cms_tags %}
+<div id="vj-mobile-speechbubble" class="speechbubble-positioner">
+    <div>
+        <div style="flex-grow: 5"></div>
+        <div class="speechbubble fade">
+        </div>
+        <div style="flex-grow: 1"></div>
+    </div>
+    {% for plugin in instance.child_plugin_instances %}
+        {% render_plugin plugin %}
+    {% endfor %}
+</div>
