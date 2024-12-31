@@ -9,10 +9,57 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 
 from vj_cms.client import VJClient
-from vj_cms.models import GameInfo, Timetable, Donatebar
+from vj_cms.models import GameInfo, Timetable, Donatebar, PriorityMessages, AnchorLink, TweakSettings
 from datetime import datetime
 
 client = VJClient(settings.VJ_API_URL)
+
+@plugin_pool.register_plugin
+class MobileSpeechbubblePlugin(CMSPluginBase):
+    name = 'Mobile Speechbubble'
+    model = CMSPlugin
+    render_template = "vauhtijuoksu/plugins/mobilespeechbubble.html"
+    cache = False
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class TweakSettingsPlugin(CMSPluginBase):
+    name = 'Tweak Settings'
+    model = TweakSettings
+    render_template = "vauhtijuoksu/plugins/tweak_settings.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AnchorLinkPlugin(CMSPluginBase):
+    name = 'Anchor link'
+    model = AnchorLink
+    render_template = "vauhtijuoksu/plugins/anchor.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class PriorityMessagePlugin(CMSPluginBase):
+    name = 'Prioritymessage content'
+    model = PriorityMessages
+    render_template = "vauhtijuoksu/plugins/prioritymessages.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
 
 @plugin_pool.register_plugin
 class DividerPlugin(CMSPluginBase):
@@ -25,6 +72,7 @@ class DividerPlugin(CMSPluginBase):
         context = super().render(context, instance, placeholder)
         context['divider_name'] = f'divider-{randint(0, 3)}'
         return context
+
 
 @plugin_pool.register_plugin
 class TimetablePlugin(CMSPluginBase):
@@ -118,6 +166,7 @@ class TabletimetablePlugin(CMSPluginBase):
             days.append(day[:])
         context['games'] = days[:]
         return context
+
 
 @plugin_pool.register_plugin
 class FloatycharsPlugin(CMSPluginBase):

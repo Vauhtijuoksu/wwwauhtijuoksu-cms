@@ -1,0 +1,157 @@
+// Override variables (from _variables.scss and bootstrap)
+
+// Examples
+$white: #ffffff;
+$black: #000871;
+$darkblue: #000871;
+$violet: #8854f3;
+$blue: #639bff;
+$green: #63ffba;
+$orange: #ff8c5c;
+$red: #ff79ae;
+$yellow: #fff982;
+
+$mimipalette1: #180219;
+$mimipalette2: #34083d;
+$mimipalette3: #770052;
+$mimipalette4: #b70b86;
+$mimipalette5: #dc5bb0;
+$mimipalette6: #875bbf;
+$mimipalette7: #5325a0;
+$mimipalette8: #271685;
+$mimipalette9: #170358;
+$mimipalette10: #436274;
+
+$bg-2: $mimipalette1;
+$bg-1: $mimipalette2;
+$color-1: $mimipalette4;
+$color-2: $mimipalette7;
+$color-1-light: $mimipalette5;
+$color-1-dark: $mimipalette3;
+$color-2-light: $mimipalette6;
+$color-2-dark: $mimipalette8;
+
+
+$body-bg: $bg-1;
+$body-color: $color-2-light;
+
+$increment-xs: 5px;
+$increment-sm: 2*$increment-xs;
+$increment-md: 2*$increment-sm;
+$increment-lg: 3*$increment-sm;
+$increment-xl: 5*$increment-sm;
+
+$content-bg: $bg-2;
+$content-shadow: $content-bg;
+$content-padding: $increment-lg $increment-md $increment-md;
+$content-text-align: center;
+$content-margin: $increment-lg auto $increment-lg;
+$content-filter: drop-shadow(6px 6px 0px $content-shadow);
+$content-border-radius: 0;
+
+$link-color: $color-1-light;
+$link-decoration: none;
+$link-hover-color: $color-2-light;
+$link-hover-decoration: none;
+
+$menu-link-drop-shadow: $bg-2;
+$menu-link-color: $link-color;
+$menu-link-hover-color: $link-hover-color;
+
+$primary: $mimipalette4;
+$secondary: $mimipalette8;
+
+$font-size-root: 22px;
+$increment-xs: 5px;
+
+$body-bg-image: url("../img/bg.png");
+
+
+@import "static/css/base";
+
+// Actual styles here
+
+@font-face {
+    font-family: 'offsett';
+    src: url('../misc/Offsett.ttf') format('truetype');
+}
+.menu-wrapper {
+  padding: $menu-padding;
+
+  &.fullscreen {
+    margin-top: -230px;
+    padding-bottom: 0px;
+    min-height: 0px;
+  }
+
+  .menu {
+    display: flex;
+    z-index: 10000;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 32px;
+    line-height: 56px;
+    text-shadow: 2px 2px $menu-link-drop-shadow;
+
+    > div {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .menu-link {
+      color: $menu-link-color;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      &:visited {
+        color: $menu-link-color;
+      }
+
+      &:hover {
+        color: $menu-link-hover-color;
+      }
+
+      &:active {
+        color: $menu-link-color;
+      }
+    }
+  }
+}
+
+
+.menu-wrapper {
+    padding-bottom: 70px;
+    padding-top: 40px;
+}
+.title.bigletters {
+  margin-top: 10px;
+  font-family: 'offsett';
+  color: $title-color;
+  justify-content: space-around;
+  display: flex;
+  font-size: 84px;
+  > img {
+    height: 100px;
+  }
+  @include media-breakpoint-down(lg) {
+    font-size: 48px;
+    > img {
+      height: 80px;
+    }
+  }
+  
+  @include media-breakpoint-down(md) {
+    font-size: 32px;
+    > img {
+      height: 50px;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 22px;
+    > img {
+      height: 30px;
+    }
+  }
+}
+
