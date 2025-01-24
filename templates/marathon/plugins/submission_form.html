@@ -9,10 +9,12 @@
   <!-- Player forms -->
   <div id="player-form">
     {% bootstrap_field player_form.nickname placeholder="Nimimerkki pelaajalistaukseen" layout="horizontal" form_group_class="mb-1" %}
-    {% bootstrap_field player_form.discord placeholder="Nick#1337" layout="horizontal" form_group_class="mb-1" %}
+    {% bootstrap_field player_form.discord placeholder="Nick" layout="horizontal" form_group_class="mb-1" %}
     {% bootstrap_field player_form.gmail placeholder="etu.suku@gmail.com" layout="horizontal" form_group_class="mb-1" %}
     {% bootstrap_field player_form.twitch placeholder="nimi_merkki" layout="horizontal" form_group_class="mb-1" %}
+          {% comment %}
     {% bootstrap_field player_form.allergies placeholder="Tapahtuman aikaista ruokahuoltoa varten" layout="horizontal" form_group_class="mb-1" %}
+    {% endcomment %}
   </div>
   <!-- Submission form -->
   <div id="game-form" class="mt-3">
