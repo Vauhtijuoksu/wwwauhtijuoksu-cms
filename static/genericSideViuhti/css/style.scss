@@ -139,6 +139,19 @@ h1, h2, h3, h4, h5, h6{
   > img {
     max-width: 100%;
   }
+  a {
+    color: #020728;
+    text-decoration: underline;
+  }
+  a:active {
+    color: #020728;
+  }
+  a:visited {
+    color: #020728;
+  }
+  a:hover {
+    color: $viuhti-violet;
+  }
 }
 
 .speechbubble:after {
