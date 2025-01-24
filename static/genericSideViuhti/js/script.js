@@ -9,12 +9,11 @@ $(document).ready(function() {
     if (cms_toolbar){
         cms_toolbar_height = cms_toolbar.height()
     }
-    console.log(cms_toolbar)
     onscroll = (event) => {
     get_scroll()
     }
     set_scroll(0, 0)
-    $("#scroll_to_top_btn").click(function (){goToTop()})
+    $("#scroll_to_top_btn").click(function (e){goToTop(e)})
 
 });
 
@@ -26,10 +25,11 @@ function set_scroll_menu(scroll) {
     }
 }
 
-function goToTop() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  return false
+function goToTop(e=null) {
+    e?.preventDefault()
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    return false
 }
 
 

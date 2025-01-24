@@ -95,6 +95,7 @@ h1, h2, h3, h4, h5, h6{
   width: 100%;
   > img {
     max-width: 120%;
+    max-height: 60vh;
   }
   max-width: 512px;
   position: relative;
@@ -152,6 +153,19 @@ h1, h2, h3, h4, h5, h6{
   }
   > img {
     max-width: 100%;
+  }
+  a {
+    color: #020728;
+    text-decoration: underline;
+  }
+  a:active {
+    color: #020728;
+  }
+  a:visited {
+    color: #020728;
+  }
+  a:hover {
+    color: $viuhti-violet;
   }
 }
 
@@ -230,6 +244,7 @@ h1, h2, h3, h4, h5, h6{
   justify-content: center;
   align-items: center;
   gap: $increment-sm;
+  min-height: 180px;
   p, h1, h2, h3, h4, h5, h6 {
     width: 100%;
     margin-bottom: 0;

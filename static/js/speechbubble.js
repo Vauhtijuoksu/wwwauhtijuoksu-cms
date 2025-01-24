@@ -7,20 +7,19 @@ $(document).ready(function(){
     }
 });
 
-function get_speechbubble_content(){
+function get_speechbubble_content(editing=false){
     if ($("#vj-speechbubble-content-override > template").length > 0 || $("#vj-speechbubble-content > template").length > 0){
         setTimeout(function (){
-            get_speechbubble_content()
+            get_speechbubble_content(true)
         }, 100)
         return
     }
-    let override = $("#vj-speechbubble-content-override > .cms-plugin:not(template)")
+    let override = editing ? $("#vj-speechbubble-content-override > .cms-plugin:not(template)") : $("#vj-speechbubble-content-override").children()
     if (override && override.length > 0){
         speechbubble_content = override
     } else {
-        speechbubble_content = $("#vj-speechbubble-content > .cms-plugin:not(template)")
+        speechbubble_content = editing ? $("#vj-speechbubble-content > .cms-plugin:not(template)") : $("#vj-speechbubble-content").children()
     }
-
     let duration = 10000
     if (typeof ts_message_duration !== 'undefined') {
         duration = (ts_message_duration +2)*1000
