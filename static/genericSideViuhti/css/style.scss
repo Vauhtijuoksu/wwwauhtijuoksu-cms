@@ -290,7 +290,21 @@ footer {
     margin-left: auto;
   }
 }
+@include media-breakpoint-down(md) {
+  html, body {
+    font-size: 20px;
+  }
+  table{
+    border-spacing: 1px;
+  }
+  .table > :not(caption) > * > * {
+    padding: 0.3rem 0.2rem;
+  }
+}
 @include media-breakpoint-down(sm) {
+  html, body{
+    font-size: 16px;
+  }
   .side-page-layout {
     padding: 0 $increment-xs;
     .content-side {
@@ -299,5 +313,9 @@ footer {
   }
   .hide-in-small{
     display: none;
+  }
+
+  .table > :not(caption) > * > * {
+    padding: 0.3rem 0.2rem;
   }
 }
