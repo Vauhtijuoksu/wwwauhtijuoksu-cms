@@ -19,7 +19,7 @@ class PlayerForm(forms.ModelForm):
 
 
 class SubmissionForm(forms.ModelForm):
-    gdpr = forms.BooleanField(required=True, label=_('Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti'))
+    gdpr = forms.BooleanField(required=True, label=_('Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti ja sitoudun noudattamaan turvallisen tilan periaatteita.'))
 
     def clean_estimate(self):
 

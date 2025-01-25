@@ -46,6 +46,21 @@ h1, h2, h3, h4, h5, h6{
     max-width: 74%;
   }
 }
+#player-form, #game-form{
+  input, textarea{
+    background-color: $viuhti-green;
+    border-color: $viuhti-dark;
+    color: $viuhti-dark;
+  }
+  input::placeholder, textarea::placeholder{
+    color: #748f94;
+    opacity: 1;
+  }
+  .form-text{
+    color: #0f2225 !important;
+  }
+}
+
 
 .side-page-layout {
   display: flex;
