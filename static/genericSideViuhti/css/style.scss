@@ -51,6 +51,7 @@ h1, h2, h3, h4, h5, h6{
     background-color: $viuhti-green;
     border-color: $viuhti-dark;
     color: $viuhti-dark;
+    font-size: 1rem;
   }
   input::placeholder, textarea::placeholder{
     color: #748f94;
@@ -291,8 +292,8 @@ footer {
   }
 }
 @include media-breakpoint-down(md) {
-  html, body {
-    font-size: 20px;
+  html, body, input, textarea{
+    font-size: 20px !important;
   }
   table{
     border-spacing: 1px;
@@ -302,8 +303,11 @@ footer {
   }
 }
 @include media-breakpoint-down(sm) {
-  html, body{
-    font-size: 16px;
+  html, body, input, textarea{
+    font-size: 17px !important;
+  }
+  table {
+    font-size: 15px !important;
   }
   .side-page-layout {
     padding: 0 $increment-xs;
