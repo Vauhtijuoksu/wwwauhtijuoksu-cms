@@ -94,5 +94,13 @@ class Submission(models.Model):
         return f'{self.game_title} {self.category} ({self.event})'
 
 
+class TimeWindow(models.Model):
+
+    submission = models.ForeignKey(Submission, on_delete=models.CASCADE)
+    window_start = models.DateTimeField(_('alkaen'))
+    window_end = models.DateTimeField(_('päättyen'))
+
+
+
 class MarathonPlugin(CMSPlugin):
     event = models.ForeignKey(Event, on_delete=models.CASCADE, blank=True, null=True)

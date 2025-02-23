@@ -1,7 +1,7 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
-from .forms import SubmissionForm, PlayerForm
+from .forms import SubmissionForm, PlayerForm, TimeWindowFormSet
 from .models import Event, Submission, MarathonPlugin
 from .utils import get_player_info_for_user
 
@@ -37,6 +37,7 @@ class SubmissionFormPlugin(CMSPluginBase):
         previous_data = context['request'].session.get('previous_form')
 
         form = SubmissionForm(previous_data)
+        time_formset = TimeWindowFormSet(previous_data, prefix='time')
         if previous_data:
             player_form = PlayerForm(previous_data, prefix='player')
         elif context['request'].user.is_authenticated:
@@ -51,4 +52,5 @@ class SubmissionFormPlugin(CMSPluginBase):
         context['form'] = form
         context['player_form'] = player_form
         context['event'] = instance.event
+        context['timewindow_formset'] = time_formset
         return context

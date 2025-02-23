@@ -4,8 +4,9 @@ from django import forms
 from django.forms import formset_factory
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
+from bootstrap_datepicker_plus.widgets import DateTimePickerInput
 
-from .models import Submission, Player
+from .models import Submission, Player, TimeWindow
 
 TEXTAREA_ATTRS = {'rows': 2, 'cols': 30}
 
@@ -60,3 +61,27 @@ class SubmissionForm(forms.ModelForm):
             'description': forms.Textarea(attrs=TEXTAREA_ATTRS),
             'priority': forms.NumberInput(attrs={'min': '1'}),
         }
+
+class BaseTimeWindowFormSet(forms.BaseInlineFormSet):
+
+    def clean(self):
+        if any(self.errors):
+            return
+        for form in self.forms:
+            if form.cleaned_data.get("window_start") >= form.cleaned_data.get("window_end"):
+                form.add_error("window_start", _("Saatavuuden alku ei voi olla lopun jälkeen"))
+                return
+
+
+
+TimeWindowFormSet = forms.inlineformset_factory(
+    Submission,
+    TimeWindow,
+    fields=["window_start", "window_end"],
+    widgets={
+        "window_start": DateTimePickerInput(attrs={"class": "form-control"}),
+        "window_end": DateTimePickerInput(attrs={"class": "form-control"}),
+    },
+    extra=1,
+    formset=BaseTimeWindowFormSet
+)

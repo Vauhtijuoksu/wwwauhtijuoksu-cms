@@ -14,6 +14,7 @@ djangocms-picture = "*"
 djangocms-snippet = "*"
 djangocms-style = "*"
 django-bootstrap-v5 = "*"
+django-bootstrap-datepicker-plus = "*"
 django-sass-processor = "==1.1"
 libsass = "*"
 whitenoise = {extras = ["brotli"], version = "*"}

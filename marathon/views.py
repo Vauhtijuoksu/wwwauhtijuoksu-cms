@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 
 from .models import Event, Player, Submission
-from .forms import SubmissionForm, PlayerForm
+from .forms import SubmissionForm, PlayerForm, TimeWindowFormSet
 
 
 def active_event(request):
@@ -36,13 +36,21 @@ def new_submission(request, event):
         if form.is_valid() and player_form.is_valid():
             submission = form.save(commit=False)
             submission.event = event
-            submission.save()
+            time_formset = TimeWindowFormSet(request.POST, prefix='time', instance=submission)
+            if time_formset.is_valid():
+                submission.save()
+                time_formset.save()
 
-            player = player_form.save()
-            submission.players.add(player)
+                player = player_form.save()
+                submission.players.add(player)
 
-            request.session['previous_form'] = None
-            messages.add_message(request, messages.SUCCESS, _('Ilmoittautuminen onnistui!'))
+                time_formset.save()
+
+                request.session['previous_form'] = None
+                messages.add_message(request, messages.SUCCESS, _('Ilmoittautuminen onnistui!'))
+            else:
+                request.session['previous_form'] = request.POST
+                messages.add_message(request, messages.ERROR, _('Ilmoittautuminen epäonnistui, tarkista lomake.'))
         else:
             request.session['previous_form'] = request.POST
             messages.add_message(request, messages.ERROR, _('Ilmoittautuminen epäonnistui, tarkista lomake.'))

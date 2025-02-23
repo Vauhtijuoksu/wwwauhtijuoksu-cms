@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'sass_processor',
     'bootstrap5',
+    'bootstrap_datepicker_plus',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
