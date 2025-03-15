@@ -44,7 +44,7 @@ class SubmissionFormPlugin(CMSPluginBase):
             player_info = get_player_info_for_user(context['request'].user)
             player_form = PlayerForm(initial=player_info, prefix='player')
             if player_info.get('discord'):
-                player_form.fields['discord'].disabled = True
+                player_form.fields['discord'].widget.attrs['readonly'] = True
         else:
             player_form = PlayerForm(prefix='player')
         context['require_authentication'] = True
