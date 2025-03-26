@@ -24,14 +24,46 @@ $divider-width: 90%;
 @import "static/css/base";
 
 // Actual styles here
+
+$vj25blue0: #030712;
+$vj25blue1: #0e223b;
+$vj25green0: #0b1e25;
+$vj25green1: #1f3c42;
+$vj25green2: #5ca6a5;
+$vj25brown0: #937648;
+$vj25brown1: #b3a48a;
+$vj25brown2: #cacca4;
+$vj25red0: #4a0c0d;
+$vj25red1: #af1332;
+$vj25red2: #ea2727;
+$vj25gray0: #3c4652;
+$vj25gray1: #797e94;
+$vj25gray2: #bccdd7;
+$vj25gray3: #e2e1e7;
+
+
 body{
   background-attachment: fixed;
+  background-image: none;
+  background-color: black;
 }
 
 h1, h2, h3, h4, h5, h6{
   font-family: 'mezmerize';
 }
-
+.bottomforest{
+  background-image: url("../img/forest.png");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: contain;
+  position: fixed;
+  width: 100%;
+  height: 30vh;
+  bottom: 0
+}
+.main-box{
+  background: none;
+}
 .title {
   display: flex;
   justify-content: center;
@@ -71,11 +103,8 @@ h1, h2, h3, h4, h5, h6{
   margin: 0 auto;
   .content-side {
     margin: $increment-md;
-    background-color: $primary;
     width: 60%;
     max-width: 900px;
-    border: $viuhti-dark 2px solid;
-    filter: drop-shadow(2px 2px 4px $viuhti-dark);
     border-radius: $box-border-radius;
   }
   .extra-side{
@@ -100,7 +129,6 @@ h1, h2, h3, h4, h5, h6{
   }
   max-width: 512px;
   position: relative;
-  filter: drop-shadow(2px 2px 4px $viuhti-darkfade);
   .speechbubble-positioner {
     position: absolute;
     top: -960px;
