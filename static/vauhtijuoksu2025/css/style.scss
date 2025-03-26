@@ -5,19 +5,18 @@
 
 
 @font-face {
-    font-family: 'ubuntu';
-    src: url('../misc/UbuntuTitling-Bold.ttf') format('truetype');
+    font-family: 'Jaini';
+    src: url('../misc/Jaini-Regular.ttf') format('truetype');
     ascent-override: 104%;
 }
 
 @font-face {
-    font-family: 'mezmerize';
-    src: url('../misc/Mesmerize_Sb.otf') format('opentype');
+    font-family: 'Berosong';
+    src: url('../misc/Berosong-Regular.otf') format('opentype');
 }
+$font-size-root: 24px;
+$font-family-sans-serif: 'Jaini';
 
-$font-family-sans-serif: 'ubuntu';
-
-$body-bg-image: url("../img/bg.png");
 $divider-max-height: 120px;
 $divider-width: 90%;
 
@@ -40,17 +39,22 @@ $vj25gray0: #3c4652;
 $vj25gray1: #797e94;
 $vj25gray2: #bccdd7;
 $vj25gray3: #e2e1e7;
+$vj25white: #FFFFFF;
 
 
 body{
   background-attachment: fixed;
   background-image: none;
   background-color: black;
+
 }
 
 h1, h2, h3, h4, h5, h6{
-  font-family: 'mezmerize';
+  font-family: 'Berosong';
 }
+
+
+
 .bottomforest{
   background-image: url("../img/forest.png");
   background-repeat: repeat-x;
@@ -59,23 +63,33 @@ h1, h2, h3, h4, h5, h6{
   position: fixed;
   width: 100%;
   height: 30vh;
-  bottom: 0
+  bottom: 0;
+  pointer-events: none;
+  z-index: -100000;
 }
-.main-box{
+.bottompadder{
+  height: 22vh;
+}
+.main-box {
   background: none;
+  color: $vj25white;
+  text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
 }
+
+
+
 .title {
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 20px 0 10px 0;
   > .icon {
     max-width: 16%;
     height: auto;
   }
   > .textlogo {
     max-width: 74%;
+    max-height: 50vh;
   }
 }
 #player-form, #game-form{
@@ -94,7 +108,29 @@ h1, h2, h3, h4, h5, h6{
   }
 }
 
-
+.menu {
+  justify-content: center;
+  .menu-link {
+    background: none;
+    border: none;
+    color: $vj25white
+  }
+  .menu-link:hover {
+    background: none;
+    border: none;
+    color: $vj25red1;
+  }
+  .menu-link.active {
+    background: none;
+    border: none;
+    color: $vj25gray2;
+  }
+  .menu-link.active:hover {
+    background: none;
+    border: none;
+    color: $vj25red1;
+  }
+}
 .side-page-layout {
   display: flex;
   flex-direction: row;
@@ -102,12 +138,13 @@ h1, h2, h3, h4, h5, h6{
   max-width: 1920px;
   margin: 0 auto;
   .content-side {
-    margin: $increment-md;
     width: 60%;
     max-width: 900px;
     border-radius: $box-border-radius;
   }
   .extra-side{
+
+    z-index: 1000;
     width: 40%;
     > div {
       height: 100%;
@@ -124,14 +161,15 @@ h1, h2, h3, h4, h5, h6{
   margin-top: -0.5vh;
   width: 100%;
   > img {
-    max-width: 120%;
-    max-height: 60vh;
+    transform: translate(0, 5%);
+    max-width: 100%;
+    max-height: 50vh;
   }
   max-width: 512px;
   position: relative;
   .speechbubble-positioner {
     position: absolute;
-    top: -960px;
+    top: -980px;
     height: 1000px;
     width: 100%;
     display: flex;
@@ -168,15 +206,19 @@ h1, h2, h3, h4, h5, h6{
   }
 }
 .speechbubble {
-  background-color: $speechbubble-bg;
+  background-image: url("../img/bubble.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
   text-align: center;
-  border-radius: 50px;
-  padding: 30px;
+  padding: 40px;
   transform: rotate(10deg);
   opacity: 1;
   transition: opacity 1s;
   max-width: 70%;
-  filter: drop-shadow(1px 0px 0px $viuhti-dark) drop-shadow(0px 1px 0px $viuhti-dark) drop-shadow(0px -1px 0px $viuhti-dark) drop-shadow(-1px 0px 0px $viuhti-dark) drop-shadow(1px 1px 0px $viuhti-dark) drop-shadow(-1px 1px 0px $viuhti-dark) drop-shadow(-1px -1px 0px $viuhti-dark) drop-shadow(1px -1px 0px $viuhti-dark) drop-shadow(5px 5px 4px $viuhti-darkfade);
+  color: $vj25white;
+  z-index: 1001;
+
   > * {
     filter: none;
   }
@@ -184,34 +226,48 @@ h1, h2, h3, h4, h5, h6{
     max-width: 100%;
   }
   a {
-    color: #020728;
+    color: $vj25red1;
     text-decoration: underline;
   }
   a:active {
-    color: #020728;
+    color: $vj25red1;
   }
   a:visited {
-    color: #020728;
+    color: $vj25red1;
   }
   a:hover {
-    color: $viuhti-violet;
+    color: $vj25red0;
   }
 }
 
+a {
+  color: $vj25red1;
+  text-decoration: none;
+}
+a:active {
+  color: $vj25red1;
+}
+a:visited {
+  color: $vj25red1;
+}
+a:hover {
+  color: $vj25red0;
+}
+
 .speechbubble:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 40%;
-    width: 0;
-    height: 0;
-    border: 30px solid transparent;
-    border-top-color: $speechbubble-bg;
-    border-bottom: 0;
-    border-left: 0;
-    margin-left: -10px;
-    margin-bottom: -20px;
-    transform: rotate(20deg);
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 40%;
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-top-color: $vj25green0;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -5px;
+  margin-bottom: -20px;
+  transform: rotate(10deg);
 }
 
 #speechbubble.fade {
@@ -227,27 +283,30 @@ h1, h2, h3, h4, h5, h6{
 }
 .menu {
   .menu-link {
-    flex-grow: 1;
+    flex-grow: 0;
   }
   .anchor-menu-link {
     flex-grow: 0;
   }
   .anchor-menu-link:hover {
-    background-color: $viuhti-blue;
+    background: none;
   }
 }
 
 #vj-scrolldown-menu{
+  background-color: $vj25blue0;
+  border: none;
+  color: $vj25gray1;
   .menu {
     .menu-link:hover{
-      background-color: $viuhti-violet;
+      background: none;
 
     }
     .anchor-menu-link:hover {
-      background-color: $viuhti-blue;
+      background: none;
     }
     #scroll_to_top_btn:hover {
-      background-color: $viuhti-green;
+      background: none;
 
     }
   }
