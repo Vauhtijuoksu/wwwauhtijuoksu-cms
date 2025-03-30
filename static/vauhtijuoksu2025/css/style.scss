@@ -65,18 +65,44 @@ h1, h2, h3, h4, h5, h6{
   height: 30vh;
   bottom: 0;
   pointer-events: none;
-  z-index: -100000;
+  z-index: 1;
 }
 .bottompadder{
-  height: 22vh;
+  height: 25vh;
 }
 .main-box {
   background: none;
   color: $vj25white;
   text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
+  padding-top: 5px;
 }
 
+.fader{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 10;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 112, 112, 0.42));
+  background-size: cover;
+  pointer-events: none;
+}
+.faderBasic{
+  mix-blend-mode: multiply;
 
+}
+
+.faderBlack{
+  height: 30vh;
+  z-index: 100000;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+}
+.faderBlackText{
+  height: 20vh;
+  z-index: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.72));
+}
 
 .title {
   display: flex;
@@ -89,7 +115,7 @@ h1, h2, h3, h4, h5, h6{
   }
   > .textlogo {
     max-width: 74%;
-    max-height: 50vh;
+    max-height: 45vh;
   }
 }
 #player-form, #game-form{
@@ -160,10 +186,14 @@ h1, h2, h3, h4, h5, h6{
 .viuhti-speech{
   margin-top: -0.5vh;
   width: 100%;
-  > img {
-    transform: translate(0, 5%);
+  .sideviuhti {
     max-width: 100%;
-    max-height: 50vh;
+    max-height: 60vh;
+    > img {
+      margin: -20px -20px -20px -30px;
+      width: 110%;
+      height: 110%;
+    }
   }
   max-width: 512px;
   position: relative;
@@ -360,7 +390,11 @@ footer {
 
 @include media-breakpoint-down(lg) {
   .side-page-layout {
-    padding: 0 $increment-md;
+    padding: 0 10px;
+    .main-box{
+      padding: 10px 5px;
+      margin: 10px 5px;
+    }
     .content-side {
       width: 100%;
       max-width: 900px;
