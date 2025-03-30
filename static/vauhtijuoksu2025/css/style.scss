@@ -283,7 +283,43 @@ a:visited {
 a:hover {
   color: $vj25red0;
 }
+.twitch-link{
+  color: $vj25red1;
+  .twitch-icon{
+    content: url("../img/twitch.png");
+    width: 22px;
+    margin-top: -20px;
+  }
+}
+.twitch-link:active{
+  color: $vj25red1;
+}
+.twitch-link:hover{
+  color: $vj25red0;
+  .twitch-icon {
+    margin-top: -26px;
+  }
+}
 
+.timetable .ttplay .playdate {
+  font-family: 'Berosong';
+
+}
+.timetable .ttplay .playleft {
+  width: 20%;
+}
+.timetable .ttplay .playblob {
+    width: 25%;
+}
+.timetable .ttplay .playblob .timetable-char > img.char{
+  max-height: 120px;
+  max-width: 95%;
+  right: 50%;
+  top: 40%;
+  z-index: -10;
+  transform: translate(50%, -50%);
+
+}
 .speechbubble:after {
   content: '';
   position: absolute;
