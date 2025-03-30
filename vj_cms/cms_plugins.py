@@ -98,7 +98,7 @@ class TabletimetablePlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
-        games = GameInfo.objects.prefetch_related('players').all()
+        games = GameInfo.objects.prefetch_related('players').order_by('start_time').all()
         days = []
         day_was = ""
         day = []

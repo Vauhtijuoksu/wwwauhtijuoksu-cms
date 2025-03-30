@@ -76,7 +76,86 @@ h1, h2, h3, h4, h5, h6{
   text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
   padding-top: 5px;
 }
+.full-content {
+  color: $vj25white;
+  text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
+}
+.tabletimetable {
+  .tttcontent {
+    .tttday {
+      .tttgame {
+        background-color: $vj25green0;
+        .tttimg:not(:hover){
+          height: 100px;
+          position: relative;
+        }
+        .tttimg > img {
+          max-width: 300%;
+          pointer-events: none;
+          top: 50%;
+          position: absolute;
+          right: 2px;
+          transform: translate(0, -50%);
+        }
+      }
+      .tttgame > div{
+        align-items: stretch;
+      }
+      .tttgame:hover{
+        background-color: $vj25blue0;
+        .tttimg {
+          filter: drop-shadow(1px 1px 5px black) drop-shadow(-1px -1px 5px black) drop-shadow(-1px 1px 5px black) drop-shadow(1px -1px 5px black);
+        }
 
+        .tttimg > img{
+          top: 50%;
+          position: absolute;
+          max-width: 40vw;
+          left: 10px;
+          transform: translate(0, -50%);
+
+        }
+      }
+    }
+  }
+  .tttday.tttright{
+      .tttgame:hover{
+        .tttimg > img{
+          right: 10px;
+          left: auto;
+        }
+      }
+  }
+}
+
+
+.tabletimetable .tttcontent .tttday .tttgame:hover {
+    padding-left: 5px;
+}
+.tabletimetable .tttcontent .tttday .tttgame:hover > div {
+      background-color: $vj25green0;
+
+}
+.tabletimetable .tttcontent .tttday .tttgame.start-cut {
+  border-color: $vj25green0;
+}
+.tabletimetable .tttcontent .tttday .tttgame:hover > div {
+  flex-direction: row-reverse;
+}
+.tabletimetable .tttcontent .tttday.tttright .tttgame:hover > div {
+  flex-direction: row;
+}
+.widelogoholder{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.header-logo-padded{
+  max-width: 95%;
+  max-height: 30vh;
+  margin: 5px auto -40px auto;
+}
 .fader{
   position: fixed;
   bottom: 0;
