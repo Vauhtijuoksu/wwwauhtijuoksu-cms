@@ -109,7 +109,7 @@ body {
   }
 }
 
-@include media-breakpoint-down(576px) {
+@media only screen and (max-width: 600px) {
   .sponsors {
     .big{
       max-width: 190px;
