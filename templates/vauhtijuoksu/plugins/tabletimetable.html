@@ -6,7 +6,7 @@
         </div>
         {% for day in games %}
             <div class="tttday">
-                {{ day.1.start_time|date:"w"|fiweekday }} {{ day.1.start_time|date:"j.n." }}
+                {{ day.0.start_time|date:"w"|fiweekday }} {{ day.0.start_time|date:"j.n." }}
             </div>
         {% endfor %}
     </div>
@@ -28,11 +28,11 @@
         </div>
 
         {% for day in games %}
-            <div class="tttday">
+            <div class="tttday {% if forloop.counter > 2 %}tttright{% endif %}">
                 {% for game in day %}
                     <div class="tttgame {{ game.cut_style }}" style="top: {{ game.start_percent }}%; bottom: {{ game.end_percent }}%">
                         <div>
-                            <div class="tttimg"><img src="{% static "vauhtijuoksu2024/img/char/"|add:game.img_filename %}"></div>
+                            <div class="tttimg"><img src="{% static "vauhtijuoksu2025/img/char/"|add:game.img_filename %}"></div>
                             <div>
                                 <p>
                                 {{ game.game }}
