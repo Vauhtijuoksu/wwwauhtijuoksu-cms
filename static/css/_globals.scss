@@ -78,38 +78,50 @@ body {
 
 
 .sponsors{
+  gap: 15px 5px;
   .newLiner{
     width: 100%;
     margin-bottom: 0;
     height: 0;
   }
-  .sponsor{
-    .big, .medium, .small{
-
-      width: 100%;
-      aspect-ratio: 1;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      align-items: center;
-      justify-content: center;
-    }
-    .big{
-      max-width: 260px;
-    }
-    .medium{
-      max-width: 200px;
-    }
-    .small{
-      max-width: 140px;
-    }
+  .big, .medium, .small{
+    width: 100%;
+    aspect-ratio: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
   }
-  .sponsor img {
+  .big{
+    max-width: 260px;
+  }
+  .medium{
+    max-width: 200px;
+  }
+  .small{
+    max-width: 140px;
+  }
+
+  .big img, .medium img, .small img {
     max-width: 95%;
     max-height: 95%;
   }
 }
 
+@include media-breakpoint-down(576px) {
+  .sponsors {
+    .big{
+      max-width: 190px;
+    }
+    .medium{
+      max-width: 160px;
+    }
+    .small{
+      max-width: 120px;
+    }
+  }
+}
 
 .btn-primary:hover {
     background-color: $secondary;
