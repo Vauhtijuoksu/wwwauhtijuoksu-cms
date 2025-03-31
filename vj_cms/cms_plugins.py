@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 
 from vj_cms.client import VJClient
-from vj_cms.models import GameInfo, Timetable, Donatebar, PriorityMessages, AnchorLink, TweakSettings
+from vj_cms.models import GameInfo, Timetable, Donatebar, AnchorLink, TweakSettings
 from datetime import datetime
 
 client = VJClient(settings.VJ_API_URL)
@@ -49,17 +49,6 @@ class AnchorLinkPlugin(CMSPluginBase):
         return context
 
 
-@plugin_pool.register_plugin
-class PriorityMessagePlugin(CMSPluginBase):
-    name = 'Prioritymessage content'
-    model = PriorityMessages
-    render_template = "vauhtijuoksu/plugins/prioritymessages.html"
-    allow_children = True
-
-    def render(self, context, instance, placeholder):
-        context = super().render(context, instance, placeholder)
-        return context
-
 
 @plugin_pool.register_plugin
 class DividerPlugin(CMSPluginBase):
@@ -83,7 +72,7 @@ class TimetablePlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
-        games = GameInfo.objects.prefetch_related('players').all()
+        games = GameInfo.objects.prefetch_related('players').order_by('start_time').all()
         days = []
         day_was = ""
         day = []
@@ -109,7 +98,7 @@ class TabletimetablePlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
-        games = GameInfo.objects.prefetch_related('players').all()
+        games = GameInfo.objects.prefetch_related('players').order_by('start_time').all()
         days = []
         day_was = ""
         day = []
