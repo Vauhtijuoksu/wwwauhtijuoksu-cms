@@ -6,7 +6,7 @@
         </div>
         {% for day in games %}
             <div class="tttday">
-                {{ day.0.start_time|date:"w"|fiweekday }} {{ day.0.start_time|date:"j.n." }}
+                {{ day.1.start_time|date:"w"|fiweekday }} {{ day.1.start_time|date:"j.n." }}
             </div>
         {% endfor %}
     </div>
