@@ -480,11 +480,8 @@ a:hover {
   min-height: 180px;
   p, h1, h2, h3, h4, h5, h6 {
     width: 100%;
-    margin-bottom: 0;
-  }
-  img {
-    max-width: 200px;
-    max-height: 200px;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
   .cms-placeholder{
     display: none;

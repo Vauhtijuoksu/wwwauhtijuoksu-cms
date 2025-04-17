@@ -76,15 +76,16 @@ body {
   width: $sponsor-width;
 }
 
-
-.sponsors{
-  gap: 15px 5px;
-  .newLiner{
+.sponsors {
+  gap: 15px 10px;
+  .newLiner {
     width: 100%;
     margin-bottom: 0;
     height: 0;
   }
-  .big, .medium, .small{
+}
+
+.sponsors .big, .sponsors .medium, .sponsors .small, .sponsor_logo_holder{
     width: 100%;
     aspect-ratio: 1.2;
     display: flex;
@@ -92,34 +93,30 @@ body {
     align-content: center;
     align-items: center;
     justify-content: center;
-  }
-  .big{
+}
+.sponsors .big, .sponsor_logo_big{
     max-width: 260px;
-  }
-  .medium{
+}
+.sponsors .medium, .sponsor_logo_medium{
     max-width: 200px;
-  }
-  .small{
+}
+.sponsors .small, .sponsor_logo_small{
     max-width: 140px;
-  }
-
-  .big img, .medium img, .small img {
+}
+.sponsors .big img, .sponsors .medium img, .sponsors .small img, .sponsor_logo_holder img{
     max-width: 95%;
     max-height: 95%;
-  }
 }
 
 @media only screen and (max-width: 600px) {
-  .sponsors {
-    .big{
-      max-width: 190px;
-    }
-    .medium{
-      max-width: 160px;
-    }
-    .small{
-      max-width: 120px;
-    }
+  .sponsors .big, .sponsor_logo_big{
+    max-width: 190px;
+  }
+  .sponsors .medium, .sponsor_logo_medium{
+    max-width: 160px;
+  }
+  .sponsors .small, .sponsor_logo_small{
+    max-width: 120px;
   }
 }
 
