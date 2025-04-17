@@ -3,7 +3,6 @@ from collections import defaultdict
 from cms.models import CMSPlugin
 from django.db import models
 
-
 class GameInfo(models.Model):
     # From API
     api_id = models.UUIDField(primary_key=True)
@@ -68,3 +67,6 @@ class TweakSettings(CMSPlugin):
     message_duration = models.PositiveIntegerField('Carousel message duration (seconds)', default=8)
     show_scrolldown_menu = models.BooleanField('Show scrolldown menu', default=False)
     show_login = models.BooleanField('Show login', default=True)
+
+class SponsorLogoHolder(CMSPlugin):
+    size = models.CharField("Logo size (L/M/S)", default="M", max_length=1)
