@@ -252,6 +252,6 @@ BOOTSTRAP5 = {
 
 ## Vauhtijuoksu API
 
-VJ_API_URL = config('VJ_API_URL', 'https://vjapi.jsloth.fi')
-#VJ_API_URL = config('VJ_API_URL', 'https://api.dev.vauhtijuoksu.fi')
+#VJ_API_URL = config('VJ_API_URL', 'https://vjapi.jsloth.fi') slotin feikkipaska-api
+VJ_API_URL = config('VJ_API_URL', 'https://api.dev.vauhtijuoksu.fi')
 VJ_LEGACY_API_URL = config('VJ_LEGACY_API_URL', 'https://legacy.vauhtijuoksu.fi/api')

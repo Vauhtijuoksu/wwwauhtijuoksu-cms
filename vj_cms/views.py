@@ -26,6 +26,7 @@ def update_timetable(request):
     for game in games:
         api_id = game.pop('id')
         game_players = game.pop('players')
+        game_participants = game.pop('participants')
         game_, _ = GameInfo.objects.update_or_create(
             api_id=api_id,
             defaults=game
