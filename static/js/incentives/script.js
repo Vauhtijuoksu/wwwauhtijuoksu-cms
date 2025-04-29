@@ -32,7 +32,8 @@ $( document ).ready(function() {
 });
 
 function get_code() {
-    var choices = get_choices()
+    var choices = get_choices();
+    $("#incentive_code_ready").slideUp();
     console.log(JSON.stringify(choices))
     fetch('https://api.dev.vauhtijuoksu.fi/generate-incentive-code', {
         method: 'POST',
@@ -51,9 +52,11 @@ function get_code() {
 }
 
 function code_get(data){
+
     $("#incentive_code_loading").hide();
     $("#incentive_code_ready").slideDown();
     $("#incentive_code").text(data.code)
+
 }
 
 

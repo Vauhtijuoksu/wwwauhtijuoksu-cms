@@ -499,6 +499,108 @@ footer {
   height: 2px;
   width: 90%;
 }
+.donate-bar-wrapper{
+  position: relative;
+  padding: 40px;
+}
+.donate-bar{
+  margin: 0px;
+  color: $vj25white;
+  background-color: black;
+  height: 40px;
+  border: $vj25white 3px solid;
+  padding: 0;
+  width: auto;
+  border-radius: 6px;
+}
+.donate-bar .bar{
+  background-color:  $vj25white;
+  border-radius: 0;
+}
+.donate-bar .bar-text{
+  line-height: 36px;
+  font-size: 30px;
+  padding: 0 10px;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 2px black;
+  > .euro {
+    font-size: 0.7em;
+  }
+}
+.donate-bar .sum{
+  color: $vj25green2;
+}
+.donate-bar.full {
+  .bar.full {
+    background-color: $vj25white;
+  }
+  .sum {
+    color:$vj25white;
+  }
+  .bar-done {
+    color: $vj25green2;
+  }
+}
+.donate-bar-background{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: stretch;
+}
+.donate-bar-background > div{
+  background-image: url("../img/donatebarborder.png");
+  background-size: cover;
+  flex-grow: 1;
+  width: 100%;
+  margin-right: -1px;
+}
+
+.donate-bar-background > div:last-child{
+  -webkit-transform:scaleX(-1);
+  transform: scaleX(-1);
+}
+.incentive_dropdown {
+    color: $vj25red1;
+}
+.incentive_dropdown:hover {
+    color: $vj25red0;
+}
+.incentives label {
+    color: $vj25red1;
+}
+.incentive_bar {
+    background-color: $vj25gray0;
+  .incentive_bar_fill {
+      background-color: $vj25white;
+  }
+}
+#incentive_action_popup {
+  z-index: 10000000;
+    background-color: transparent;
+  background-image: linear-gradient(transparent, $vj25gray0);
+}
+#incentive_action_popup #incentive_action_flex .incentive_popup_row .incentive_gen_button {
+    background-color: $vj25gray3;
+    font-size: 1.2rem;
+    line-height: 1rem;
+    padding: 10px 20px;
+  margin: 5px 10px;
+  border-radius: 0;
+    width: 300px;
+}
+#incentive_action_popup #incentive_action_flex .incentive_popup_row .incentive_gen_button:hover {
+    background-color: $vj25white;
+
+}
+#incentive_action_popup #incentive_action_flex .incentive_popup_row .copybtn {
+    color: $vj25red1;
+}
+#incentive_action_popup #incentive_action_flex .incentive_popup_row #incentive_popup_close {
+    color: $vj25red1;
+
+}
 
 @include media-breakpoint-down(lg) {
   .side-page-layout {
@@ -533,6 +635,9 @@ footer {
   }
   .table > :not(caption) > * > * {
     padding: 0.3rem 0.2rem;
+  }
+  .donate-bar-wrapper{
+    padding: 25px;
   }
 }
 @include media-breakpoint-down(sm) {
