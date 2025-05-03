@@ -30,6 +30,8 @@
                                            name="{{ incentive.id }}_{{ forloop.counter}}_button" value="choice"
                                            class="incentive_choices">
                                     <label for="{{ incentive.id }}_{{ forloop.counter }}_button">{{ option.option }}</label>
+                                    <label for="{{ incentive.id }}_{{ forloop.counter }}_choice"></label>
+                                    <input type="text" id="{{ incentive.id }}_{{ forloop.counter }}_choice" name="{{ incentive.id }}_{{ forloop.counter }}_choice" class="incentive_field hide" value="{{ option.option }}">
                                     - Tälle vaihtoehdolle on nyt kerätty {{ option.amount|floatformat:-2 }} euroa.
                                 {% endif %}
 
