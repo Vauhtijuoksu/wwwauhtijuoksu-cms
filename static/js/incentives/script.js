@@ -2,7 +2,7 @@
 $( document ).ready(function() {
     $("#incentive_action_popup").hide()
     $("#incentive_show_code").hide()
-    $( ".incentive_dropdown" ).click(function() {
+    $(".incentive_dropdown").click(function() {
         $(this).parent().find(".incentive_expand").slideToggle();
         $(this).parent().find(".dropdown_arrow").toggleClass("rotate");
     });
@@ -66,7 +66,8 @@ function get_choices() {
     $('.incentive_choices').each(function (index) {
         if ($(this).is(':checked')) {
             if ($(this).val() == "choice" ) {
-                var value = $(this).attr('id').split("_")
+                var choice = "#" + $(this).attr('id').split("_")[0] + "_" + $(this).attr('id').split("_")[1]  + "_choice";
+                var value = $(choice).attr('id').split("_")
                 if (value.length === 2){
                     choices.push({
                         id: value[0]
@@ -74,7 +75,7 @@ function get_choices() {
                 } else if (value.length === 3){
                     choices.push({
                         id: value[0],
-                        parameter: value[1]
+                        parameter: $(choice).val()
                     })
                 }
             }
