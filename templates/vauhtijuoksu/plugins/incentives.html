@@ -63,8 +63,9 @@
                         {% if incentive.end_time < now %}
                             {{ option.option }} - Tälle kannustimelle kerättiin {{ incentive.total_amount|floatformat:-2 }} euroa.
                         {% else %}
+
                             <input type="checkbox" id="{{ incentive.id }}_button" name="{{ incentive.id }}_button"
-                                   value="choice" class="incentive_choices">
+                                   value="milestone" class="incentive_choices">
                             <label for="{{ incentive.id }}_button"> Valitse tämä kannustin</label>
                             - Tälle kannustimelle on nyt kerätty {{ incentive.total_amount|floatformat:-2 }} euroa.
                         {% endif %}
