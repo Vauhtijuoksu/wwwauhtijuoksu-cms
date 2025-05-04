@@ -79,6 +79,14 @@ function get_choices() {
                     })
                 }
             }
+            if ($(this).val() == "milestone") {
+                var value = $(this).attr('id').split("_")[0]
+                if (value){
+                    choices.push({
+                        id: value
+                    })
+                }
+            }
             if ($(this).val() == "field" ) {
                 var field = "#" + $(this).attr('id').split("_")[0] + "_" + $(this).attr('id').split("_")[1]  + "_field";
                 var value = $(field).attr('id').split("_")
