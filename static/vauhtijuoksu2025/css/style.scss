@@ -590,6 +590,9 @@ footer {
   border-radius: 0;
     width: 300px;
 }
+#incentive_action_popup #incentive_action_flex .incentive_popup_row .multiincentive #incentivecount {
+    color: #ff9c9c;
+}
 #incentive_action_popup #incentive_action_flex .incentive_popup_row .incentive_gen_button:hover {
     background-color: $vj25white;
 
