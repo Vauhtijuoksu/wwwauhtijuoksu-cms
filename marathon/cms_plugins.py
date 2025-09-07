@@ -1,3 +1,5 @@
+import datetime
+
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
@@ -47,8 +49,13 @@ class SubmissionFormPlugin(CMSPluginBase):
                 player_form.fields['discord'].widget.attrs['readonly'] = True
         else:
             player_form = PlayerForm(prefix='player')
+        event_duration = (instance.event.end - instance.event.start).days
+        event_days = []
+        for d in range(event_duration + 1):
+            event_days.append(instance.event.start + datetime.timedelta(days=d))
         context['require_authentication'] = True
         context['form'] = form
         context['player_form'] = player_form
         context['event'] = instance.event
+        context['event_days'] = event_days
         return context

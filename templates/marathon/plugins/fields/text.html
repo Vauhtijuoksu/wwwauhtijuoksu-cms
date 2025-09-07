@@ -1,0 +1,19 @@
+<div class="custom-form field-text">
+    <div class="form-errors">
+    {{ field.errors }}
+        {% for error in field.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="field-row">
+        <div class="field-label">
+            <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}*{% endif %}</label>
+        </div>
+        <div class="field-input">
+            {{ field }}
+        </div>
+        <div class="field-help-text">
+            {{ field.help_text }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="custom-form field-double-time">
+    <div class="form-errors">
+        {% for error in field.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="field-row">
+        <div class="field-label">
+            <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}*{% endif %}</label>
+        </div>
+                <script>
+                function enforceMinMax(el) {
+                  if (el.value !== "") {
+                    if (parseInt(el.value) < parseInt(el.min)) {
+                      el.value = el.min;
+                    }
+                    if (parseInt(el.value) > parseInt(el.max)) {
+                      el.value = el.max;
+                    }
+                  } else {
+                    el.value = el.min
+                  }
+                  el.value = String(Number(el.value))
+                  set_input(el)
+                }
+                function set_input(el) {
+                  const elID = el.id.split("_")[0]
+                  const inputId = elID === 'hour' ? el.id.slice(5) : elID === 'minute' ? el.id.slice(7) : undefined
+                  if (!inputId) return
+                  const inputElement = document.getElementById(inputId)
+                  if (!inputElement) return
+                  const value = inputElement.value.split(":").length === 2 ? inputElement.value.split(":") : ["00","00"]
+                  if (elID === 'hour') inputElement.value = ("00" + el.value).slice(-2) + ":" + value[1]
+                  if (elID === 'minute') inputElement.value = value[0] + ":" + ("00" + el.value).slice(-2)
+                }
+                function set_focus(elId) {
+                  document.getElementById(elId).focus()
+                }
+            </script>
+        <div class="hidden-inputs">
+            <input class="hidden-input" type="text" name="{{ field.name }}" required id="{{ field.id_for_label }}" onfocus="set_focus('hour_{{ field.id_for_label }}')">
+        </div>
+        <div class="field-input-row field-input">
+            <label for="hour_{{ field.id_for_label }}">Tunnit</label><input class="field-input-short" type="number" id="hour_{{ field.id_for_label }}" placeholder="{{ field.field.widget.attrs.placeholderHours }}" max="23" min="0" onchange="enforceMinMax(this)" onkeyup="enforceMinMax(this)"/>
+            <label for="minute_{{ field.id_for_label }}">Minuutit</label><input class="field-input-short" type="number" id="minute_{{ field.id_for_label }}" placeholder="{{ field.field.widget.attrs.placeholderMinutes }}" max="59" min="0" onchange="enforceMinMax(this)" onkeyup="enforceMinMax(this)"/>
+        </div>
+        <div class="field-help-text">
+            {{ field.help_text }}
+        </div>
+        <div class="real-form-input">
+        </div>
+    </div>
+</div>

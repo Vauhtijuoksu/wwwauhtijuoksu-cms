@@ -4,6 +4,8 @@ from django import forms
 from django.forms import formset_factory
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
+from pkg_resources import require
+
 
 from .models import Submission, Player
 
@@ -14,36 +16,14 @@ class PlayerForm(forms.ModelForm):
         model = Player
         exclude = ['user']
         widgets = {
-            'allergies': forms.Textarea(attrs=TEXTAREA_ATTRS)
+            'nickname': forms.TextInput(attrs={'placeholder': 'Nimimerkki pelaajalistaukseen'}),
+            'discord': forms.TextInput(attrs={'placeholder': 'Nick'}),
+            'gmail': forms.TextInput(attrs={'placeholder': 'etu.suku@gmail.com'}),
+            'twitch': forms.TextInput(attrs={'placeholder': 'nimi_merkki'}),
         }
 
 
 class SubmissionForm(forms.ModelForm):
-    gdpr = forms.BooleanField(required=True, label=_('Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti ja sitoudun noudattamaan turvallisen tilan periaatteita.'))
-
-    def clean_estimate(self):
-
-        estimate = self.cleaned_data['estimate']
-        ptr = re.fullmatch(r'(?P<hours>[0-9]{1,2}):(?P<minutes>[0-5][0-9])', estimate)
-
-        if not ptr:
-            raise ValidationError(_('aika-arvio muodossa hh:mm'))
-
-        hours = int(ptr.group('hours'))
-
-        if hours > 16:
-            raise ValidationError(_('liian pitkä runi :/ kokeile jotain lyhempää!'))
-
-        minutes = int(ptr.group('minutes'))
-        total = hours * 60 + minutes
-        total_rounded = total + (5 - total) % 5
-
-        cleaned_hours = total_rounded // 60
-        cleaned_minutes = total_rounded % 60
-        cleaned_estimate = f'{cleaned_hours:02}:{cleaned_minutes:02}'
-
-        return cleaned_estimate
-
     class Meta:
         model = Submission
         exclude = [
@@ -56,7 +36,15 @@ class SubmissionForm(forms.ModelForm):
             'flashing_lights'
         ]
         widgets = {
+            'game_title': forms.TextInput(attrs={'placeholder': 'Sakarin Villapaitapeli'}),
+            'publish_year': forms.NumberInput(attrs={'placeholder': '1969'}),
+            'console': forms.TextInput(attrs={'placeholder': 'PC'}),
+            'console_display': forms.TextInput(attrs={'placeholder': 'NES'}),
+            'category': forms.TextInput(attrs={'placeholder': 'Any% NMS'}),
+            'estimate': forms.TextInput(attrs={'placeholderHours': '1','placeholderMinutes': '30'}),
+            'personal_best': forms.TextInput(attrs={'placeholderHours': '1','placeholderMinutes': '19'}),
             'time_constraints': forms.Textarea(attrs=TEXTAREA_ATTRS),
             'description': forms.Textarea(attrs=TEXTAREA_ATTRS),
             'priority': forms.NumberInput(attrs={'min': '1'}),
+            'gdpr': forms.CheckboxInput(attrs={'required': True, 'pre_label': 'Tietosuoja'})
         }

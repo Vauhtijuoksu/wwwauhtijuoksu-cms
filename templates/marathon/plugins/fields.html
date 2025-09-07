@@ -1,0 +1,9 @@
+{% with field_type=field.field.widget.input_type  %}
+    {% if field_type == "text" %}
+        {% include 'marathon/plugins/fields/input.html' with field=field%}
+    {% elif field_type == "number" %}
+        {% include 'marathon/plugins/fields/input.html' with field=field%}
+    {% else %}
+        {% include 'marathon/plugins/fields/input.html' with field=field%}
+    {% endif %}
+{% endwith %}

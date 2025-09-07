@@ -20,9 +20,21 @@ def render_duration(value):
 
     return s.strip()
 
+@register.filter(name='replace')
+def replace(value, arg):
+    """
+    Replacing filter
+    Use `{{ "aaa"|replace:"a|b" }}`
+    """
+    if len(arg.split('|')) != 2:
+        return value
+
+    what, to = arg.split('|')
+    return value.replace(what, to)
+
 @register.filter(name='split')
-def split(value, key):
-  return value.split(key)
+def split(value, arg):
+  return value.split(arg)
 
 @register.filter(name='zip')
 def zip_lists(a, b):
