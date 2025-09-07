@@ -1,0 +1,20 @@
+<div class="custom-form field-checkbox">
+    <div class="form-errors">
+        {% for error in field.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="field-row">
+        <div class="field-label">
+            {{ field.field.widget.attrs.pre_label }}{% if field.field.required or field.field.widget.attrs.required %}*{% endif %}
+        </div>
+        <div class="field-input-row">
+            <div class="field-input">
+                <input class="form-check-input" type="checkbox" name="{{ field.name }}" {{ field.field.required }} id="{{ field.id_for_label }}">
+            </div>
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        </div>
+        <div class="field-help-text">
+            {{ field.help_text }}
+        </div>
+</div>
