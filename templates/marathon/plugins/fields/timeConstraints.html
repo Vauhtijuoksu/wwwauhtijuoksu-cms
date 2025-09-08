@@ -13,7 +13,7 @@
     <div class="field-row">
         <div class="field-label tc-label-row">
             <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}*{% endif %}</label>
-            <div class="tc-legend"><div class="ok"></div> Käy, <div class="maybe"></div> Ehkä, <div class="notok"></div> Ei käy</div>
+            <div class="tc-legend"><div class="ok"></div> Käy,<div class="notok"></div> Ei käy,  <div class="maybe"></div> Ehkä</div>
         </div>
         <script>
             function set_focus(elId) {
@@ -22,7 +22,7 @@
         </script>
         <div class="hidden-inputs">
             <input class="hidden-input" type="text" name="{{ field.name }}" required id="{{ field.id_for_label }}" onfocus="set_focus('dummy-{{ field.id_for_label }}')">
-            <input class="hidden-input dummy-input" type="text" id="dummy-{{ field.id_for_label }}">
+            <input class="hidden-input dummy-input" type="checkbox" id="dummy-{{ field.id_for_label }}">
         </div>
         <div class="field-time-constraints">
             {% with ''|center:24 as range %}
@@ -36,26 +36,18 @@
                 <div class="tc-col tc-col-times">
                     <div class="tc-day"></div>
                     {% for _ in range %}
-                        <div class="tc-row">
+                        <div class="tc-row tc-time">
                             {% with start=forloop.counter|add:'-1' %}
-                                {{ start|stringformat:".2d" }}:00
+                                <div class="tc-time-start">
+                                    {{ start|stringformat:".2d" }}:00
+                                </div>
+                                <div class="tc-time-dash">
+                                    -
+                                </div>
+                                <div class="tc-time-end">
+                                    {{ forloop.counter|stringformat:".2d" }}:00
+                                </div>
                             {% endwith %}
-                        </div>
-                    {% endfor %}
-                </div>
-                <div class="tc-col tc-col-autosize hide-if-small">
-                    <div class="tc-day"></div>
-                    {% for _ in range %}
-                        <div class="tc-row">
-                            -
-                        </div>
-                    {% endfor %}
-                </div>
-                <div class="tc-col tc-col-times hide-if-small">
-                    <div class="tc-day"></div>
-                    {% for _ in range %}
-                        <div class="tc-row">
-                            {{ forloop.counter|stringformat:".2d" }}:00
                         </div>
                     {% endfor %}
                 </div>
