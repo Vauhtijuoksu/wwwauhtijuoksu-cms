@@ -13,9 +13,9 @@
             <div class="field-input">
                 <input class="form-check-input" type="checkbox" name="{{ field.name }}" {{ field.field.required }} id="{{ field.id_for_label }}">
             </div>
-                {% with splitlabel=field.label|split:"%%" %}
-                    <label for="{{ field.id_for_label }}">{{ splitlabel.0 }}<a href="{{ gdpr_url }}">{{ splitlabel.1 }}</a>{{ splitlabel.2 }}</label>
-                {% endwith %}
+            {% with splitlabel=field.label|split:"%%" %}
+                <label for="{{ field.id_for_label }}">{{ splitlabel.0 }}<a href="{{ gdpr_url }}">{{ splitlabel.1 }}</a>{{ splitlabel.2 }}</label>
+            {% endwith %}
         </div>
         <div class="field-help-text">
             {{ field.help_text }}

@@ -147,7 +147,13 @@ body {
     flex-direction: row;
   justify-content: center;
   .tc-col-times{
-    width: 3em;
+    width: auto;
+    .tc-time-start, .tc-time-end {
+      width: 3em
+    }
+    .tc-time-dash {
+      width: 0.8em;
+    }
   }
   .tc-col{
     display: flex;
@@ -155,6 +161,15 @@ body {
     .tc-row{
       height: 1.3em;
       padding: 1px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &.tc-time{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
       .tc-input{
         width: 100%;
         height: 100%;
@@ -252,14 +267,14 @@ body {
     margin: auto;
     line-height: 0.9em;
     &:after{
-      content: "🠋"
+      content: "⮟"
     }
   }
   .tc-hour-input {
     float: right;
     margin: 0.2em;
     &:after{
-      content: "🠊"
+      content: "➤"
     }
   }
   .tc-score-indicators {
@@ -453,8 +468,28 @@ body {
   }
   .field-time-constraints{
     font-size: 0.9rem;
-    .hide-if-small{
-      display: none;
+    .tc-col {
+      .tc-row {
+        height: 2em;
+        .tc-input {
+          line-height: 1.6em;
+
+        }
+        &.tc-time{
+          flex-direction: column;
+          justify-content: center;
+          .tc-time-start, .tc-time-end {
+            font-size: 0.7em;
+            line-height: 1;
+
+          }
+          .tc-time-dash {
+            font-size: 0.6em;
+            height: 4px;
+            line-height: 4px;
+          }
+        }
+      }
     }
   }
 }
