@@ -1,0 +1,23 @@
+{% with l=long|default:20 inc=increment|default:5 %}
+    {% with xl=xlong|default:l|add:inc inc2=inc|add:inc %}
+        {% with xxl=xxlong|default:l|add:inc2 inc4=inc2|add:inc2 %}
+            {% with xxxl=xxxlong|default:l|add:inc4 inc8=inc4|add:inc4 %}
+                {% with xxxxl=xxxxlong|default:l|add:inc8 %}
+                    {% if text|length > xxxxl %}
+                        <span class="lt-XXXXL lt-xxxxl lt-xxxl lt-xxl lt-xl lt-l lt-any">{{ text }}</span>
+                    {% elif text|length > xxxl %}
+                        <span class="lt-XXXL lt-xxxl lt-xxl lt-xl lt-l lt-any">{{ text }}</span>
+                    {% elif text|length > xxl %}
+                        <span class="lt-XXL lt-xxl lt-xl lt-l lt-any">{{ text }}</span>
+                    {% elif text|length > xl %}
+                        <span class="lt-XL lt-xl lt-l lt-any">{{ text }}</span>
+                    {% elif text|length > l %}
+                        <span class="lt-L lt-l lt-any">{{ text }}</span>
+                    {% else %}
+                        <span class="lt-any">{{ text }}</span>
+                    {% endif %}
+                {% endwith %}
+            {% endwith %}
+        {% endwith %}
+    {% endwith %}
+{% endwith %}

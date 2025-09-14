@@ -1,6 +1,8 @@
 {% load cms_tags %}
 <div class="sponsor_logo_holder sponsor_logo_{% if instance.size == "L" %}big{% elif instance.size == "S" %}small{% else %}medium{% endif %}">
-    {% for plugin in instance.child_plugin_instances %}
-        {% render_plugin plugin %}
-    {% endfor %}
+    <div class="sponsor_logo_sizer">
+        {% for plugin in instance.child_plugin_instances %}
+            {% render_plugin plugin %}
+        {% endfor %}
+    </div>
 </div>

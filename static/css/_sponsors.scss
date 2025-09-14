@@ -1,0 +1,69 @@
+.sponsors{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: $content-text-align;
+  justify-content: center;
+  align-items: center;
+  gap: $increment-md;
+  min-height: 180px;
+  p, h1, h2, h3, h4, h5, h6 {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .cms-placeholder{
+    display: none;
+  }
+}
+
+.sponsor_logo_holder{
+    aspect-ratio: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.sponsor_logo_big{
+  width: 38%;
+}
+.sponsor_logo_medium{
+  width: 31%;
+}
+.sponsor_logo_small{
+  width: 22%;
+}
+.sponsor_logo_holder .sponsor_logo_sizer{
+  max-width: 95%;
+  & > a {
+    width:100%;
+    display: block;
+  }
+  & img {
+    object-fit: contain;
+    display: block;
+    width:100%;
+    height:100%;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .sponsors {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: $increment-sm;
+  }
+  .sponsor_logo_big{
+    width: 46%;
+  }
+  .sponsor_logo_medium{
+    width: 32%;
+  }
+  .sponsor_logo_small{
+    width: 24%;
+  }
+}

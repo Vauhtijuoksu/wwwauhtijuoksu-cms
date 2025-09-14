@@ -9,7 +9,10 @@ $viuhti-darkgreen: #214a4f !default;
 $viuhti-white: #ded5d2 !default;
 $viuhti-dark: #16031b !default;
 $viuhti-darkfade: rgba(22, 3, 27, 0.69) !default;
+$viuhti-darkextrafade: rgba(22, 3, 27, 0.33) !default;
+$viuhti-darkextramegafade: rgba(22, 3, 27, 0.15) !default;
 $viuhti-blue: #70b2d3 !default;
+$viuhti-highlighviolet: #A3448D !default;
 $ERROR: red !default;
 
 $body-bg-image: null !default;
@@ -153,6 +156,7 @@ $ttt-game-hover-bg-color: $bg-1 !default;
 
 // default images
 
+$triangle-logo-image: url("../../img/triangle.png") !default;
 $twitch-icon-image: url("../../img/twitch.png") !default;
 $divider-0: url("../../img/divider_0.png") !default;
 $divider-1: url("../../img/divider_1.png") !default;

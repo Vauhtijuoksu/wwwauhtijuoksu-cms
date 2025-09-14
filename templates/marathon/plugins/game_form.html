@@ -1,0 +1,14 @@
+{% include 'marathon/plugins/fields/text.html' with field=form.game_title %}
+{% include 'marathon/plugins/fields/text.html' with field=form.publish_year %}
+{% include 'marathon/plugins/fields/text.html' with field=form.console %}
+{% include 'marathon/plugins/fields/text.html' with field=form.console_display %}
+{% include 'marathon/plugins/fields/text.html' with field=form.category %}
+{% include 'marathon/plugins/fields/text.html' with field=form.description %}
+{% include 'marathon/plugins/fields/text.html' with field=form.priority %}
+{% include 'marathon/plugins/fields/doubleTime.html' with field=form.estimate %}
+{% include 'marathon/plugins/fields/doubleTime.html' with field=form.personal_best %}
+{% include 'marathon/plugins/fields/timeConstraints.html' with field=form.time_constraints event=event event_days=event_days %}
+{% if event.gdpr_notice %}
+    {% include 'marathon/plugins/fields/gdprCheck.html' with field=form.gdpr gdpr_url=event.gdpr_notice.url %}
+    <br/>
+{% endif %}
