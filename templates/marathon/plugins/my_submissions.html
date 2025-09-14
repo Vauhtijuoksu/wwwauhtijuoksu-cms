@@ -1,3 +1,6 @@
+{% if require_authentication and not user.is_authenticated %}
+{% else %}
+    <h2>Omat ilmoitukset</h2>
 {%  if submissions %}
 {% for submission in submissions|dictsort:"priority" %}
     <div class="game-submission my-submission">
@@ -24,4 +27,5 @@
 {% endfor %}
 {% else %}
   <p class="no-games">Et oo vielä ilmonnu mittään! Laitahan ilmoten.</p>
+{% endif %}
 {% endif %}
