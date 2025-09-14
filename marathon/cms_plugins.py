@@ -97,10 +97,13 @@ class SubmissionFormPlugin(CMSPluginBase):
 
         previous_data = context['request'].session.get('previous_form')
         if context['request'].user.is_authenticated and not previous_data:
-            player_info = get_player_info_for_user(context['request'].user)
-            last_submit = Submission.objects.filter(event=instance.event, hidden=False, players__in=[player_info['id']]).last()
-            if last_submit:
-                form = SubmissionForm(initial={'time_constraints': last_submit.time_constraints})
+            player_id = get_player_info_for_user(context['request'].user).get('id')
+            if player_id:
+                last_submit = Submission.objects.filter(event=instance.event, hidden=False, players__in=[player_id]).last()
+                if last_submit:
+                    form = SubmissionForm(initial={'time_constraints': last_submit.time_constraints})
+                else:
+                    form = SubmissionForm()
             else:
                 form = SubmissionForm()
         else:
