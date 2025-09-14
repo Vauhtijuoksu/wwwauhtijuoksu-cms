@@ -1,17 +1,13 @@
 {% load vj_extras %}
 <div class="custom-form field-checkbox">
-    <div class="form-errors">
-        {% for error in field.errors %}
-            <div>{{ error }}</div>
-        {% endfor %}
-    </div>
     <div class="field-row">
         <div class="field-label">
             {{ field.field.widget.attrs.pre_label }}{% if field.field.required or field.field.widget.attrs.required %}*{% endif %}
         </div>
+        {% include 'marathon/plugins/fields/errors.html' with errors=field.errors %}
         <div class="field-input-row">
             <div class="field-input">
-                <input class="form-check-input" type="checkbox" name="{{ field.name }}" {{ field.field.required }} id="{{ field.id_for_label }}">
+                <input class="form-check-input" type="checkbox" name="{{ field.html_name }}" {{ field.field.required }} id="{{ field.id_for_label }}" value="{{ field.value }}">
             </div>
             {% with splitlabel=field.label|split:"%%" %}
                 <label for="{{ field.id_for_label }}">{{ splitlabel.0 }}<a href="{{ gdpr_url }}">{{ splitlabel.1 }}</a>{{ splitlabel.2 }}</label>

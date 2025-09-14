@@ -1,0 +1,583 @@
+.custom-form{
+  .form-errors{
+    padding-left: 0.5em;
+    font-size: 0.9em;
+    line-height: 1;
+    margin-top: 0.1em;
+    margin-bottom: 0.15em;
+    text-align: left;
+    animation: flashError 0.8s 9 ease-in-out forwards alternate;
+  }
+  .field-time-constraints{
+    position:relative;
+      display: flex;
+      flex-direction: row;
+    justify-content: center;
+    .tc-col-times{
+      width: auto;
+      .tc-time-start, .tc-time-end {
+        width: 3em
+      }
+      .tc-time-dash {
+        width: 0.8em;
+      }
+    }
+    .tc-col{
+      display: flex;
+      flex-direction: column;
+      .tc-row{
+        height: 1.3em;
+        padding: 1px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &.tc-time{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+        .tc-input{
+          width: 100%;
+          height: 100%;
+          opacity: 0.9;
+          border: 1px $viuhti-dark solid;
+          border-radius: 3px;
+          cursor: pointer;
+          font-size: 1.1em;
+          line-height: 0.9em;
+          &.ok{
+            background-color: $viuhti-green;
+            color: white;
+            &:after{
+              content: "✓"
+            }
+          }
+          &.maybe{
+            background-color: $viuhti-orange;
+            color: $viuhti-orangedark;
+            &:after{
+              content: "?"
+            }
+          }
+          &.notok{
+            background-color: $viuhti-orangedark;
+            color: $viuhti-orange;
+            &:after{
+              content: "X"
+            }
+          }
+        }
+        .tc-input:hover{
+          opacity: 0.96;
+          filter: brightness(200%);
+        }
+      }
+      .tc-row:nth-child(even){
+        background-color: rgba(0,0,0,0.1);
+      }
+      .tc-day{
+        height: 2.3em;
+        line-height: 1.2em;
+        padding-left: 2px;
+        padding-right: 2px;
+        width: 3em;
+      }
+    }
+    .tc-col-dummy{
+      flex-grow: 1;
+      position: relative;
+      .tc-day{
+        width: 0;
+      }
+    }
+    .tc-col-autosize{
+      .tc-day{
+        width: 0;
+      }
+    }
+    .tc-day-input, .tc-hour-input {
+      height: 1em;
+      width: 1em;
+      opacity: 0.6;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 1em;
+      line-height: 0.8em;
+    }
+    .tc-day-input:hover, .tc-hour-input:hover {
+      opacity: 0.9;
+      border: 1px $viuhti-dark solid;
+      &.ok {
+        background-color: $viuhti-green;
+        color: white;
+        &:after{
+          content: "✓"
+        }
+      }
+      &.maybe{
+        background-color: $viuhti-orange;;
+        color: $viuhti-orangedark;
+        &:after{
+          content: "?"
+        }
+      }
+      &.notok{
+        background-color: $viuhti-orangedark;
+        color: $viuhti-orange;
+        &:after{
+          content: "X"
+        }
+      }
+    }
+    .tc-day-input {
+      margin: auto;
+      line-height: 0.9em;
+      &:after{
+        content: "⮟"
+      }
+    }
+    .tc-hour-input {
+      float: right;
+      margin: 0.2em;
+      &:after{
+        content: "➤"
+      }
+    }
+    .tc-score-indicators {
+      position: absolute;
+      bottom: 0;
+      left: -40px;
+      pointer-events: none;
+      & > img {
+        pointer-events: none;
+        display: none;
+        width: 100px;
+        max-height: 100px;
+        max-width: 12vw;
+      }
+      & > img.active {
+        display: block;
+      }
+    }
+  }
+  .custom-form-holder{
+    width: 600px;
+    max-width: 100%;
+    margin: auto;
+  }
+  .form-header{
+    text-align: left;
+  }
+  .action-button{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    background-color: $viuhti-orange;
+    border: 0;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &:hover {
+      background-color: #c98c7b;
+
+    }
+  }
+  .tc-label-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .tc-legend {
+    display: inline-block;
+    flex-grow: 1;
+    font-size: 0.85em;
+    text-align: right;
+    .ok, .maybe, .notok {
+      border-radius: 3px;
+      border: 1px $viuhti-dark solid;
+      width: 1.4em;
+      height: 1.4em;
+      line-height: 1.3em;
+      text-align: center;
+      display: inline-block;
+    }
+    .ok {
+      background-color: $viuhti-green;
+      color: white;
+      &:after{
+        content: "✓"
+      }
+    }
+    .maybe{
+      background-color: $viuhti-orange;
+      color: $viuhti-orangedark;
+      &:after{
+        content: "?"
+      }
+    }
+    .notok{
+      background-color: $viuhti-orangedark;
+      color: $viuhti-orange;
+      &:after{
+        content: "X"
+      }
+    }
+  }
+  .field-label, .col-form-label{
+    margin-top: 0.6em;
+    text-align: left;
+    font-size: 0.85rem;
+  }
+  &.field-double-time{
+    .field-input > input {
+    }
+  }
+  .field-input-row{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    & label {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-top: 2px;
+      padding-top: 0.375rem;
+      padding-left: 0.8em;
+      &:first-child{
+        padding-left: 2em;
+      }
+    }
+  }
+  .field-help-text{
+    text-align: left;
+    font-style: italic;
+    font-size: 0.8em;
+    line-height: 0.9;
+    opacity: 0.8;
+    padding-left: 1em;
+
+  }
+  &.field-checkbox{
+  .field-input-row{
+    padding-left: 0.8em;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    .field-input{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      & input {
+        height: 35px;
+        width: 35px;
+      }
+    }
+    & label {
+      text-align: left;
+      font-size: 0.85rem;
+      line-height: 1;
+      padding: 0;
+    }
+  }
+  }
+  .field-input {
+    text-align: left;
+    & > input, & > textarea {
+      width: 100%;
+      display: block;
+      padding: 0.375rem 0.75rem;
+      font-weight: 400;
+      line-height: 1.5;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      appearance: none;
+      border-radius: 0.25rem;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    .field-input-short, &.field-input-short{
+      width: auto;
+    }
+  }
+  &.field-double-time{
+    & input {
+      text-align: right;
+    }
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+  .hidden-inputs{
+    height: 0;
+  }
+  .hidden-input{
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    font-size: 0;
+    border: none;
+    padding-block: 0;
+    padding-inline: 0;
+    display: inline-block;
+  }
+  input[type=number] {
+      -moz-appearance:textfield; /* Firefox */
+  }
+  .field-input-hidden {
+    display: none;
+  }
+  .form-GDPR-row{
+    text-align: left;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .custom-form {
+    .field-time-constraints {
+      font-size: 0.9rem;
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  .custom-form{
+    .tc-legend {
+      font-size: 0.8em;
+    }
+    .field-time-constraints{
+      font-size: 0.9rem;
+      .tc-col {
+        .tc-row {
+          height: 2em;
+          .tc-input {
+            line-height: 1.6em;
+
+          }
+          &.tc-time{
+            flex-direction: column;
+            justify-content: center;
+            .tc-time-start, .tc-time-end {
+              font-size: 0.7em;
+              line-height: 1;
+
+            }
+            .tc-time-dash {
+              font-size: 0.6em;
+              height: 4px;
+              line-height: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+$errorFlashShadow1: $viuhti-highlighviolet;
+$errorFlashShadow2: $viuhti-orange;
+@keyframes flashError {
+  from {
+    color: $viuhti-orangedark;
+    text-shadow: 0 0 3px $errorFlashShadow1, 0 0 2px $errorFlashShadow1, 0 0 2px $errorFlashShadow1, 0 0 2px $errorFlashShadow1, 0 0 2px $errorFlashShadow1, 0 0 2px $errorFlashShadow1;
+
+  }
+  to {
+    color: $viuhti-dark;
+    text-shadow: 0 0 3px $errorFlashShadow2, 0 0 2px $errorFlashShadow2, 0 0 1px $errorFlashShadow2, 0 0 1px $errorFlashShadow2, 0 0 0px $errorFlashShadow2, 0 0 0px $errorFlashShadow2;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .custom-form {
+    .field-time-constraints {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+.submission-info {
+  font-size: 0.8em;
+  gap: 0 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: $viuhti-darkfade;
+}
+.game-submission {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.45rem;
+  .triangle-holder{
+    max-width: 4vw;
+    flex: 0 0 1.4rem;
+    .triangle-logo{
+      object-fit: contain;
+      display: inline-block;
+      width:100%;
+      height:100%;
+      transform: translate(-30%, 0) rotate(8deg);
+    }
+  }
+  .submission-info-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .game-title{
+    min-height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 2em;
+    gap: 0;
+    .game-title-value{
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+      flex-grow: 0;
+      > span:not(.lt-xxxl){
+        line-height: 1.1;
+      }
+
+    }
+  }
+  .lt-any{
+    display: inline-block;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    white-space: normal;
+  }
+  .lt-l {
+  }
+  .lt-L {
+    font-size: 0.95em;
+  }
+  .lt-XL {
+    font-size: 0.885em;
+  }
+  .lt-XXL {
+    font-size: 0.80em;
+  }
+  .lt-XXXL {
+    font-size: 0.70em;
+    line-height: 1.1;
+  }
+  .lt-XXXXL {
+    font-size: 0.55em;
+    line-height: 1;
+  }
+  .game-category{
+    width: 33%;
+  }
+  .label{
+    font-size: 0.7em;
+    line-height: 1;
+    color: $viuhti-darkfade;
+  }
+  .value{
+    line-height: 1.1;
+    font-size: 1.1em;
+    padding-left: 0.6em;
+
+  }
+  .twitch-link{
+    color: unset;
+    text-decoration: underline;
+    text-decoration-color: $viuhti-darkextramegafade;
+    transition: text-decoration-color 0.6s ease;
+    max-width: 100%;
+    display: inline-block;
+    overflow-wrap: break-word;
+    & > .lt-any {
+      max-width: calc(100% - 0.75em);
+    }
+    .twitch-icon{
+      width: 0.75em;
+      margin-top: 0;
+      transform: rotate(0deg) translate(-10%, -40%);
+      transition: transform 0.6s cubic-bezier(.5,-1.5,.5,2.5);
+      transform-origin: 25% bottom;
+    }
+    &:hover{
+      text-decoration-color: $viuhti-darkextrafade;
+      .twitch-icon {
+        margin-top: 0;
+        transform: rotate(15deg) translate(-10%, -50%);
+      }
+    }
+  }
+  .runner{
+    width: 52%;
+
+  }
+  .game-estimate{
+    width: 14%;
+
+  }
+}
+.game-submission:nth-child(odd) {
+    .triangle-logo {
+      transform: translate(-30%, 0) rotate(0);
+    }
+}
+.game-submission:nth-child(4n) {
+    .triangle-logo {
+      transform: translate(-30%, 0) rotate(-12deg);
+    }
+}
+@media only screen and (max-width: 400px) {
+  .game-submission {
+    font-size: 0.8rem;
+  }
+}
+
+.my-submission {
+  .game-title{
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, black 80%, transparent 100%);
+  }
+
+  .game-category{
+    width: 35%;
+    font-size: 0.9em;
+    white-space: nowrap;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, black 60%, transparent 90%);
+  }
+  .game-console{
+    width: 30%;
+    font-size: 0.9em;
+    white-space: nowrap;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, black 60%, transparent 90%);
+  }
+  .game-estimate{
+    width: 15%;
+    font-size: 0.9em;
+  }
+  .buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 20%
+  }
+}
+.submission-divider{
+  border-bottom: 2px solid $viuhti-orange;
+}

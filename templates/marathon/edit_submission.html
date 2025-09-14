@@ -1,0 +1,27 @@
+{% extends "vauhtijuoksu/genericSideViuhti.html" %}
+{% load bootstrap5 sekizai_tags socialaccount %}
+{% block override %}
+    {% bootstrap_messages %}
+    {% if require_authentication and not user.is_authenticated %}
+      {% provider_login_url "discord" next=request.path as href %}
+      {% bootstrap_button "Kirjaudu Discord-tunnuksilla" button_type="link" href=href %}
+    {% else %}
+    <div class="custom-form">
+    <form class="form" action="{% url 'edit-submission' event=event.slug submission_id=submission_id %}?next={{ request.path }}" method="post" novalidate>
+      {% csrf_token %}
+      <!-- Submission form -->
+        <div id="game-form" class="custom-form-holder">
+            <h3 class="form-header">
+                Muokkaa suoritusta
+            </h3>
+            {% include 'marathon/plugins/game_form.html' with form=form event=event event_days=event_days %}
+            <button class="action-button" type="submit">Lähetä</button>
+        </div>
+    </form>
+    </div>
+    {% endif %}
+    {% block content %}
+    {% endblock content %}
+{% endblock override %}
+{% block extra_body %}
+{% endblock extra_body %}

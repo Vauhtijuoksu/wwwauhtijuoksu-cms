@@ -1,28 +1,52 @@
 {%  if submissions %}
-<table class="table games">
-<thead>
-  <tr>
-    <th scope="col">Pelaaja</th>
-    <th scope="col">Peli</th>
-    <th scope="col">Kategoria</th>
-    <th scope="col">Arvio</th>
-  </tr>
-</thead>
-<tbody>
 {% for submission in submissions %}
-  <tr>
-  <td class="player">
-    {% for player in submission.players.all %}
-      {% if not forloop.first %}{% if forloop.last %} & {% else %}, {% endif %}{% endif %}{{ player.nickname }}
-    {% endfor %}
-  </td>
-  <td class="game-title">{{ submission.game_title }}</td>
-  <td class="game-category">{{ submission.category }}</td>
-  <td class="game-estimate">{{ submission.estimate }}</td>
-  </tr>
+    <div class="game-submission">
+        <div class="game-title">
+            <div class="triangle-holder">
+                <img class="triangle-logo"/>
+            </div>
+            <div class="game-title-value">
+                {% include 'macros/long_text.html' with text=submission.game_title long=15 increment=5 %}
+            </div>
+        </div>
+        <div class="submission-info-row">
+            <div class="triangle-holder">
+            </div>
+            <div class="runner">
+                <div class="label">Juoksija:</div>
+                <div class="value">
+                    {% for player in submission.players.all %}
+                        {% if not forloop.first %}{% if forloop.last %} & {% else %}, {% endif %}{% endif %}
+                        {% if player.twitch %}
+                            <a class="twitch-link" target="_blank" href="https://www.twitch.tv/{{ player.twitch }}">{% include 'macros/long_text.html' with text=player.nickname long=18 increment=3 %} <img class="twitch-icon" /></a>
+                        {% else %}
+                            {% include 'macros/long_text.html' with text=player.nickname long=15 increment=4 %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="game-category">
+                <div class="label">Kategoria:</div>
+                <div class="value">
+                    {% include 'macros/long_text.html' with text=submission.category long=15 increment=6 %}
+                </div>
+            </div>
+            <div class="game-estimate">
+                <div class="label">Arvio:</div>
+                <div class="value">
+                    {{ submission.estimate }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if not forloop.last %}
+        <div class="submission-divider"></div>
+    {% endif %}
 {% endfor %}
-</tbody>
-</table>
+    <div class="submission-info">
+        <div>Ilmoitettuja pelejä: {{ game_count }} (~ {{ total_run_time }})</div>
+        <div>Uniikkeja pelaajia: {{ unique_players }}</div>
+    </div>
 {% else %}
   <p class="no-games">Täällä ei oo vielä kettään! Laitahan ilmoten.</p>
 {% endif %}

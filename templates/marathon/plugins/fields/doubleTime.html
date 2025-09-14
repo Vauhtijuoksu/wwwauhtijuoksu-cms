@@ -1,14 +1,10 @@
 <div class="custom-form field-double-time">
-    <div class="form-errors">
-        {% for error in field.errors %}
-            <div>{{ error }}</div>
-        {% endfor %}
-    </div>
     <div class="field-row">
         <div class="field-label">
             <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}*{% endif %}</label>
         </div>
-                <script>
+        {% include 'marathon/plugins/fields/errors.html' with errors=field.errors %}
+             <script type="text/javascript">
                 function enforceMinMax(el) {
                   if (el.value !== "") {
                     if (parseInt(el.value) < parseInt(el.min)) {
@@ -38,7 +34,7 @@
                 }
             </script>
         <div class="hidden-inputs">
-            <input class="hidden-input" type="text" name="{{ field.name }}" required id="{{ field.id_for_label }}" onfocus="set_focus('hour_{{ field.id_for_label }}')">
+            <input class="hidden-input" type="text" name="{{ field.html_name }}" {% if field.field.required %}required{% endif %} id="{{ field.id_for_label }}" onfocus="set_focus('hour_{{ field.id_for_label }}')" value="{{ field.value }}">
         </div>
         <div class="field-input-row field-input">
             <label for="hour_{{ field.id_for_label }}">Tunnit</label><input class="field-input-short" type="number" id="hour_{{ field.id_for_label }}" placeholder="{{ field.field.widget.attrs.placeholderHours }}" max="23" min="0" onchange="enforceMinMax(this)" onkeyup="enforceMinMax(this)"/>
@@ -47,7 +43,19 @@
         <div class="field-help-text">
             {{ field.help_text }}
         </div>
-        <div class="real-form-input">
-        </div>
+        <script type="text/javascript">
+            function setValuesAtLoad(elID) {
+              const elem = document.getElementById(elID)
+              const hour = document.getElementById("hour_" + elID)
+              const minute = document.getElementById("minute_" + elID)
+              console.log(elem.value)
+              if (elem.value) {
+                const time = elem.value.split(":")
+                hour.value = time[0]
+                minute.value = time[1]
+              }
+            }
+            setValuesAtLoad("{{ field.id_for_label }}")
+        </script>
     </div>
 </div>

@@ -1,13 +1,9 @@
 <div class="custom-form">
-    <div class="form-errors">
-        {% for error in field.errors %}
-            <div>{{ error }}</div>
-        {% endfor %}
-    </div>
     <div class="field-row">
         <div class="field-label">
             <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}*{% endif %}</label>
         </div>
+        {% include 'marathon/plugins/fields/errors.html' with errors=field.errors %}
         <div class="field-input">
             {{ field }}
         </div>
