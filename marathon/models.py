@@ -77,7 +77,7 @@ class Submission(models.Model):
     scoreboard_link = models.URLField(_('rankinglistalinkki'), blank=True)
 
     # Extras
-    time_constraints = models.TextField(_('aikataulurajoitteet'), blank=True, help_text=_('Mikäli sinulle kelpaavat ajat muuttuvat, voit korjata tiedot ilmoittautumisen päätyttyä.'), default='')
+    time_constraints = models.TextField(_('aikataulurajoitteet'), blank=True, help_text=_('Mikäli sinulle kelpaavat ajat muuttuvat, voit korjata tiedot myöhemmin.'), default='')
     for_children = models.BooleanField(_('sopiva lapsille'), default=False,
                                        help_text=_('Runin sisältö ja selostus ovat lapsiyleisölle sopivia'))
     flashing_lights = models.BooleanField(_('sisältää nopeasti vilkkuvia valoja'), default=False)
