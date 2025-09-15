@@ -1,7 +1,9 @@
+{% load bootstrap5 sekizai_tags socialaccount %}
 {% if require_authentication and not user.is_authenticated %}
+  {% provider_login_url "discord" next=request.path as href %}
+  {% bootstrap_button "Kirjaudu Discord-tunnuksilla" button_type="link" href=href %}
 {% else %}
-    <h2>Omat ilmoitukset</h2>
-{%  if submissions %}
+{% if submissions and event %}
 {% for submission in submissions|dictsort:"priority" %}
     <div class="game-submission my-submission">
         <div class="game-title">
@@ -18,7 +20,7 @@
             <div class="game-category"><div class="label">Kategoria:</div> {{ submission.category }}</div>
             <div class="game-console"><div class="label">Laite:</div> {{ submission.console  }}{% if submission.console_display %} / {{ submission.console_display  }}{% endif %}</div>
             <div class="game-estimate"><div class="label">Arvio:</div> {{ submission.estimate }}</div>
-            <div class="buttons"><a href="{% url 'edit-submission' event=event.slug submission_id=submission.id %}">Muokkaa ✎</a></div>
+            <div class="buttons"><a href="{% url 'edit-submission' event=event.slug submission_id=submission.id %}?r={{ request.path }}">Muokkaa ✎</a></div>
         </div>
     </div>
     {% if not forloop.last %}

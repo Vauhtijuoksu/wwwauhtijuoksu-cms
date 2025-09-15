@@ -8,7 +8,7 @@
     <div class="field-row">
         <div class="field-label tc-label-row">
             <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}*{% endif %}</label>
-            <div class="tc-legend"><div class="ok"></div> Käy,<div class="notok"></div> Ei käy,  <div class="maybe"></div> Ehkä</div>
+            <div class="tc-legend"><div class="ok"></div> Käy, <div class="notok"></div> Ei käy, <div class="maybe"></div> Ehkä</div>
         </div>
         {% include 'marathon/plugins/fields/errors.html' with errors=field.errors %}
         <script>
