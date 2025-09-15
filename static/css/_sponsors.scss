@@ -37,7 +37,9 @@
   max-width: 85%;
   max-height: 85%;
   & > a {
+    object-fit: contain;
     width:100%;
+    height:100%;
     display: block;
   }
   & img {
