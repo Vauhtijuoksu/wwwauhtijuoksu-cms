@@ -65,22 +65,17 @@ class MySubmissionsPlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
         if context['request'].user.is_authenticated:
-            player = get_player_info_for_user(context['request'].user)
+            player_id = get_player_info_for_user(context['request'].user).get('id')
         else:
-            player = {'id': -1}
+            player_id = None
 
-        if instance.event:
-            submissions = Submission.objects.filter(event=instance.event, hidden=False, players__in=[player['id']])
+        if instance.event and player_id:
+            submissions = Submission.objects.filter(event=instance.event, hidden=False, players__in=[player_id])
         else:
-            submissions = Submission.objects.filter(hidden=False, players__in=[player['id']])
+            submissions = {}
 
-        event_duration = (instance.event.end - instance.event.start).days
-        event_days = []
-        for d in range(event_duration + 1):
-            event_days.append(instance.event.start + datetime.timedelta(days=d))
         context['require_authentication'] = True
         context['event'] = instance.event
-        context['event_days'] = event_days
         context['submissions'] = submissions
         return context
 

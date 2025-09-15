@@ -133,8 +133,11 @@
     .tc-day-input {
       margin: auto;
       line-height: 0.9em;
+      &:not(:hover){
+        transform: rotate(90deg);
+      }
       &:after{
-        content: "⮟"
+        content: "➤"
       }
     }
     .tc-hour-input {
@@ -165,9 +168,21 @@
     width: 600px;
     max-width: 100%;
     margin: auto;
+    padding-bottom: 1rem;
   }
   .form-header{
     text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    .link {
+      font-family: $font-family-sans-serif;
+      font-size: 1rem;
+      text-align: right;
+      flex-grow: 1;
+    }
   }
   .action-button{
     display: inline-block;

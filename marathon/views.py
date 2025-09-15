@@ -1,4 +1,5 @@
 import datetime
+from operator import truediv
 
 from django.contrib import messages
 from django.http import Http404, HttpResponseRedirect
@@ -55,13 +56,20 @@ def new_submission(request, event):
 
 
 def edit_submission(request, event, submission_id):
+    back = request.GET.get('r', '/')
     if request.user.is_authenticated:
         player = get_player_info_for_user(request.user)
+        player_id = player.get('id')
+        if not player_id:
+            return HttpResponseRedirect(back)
     else:
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect(back)
     event = get_object_or_404(Event, slug=event)
-    submission = get_object_or_404(Submission, id=submission_id, event=event, hidden=False, players__in=[player['id']])
-
+    submission = get_object_or_404(Submission, id=submission_id, event=event, hidden=False, players__in=[player_id])
+    if submission:
+        submission_found = True
+    else:
+        submission_found = False
     if request.method == 'POST':
         form = SubmissionForm(request.POST)
 
@@ -83,7 +91,7 @@ def edit_submission(request, event, submission_id):
         else:
             request.session['previous_form'] = request.POST
             messages.add_message(request, messages.ERROR, _('Ilmoittautuminen epäonnistui, tarkista lomake.'))
-        return HttpResponseRedirect(request.GET.get('next', '/'))
+        return HttpResponseRedirect(request.GET.get('next', '/') + "?r=" + back)
 
     if request.method == 'GET':
 
@@ -99,6 +107,8 @@ def edit_submission(request, event, submission_id):
             'require_authentication': True,
             'form': form,
             'submission_id': submission_id,
+            'back': back,
+            'submission_found': submission_found
         }
         return render(request, 'marathon/edit_submission.html', context)
     raise Http404('Tämmöstä ei oo')

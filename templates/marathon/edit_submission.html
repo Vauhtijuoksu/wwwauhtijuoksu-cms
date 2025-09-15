@@ -6,19 +6,39 @@
       {% provider_login_url "discord" next=request.path as href %}
       {% bootstrap_button "Kirjaudu Discord-tunnuksilla" button_type="link" href=href %}
     {% else %}
-    <div class="custom-form">
-    <form class="form" action="{% url 'edit-submission' event=event.slug submission_id=submission_id %}?next={{ request.path }}" method="post" novalidate>
-      {% csrf_token %}
-      <!-- Submission form -->
-        <div id="game-form" class="custom-form-holder">
-            <h3 class="form-header">
-                Muokkaa suoritusta
-            </h3>
-            {% include 'marathon/plugins/game_form.html' with form=form event=event event_days=event_days %}
-            <button class="action-button" type="submit">Lähetä</button>
-        </div>
-    </form>
-    </div>
+        {% if submission_found %}
+            <div class="custom-form">
+            <form class="form" action="{% url 'edit-submission' event=event.slug submission_id=submission_id %}?next={{ request.path }}&r={{ back }}" method="post" novalidate>
+              {% csrf_token %}
+              <!-- Submission form -->
+                <div id="game-form" class="custom-form-holder">
+                    <h3 class="form-header">
+                        <div>Muokkaa suoritusta</div>
+                        {% if back %}
+                            <div class="link">
+                                <a href="{{ back }}">{% if back == '/' %}Takaisin{% else %}Palaa listaukseen{% endif %}</a>
+                            </div>
+                        {% endif %}
+                    </h3>
+                                        {% include 'marathon/plugins/game_form.html' with form=form event=event event_days=event_days %}
+                    <button class="action-button" type="submit">Lähetä</button>
+                </div>
+            </form>
+            </div>
+        {% else %}
+            <div class="custom-form">
+                <div class="custom-form-holder">
+                    <h3 class="form-header">
+                        <div>Muokkaa suoritusta</div>
+                        {% if back %}
+                            <div class="link">
+                                <a href="{{ back }}">{% if back == '/' %}Takaisin{% else %}Palaa listaukseen{% endif %}</a>
+                            </div>
+                        {% endif %}
+                    </h3>
+                </div>
+            </div>
+        {% endif %}
     {% endif %}
     {% block content %}
     {% endblock content %}
