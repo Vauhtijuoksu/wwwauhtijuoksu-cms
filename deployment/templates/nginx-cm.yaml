@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  default.conf: |
+    server {
+        listen 80;
+        server_name _;
+
+        location ~* \.(eot|ttf|woff|woff2|otf)$ {
+            add_header Access-Control-Allow-Origin "*";
+            root /usr/share/nginx/html;
+            expires 30d;
+            add_header Cache-Control "public";
+            access_log off;
+        }
+
+        location /static/ {
+            alias /usr/share/nginx/html/static/;
+            expires 30d;
+            add_header Cache-Control "public";
+            access_log off;
+        }
+    }

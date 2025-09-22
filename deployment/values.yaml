@@ -6,6 +6,7 @@ image:
 
 http:
   host: cms.dev.vauhtijuoksu.fi
+  staticfiles_host: cms-static.dev.vauhtijuoksu.fi
 
 django:
   settings_module: vauhtijuoksu.settings.production
@@ -14,9 +15,9 @@ django:
   secret: django
   sass_root: /home/cms/sassfiles
   static_root: /home/cms/staticfiles
-  static_url: https://vjcms-dev.azureedge.net/static/
+  static_url: https://cms-static.dev.vauhtijuoksu.fi/static/
   media_root: /home/cms/media
-  media_url: https://vjcms-media.azureedge.net/media/
+  media_url: https://vjcms.blob.core.windows.net/media/
   vj_api_url: vauhtijuoksu-api.default.svc.cluster.local
   vj_legacy_api_url: ''
 

@@ -3,25 +3,43 @@ kind: Ingress
 metadata:
   name: {{ .Chart.Name }}
   annotations:
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/use-regex: "true"
     # To work on kind cluster
     nginx.ingress.kubernetes.io/server-alias: localhost
 spec:
   tls:
     - hosts:
         - {{ .Values.http.host }}
-      secretName: {{ .Values.http.host }}
+        - www.vauhtijuoksu.fi
+        - vauhtijuoksu.fi
+  ingressClassName: traefik
   rules:
     - host: {{ .Values.http.host }}
       http:
         paths:
-          - path: /(.*)
-            pathType: Prefix
-            backend:
+          - backend:
               service:
                 name: {{ .Chart.Name }}
                 port:
                   name: http
+            path: /
+            pathType: Prefix
+    - host: www.vauhtijuoksu.fi
+      http:
+        paths:
+          - backend:
+              service:
+                name: {{ .Chart.Name }}
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
+    - host: vauhtijuoksu.fi
+      http:
+        paths:
+          - backend:
+              service:
+                name: {{ .Chart.Name }}
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
