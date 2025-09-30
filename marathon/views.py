@@ -2,7 +2,8 @@ import datetime
 from operator import truediv
 
 from django.contrib import messages
-from django.http import Http404, HttpResponseRedirect
+from django.contrib.auth.decorators import permission_required
+from django.http import Http404, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 
@@ -111,6 +112,50 @@ def edit_submission(request, event, submission_id):
             'submission_found': submission_found
         }
         return render(request, 'marathon/edit_submission.html', context)
+    raise Http404('Tämmöstä ei oo')
+
+
+@permission_required('marathon.delete_submission')
+def data_dump(request, event):
+
+    if request.user.is_authenticated:
+        perms = request.user.get_user_permissions()
+        if 'marathon.delete_submission' in perms:
+            event = get_object_or_404(Event, slug=event)
+            submissions = Submission.objects.filter(event=event, hidden=False)
+            subs = []
+            players = {}
+            for s in submissions:
+                sub = {
+                    'id': s.id,
+                    'players': [],
+                    'game_title': s.game_title,
+                    'publish_year': s.publish_year,
+                    'console': s.console,
+                    'console_display': s.console_display,
+                    'category': s.category,
+                    'estimate': s.estimate,
+                    'personal_best': s.personal_best,
+                    'time_constraints': s.time_constraints,
+                    'description': s.description,
+                    'priority': s.priority,
+                }
+                for p in s.players.all():
+                    sub['players'].append(p.user_id)
+                    if p.user_id not in players:
+                        players[p.user_id] = {
+                            'id': p.user_id,
+                            'nickname': p.nickname,
+                            'discord': p.discord,
+                            'twitch': p.twitch,
+                            'gmail': p.gmail,
+                            'games': [s.id]
+                        }
+                    else:
+                        players[p.user_id]['games'].append(s.id)
+                subs.append(sub)
+
+            return JsonResponse({"submissions": subs, "players": players})
     raise Http404('Tämmöstä ei oo')
 
 def thanks(request):
