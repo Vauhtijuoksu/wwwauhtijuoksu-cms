@@ -13,14 +13,8 @@ class SubmissionListSubmission:
         self.category = submission.category
         self.players = []
         self.estimate = submission.estimate
-        self.ptest = ""
-        self.ntest = ""
         for player in submission.players.all():
-            self.ptest += str(player.user_id) + " "
-            self.ntest += player.nickname + " "
-            self.atest = player
-            p = Player.objects.filter(user_id=player.user_id).first()
-            self.players.append(SubmissionListPlayer(p))
+            self.players.append(SubmissionListPlayer(player))
 
     def update(self, submission):
         for player in submission.players.all():
