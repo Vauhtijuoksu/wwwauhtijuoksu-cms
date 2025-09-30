@@ -4,7 +4,7 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
 from .forms import SubmissionForm, PlayerForm
-from .models import Event, Submission, MarathonPlugin
+from .models import Event, Submission, MarathonPlugin, Player
 from .utils import get_player_info_for_user
 
 class SubmissionListSubmission:
@@ -13,8 +13,14 @@ class SubmissionListSubmission:
         self.category = submission.category
         self.players = []
         self.estimate = submission.estimate
+        self.ptest = ""
+        self.ntest = ""
         for player in submission.players.all():
-            self.players.append(SubmissionListPlayer(player))
+            self.ptest += str(player.user_id) + " "
+            self.ntest += player.nickname + " "
+            self.atest = player
+            p = Player.objects.filter(user_id=player.user_id).first()
+            self.players.append(SubmissionListPlayer(p))
 
     def update(self, submission):
         for player in submission.players.all():

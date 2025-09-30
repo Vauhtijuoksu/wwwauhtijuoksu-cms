@@ -15,10 +15,11 @@
             <div class="runner">
                 <div class="label">Juoksija:</div>
                 <div class="value">
-                    {% for player in submission.players.all %}
+                    <span style="display: none">{{ submission.ptest }} {{ submission.ntest}} {{submission.atest}}</span>
+                    {% for player in submission.players %}
                         {% if not forloop.first %}{% if forloop.last %} & {% else %}, {% endif %}{% endif %}
                         {% if player.twitch %}
-                            <a class="twitch-link" target="_blank" href="https://www.twitch.tv/{{ player.twitch }}">{% include 'macros/long_text.html' with text=player.nickname long=18 increment=3 %} <img class="twitch-icon" /></a>
+                            <a class="twitch-link" target="_blank" href="https://www.twitch.tv/{{ player.twitch }}">{% include 'macros/long_text.html' with text=player.nickname long=12 increment=4 %} <img class="twitch-icon" /></a>
                         {% else %}
                             {% include 'macros/long_text.html' with text=player.nickname long=15 increment=4 %}
                         {% endif %}
