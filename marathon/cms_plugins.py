@@ -7,6 +7,42 @@ from .forms import SubmissionForm, PlayerForm
 from .models import Event, Submission, MarathonPlugin
 from .utils import get_player_info_for_user
 
+class SubmissionListSubmission:
+    def __init__(self, submission):
+        self.game_title = submission.game_title
+        self.category = submission.category
+        self.players = []
+        self.estimate = submission.estimate
+        for player in submission.players.all():
+            self.players.append(SubmissionListPlayer(player))
+
+    def update(self, submission):
+        for player in submission.players.all():
+            found = False
+            for p in self.players:
+                if p.user_id == player.user_id:
+                    found = True
+                    break
+            if not found:
+                self.players.append(SubmissionListPlayer(player))
+        ctime = self.estimate.split(":")
+        stime = submission.estimate.split(":")
+        if len(ctime) == 2 and len(stime) == 2:
+            crun_time = int(ctime[0]) * 60 + int(ctime[1])
+            srun_time = int(stime[0]) * 60 + int(stime[1])
+            if crun_time < srun_time:
+                self.estimate = submission.estimate
+                return srun_time - crun_time
+        return 0
+
+
+class SubmissionListPlayer:
+    def __init__(self, player):
+        self.nickname = player.nickname
+        self.twitch = player.twitch
+        self.user_id = player.user_id
+
+
 @plugin_pool.register_plugin
 class SubmissionListPlugin(CMSPluginBase):
     name = 'Submission List'
@@ -23,24 +59,21 @@ class SubmissionListPlugin(CMSPluginBase):
             submissions = Submission.objects.filter(hidden=False)
 
         unique_players = []
-        run_times = {}
         total_time = 0
+        unique_submissions = {}
         for s in submissions:
             for p in s.players.all():
-                if p not in unique_players:
-                    unique_players.append(p)
-            time = s.estimate.split(":")
-            if len(time) == 2:
-                run_id = s.game_title.lower() + s.category.lower()
-                run_time = int(time[0]) * 60 + int(time[1])
-                if run_id in run_times:
-                    if run_times[run_id] < run_time:
-                        total_time -= run_times[run_id]
-                        run_times[run_id] = run_time
-                        total_time += run_time
-                else:
-                    run_times[run_id] = run_time
-                    total_time += run_time
+                if p.user_id not in unique_players:
+                    unique_players.append(p.user_id)
+            run_id = s.game_title.lower() + s.category.lower()
+            if run_id not in unique_submissions:
+                unique_submissions[run_id] = SubmissionListSubmission(s)
+                time = s.estimate.split(":")
+                if len(time) == 2:
+                    total_time += int(time[0]) * 60 + int(time[1])
+            else:
+                total_time += unique_submissions[run_id].update(s)
+
         total_days = int(total_time / 60 / 24)
         total_hours = int(total_time / 60) % 24
         total_minutes = total_time % 60
@@ -48,8 +81,9 @@ class SubmissionListPlugin(CMSPluginBase):
         if total_days > 0:
             time_string = str(total_days) + " p " + str(total_hours) + "." + str(int(total_minutes/6)) + " t"
 
-        context['submissions'] = submissions
-        context['game_count'] = str(len(run_times))
+        u_subs = unique_submissions.values()
+        context['submissions'] = u_subs
+        context['game_count'] = str(len(u_subs))
         context['unique_players'] = str(len(unique_players))
         context['total_run_time'] = time_string
         return context
