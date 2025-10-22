@@ -29,11 +29,12 @@
           width: 100%;
           img.char {
             position: absolute;
-            right: 5%;
-            top: 50%;
-            z-index: -10;
-            position: absolute;
-            transform: translate(-50%, -50%) scale(2);
+            left: 45%;
+            top: 45%;
+            max-width: 110%;
+            max-height: 120px;
+            transform: translate(-50%, -50%);
+
           }
         }
       }
@@ -44,8 +45,8 @@
         width: $timetable-right-width;
         margin-bottom: $timetable-row-margin-bottom;
         .playgame {
-          font-size: 2.2rem;
-          line-height: 2rem;
+          font-size: 1.8em;
+          line-height: 1.1;
         }
       }
     }
