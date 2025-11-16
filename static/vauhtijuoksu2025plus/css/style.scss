@@ -1,0 +1,77 @@
+
+
+body{
+  background-image: url("../img/lehdet1.png") !important;
+  background-color: #123E3A;
+  background-attachment: fixed;
+  background-size: 700px 700px;
+  z-index: 0;
+
+}
+.parallax-background {
+  background-image: url("../img/lehdet2.png") !important;
+  background-attachment: fixed;
+  background-size: 700px 700px;
+}
+.parallax-background2 {
+  background-image: url("../img/lehdet3.png") !important;
+  background-attachment: fixed;
+  background-size: 700px 700px;
+}
+
+.timetable .ttplay .playblob .timetable-char {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  img.char {
+    clip-path: ellipse(41% 32%);
+    width: 110%;
+    max-width: unset;
+    max-height: unset;
+    aspect-ratio: 1;
+    top: 50%;
+    left: 50%;
+  }
+  .charOutline {
+    position: absolute;
+    clip-path: ellipse(50% 40%);
+    width: 115%;
+    right: 2px;
+    background-color: #320A45;
+    height: unset;
+    aspect-ratio: 1;
+
+  }
+}
+
+.tabletimetable {
+  .tttcontent {
+    .tttday {
+      .tttgame {
+        .tttimg {
+          .charOutline{
+            position: absolute;
+            clip-path: ellipse(50% 40%);
+            width: 115%;
+            background-color: #320A45;
+            height: unset;
+            aspect-ratio: 1;
+            max-width: 200px;
+            pointer-events: none;
+            left: -90%;
+            > img {
+              position: absolute;
+              float: unset;
+              max-width: unset;
+              clip-path: ellipse(50% 40%);
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

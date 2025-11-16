@@ -47,5 +47,7 @@ function set_scroll(scroll_ratio, scroll){
     $(".viuhti-speech > img").css("margin-top", win_height*scroll_ratio*0.04+"px").css("margin-left", left+"px").css("margin-right", -left+"px")
     $(".viuhti-speech > .speechbubble-positioner").css("margin-left", left*0.9+"px").css("margin-right", -left*0.9+"px")
     $("body").css("background-position-y", Math.round(-scroll*0.03-vj_bg_offset_y)+"px").css("background-position-x", Math.round(scroll*0.01-vj_bg_offset_x)+"px");
+    $(".parallax-background").css("background-position-y", Math.round(-scroll*0.04-vj_bg_offset_y*2)+"px").css("background-position-x", Math.round(scroll*0.004-vj_bg_offset_x*2)+"px");
+    $(".parallax-background2").css("background-position-y", Math.round(-scroll*0.05-vj_bg_offset_y*2.3)+"px").css("background-position-x", Math.round(scroll*0.024-vj_bg_offset_x*2.4)+"px");
 
 }

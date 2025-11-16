@@ -47,7 +47,7 @@
           font-size: 1.1em;
           line-height: 0.9em;
           &.ok{
-            background-color: $viuhti-green;
+            background-color: $viuhti-darkForest;
             color: white;
             &:after{
               content: "✓"
@@ -109,7 +109,7 @@
       opacity: 0.9;
       border: 1px $viuhti-dark solid;
       &.ok {
-        background-color: $viuhti-green;
+        background-color: $viuhti-darkForest;
         color: white;
         &:after{
           content: "✓"
@@ -225,7 +225,7 @@
       display: inline-block;
     }
     .ok {
-      background-color: $viuhti-green;
+      background-color: $viuhti-darkForest;
       color: white;
       &:after{
         content: "✓"

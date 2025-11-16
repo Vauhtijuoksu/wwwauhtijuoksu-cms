@@ -36,6 +36,11 @@
             transform: translate(-50%, -50%);
 
           }
+          .charOutline {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
         }
       }
 
@@ -71,6 +76,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 80px;
+      color: $viuhti-white;
     > div {
       display: flex;
       flex-direction: row;
@@ -94,6 +100,7 @@
     flex-direction: row;
     gap: $increment-sm;
     .tttday {
+      color: $viuhti-white;
       flex: 1;
       position: relative;
       min-width: 0;
@@ -124,9 +131,14 @@
         .tttimg {
           width: 56px;
           padding-right: 4px;
-          > img {
-            float: right;
+          .charOutline{
+            > img {
+              float: right;
+              max-width: 200px;
+              pointer-events: none;
+            }
           }
+
         }
 
         &.end-cut {

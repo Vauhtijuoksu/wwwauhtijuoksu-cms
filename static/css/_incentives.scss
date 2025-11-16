@@ -5,7 +5,7 @@
   }
 }
 
-.incentive_dropdown {
+.incentive_dropdown, .incentive_dropdown_group {
     min-height: 30px;
     cursor: pointer;
     display: flex;
@@ -20,7 +20,7 @@
 
 }
 
-.incentive_dropdown:hover {
+.incentive_dropdown:hover, .incentive_dropdown_group:hover {
     color: $incentive-dropdown-hover-color;
 }
 
@@ -56,7 +56,7 @@ input[type='checkbox'] {
 }
 
 .highlight {
-    color: #8feeee;
+    color: $incentive-dropdown-hover-color;
 }
 
 

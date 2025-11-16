@@ -1,3 +1,4 @@
+import time
 from collections import defaultdict
 from random import randint, shuffle, random
 import math
@@ -10,7 +11,7 @@ from django.utils import timezone
 
 from vj_cms.client import VJClient
 from vj_cms.models import GameInfo, Timetable, Donatebar, AnchorLink, TweakSettings, SponsorLogoHolder
-from datetime import datetime
+from datetime import datetime, timedelta
 
 client = VJClient(settings.VJ_API_URL)
 
@@ -218,13 +219,32 @@ class IncentivesPlugin(CMSPluginBase):
         games = GameInfo.objects.filter(api_id__in=game_ids)
 
         game_incentives = {}
-
+        old_game_incentives = {}
+        current_game_incentives = {}
+        upcoming_game_incentives = {}
+        now = timezone.now()
+        later_delta = timedelta(days=1, hours=12)
+        later = now + later_delta
         for game in games:
             game_is = [incentive for incentive in incentives if incentive['game_id'] == str(game.api_id)]
+            old_game_is = [incentive for incentive in incentives if incentive['game_id'] == str(game.api_id) and incentive['end_time'] < now]
+            upcoming_game_is = [incentive for incentive in incentives if incentive['game_id'] == str(game.api_id) and incentive['end_time'] > later]
+            current_game_is = [incentive for incentive in incentives if incentive['game_id'] == str(game.api_id) and incentive['end_time'] <= later and incentive['end_time'] >= now]
             if game_is:
                 game_incentives[game.game] = game_is
+            if old_game_is:
+                old_game_incentives[game.game] = old_game_is
+            if upcoming_game_is:
+                upcoming_game_incentives[game.game] = upcoming_game_is
+            if current_game_is:
+                current_game_incentives[game.game] = current_game_is
+
         context['now'] = timezone.now()
+        context['later_delta'] = -later_delta
         context['incentives'] = game_incentives
+        context['old_incentives'] = old_game_incentives
+        context['current_incentives'] = current_game_incentives
+        context['upcoming_incentives'] = upcoming_game_incentives
 
         return context
 
