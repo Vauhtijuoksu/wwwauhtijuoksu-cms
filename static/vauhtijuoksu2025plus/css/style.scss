@@ -24,9 +24,11 @@ body{
   flex-direction: column;
   justify-content: center;
   img.char {
-    clip-path: ellipse(50% 40%);
-    width: 90%;
-    height: 90%;
+    clip-path: ellipse(41% 32%);
+    width: 110%;
+    max-width: unset;
+    max-height: unset;
+    aspect-ratio: 1;
     top: 50%;
     left: 50%;
   }
@@ -62,10 +64,10 @@ body{
               float: unset;
               max-width: unset;
               clip-path: ellipse(50% 40%);
-              width: 90%;
-              height: 90%;
-              top: 5%;
-              left: 5%;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
             }
           }
         }
