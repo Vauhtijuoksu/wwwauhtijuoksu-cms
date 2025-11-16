@@ -63,14 +63,14 @@ jobs:
           mkdir ~/.kube
           echo "${{ vars.KUBECONFIG }}" > ~/.kube/config
           kubectl get all
-      - name: Extract main sha tag
-        id: main_sha
+      - name: Extract trunk sha tag
+        id: trunk_sha
         run: |
-          # Find the line with `:main-...`
-          full_line="$(echo '${{ steps.meta.outputs.tags }}' | grep ':main-pipeline-')"
+          # Find the line with `:trunk-...`
+          full_line="$(echo '${{ steps.meta.outputs.tags }}' | grep ':trunk-')"
           # Strip everything before the last :
           tag="${full_line##*:}"
           echo "tag=$tag" >> $GITHUB_OUTPUT
       - uses: azure/setup-helm@v3.5
       - run: |
-           helm upgrade --install -n cms cms deployment/ -f deployment/prod-values.yaml --set image.tag=${{ steps.main_sha.outputs.tag }}
+           helm upgrade --install -n cms cms deployment/ -f deployment/prod-values.yaml --set image.tag=${{ steps.trunk_sha.outputs.tag }}
