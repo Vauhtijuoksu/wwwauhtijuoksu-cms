@@ -13,6 +13,27 @@ $viuhti-darkextrafade: rgba(22, 3, 27, 0.33) !default;
 $viuhti-darkextramegafade: rgba(22, 3, 27, 0.15) !default;
 $viuhti-blue: #70b2d3 !default;
 $viuhti-highlighviolet: #A3448D !default;
+
+
+
+
+$viuhti-lightOrange: #EDC1C5;
+$viuhti-orange: #CE8A81;
+$viuhti-lightPurple: #F5ECF3;
+$viuhti-purple: #A3448D;
+$viuhti-darkerPurple: #320A45;
+$viuhti-darkestPurple: #16031b;
+$viuhti-LightBlue: #B7F0F3;
+$viuhti-blue: #6FC4DF;
+$viuhti-DarkBlue: #5197BF;
+$viuhti-forest: #31757E;
+$viuhti-darkForest: #345F65;
+$viuhti-darkerForest: #123E3A;
+$viuhti-lightGreen: #EBF6E6;
+$viuhti-green: #CDF5BA;
+$viuhti-darkGreen: #5CBB72;
+$viuhti-darkestGreen: #0A130C;
+
 $ERROR: red !default;
 
 $body-bg-image: null !default;
@@ -42,7 +63,7 @@ $grid-breakpoints: (
     xxl: 1400px,
 );
 
-$body-bg: $viuhti-green !default;
+$body-bg: $viuhti-darkForest !default;
 $body-color: $viuhti-dark !default;
 
 $primary: $viuhti-orange !default;
@@ -100,10 +121,10 @@ $sponsor-max-width: 400px !default;
 $sponsor-width: 90% !default;
 
 // Incentives
-$incentive-label-color: $primary !default;
-$incentive-dropdown-text-color: $primary !default;
-$incentive-dropdown-hover-color: $secondary !default;
-$incentive-closed-text-color: $secondary !default;
+$incentive-label-color: $viuhti-white !default;
+$incentive-dropdown-text-color: $viuhti-dark !default;
+$incentive-dropdown-hover-color: $viuhti-orange !default;
+$incentive-closed-text-color: $viuhti-orangedark !default;
 
 $incentive-button-color: $secondary !default;
 $incentive-button-font-size: 1.2rem !default;
@@ -117,26 +138,26 @@ $incentive-bar-height: $increment-xs !default;
 $incentive-bar-border-radius: 2px !default;
 $incentive-bar-margin-top: -$increment-xs !default;
 $incentive-bar-margin-bottom: $increment-xs !default;
-$incentive-bar-bg-color: $viuhti-dark !default;
-$incentive-bar-fill-color: $viuhti-green !default;
+$incentive-bar-bg-color: $viuhti-darkerPurple !default;
+$incentive-bar-fill-color: $viuhti-darkGreen !default;
 
 $incentive-count-text-color: $viuhti-dark !default;
-$incentive-popup-bg-color: $viuhti-white !default;
+$incentive-popup-bg-color: $viuhti-darkForest !default;
 
 // Donate bar
 $donate-bar-height: $increment-xl !default;
 
 $donate-bar-border: none !default;
 $donate-bar-fill-border: none !default;
-$donate-bar-bg-color: $viuhti-dark !default;
+$donate-bar-bg-color: $viuhti-darkerPurple !default;
 $donate-bar-color: $viuhti-orange !default;
-$donate-bar-text-color: $primary !default;
-$donate-bar-color-full: $viuhti-green !default;
-$donate-bar-text-color-full: $donate-bar-text-color !default;
+$donate-bar-text-color: $viuhti-white !default;
+$donate-bar-color-full: $viuhti-darkGreen !default;
+$donate-bar-text-color-full: $viuhti-dark !default;
 
 $donate-bar-padding: $increment-xs !default;
 $donate-bar-margin: $increment-sm 0 !default;
-$donate-bar-border-radius: $increment-xs !default;
+$donate-bar-border-radius: $increment-lg !default;
 
 // timetable
 $twitch-icon-width: 26px !default;

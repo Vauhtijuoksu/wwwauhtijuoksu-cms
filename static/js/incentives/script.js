@@ -6,6 +6,10 @@ $( document ).ready(function() {
         $(this).parent().find(".incentive_expand").slideToggle();
         $(this).parent().find(".dropdown_arrow").toggleClass("rotate");
     });
+    $(".incentive_dropdown_group").click(function() {
+        $(this).parent().find(".incentive_expand_group").slideToggle();
+        $(this).parent().find(".dropdown_arrow_group").toggleClass("rotate");
+    });
     update_choices()
     $('.incentive_choices').change(
     function(){
