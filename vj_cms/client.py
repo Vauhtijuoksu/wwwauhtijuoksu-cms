@@ -33,9 +33,19 @@ class VJClient:
         return games
     
     def players(self):
-        players = self.get('players')
-        return players
-
+        participants = self.get('participants')
+        particing_players = []
+        for participant in participants:
+            player = {"id":participant['id'],
+                      "display_name":participant['display_name'],
+                      "twitch_channel":"",
+                      "discord_nick":""
+                      }
+            for social in participant['social_medias']:
+                if social['platform'] == 'TWITCH':
+                    player['twitch_channel'] = social['username']
+            particing_players.append(player)
+        return particing_players
 
     def donations(self):
         donations = self.get('donations')

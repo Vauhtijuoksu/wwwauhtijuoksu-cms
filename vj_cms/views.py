@@ -25,8 +25,13 @@ def update_timetable(request):
     GameInfo.objects.all().delete()
     for game in games:
         api_id = game.pop('id')
-        game_players = game.pop('players')
+        if "players" in game:
+            game.pop('players')
+        game_players = []
         game_participants = game.pop('participants')
+        for participant in game_participants:
+            if participant['role'] == "PLAYER":
+                game_players.append(participant['participant_id'])
         game_, _ = GameInfo.objects.update_or_create(
             api_id=api_id,
             defaults=game
