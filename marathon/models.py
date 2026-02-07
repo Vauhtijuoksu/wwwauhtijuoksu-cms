@@ -39,7 +39,8 @@ class Event(models.Model):
 
     slug = models.SlugField(unique=True, blank=True, null=True)
 
-    gdpr_notice = models.FileField(verbose_name=_("Tietosuojaseloste"), blank=True, null=True)
+    gdpr_notice = models.FileField(verbose_name=_("Tietosuojaseloste tiedostona"), blank=True, null=True)
+    gdpr_notice_url = models.CharField(verbose_name=_("Tietosuojaseloste linkkinä"), max_length=200, blank=True, null=True)
 
     def __str__(self):
         return self.name
