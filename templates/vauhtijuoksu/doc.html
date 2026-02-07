@@ -1,0 +1,58 @@
+{% load static sekizai_tags cms_tags menu_tags account socialaccount sass_tags %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% page_attribute "page_title" %}</title>
+  {% render_block "css" %}
+  {% block head %}{% endblock %}
+</head>
+
+{% addtoblock "js" %}<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>{% endaddtoblock %}
+{% addtoblock "css" %}<link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>{% endaddtoblock %}
+{% addtoblock "css" %}<link href="{% sass_src 'doc/css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'doc/js/showOverride.js' %}"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'doc/js/darkmode.js' %}"></script>{% endaddtoblock %}
+
+
+<body>
+  {% cms_toolbar %}
+  <div id="page" class="inverted">
+    <div class="overpage doNotInvert">
+      <div id="homelink"><a href="https://vauhtijuoksu.fi/">Vauhtijuoksu.fi</a></div>
+      <div id="darkmode">Pimiä versio</div>
+      <div id="lightmode" class="hidden">Vaalia versio</div>
+    </div>
+    <div id="header">
+      <div class="overridable">
+        <div class="default hidden">
+          {% static_placeholder "document-header-content" %}
+        </div>
+        <div class="override hidden">
+          {% placeholder "document-header-content-override" %}
+        </div>
+      </div>
+    </div>
+    <div id="content">
+      {% block override %}{% endblock override %}
+      {% placeholder "content" %}
+    </div>
+    <div id="footer">
+      <div class="overridable hidden">
+        <div class="default">
+          {% static_placeholder "document-footer-content" %}
+        </div>
+        <div class="override hidden">
+          {% placeholder "document-footer-content-override" %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+{% render_block "js" %}
+</html>
+

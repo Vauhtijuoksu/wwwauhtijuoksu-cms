@@ -132,6 +132,7 @@ TEMPLATES = [
 CMS_TEMPLATES = [
     ('vauhtijuoksu/genericSideViuhti.html', 'VJ SideViuhti (Generic)'),
     ('vauhtijuoksu/genericSideViuhti_fullscreen.html', 'VJ SideViuhti Fullscreen (Generic)'),
+    ('vauhtijuoksu/doc.html', 'Document'),
     ('vauhtijuoksu/vj2025plus.html', 'VJ 2025plus'),
     ('vauhtijuoksu/vj2025plus_fullscreen.html', 'VJ 2025plus Fullscreen'),
     ('vauhtijuoksu/vj2025.html', 'VJ 2025'),
