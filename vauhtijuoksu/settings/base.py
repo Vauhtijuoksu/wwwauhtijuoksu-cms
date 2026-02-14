@@ -254,6 +254,10 @@ BOOTSTRAP5 = {
 }
 
 
+CMS_EXTRA_HELP_MENU_ITEMS = (
+    ('Vauhtis Wiki', 'https://wiki.vauhtijuoksu.fi/projects/wiki/wiki/'),
+)
+
 ## Vauhtijuoksu API
 
 #VJ_API_URL = config('VJ_API_URL', 'https://vjapi.jsloth.fi') slotin feikkipaska-api
