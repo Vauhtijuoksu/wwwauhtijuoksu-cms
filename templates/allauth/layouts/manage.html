@@ -1,0 +1,72 @@
+{% extends "vauhtijuoksu/genericSideViuhti.html" %}
+{% load i18n %}
+{% load allauth %}
+{% block override %}
+
+  Käyttäjäasetukset:
+  <div style="display: flex; flex-direction: row; justify-content: center; flex-wrap: wrap">
+{% url 'account_email' as email_url_ %}
+{% if email_url_ %}
+
+        <a class="{% block nav_class_email %}nav-link text-white{% endblock %}"
+           href="{{ email_url_ }}">Sähköposti</a>
+
+{% endif %}
+{% url 'account_change_password' as change_password_url_ %}
+{% if change_password_url_ %}
+
+        <a class="{% block nav_class_password %}nav-link text-white{% endblock %}"
+           href="{{ change_password_url_ }}">Salasana</a>
+
+{% endif %}
+{% url 'account_change_phone' as phone_url_ %}
+{% if phone_url_ %}
+
+        <a class="{% block nav_class_phone %}nav-link text-white{% endblock %}"
+           href="{{ phone_url_ }}">Puhelinnumero</a>
+
+{% endif %}
+{% url 'socialaccount_connections' as connections_url_ %}
+{% if connections_url_ %}
+
+        <a class="{% block nav_class_socialaccount %}nav-link text-white{% endblock %}"
+           href="{{ connections_url_ }}">Liitetyt tilit</a>
+
+{% endif %}
+{% url 'mfa_index' as mfa_index_url_ %}
+{% if mfa_index_url_ %}
+
+        <a class="{% block nav_class_mfa %}nav-link text-white{% endblock %}"
+           href="{{ mfa_index_url_ }}">Two-Factor Authentication</a>
+
+{% endif %}
+{% url 'usersessions_list' as usersessions_list_url_ %}
+{% if usersessions_list_url_ %}
+
+        <a class="{% block nav_class_usersessions %}nav-link text-white{% endblock %}"
+           href="{{ usersessions_list_url_ }}">Sessions</a>
+
+{% endif %}
+</div>
+
+
+{% if messages %}
+    <div class="pt-4">
+        {% for message in messages %}
+            {% element alert level=message.tags %}
+                {% slot message %}
+                    {{ message }}
+                {% endslot %}
+            {% endelement %}
+        {% endfor %}
+    </div>
+{% endif %}
+{% block content %}{% endblock %}
+    <div>
+    <p><p/>
+        {% if user.is_authenticated %}
+                <a href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+        {% endif %}
+    </div>
+
+{% endblock %}

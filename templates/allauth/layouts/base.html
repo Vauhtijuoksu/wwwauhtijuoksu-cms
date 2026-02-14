@@ -10,13 +10,13 @@
         </div>
     {% endif %}
     <div>
-        <ul>
+        <br/>
             {% if user.is_authenticated %}
-                <li>
+
                     <a href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
-                </li>
+
             {% endif %}
-        </ul>
+
     </div>
     {% block content %}
     {% endblock content %}
