@@ -1,0 +1,71 @@
+{% extends "generic_base.html" %}
+{% load static cms_tags menu_tags sekizai_tags sass_tags vj_extras %}
+
+{% block body %}
+  {% with themeFolder="vauhtijuoksu2026" %}
+    {% addtoblock "css" %}<link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>{% endaddtoblock %}
+    {% addtoblock "theme_css" %}<link href="{% sass_src themeFolder|add:'/css/base.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
+    {% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}"></script>{% endaddtoblock %}
+    {% addtoblock "js" %}<script src="{% static "js/speechbubble.js" %}"></script>{% endaddtoblock %}
+    {% addtoblock "js" %}<script src="{% static themeFolder|add:"/js/script.js" %}"></script>{% endaddtoblock %}
+
+    <div class="parallax-background">
+      <div class="parallax-background2">
+        <div id="vj-scrolldown-menu">
+          <div id="vj-plugin-scrolldown-anchor-menu" class="menu" style="display:none">
+          </div>
+          <div id="vj-plugin-scrolldown-anchor-menu-divider" class="hide-in-small" style="display:none">|</div>
+          <div class="menu hide-in-small">
+            {% show_menu %}
+          </div>
+          <div class="hide-in-small">|</div>
+          <div class="menu">
+            <a class="menu-link" href="#" id="scroll_to_top_btn">Takaisin ylös</a>
+          </div>
+        </div>
+        <div class="side-page-layout">
+          <div class="content-side">
+            <div class="title">
+              <img class="textlogo" src="{% static themeFolder|add:'/img/logo.png' %}">
+            </div>
+            <div class="main-box">
+              <div id="vj-main-menu" class="menu">
+                {% show_menu %}
+              </div>
+              <div id="vj-plugin-anchor-menu" style="display: none">
+                Tällä sivulla:
+                <div class="menu">
+                </div>
+              </div>
+              <div class="user-content">
+                {% block override %}{% endblock override %}
+                {% placeholder "content" %}
+              </div>
+              <div class="divider divider-0"></div>
+              <div class="sponsors">
+                {% static_placeholder "sponsors" %}
+              </div>
+
+              <div id="vj-user-login-plugin">
+                <div class="line-divider"></div>
+                <div class="login">
+                  {% include "socialaccount/login_info.html" %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="extra-side">
+            <div class="fixed">
+              <div class="viuhti-speech">
+                {% include "vauhtijuoksu/components/speechbubble.html" %}
+                {% with "tirehtoori.png,pelle.png"|split:","|random as image %}
+                  <img src="{% static themeFolder|add:'/img/'|add:image %}"/>
+                {% endwith %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endwith %}
+{% endblock body %}

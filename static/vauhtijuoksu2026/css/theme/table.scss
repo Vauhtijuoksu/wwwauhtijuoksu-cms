@@ -1,0 +1,26 @@
+
+$twitch-link-color: $link-color;
+$twitch-link-hover-color: $link-hover-color;
+$twitch-icon-image: url("../img/twitch.png");
+
+.playplayer .twitch-link, .twitch-link {
+  color: unset;
+  text-decoration: underline;
+  transition: text-decoration-color 0.6s ease;
+  & > span {
+    color: $twitch-link-color;
+    transition: text-decoration-color 0.6s ease;
+  }
+  &:hover{
+    color: $twitch-link-hover-color;
+    & > span {
+      color: $twitch-link-hover-color;
+    }
+  }
+  .twitch-icon {
+    content: $twitch-icon-image;
+    &.twitch-icon-sm {
+      width: $twitch-icon-sm-width;
+    }
+  }
+}

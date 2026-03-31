@@ -1,0 +1,65 @@
+$font-size-root: 22px;
+
+// increment used for some margins, paddings etc
+$increment-xxs: 2px;
+$increment-xs: 5px;
+$increment-sm: 2*$increment-xs;
+$increment-md: 2*$increment-sm;
+$increment-lg: 3*$increment-sm;
+$increment-xl: 5*$increment-sm;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px, /* bs: 576px */
+    md: 768px, /* bs: 768px */
+    lg: 992px, /* bs: 992px */
+    xl: 1200px,
+    xxl: 1400px,
+);
+
+$main-box-padding: $increment-md;
+$main-box-margin: $increment-sm;
+
+$content-text-align: center;
+$menu-text-align: $content-text-align;
+
+$menu-link-font-size-normal: 1.2rem;
+$menu-link-font-size-small: 1rem;
+$menu-link-padding: 0 8px;
+
+$space-between-menu-and-content: $increment-md;
+
+
+$divider-width: 128px;
+$divider-height: 12vw;
+$divider-max-height: 100px;
+$divider-max-width: 100%;
+
+$sponsor-margin: $increment-lg 0;
+$sponsor-max-width: 400px;
+$sponsor-width: 90%;
+
+// Incentives
+$incentive-checkbox-size: $increment-lg;
+
+$incentive-bar-height: $increment-xs;
+$incentive-bar-margin-top: -$increment-xs;
+$incentive-bar-margin-bottom: $increment-xs;
+
+// Donate bar
+$donate-bar-height: $increment-xl;
+
+
+$donate-bar-padding: $increment-xs;
+$donate-bar-margin: $increment-sm 0;
+
+// timetable
+$twitch-icon-width: 26px;
+$twitch-icon-sm-width: $twitch-icon-width;
+
+
+$timetable-date-font-size: 3em;
+$timetable-row-margin-bottom: 1.5em;
+$timetable-left-width: 30%;
+$timetable-blob-width: 15%;
+$timetable-right-width: 55%;

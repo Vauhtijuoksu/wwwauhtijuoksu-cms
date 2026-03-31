@@ -1,0 +1,63 @@
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'bonny';
+}
+
+body{
+  background-image: $body-bg;
+  color: $body-color;
+  background-attachment: fixed;
+  font-family: $font-family-sans-serif;
+}
+
+.parallax-background {
+  background-image: url("../img/bg.png")  !important;
+  background-attachment: fixed;
+}
+.parallax-background2 {
+  background-image: linear-gradient(to bottom, $vj26blue2, #0000) !important;
+  background-size: 100px 300px;
+  background-position: top left;
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+}
+
+
+.side-page-layout {
+  .content-side {
+    --dotSize: 18px;
+    --dotSizeHalf: calc(var(--dotSize) * 0.5);
+    --dotDistance: 10px;
+    --dotAreaSize: calc(var(--dotSize) + var(--dotDistance));
+    --dotAreaSizeHalf: calc(var(--dotAreaSize) * 0.5);
+    --bgInset: calc(var(--dotAreaSizeHalf) - 2px);
+    background:
+            linear-gradient(to left, $secondary, $secondary) var(--bgInset) var(--bgInset) no-repeat,
+            radial-gradient(circle at center, $secondary var(--dotSizeHalf), transparent calc(var(--dotSizeHalf) + 0.1px)) top center repeat-x,
+            radial-gradient(circle at center, $secondary var(--dotSizeHalf), transparent calc(var(--dotSizeHalf) + 0.1px)) bottom center repeat-x,
+            radial-gradient(circle at center, $secondary var(--dotSizeHalf), transparent calc(var(--dotSizeHalf) + 0.1px)) center left/var(--dotAreaSize) repeat-y,
+            radial-gradient(circle at center, $secondary var(--dotSizeHalf), transparent calc(var(--dotSizeHalf) + 0.1px)) center right/var(--dotAreaSize) repeat-y;
+    background-size:
+            calc(100% - 2 * var(--bgInset)) calc(100% - 2 * var(--bgInset)),
+            var(--dotAreaSize) var(--dotAreaSize),
+            var(--dotAreaSize) var(--dotAreaSize),
+            var(--dotAreaSize) var(--dotAreaSize),
+            var(--dotAreaSize) var(--dotAreaSize);
+    border-radius: calc(var(--dotAreaSize) * 2.2);
+    margin: 60px 20px 10px 10px;
+    filter: drop-shadow(0 0 5px rgba(30, 7, 11, 0.68));
+    border: none;
+    .main-box{
+      margin: 20px;
+      background-color: $primary;
+    }
+  }
+}
+
+.divider-0, .divider-1,.divider-2,.divider-3 {
+  background-image: url("../img/divider_0.png");
+}
+.line-divider{
+  background-color: $secondary;
+}
+

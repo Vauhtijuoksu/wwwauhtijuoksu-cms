@@ -3,8 +3,8 @@
 
 {% block body %}
     {% addtoblock "css" %}<link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>{% endaddtoblock %}
-    {% addtoblock "css" %}<link href="{% sass_src 'genericSideViuhti/css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
-    {% addtoblock "css" %}<link href="{% sass_src 'vauhtijuoksu2025plus/css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
+    {% addtoblock "theme_css" %}<link href="{% sass_src 'genericSideViuhti/css/base.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
+    {% addtoblock "theme_css" %}<link href="{% sass_src 'vauhtijuoksu2025plus/css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}"></script>{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static "js/speechbubble.js" %}"></script>{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static "genericSideViuhti/js/script.js" %}"></script>{% endaddtoblock %}
@@ -58,18 +58,7 @@
         <div class="extra-side">
             <div class="fixed">
                 <div class="viuhti-speech">
-                    <div id="vj-speechbubble" class="speechbubble-positioner">
-                        <div id="vj-speechbubble-content" style="display: none">
-                            {% static_placeholder "speechbubble" %}
-                        </div>
-                        <div id="vj-speechbubble-content-override" style="display: none">
-                            {% placeholder "speechbubble-override" %}
-                        </div>
-                        <div style="flex-grow: 3"></div>
-                        <div class="speechbubble fade">
-                        </div>
-                        <div style="flex-grow: 1"></div>
-                    </div>
+                    {% include "vauhtijuoksu/components/speechbubble.html" %}
                     {% with "ilvesviuhti.png,karhuviuhti.png,susiviuhti.png,tikkaviuhti.png"|split:","|random as image %}
                         <img src="{% static 'vauhtijuoksu2025plus/img/'|add:image %}"/>
                     {% endwith %}

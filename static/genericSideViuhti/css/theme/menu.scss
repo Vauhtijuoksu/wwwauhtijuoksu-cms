@@ -1,0 +1,47 @@
+
+$menu-link-text-color: $viuhti-dark;
+$menu-link-bg-color: $viuhti-white;
+$menu-link-hover-text-color: $viuhti-darkfade;
+$menu-link-hover-bg-color: $viuhti-orange;
+$menu-link-font-size-normal: 1.2rem;
+$menu-link-font-size-small: 1rem;
+$menu-link-border: $box-border;
+$menu-link-border-radius: $increment-sm;
+
+.menu {
+  .menu-link {
+    background-color: $menu-link-bg-color;
+    border: $menu-link-border;
+    border-radius: $menu-link-border-radius;
+    color: $menu-link-text-color;
+  }
+  .menu-link:hover{
+    background-color: $menu-link-hover-bg-color;
+    color: $menu-link-hover-text-color;
+  }
+  @include media-breakpoint-down(md) {
+    .menu-link {
+      font-size: $menu-link-font-size-small;
+    }
+  }
+  .anchor-menu-link:hover {
+    background-color: $viuhti-blue;
+  }
+}
+#vj-scrolldown-menu{
+  background-color: $primary;
+  border-bottom: $box-border;
+  .menu {
+    mask-image: linear-gradient(90deg, #000 99%, transparent);
+    .menu-link:hover{
+      background-color: $viuhti-violet;
+    }
+    .anchor-menu-link:hover {
+      background-color: $viuhti-blue;
+    }
+    #scroll_to_top_btn:hover {
+      background-color: $viuhti-darkForest;
+
+    }
+  }
+}

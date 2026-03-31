@@ -1,0 +1,17 @@
+{% load static cms_tags menu_tags sekizai_tags sass_tags %}
+{% addtoblock "css" %}
+  <link href="{% sass_src 'extras/speechbubble.scss' %}" rel="stylesheet" type="text/css">
+{% endaddtoblock %}
+
+<div id="vj-speechbubble" class="speechbubble-positioner">
+    <div id="vj-speechbubble-content" style="display: none">
+        {% static_placeholder "speechbubble" %}
+    </div>
+    <div id="vj-speechbubble-content-override" style="display: none">
+        {% placeholder "speechbubble-override" %}
+    </div>
+    <div style="flex-grow: 3"></div>
+    <div class="speechbubble fade">
+    </div>
+    <div style="flex-grow: 1"></div>
+</div>

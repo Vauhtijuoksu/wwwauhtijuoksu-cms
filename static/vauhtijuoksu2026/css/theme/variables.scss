@@ -1,0 +1,104 @@
+$vj26red0: #2C000B;
+$vj26red1: #990001;
+$vj26red2: #DA0000;
+$vj26red3: #E16F4A;
+$vj26orange0: #4A2C0B;
+$vj26orange1: #BE6716;
+$vj26orange2: #E9A330;
+$vj26orange3: #F2DDC0;
+$vj26yellow0: #655002;
+$vj26yellow1: #DAB203;
+$vj26yellow2: #FEE600;
+$vj26yellow3: #FFF486;
+$vj26blue0: #0B1740;
+$vj26blue1: #253C90;
+$vj26blue2: #6991FB;
+$vj26blue3: #B0C7FD;
+$vj26green0: #2A4B30;
+$vj26green1: #4B8556;
+$vj26green2: #81D69F;
+$vj26green3: #B6EAD2;
+$vj26purple0: #480C42;
+$vj26purple1: #A42291;
+$vj26purple2: #DC4AB2;
+$vj26purple3: #F7A9D4;
+$vj26dark: #1E070B;
+$vj26light: #FFF6F4;
+$vj26dark-fade: rgba(30, 7, 11, 0.39);
+
+
+
+@font-face {
+    font-family: 'bonny';
+    src: url('../misc/Bonny-Variable.ttf') format('truetype');
+    ascent-override: 104%;
+}
+
+@font-face {
+    font-family: 'poppins';
+    src: url('../misc/Poppins-Variable.ttf') format('opentype');
+}
+
+$font-family-sans-serif: 'poppins';
+$font-family-header: 'bonny';
+
+
+
+
+$body-bg: linear-gradient(to bottom, $vj26blue2, $vj26blue1);
+$body-color: $vj26dark;
+
+$primary: $vj26orange3;
+$secondary: $vj26orange2;
+
+$bg-1: $body-bg;
+$bg-2: $primary;
+
+$link-color: $vj26blue1;
+$link-decoration: none;
+$link-hover-color: $vj26purple1;
+$link-hover-decoration: none;
+
+
+$title-color: $primary;
+
+$box-border: $vj26dark $increment-xxs solid;
+$box-border-radius: $increment-md;
+
+$main-box-bg: $secondary;
+$main-box-border-radius: $box-border-radius;
+
+
+$table-header-color: $title-color;
+$table-row-color: $body-color;
+$table-border-color: $primary;
+
+
+
+// Incentives
+$incentive-label-color: $vj26light;
+$incentive-dropdown-text-color: $vj26dark;
+$incentive-dropdown-hover-color: $vj26orange1;
+$incentive-closed-text-color: $vj26orange2;
+
+$incentive-button-color: $secondary;
+$incentive-button-font-size: 1.2rem;
+
+$incentive-copy-button-color: $secondary;
+$incentive-copy-button-hover-color: $vj26light;
+
+$incentive-bar-border-radius: 2px;
+$incentive-bar-bg-color: $vj26purple0;
+$incentive-bar-fill-color: $vj26green1;
+
+$incentive-count-text-color: $vj26dark;
+$incentive-popup-bg-color: $vj26green1;
+
+
+// timetable
+
+
+
+$ttt-game-bg-color: $bg-2;
+$ttt-game-hover-bg-color: $bg-1;
+
