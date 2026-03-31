@@ -1,0 +1,76 @@
+name: Publish and deploy
+
+on:
+  push:
+    branches:
+    - trunk
+
+jobs:
+  build:
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Docker build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile.production
+          load: true
+          tags: vauhtijuoksu/cms:test
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: |
+            name=ghcr.io/vauhtijuoksu/wwwauhtijuoksu-cms
+          tags: |
+            # sha for branch triggers
+            type=ref,event=branch
+            type=ref,event=branch,suffix=-{{sha}}
+            type=ref,event=pr,suffix=-{{sha}}
+            # semver only for version tags
+            type=semver,pattern={{version}}
+
+      - name: Log in to GHCR
+        if: github.event_name == 'push'
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      # This should use cached image and not actually trigger a new build
+      - name: Build and push images
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile.production
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Login to to Tailscale
+        uses: tailscale/github-action@v4.1.0
+        with:
+          oauth-client-id: ${{ vars.TS_OIDC_CLIENT_ID }}
+          audience: ${{ vars.TS_OIDC_AUDIENCE }}
+          tags: tag:gh-runner
+      - name: Setup Kubectl
+        uses: azure/setup-kubectl@v4
+      - name: Setup kubeconfig
+        run: |
+          mkdir ~/.kube
+          echo "${{ vars.KUBECONFIG }}" > ~/.kube/config
+          kubectl get all
+      - name: Extract trunk sha tag
+        id: trunk_sha
+        run: |
+          # Find the line with `:trunk-...`
+          full_line="$(echo '${{ steps.meta.outputs.tags }}' | grep ':trunk-')"
+          # Strip everything before the last :
+          tag="${full_line##*:}"
+          echo "tag=$tag" >> $GITHUB_OUTPUT
+      - uses: azure/setup-helm@v3.5
+      - run: |
+           helm upgrade --install -n cms cms deployment/ -f deployment/prod-values.yaml --set image.tag=${{ steps.trunk_sha.outputs.tag }}

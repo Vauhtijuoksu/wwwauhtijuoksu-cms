@@ -47,6 +47,8 @@ spec:
         envFrom:
         - configMapRef:
             name: django-env
+        - secretRef:
+            name: discord
         env:
         - name: POSTGRES_PASSWORD
           valueFrom:
@@ -66,6 +68,17 @@ spec:
               name: {{ .Values.storage.secret }}
               key: key
               optional: true
+      - name: nginx
+        image: nginx:stable
+        ports:
+          - name: nginx
+            containerPort: 80
+            protocol: TCP
+        volumeMounts:
+          - name: nginx-config
+            mountPath: /etc/nginx/conf.d
+          - name: django-static
+            mountPath: /usr/share/nginx/html/static
       volumes:
       - name: django-static
         emptyDir: {}
@@ -74,3 +87,6 @@ spec:
       # TODO: Persistent media volume
       - name: django-media
         emptyDir: {}
+      - name: nginx-config
+        configMap:
+          name: nginx-config

@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Chart.Name }}-nginx
+  annotations:
+    # To work on kind cluster
+    nginx.ingress.kubernetes.io/server-alias: localhost
+spec:
+  tls:
+    - hosts:
+        - {{ .Values.http.staticfiles_host }}
+  ingressClassName: traefik
+  rules:
+    - host: {{ .Values.http.staticfiles_host }}
+      http:
+        paths:
+          - backend:
+              service:
+                name: {{ .Chart.Name }}-nginx
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
