@@ -1,0 +1,39 @@
+
+body{
+  background-image: $body-bg-image;
+  background-attachment: fixed;
+  font-family: "ubuntu";
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'mezmerize';
+}
+
+
+.side-page-layout {
+  .content-side {
+    background-color: $primary;
+    border: $viuhti-dark 2px solid;
+    filter: drop-shadow(2px 2px 4px $viuhti-dark);
+    border-radius: $box-border-radius;
+  }
+}
+
+.divider-0 {
+  background-image: url("static/genericSideViuhti/img/divider_0.png");
+}
+.divider-1 {
+  background-image: url("static/genericSideViuhti/img/divider_1.png");
+}
+.divider-2 {
+  background-image: url("static/genericSideViuhti/img/divider_2.png");
+}
+.divider-3 {
+  background-image: url("static/genericSideViuhti/img/divider_3.png");
+}
+footer {
+  display: none;
+}
+.line-divider{
+  background-color: $viuhti-white;
+}

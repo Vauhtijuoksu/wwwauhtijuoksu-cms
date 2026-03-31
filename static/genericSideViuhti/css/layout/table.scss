@@ -1,0 +1,48 @@
+.timetable{
+  font-size: 0.9rem;
+}
+
+
+.playplayer{
+  .twitch-link{
+    max-width: 100%;
+    display: inline-block;
+    overflow-wrap: break-word;
+    & > span {
+    }
+    & > .lt-any {
+      max-width: calc(100% - 0.75em);
+    }
+    .twitch-icon{
+      width: 0.75em;
+      margin-top: 0;
+      transform: rotate(0deg) translate(-10%, -40%);
+      transition: transform 0.6s cubic-bezier(.5,-1.5,.5,2.5);
+      transform-origin: 25% bottom;
+    }
+    &:hover{
+      .twitch-icon {
+        margin-top: 0;
+        transform: rotate(15deg) translate(-10%, -50%);
+      }
+    }
+  }
+}
+
+
+@include media-breakpoint-down(lg) {
+}
+@include media-breakpoint-down(md) {
+  table{
+    border-spacing: 1px;
+  }
+  .table > :not(caption) > * > * {
+    padding: 0.3rem 0.2rem;
+  }
+}
+@include media-breakpoint-down(sm) {
+  table {
+    font-size: 15px !important;
+  }
+}
+
