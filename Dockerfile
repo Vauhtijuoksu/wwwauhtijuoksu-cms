@@ -1,4 +1,4 @@
-FROM python:3.11 as base
+FROM python:3.9.7 as base
 
 # Setup env
 ENV LANG C.UTF-8
@@ -42,4 +42,3 @@ COPY --from=npm-deps /npm/node_modules ./node_modules
 COPY . .
 
 RUN ["chmod", "+x", "/home/cms/scripts/docker_entrypoint.sh"]
-
