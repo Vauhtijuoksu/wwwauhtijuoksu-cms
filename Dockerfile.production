@@ -46,7 +46,7 @@ RUN ["chmod", "+x", "/home/cms/scripts/docker_entrypoint_gunicorn.sh"]
 
 # Runtime requirements
 RUN apt-get update && apt-get install -y \
-    netcat
+    netcat-traditional
 
 ENTRYPOINT ["/home/cms/scripts/docker_entrypoint_gunicorn.sh"]
 
