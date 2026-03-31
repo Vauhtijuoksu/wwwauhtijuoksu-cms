@@ -1,21 +1,26 @@
+# autogen default and fullscreen for year...
+yearly_templates = ["26", "25+", "25", "24", "23", "22", "21+"]
 
 # List of templates that can be used for CMS pages
-vauhtijuoksu_templates = [
-    ('vauhtijuoksu/genericSideViuhti.html', 'VJ SideViuhti (Generic)'),
-    ('vauhtijuoksu/genericSideViuhti_fullscreen.html', 'VJ SideViuhti Fullscreen (Generic)'),
-    ('vauhtijuoksu/doc.html', 'Document'),
-    ('vauhtijuoksu/vj2025plus.html', 'VJ 2025plus'),
-    ('vauhtijuoksu/vj2025plus_fullscreen.html', 'VJ 2025plus Fullscreen'),
-    ('vauhtijuoksu/vj2025.html', 'VJ 2025'),
-    ('vauhtijuoksu/vj2025_fullscreen.html', 'VJ 2025 fullscreen'),
-    ('vauhtijuoksu/genericViolet.html', 'VJ OLD Generic violet theme'),
-    ('vauhtijuoksu/vj2024.html', 'VJ 2024 theme'),
-    ('vauhtijuoksu/vj2024_fullscreen.html', 'VJ 2024 fullscreen theme'),
-    ('vauhtijuoksu/vj2023.html', 'VJ 2023 theme'),
-    ('vauhtijuoksu/vj2023_fullscreen.html', 'VJ 2023 fullscreen theme'),
-    ('vauhtijuoksu/vj2022_fullscreen.html', 'VJ 2022 fullscreen theme'),
-    ('vauhtijuoksu/vj2022.html', 'VJ 2022 theme'),
-    ('vauhtijuoksu/vj2021plus.html', 'VJ 2021+ theme'),
-    ('vauhtijuoksu/vj2021plus_fullscreen.html', 'VJ 2021+ fullscreen theme'),
-    ('vauhtijuoksu/vj2021.html', 'VJ 2021 theme'),
+vauhtijuoksu_templates = []
+
+generic = [
+    ('vauhtijuoksu/main/generic/default.html', 'VJ SideViuhti (Generic)'),
+    ('vauhtijuoksu/main/generic/fullscreen.html', 'VJ SideViuhti Fullscreen (Generic)'),
+    ('vauhtijuoksu/main/generic/doc.html', 'Document'),
 ]
+additional = [
+    ('vauhtijuoksu/main/vj21/default.html', 'VJ 2021 theme'),
+    ('vauhtijuoksu/main/deprecated/genericViolet.html', 'VJ OLD Generic violet theme'),
+]
+
+
+for t in generic:
+    vauhtijuoksu_templates.append(t)
+
+for y in yearly_templates:
+    vauhtijuoksu_templates.append((f'vauhtijuoksu/main/{"vj" + y.replace("+", "plus")}/default.html', "VJ" + y + " theme default"))
+    vauhtijuoksu_templates.append((f'vauhtijuoksu/main/{"vj" + y.replace("+", "plus")}/fullscreen.html', "VJ" + y + " theme fullscreen"))
+
+for t in additional:
+    vauhtijuoksu_templates.append(t)
