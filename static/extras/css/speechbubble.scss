@@ -1,6 +1,4 @@
 // Override variables (from _variables.scss and bootstrap)
-@import "static/css/base";
-
 
 .speechbubble-positioner {
   position: absolute;
@@ -40,6 +38,10 @@
     max-width: 60%;
   }
 }
+$speechbubble-bg: #DED5D2FF;
+$viuhti-dark: #16031B;
+$viuhti-darkfade: rgba(22, 3, 27, 0.68);
+$viuhti-violet: #87597B;
 .speechbubble {
   background-color: $speechbubble-bg;
   text-align: center;
@@ -94,12 +96,17 @@
   margin-bottom: 0;
 }
 
-@include media-breakpoint-down(lg) {
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px, /* bs: 576px */
+    md: 768px, /* bs: 768px */
+    lg: 992px, /* bs: 992px */
+    xl: 1200px,
+    xxl: 1400px,
+);
+@media (max-width: 992px) {
   #vj-mobile-speechbubble{
     display: inline-block;
   }
 }
-@include media-breakpoint-down(md) {
-}
-@include media-breakpoint-down(sm) {
-}
+
