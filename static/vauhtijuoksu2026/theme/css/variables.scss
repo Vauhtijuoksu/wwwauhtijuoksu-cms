@@ -30,13 +30,13 @@ $vj26dark-fade: rgba(30, 7, 11, 0.39);
 
 @font-face {
     font-family: 'bonny';
-    src: url('../../misc/Bonny-Variable.ttf') format('truetype');
+    src: url('../misc/Bonny-Variable.ttf') format('truetype');
     ascent-override: 104%;
 }
 
 @font-face {
     font-family: 'poppins';
-    src: url('../../misc/Poppins-Variable.ttf') format('opentype');
+    src: url('../misc/Poppins-Variable.ttf') format('opentype');
 }
 
 $font-family-sans-serif: 'poppins';
