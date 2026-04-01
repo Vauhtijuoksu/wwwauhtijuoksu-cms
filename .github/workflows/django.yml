@@ -35,7 +35,6 @@ jobs:
     - name: Install Dependencies
       run: |
         pipenv install --deploy --dev
-        pipenv run pip install "setuptools<71"
 
     - name: Run Tests
       run: |
