@@ -26,6 +26,7 @@ python-dateutil = "*"
 requests-cache = "*"
 gunicorn = "*"
 django-allauth = "*"
+setuptools = "<71"
 
 [requires]
 python_version = "3.9"
