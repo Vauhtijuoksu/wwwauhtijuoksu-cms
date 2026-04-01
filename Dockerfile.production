@@ -1,4 +1,4 @@
-FROM python:3.11 as base
+FROM python:3.9.7 as base
 
 # Setup env
 ENV LANG C.UTF-8
@@ -46,7 +46,7 @@ RUN ["chmod", "+x", "/home/cms/scripts/docker_entrypoint_gunicorn.sh"]
 
 # Runtime requirements
 RUN apt-get update && apt-get install -y \
-    netcat-traditional
+    netcat
 
 ENTRYPOINT ["/home/cms/scripts/docker_entrypoint_gunicorn.sh"]
 
