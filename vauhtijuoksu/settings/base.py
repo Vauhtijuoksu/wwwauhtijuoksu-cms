@@ -130,7 +130,7 @@ TEMPLATES = [
 ]
 
 # List of templates that can be used for CMS pages
-CMS_TEMPLATES = vauhtijuoksu_templates
+CMS_TEMPLATES = vauhtijuoksu_templates()
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 

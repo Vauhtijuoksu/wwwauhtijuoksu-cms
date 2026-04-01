@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 Django = "~=3.2"
-django-cms = "3.11.6"
+django-cms = "~=3.11"
 django-filer = "*"
 djangocms-text-ckeditor = "*"
 djangocms-link = "*"
@@ -26,10 +26,10 @@ python-dateutil = "*"
 requests-cache = "*"
 gunicorn = "*"
 django-allauth = "*"
-setuptools = "~=69.0"
+setuptools = "<71"
 
 [requires]
-python_version = "3.11"
+python_version = "3.9"
 
 [scripts]
 start = "python manage.py runserver"
