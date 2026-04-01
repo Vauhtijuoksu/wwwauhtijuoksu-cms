@@ -4,7 +4,7 @@
 {% block body %}
   {% with themeFolder="vauhtijuoksu2026" %}
     {% addtoblock "css" %}<link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>{% endaddtoblock %}
-    {% addtoblock "theme_css" %}<link href="{% sass_src themeFolder|add:'/css/base.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
+    {% addtoblock "theme_css" %}<link href="{% sass_src themeFolder|add:'/css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}"></script>{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static "js/speechbubble.js" %}"></script>{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static themeFolder|add:"/js/script.js" %}"></script>{% endaddtoblock %}

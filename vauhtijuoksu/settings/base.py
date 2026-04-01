@@ -130,7 +130,27 @@ TEMPLATES = [
 ]
 
 # List of templates that can be used for CMS pages
-CMS_TEMPLATES = vauhtijuoksu_templates()
+CMS_TEMPLATES = [
+    ('vauhtijuoksu/main/generic/default.html', 'VJ SideViuhti (Generic)'),
+    ('vauhtijuoksu/main/generic/fullscreen.html', 'VJ SideViuhti Fullscreen (Generic)'),
+    ('vauhtijuoksu/main/generic/doc.html', 'Document'),
+    ('vauhtijuoksu/main/vj26/default.html', 'VJ 2026 theme default'),
+    ('vauhtijuoksu/main/vj26/fullscreen.html', 'VJ 2026 theme fullscreen'),
+    ('vauhtijuoksu/main/vj25plus/default.html', 'VJ 2025+ theme default'),
+    ('vauhtijuoksu/main/vj25plus/fullscreen.html', 'VJ 2025+ theme fullscreen'),
+    ('vauhtijuoksu/main/vj25/default.html', 'VJ 2025 theme default'),
+    ('vauhtijuoksu/main/vj25/fullscreen.html', 'VJ 2025 theme fullscreen'),
+    ('vauhtijuoksu/main/vj24/default.html', 'VJ 2024 theme default'),
+    ('vauhtijuoksu/main/vj24/fullscreen.html', 'VJ 2024 theme fullscreen'),
+    ('vauhtijuoksu/main/vj23/default.html', 'VJ 2023 theme default'),
+    ('vauhtijuoksu/main/vj23/fullscreen.html', 'VJ 2023 theme fullscreen'),
+    ('vauhtijuoksu/main/vj22/default.html', 'VJ 2022 theme default'),
+    ('vauhtijuoksu/main/vj22/fullscreen.html', 'VJ 2022 theme fullscreen'),
+    ('vauhtijuoksu/main/vj21plus/default.html', 'VJ 2021+ theme default'),
+    ('vauhtijuoksu/main/vj21plus/fullscreen.html', 'VJ 2021+ theme fullscreen'),
+    ('vauhtijuoksu/main/vj21/default.html', 'VJ 2021 theme'),
+    ('vauhtijuoksu/main/deprecated/genericViolet.html', 'VJ OLD Generic violet theme'),
+]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
