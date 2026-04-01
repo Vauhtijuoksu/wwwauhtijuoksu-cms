@@ -11,7 +11,7 @@ body{
 }
 
 .parallax-background {
-  background-image: url("../img/bg.png")  !important;
+  background-image: url("../../img/bg.png")  !important;
   background-attachment: fixed;
 }
 .parallax-background2 {
@@ -55,7 +55,7 @@ body{
 }
 
 .divider-0, .divider-1,.divider-2,.divider-3 {
-  background-image: url("../img/divider_0.png");
+  background-image: url("../../img/divider_0.png");
 }
 .line-divider{
   background-color: $secondary;
