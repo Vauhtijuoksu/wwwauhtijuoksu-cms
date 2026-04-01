@@ -3,10 +3,10 @@
 
 {% block body %}
     {% addtoblock "css" %}<link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>{% endaddtoblock %}
-    {% addtoblock "theme_css" %}<link href="{% sass_src 'vauhtijuoksu2025/css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
+    {% addtoblock "css" %}<link href="{% sass_src 'genericSideViuhti/css/style.scss' %}" rel="stylesheet" type="text/css">{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static 'bootstrap.min.js' %}"></script>{% endaddtoblock %}
     {% addtoblock "js" %}<script src="{% static "js/speechbubble.js" %}"></script>{% endaddtoblock %}
-    {% addtoblock "js" %}<script src="{% static "vauhtijuoksu2025/js/script.js" %}"></script>{% endaddtoblock %}
+    {% addtoblock "js" %}<script src="{% static "genericSideViuhti/js/script.js" %}"></script>{% endaddtoblock %}
 
     <div id="vj-scrolldown-menu">
         <div id="vj-plugin-scrolldown-anchor-menu" class="menu" style="display:none">
@@ -23,7 +23,8 @@
     <div class="side-page-layout">
         <div class="content-side">
             <div class="title">
-                <img class="textlogo" src="{% static 'vauhtijuoksu2025/img/logo.png' %}">
+                <img class="icon" src="{% static 'genericSideViuhti/img/icon.png' %}">
+                <img class="textlogo" src="{% static 'genericSideViuhti/img/logo.png' %}">
             </div>
             <div class="main-box">
                 <div id="vj-main-menu" class="menu">
@@ -42,6 +43,7 @@
                 <div class="sponsors">
                     {% static_placeholder "sponsors" %}
                 </div>
+
                 <div id="vj-user-login-plugin">
                     <div class="line-divider"></div>
                     <div class="login">
@@ -49,24 +51,25 @@
                     </div>
                 </div>
             </div>
-
-    <div class="bottompadder"></div>
         </div>
         <div class="extra-side">
             <div class="fixed">
                 <div class="viuhti-speech">
-                    {% include "vauhtijuoksu/components/speechbubble.html" %}
-                    <div class="sideviuhti">
-                        <img class="mosh0" src="{% static 'vauhtijuoksu2025/img/mosh2.png' %}">
-                        <img class="mosh1" src="{% static 'vauhtijuoksu2025/img/mosh3.png' %}" style="display: none">
-                        <img class="mosh2" src="{% static 'vauhtijuoksu2025/img/mosh1.png' %}" style="display: none">
+                    <div id="vj-speechbubble" class="speechbubble-positioner">
+                        <div id="vj-speechbubble-content" style="display: none">
+                            {% static_placeholder "speechbubble" %}
+                        </div>
+                        <div id="vj-speechbubble-content-override" style="display: none">
+                            {% placeholder "speechbubble-override" %}
+                        </div>
+                        <div style="flex-grow: 3"></div>
+                        <div class="speechbubble fade">
+                        </div>
+                        <div style="flex-grow: 1"></div>
                     </div>
+                    <img src="{% static 'genericSideViuhti/img/nettisivuviuhti.png' %}">
                 </div>
             </div>
         </div>
     </div>
-    <div class="bottomforest"></div>
-    <div class="fader faderBasic"></div>
-    <div class="fader faderBlack"></div>
-    <div class="fader faderBlackText"></div>
 {% endblock body %}

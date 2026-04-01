@@ -49,3 +49,4 @@ RUN apt-get update && apt-get install -y \
     netcat
 
 ENTRYPOINT ["/home/cms/scripts/docker_entrypoint_gunicorn.sh"]
+

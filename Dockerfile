@@ -42,3 +42,4 @@ COPY --from=npm-deps /npm/node_modules ./node_modules
 COPY . .
 
 RUN ["chmod", "+x", "/home/cms/scripts/docker_entrypoint.sh"]
+

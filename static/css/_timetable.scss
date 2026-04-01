@@ -1,58 +1,60 @@
 
 .timetable {
-  display: flex;
-  flex-direction: column;
-
-  .ttplay {
     display: flex;
-    flex-direction: row;
-  }
-  .playdate {
-    text-align: left;
-    font-size: $timetable-date-font-size;
-  }
+    flex-direction: column;
+    
+    .ttplay {
+      display: flex;
+      flex-direction: row;
 
-  .playleft {
-    display: inline-block;
-    text-align: right;
-    width: $timetable-left-width;
-    margin-bottom: $timetable-row-margin-bottom;
-    white-space: nowrap;
-  }
+      .playdate {
+        text-align: left;
+        font-size: $timetable-date-font-size;
+      }
 
-  .playblob {
-    display: flex;
-    width: $timetable-blob-width;
-  }
-  .timetable-char {
-    position: relative;
-    width: 100%;
-    img.char {
-      position: absolute;
-      left: 45%;
-      top: 45%;
-      max-width: 110%;
-      max-height: 120px;
-      transform: translate(-50%, -50%);
+      .playleft {
+        display: inline-block;
+        text-align: right;
+        width: $timetable-left-width;
+        margin-bottom: $timetable-row-margin-bottom;
+        white-space: nowrap;
+      }
 
+      .playblob {
+        display: flex;
+        width: $timetable-blob-width;
+
+        .timetable-char {
+          position: relative;
+          width: 100%;
+          img.char {
+            position: absolute;
+            left: 45%;
+            top: 45%;
+            max-width: 110%;
+            max-height: 120px;
+            transform: translate(-50%, -50%);
+
+          }
+          .charOutline {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      .playright {
+        display: inline-block;
+        text-align: left;
+        width: $timetable-right-width;
+        margin-bottom: $timetable-row-margin-bottom;
+        .playgame {
+          font-size: 1.8em;
+          line-height: 1.1;
+        }
+      }
     }
-  }
-  .charOutline {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  .playright {
-    display: inline-block;
-    text-align: left;
-    width: $timetable-right-width;
-    margin-bottom: $timetable-row-margin-bottom;
-  }
-  .playgame {
-    font-size: 1.8em;
-    line-height: 1.1;
-  }
 }
 
 
@@ -110,66 +112,70 @@
     flex-direction: row;
     flex: 1;
     gap: $increment-sm;
-
     .tttday {
       flex: 1;
       position: relative;
       min-width: 0;
       height: 100%;
-    }
-  }
-  .tttgame {
-    position: absolute;
-    width: 100%;
-    overflow: hidden;
-    padding-right: 20px;
-    background-color: $ttt-game-bg-color;
-    border: $black 2px solid;
-    p {
-      margin-bottom: 12px;
-    }
-    &.end-cut {
-      border-bottom: 2px dotted  $black;
-    }
-    &.start-cut {
-      border-top: 2px dotted  $black;
-    }
-    > div {
-      padding-left: 10px;
-      padding-right: 10px;
-      font-size: 20px;
-      line-height: 20px;
-      text-align: left;
-      //text-shadow: 1px 1px $black;
-      padding-bottom: 10px;
-      background-repeat: no-repeat;
-      display: flex;
-      flex-direction: row;
-      min-height: 100%;
-    }
-    &:hover {
-      overflow: visible;
-      z-index: 100;
-      padding-top: 5px;
-      padding-left: 20px;
-      padding-right: 0;
-      > div {
-        margin-right: -5px;
-        box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.26);
+      .tttgame {
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        padding-right: 20px;
+        background-color: $ttt-game-bg-color;
         border: $black 2px solid;
-        box-sizing: content-box;
-        background-color: $ttt-game-hover-bg-color;
-      }
-    }
-  }
-  .tttimg {
-    width: 56px;
-    padding-right: 4px;
-    .charOutline{
-      > img {
-        float: right;
-        max-width: 200px;
-        pointer-events: none;
+        p {
+          margin-bottom: 12px;
+        }
+
+        .tttimg {
+          width: 56px;
+          padding-right: 4px;
+          .charOutline{
+            > img {
+              float: right;
+              max-width: 200px;
+              pointer-events: none;
+            }
+          }
+
+        }
+
+        &.end-cut {
+          border-bottom: 2px dotted  $black;
+        }
+        &.start-cut {
+          border-top: 2px dotted  $black;
+        }
+
+        > div {
+          padding-left: 10px;
+          padding-right: 10px;
+          font-size: 20px;
+          line-height: 20px;
+          text-align: left;
+          //text-shadow: 1px 1px $black;
+          padding-bottom: 10px;
+          background-repeat: no-repeat;
+          display: flex;
+          flex-direction: row;
+          min-height: 100%;
+        }
+
+        &:hover {
+          overflow: visible;
+          z-index: 100;
+          padding-top: 5px;
+          padding-left: 20px;
+          padding-right: 0;
+          > div {
+            margin-right: -5px;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.26);
+            border: $black 2px solid;
+            box-sizing: content-box;
+            background-color: $ttt-game-hover-bg-color;
+          }
+        }
       }
     }
   }
