@@ -13,6 +13,8 @@ $donate-bar-text-color-full: $vj26green0;
   background-color: $donate-bar-bg-color;
   border-radius: $donate-bar-border-radius;
   border: $donate-bar-border;
+  max-width: 600px;
+  margin: auto;
 
   .bar {
     background-color: $donate-bar-color;

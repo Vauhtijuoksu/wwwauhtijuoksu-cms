@@ -19,3 +19,71 @@
     }
   }
 }
+.timetable {
+  .ttplay {
+  }
+  .playdate {
+  }
+
+  .playleft {
+  }
+
+  .playblob {
+  }
+  .timetable-char {
+
+    img.char {
+    }
+  }
+  .charOutline {
+  }
+
+  .playright {
+  }
+  .playgame {
+  }
+  .playcategory {
+  }
+}
+
+.tabletimetable {
+  .fullscreen & {
+    height: 200vh;
+  }
+  .timestamps {
+      color: $viuhti-white;
+    > div {
+      > div {
+      }
+      > div:nth-child(3) {
+      }
+    }
+  }
+
+  .tttheader {
+    .tttday {
+      color: $viuhti-white;
+    }
+  }
+  .tttcontent {
+     .tttday {
+    }
+  }
+  .tttgame {
+    background-color: $ttt-game-bg-color;
+    border: $black 2px solid;
+    &.end-cut {
+      border-bottom: 2px dotted  $black;
+    }
+    &.start-cut {
+      border-top: 2px dotted  $black;
+    }
+    &:hover {
+      > div {
+        box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.26);
+        border: $black 2px solid;
+        background-color: $ttt-game-hover-bg-color;
+      }
+    }
+  }
+}

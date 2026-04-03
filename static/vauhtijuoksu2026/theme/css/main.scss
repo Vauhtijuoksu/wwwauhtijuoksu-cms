@@ -21,7 +21,17 @@ body{
   background-repeat: repeat-x;
   background-attachment: fixed;
 }
+.parallax-background.fadey {
+  background-image: url("../img/bgf.png")  !important;
+}
 
+.widelogoholder{
+  height: 150px;
+  .textlogo{
+    margin-bottom: -35px;
+    margin-top: -5px;
+  }
+}
 
 .side-page-layout {
   .content-side {

@@ -100,3 +100,80 @@ $twitch-icon-image: url("../img/twitch.png");
     }
   }
 }
+$tttgameborder: $vj26blue1;
+
+.tabletimetable {
+  .fullscreen & {
+    height: 200vh;
+  }
+  text-wrap-style: pretty;
+  .timestamps {
+      color: $vj26dark;
+    > div {
+      > div {
+      }
+      > div:nth-child(3) {
+      }
+    }
+  }
+
+  .tttheader {
+    .tttday {
+      color: $vj26dark;
+    }
+  }
+  .tttcontent {
+     .tttday {
+    }
+  }
+  .tttgame {
+    background-color: $vj26blue2;
+    border: $tttgameborder 3px solid;
+    &.end-cut {
+      border-bottom: 3px dotted $tttgameborder;
+    }
+    &.start-cut {
+      border-top: 3px dotted $tttgameborder;
+    }
+    & > div {
+      font-size: 18px;
+    }
+    .twitch-link{
+      .twitch-icon{
+        width: 0.7em;
+        margin-top: -0.3em;
+      }
+      &:hover .twitch-icon{
+        margin-top: -0.4em;
+
+      }
+    }
+    padding-top: 0.2em;
+    .tttimg {
+      filter: sepia(1) hue-rotate(187deg) saturate(1.6);
+      transform: scale(0.5) translate(45%,-43%) rotate(15deg);
+      transition: transform 0.5s ease-in-out;
+    }
+    &:hover {
+      padding-left: 35px;
+      padding-top: 0;
+     .tttimg {
+        width: 15px;
+        height: 15px;
+        transition: transform 0.2s ease-in-out;
+        filter: none;
+        transform: scale(1) translate(0,0) rotate(0deg);
+     }
+      > div {
+        box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.26);
+        border: $secondary 2px solid;
+        background-color: $primary;
+        padding-bottom: 0px;
+        & > div:not(.tttimg) {
+          padding-bottom: 0px;
+          padding-top: 0.2em;
+        }
+      }
+    }
+  }
+}
