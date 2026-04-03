@@ -46,12 +46,13 @@ $viuhti-violet: #87597B;
   background-color: $speechbubble-bg;
   text-align: center;
   border-radius: 50px;
-  padding: 30px;
+  padding: 25px;
   transform: rotate(10deg);
   opacity: 1;
   transition: opacity 1s;
   max-width: 70%;
   filter: drop-shadow(1px 0px 0px $viuhti-dark) drop-shadow(0px 1px 0px $viuhti-dark) drop-shadow(0px -1px 0px $viuhti-dark) drop-shadow(-1px 0px 0px $viuhti-dark) drop-shadow(1px 1px 0px $viuhti-dark) drop-shadow(-1px 1px 0px $viuhti-dark) drop-shadow(-1px -1px 0px $viuhti-dark) drop-shadow(1px -1px 0px $viuhti-dark) drop-shadow(5px 5px 4px $viuhti-darkfade);
+  position: relative;
   > * {
     filter: none;
   }
