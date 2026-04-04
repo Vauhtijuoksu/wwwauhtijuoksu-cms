@@ -11,3 +11,45 @@
     margin-bottom: -10%
   }
 }
+
+.main-box {
+  width: calc(100% - 40px);
+}
+
+.side-page-layout {
+  .content-side{
+    margin: 60px 20px 10px 10px;
+  }
+}
+
+
+@include media-breakpoint-down(lg) {
+  .side-page-layout {
+    padding: 0 0;
+    .content-side {
+      width: calc(100vw - 10px);
+      max-width: 900px;
+      margin: 10px auto;
+    }
+    .extra-side {
+      display: none;
+    }
+  }
+}
+@include media-breakpoint-down(md) {
+  html, body, input, textarea{
+    font-size: 20px !important;
+  }
+}
+@include media-breakpoint-down(sm) {
+  html, body, input, textarea{
+    font-size: 17px !important;
+  }
+  .side-page-layout {
+    padding: 0 0;
+    .content-side {
+      width: calc(100vw - 10px);
+      margin: 10px auto;
+    }
+  }
+}

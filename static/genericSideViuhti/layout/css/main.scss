@@ -12,17 +12,25 @@
     max-width: 74%;
   }
 }
+html, body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+.main-box{
+  position: relative;
+}
 
 .side-page-layout {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 100vw;
   max-width: 1920px;
   margin: 0 auto;
   .content-side {
     margin: $increment-md;
     width: 60%;
     max-width: 900px;
+    position: relative;
   }
   .extra-side{
     width: 40%;
@@ -54,9 +62,9 @@ footer {
 
 @include media-breakpoint-down(lg) {
   .side-page-layout {
-    padding: 0 $increment-md;
+    padding: 0 0;
     .content-side {
-      width: 100%;
+      width: 100vw;
       max-width: 900px;
       margin: $increment-md auto;
     }
@@ -75,7 +83,7 @@ footer {
     font-size: 17px !important;
   }
   .side-page-layout {
-    padding: 0 $increment-xs;
+    padding: 0 0;
     .content-side {
       margin: $increment-xs auto;
     }
