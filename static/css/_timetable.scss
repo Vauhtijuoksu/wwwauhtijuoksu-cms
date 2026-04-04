@@ -2,7 +2,7 @@
 .timetable {
   display: flex;
   flex-direction: column;
-
+  overflow-wrap: break-word;
   .ttplay {
     display: flex;
     flex-direction: row;
@@ -125,6 +125,7 @@
     padding-right: 20px;
     background-color: $ttt-game-bg-color;
     border: $black 2px solid;
+    overflow-wrap: break-word;
     p {
       margin-bottom: 12px;
     }
