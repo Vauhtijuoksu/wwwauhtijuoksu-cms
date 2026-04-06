@@ -10,7 +10,6 @@ spec:
         {{- range .Values.http.hosts }}
         - {{ . }}
         {{- end }}
-      secretName: cms-tls
   ingressClassName: traefik
   rules:
     {{- $svc := .Chart.Name }}
