@@ -15,29 +15,28 @@ The project is built using Django and Django CMS.
 ## Dependencies
 
 **Required**:
-* Python 3.9 (recommended), 3.7 or later is likely to work.
-* pip
+* Python 3.12
 * NodeJS/NPM
 
-OR use Docker for development (see below)
-
 **Recommended**:
-* [Pipenv](https://github.com/pypa/pipenv) is recommended for package & environment management
+* [uv](https://docs.astral.sh/uv/) for fast, reliable Python package management
+
+OR use Docker for development (see below)
 
 ## Installing & running
 
 1. Install NPM dependencies with `npm install`
-1. Python dependencies are defined in the `Pipfile`, and can be installed with Pipenv:
-    `pipenv install`
-1. Activate the virtual env created by pipenv with:
-    `pipenv shell`
+1. Python dependencies are defined in `pyproject.toml` and can be installed with uv:
+    `uv sync`
+1. Activate the virtual env created by uv with:
+    `source .venv/bin/activate`
 1. Initialize database
     `python manage.py migrate`
 1. Create the admin user
     `python manage.py createsuperuser`
 1. Run the development server
     `python manage.py runserver`
-1. Server should now be up running at http://localhost:8080
+1. Server should now be up running at http://localhost:8000
 
 ### Using docker
 

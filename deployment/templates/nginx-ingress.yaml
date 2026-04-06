@@ -3,12 +3,12 @@ kind: Ingress
 metadata:
   name: {{ .Chart.Name }}-nginx
   annotations:
-    # To work on kind cluster
-    nginx.ingress.kubernetes.io/server-alias: localhost
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   tls:
     - hosts:
         - {{ .Values.http.staticfiles_host }}
+      secretName: {{ .Values.http.staticfiles_host }}
   ingressClassName: traefik
   rules:
     - host: {{ .Values.http.staticfiles_host }}

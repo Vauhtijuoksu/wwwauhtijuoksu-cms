@@ -1,37 +1,41 @@
 image:
-  registry: vauhtijuoksu.azurecr.io/
-  repository: vauhtijuoksu/cms
+  registry: ghcr.io/
+  repository: vauhtijuoksu/wwwauhtijuoksu-cms
   tag: "latest"
   pullPolicy: Always
 
 http:
-  host: cms.dev.vauhtijuoksu.fi
-  staticfiles_host: cms-static.dev.vauhtijuoksu.fi
+  hosts:
+    - www.vauhtijuoksu.fi
+    - vauhtijuoksu.fi
+  staticfiles_host: cms-static.vauhtijuoksu.fi
 
 django:
   settings_module: vauhtijuoksu.settings.production
-  allowed_hosts: cms.dev.vauhtijuoksu.fi
   log_level: INFO
   secret: django
   sass_root: /home/cms/sassfiles
   static_root: /home/cms/staticfiles
-  static_url: https://cms-static.dev.vauhtijuoksu.fi/static/
+  static_url: https://cms-static.vauhtijuoksu.fi/static/
   media_root: /home/cms/media
-  media_url: https://vjcms.blob.core.windows.net/media/
-  vj_api_url: vauhtijuoksu-api.default.svc.cluster.local
-  vj_legacy_api_url: ''
+  media_url: https://media.vauhtijuoksu.fi/
+  vj_api_url: http://vauhtijuoksu-api.vauhtijuoksu-api.svc.cluster.local:8080
 
-storage: 
-  backend: azure
-  account_name: vjcms
-  container: media
-  secret: vjcms-storage
-
+storage:
+  backend: upcloud
+  # Secret keys for S3 compatible storage:
+  # - AWS_ACCESS_KEY_ID
+  # - AWS_S3_CUSTOM_DOMAIN
+  # - AWS_S3_ENDPOINT_URL
+  # - AWS_S3_REGION_NAME
+  # - AWS_SECRET_ACCESS_KEY
+  # - AWS_STORAGE_BUCKET_NAME
+  secret: cms-media-s3
 
 database:
-  address: vauhtijuoksu-db.postgres.database.azure.com
+  address: postgres-rw.postgres.svc.cluster.local
   port: 5432
-  database: vjcms_staging
+  database: wwwauhtijuoksu-cms
   # Create a secret: `kubectl create secret generic vjcms-psql --from-literal=password=myPwassrod!`
   secret: vjcms-psql
-  user: vjcms_staging@vauhtijuoksu-db
+  user: wwwauhtijuoksu-cms

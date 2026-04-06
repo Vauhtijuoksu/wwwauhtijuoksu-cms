@@ -1,3 +1,5 @@
+import botocore.config
+
 from .base import *
 from decouple import config, Csv
 # Password validation
@@ -60,12 +62,12 @@ LOGGING = {
     },
 }
 
-if config('STORAGE_BACKEND', default='azure') == 'azure':
-    DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-    AZURE_ACCOUNT_NAME = config('STORAGE_ACCOUNT_NAME')
-    AZURE_ACCOUNT_KEY = config('STORAGE_ACCOUNT_KEY')
-    AZURE_CONTAINER = config('STORAGE_CONTAINER')
-    if config('STORAGE_CUSTOM_DOMAIN', default=None):
-        AZURE_CUSTOM_DOMAIN = config('STORAGE_CUSTOM_DOMAIN')
-    AZURE_SSL = True
-    AZURE_LOCATION = 'media'
+if config('STORAGE_BACKEND', default='') == 'upcloud':
+    DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+    AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME')
+    AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL')
+    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_CLIENT_CONFIG=botocore.config.Config(
+        request_checksum_calculation="when_required",
+        response_checksum_validation="when_required"
+    )

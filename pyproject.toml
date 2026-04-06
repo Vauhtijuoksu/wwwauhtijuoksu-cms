@@ -1,0 +1,31 @@
+[project]
+name = "wwwauhtijuoksu-cms"
+version = "0.1.0"
+description= "This is a CMS-enabled website for Vauhtijuoksu ry and its speedrun marathons."
+readme = "README.md"
+requires-python = "~=3.12.0"
+dependencies = [
+    "Django~=3.2",
+    "django-cms~=3.11",
+    "django-filer",
+    "djangocms-text-ckeditor",
+    "djangocms-link",
+    "djangocms-file",
+    "djangocms-picture",
+    "djangocms-snippet",
+    "djangocms-style",
+    "django-bootstrap-v5",
+    "django-sass-processor==1.1",
+    "libsass",
+    "whitenoise[brotli]",
+    "django-compressor",
+    "python-decouple",
+    "requests",
+    "django-storages[azure,s3]~=1.13",
+    "python-dateutil",
+    "requests-cache",
+    "gunicorn",
+    "django-allauth",
+    "setuptools<71",
+    "psycopg2-binary>=2.9.11",
+]

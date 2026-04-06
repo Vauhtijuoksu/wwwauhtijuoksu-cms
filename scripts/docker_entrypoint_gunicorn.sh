@@ -1,13 +1,5 @@
-#!/bin/bash
-
-
-echo "Waiting for postgres..."
-
-while ! nc -z $POSTGRES_HOST $POSTGRES_PORT; do
-  sleep 0.1
-done
-
-echo "PostgreSQL started"
+#!/usr/bin/env bash
+set -e
 
 python manage.py compilemessages
 python manage.py compilescss --use-storage

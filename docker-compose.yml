@@ -2,13 +2,16 @@ version: '3'
 
 services:
   web:
+    depends_on:
+      db:
+        condition: service_healthy
     container_name: vj-cms
     build:
       context: .
       dockerfile: Dockerfile
+      target: develop
     environment:
       DJANGO_SETTINGS_MODULE: vauhtijuoksu.settings.docker
-    entrypoint: /home/cms/scripts/docker_entrypoint.sh
     volumes:
       - ./vj_cms:/home/cms/vj_cms
       - ./marathon:/home/cms/marathon
@@ -22,6 +25,12 @@ services:
 
   db:
     container_name: vj-cms-db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vjcms -d vjcms"]
+      interval: 1s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
     image: postgres:11
     environment:
       POSTGRES_USER: vjcms
@@ -29,6 +38,27 @@ services:
       POSTGRES_DB: vjcms
     volumes:
       - pgdata:/var/lib/postgresql/data
+  prod:
+    profiles: [prod]
+    depends_on:
+      db:
+        condition: service_healthy
+    container_name: vj-cms-prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    environment:
+      DJANGO_SETTINGS_MODULE: vauhtijuoksu.settings.docker
+    command:
+      - gunicorn
+      - vauhtijuoksu.wsgi:application
+      - --bind
+      - 0.0.0.0:8000
+    volumes:
+      - cms-media:/home/cms/media
+    ports:
+      - 8001:8000
 
 volumes:
   pgdata:

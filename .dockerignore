@@ -22,3 +22,7 @@ Dockerfile*
 *.sqlite
 *.md
 *.txt
+
+.git
+db.sqlite3
+.venv

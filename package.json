@@ -1,7 +1,7 @@
 {
   "name": "wwwvauhtijuoksu-cms",
   "version": "1.0.0",
-  "description": "This is a CMS-enabled website for Vauhtijuoksu ry and its speedrun marathons.a",
+  "description": "This is a CMS-enabled website for Vauhtijuoksu ry and its speedrun marathons.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
