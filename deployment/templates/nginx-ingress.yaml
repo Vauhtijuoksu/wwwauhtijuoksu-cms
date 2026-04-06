@@ -8,7 +8,6 @@ spec:
   tls:
     - hosts:
         - {{ .Values.http.staticfiles_host }}
-      secretName: {{ .Values.http.staticfiles_host }}
   ingressClassName: traefik
   rules:
     - host: {{ .Values.http.staticfiles_host }}
