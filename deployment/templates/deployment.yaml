@@ -49,6 +49,8 @@ spec:
             name: django-env
         - secretRef:
             name: discord
+        - secretRef:
+            name: {{ .Values.storage.secret }}
         env:
         - name: POSTGRES_PASSWORD
           valueFrom:

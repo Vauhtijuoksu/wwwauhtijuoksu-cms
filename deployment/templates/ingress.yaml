@@ -3,43 +3,25 @@ kind: Ingress
 metadata:
   name: {{ .Chart.Name }}
   annotations:
-    # To work on kind cluster
-    nginx.ingress.kubernetes.io/server-alias: localhost
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   tls:
     - hosts:
-        - {{ .Values.http.host }}
-        - www.vauhtijuoksu.fi
-        - vauhtijuoksu.fi
+        {{- range .Values.http.hosts }}
+        - {{ . }}
+        {{- end }}
   ingressClassName: traefik
   rules:
-    - host: {{ .Values.http.host }}
+    {{- $svc := .Chart.Name }}
+    {{- range $host := .Values.http.hosts }}
+    - host: {{ $host }}
       http:
         paths:
           - backend:
               service:
-                name: {{ .Chart.Name }}
+                name: {{ $svc }}
                 port:
                   name: http
             path: /
             pathType: Prefix
-    - host: www.vauhtijuoksu.fi
-      http:
-        paths:
-          - backend:
-              service:
-                name: {{ .Chart.Name }}
-                port:
-                  name: http
-            path: /
-            pathType: Prefix
-    - host: vauhtijuoksu.fi
-      http:
-        paths:
-          - backend:
-              service:
-                name: {{ .Chart.Name }}
-                port:
-                  name: http
-            path: /
-            pathType: Prefix
+    {{- end }}
