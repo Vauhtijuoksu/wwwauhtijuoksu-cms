@@ -39,7 +39,7 @@ function get_code() {
     var choices = get_choices();
     $("#incentive_code_ready").slideUp();
     console.log(JSON.stringify(choices))
-    fetch('https://api.dev.vauhtijuoksu.fi/generate-incentive-code', {
+    fetch('https://api.vauhtijuoksu.fi/generate-incentive-code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
