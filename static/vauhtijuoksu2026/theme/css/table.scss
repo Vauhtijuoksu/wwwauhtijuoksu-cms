@@ -177,3 +177,31 @@ $tttgameborder: $vj26blue1;
     }
   }
 }
+
+@include media-breakpoint-down(md) {
+  .playleft {
+    font-size: 0.9em;
+    white-space: normal;
+    width: 25%;
+  }
+  .playblob {
+    width: 18%;
+  }
+  .playright {
+    width: 57%;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .playleft {
+    font-size: 0.8em;
+    white-space: normal;
+    width: 22%;
+  }
+  .playblob {
+    width: 19%;
+  }
+  .playright {
+    width: 52%;
+  }
+}

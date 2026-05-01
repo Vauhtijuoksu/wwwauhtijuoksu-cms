@@ -17,7 +17,7 @@
                 {% for option in incentive.status %}
                     <div>
                         {% if incentive.end_time < now %}
-                            {{ option.option }} - Tälle vaihtoehdolle kerättiin {{ option.amount|floatformat:-2 }} euroa.
+                            {{ option.option }} <span class="incentive_status">- Tälle vaihtoehdolle kerättiin {{ option.amount|floatformat:-2 }} euroa.</span>
                         {% elif later %}
                             {{ option.option }}
                         {% else %}
@@ -27,7 +27,7 @@
                             <label for="{{ incentive.id }}_{{ forloop.counter }}_button">{{ option.option }}</label>
                             <label for="{{ incentive.id }}_{{ forloop.counter }}_choice"></label>
                             <input type="text" id="{{ incentive.id }}_{{ forloop.counter }}_choice" name="{{ incentive.id }}_{{ forloop.counter }}_choice" class="incentive_field hide" value="{{ option.option }}">
-                            - Tälle vaihtoehdolle on nyt kerätty {{ option.amount|floatformat:-2 }} euroa.
+                            <span class="incentive_status">- Tälle vaihtoehdolle on nyt kerätty {{ option.amount|floatformat:-2 }} euroa.</span>
                         {% endif %}
 
 
@@ -51,21 +51,21 @@
 
                 {% if incentive.status.0.status == "COMPLETE" %}
                     <b>
-                        Tavoite saavutettu!
+                      <span class="incentive_status">Tavoite saavutettu!</span>
                     </b> <br>
                 {% endif %}
 
                 Tavoite tälle kannustimelle on {{ incentive.milestones.0|toint }} euroa.
                 <br>
                 {% if incentive.end_time < now %}
-                    {{ option.option }} - Tälle kannustimelle kerättiin {{ incentive.total_amount|floatformat:-2 }} euroa.
+                  {{ option.option }} <span class="incentive_status">- Tälle kannustimelle kerättiin {{ incentive.total_amount|floatformat:-2 }} euroa.</span>
                 {% elif later %}
                 {% else %}
 
                     <input type="checkbox" id="{{ incentive.id }}_button" name="{{ incentive.id }}_button"
                            value="milestone" class="incentive_choices">
                     <label for="{{ incentive.id }}_button"> Valitse tämä kannustin</label>
-                    - Tälle kannustimelle on nyt kerätty {{ incentive.total_amount|floatformat:-2 }} euroa.
+                  <span class="incentive_status">- Tälle kannustimelle on nyt kerätty {{ incentive.total_amount|floatformat:-2 }} euroa.</span>
                 {% endif %}
                 <div class="incentive_bar">
                     <div class="incentive_bar_fill"
