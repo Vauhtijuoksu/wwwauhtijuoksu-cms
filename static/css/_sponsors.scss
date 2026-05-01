@@ -5,7 +5,7 @@
   text-align: $content-text-align;
   justify-content: center;
   align-items: center;
-  gap: $increment-md;
+  gap: 15px;
   min-height: 180px;
   p, h1, h2, h3, h4, h5, h6 {
     width: 100%;
@@ -34,8 +34,8 @@
   width: 22%;
 }
 .sponsor_logo_holder .sponsor_logo_sizer{
-  max-width: 85%;
-  max-height: 85%;
+  max-width: 82%;
+  max-height: 82%;
   & > a {
     object-fit: contain;
     width:100%;
@@ -58,15 +58,15 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: $increment-sm;
+    gap: 10px;
   }
   .sponsor_logo_big{
-    width: 46%;
-  }
-  .sponsor_logo_medium{
     width: 32%;
   }
+  .sponsor_logo_medium{
+    width: 26%;
+  }
   .sponsor_logo_small{
-    width: 24%;
+    width: 21%;
   }
 }
