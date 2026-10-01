@@ -134,6 +134,8 @@ CMS_TEMPLATES = [
     ('vauhtijuoksu/main/generic/default.html', 'VJ SideViuhti (Generic)'),
     ('vauhtijuoksu/main/generic/fullscreen.html', 'VJ SideViuhti Fullscreen (Generic)'),
     ('vauhtijuoksu/main/generic/doc.html', 'Document'),
+    ('vauhtijuoksu/main/vj26plus/default.html', 'VJ 2026+ theme default'),
+    ('vauhtijuoksu/main/vj26plus/fullscreen.html', 'VJ 2026+ theme fullscreen'),
     ('vauhtijuoksu/main/vj26/default.html', 'VJ 2026 theme default'),
     ('vauhtijuoksu/main/vj26/fullscreen.html', 'VJ 2026 theme fullscreen'),
     ('vauhtijuoksu/main/vj25plus/default.html', 'VJ 2025+ theme default'),
