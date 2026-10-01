@@ -1,0 +1,123 @@
+
+// Named colors
+$v_viininpunainen: #C8385A;
+$v_punainen: #EE204D;
+$v_vesimeloni: #FC6C85;
+$v_malva: #EF98AA;
+$v_seepia: #A5694F;
+$v_appelsiini: #FF7538;
+$v_porkkana: #FFA343;
+$v_persikka: #FFCFAB;
+$v_varjo: #8A795D;
+$v_auringonkajo: #FFCF48;
+$v_sitruuna: #FDFC74;
+$v_banaani: #FAE7B5;
+$v_sademetsa: #17806D;
+$v_vihrea: #1CAC78;
+$v_minttu: #45CEA2;
+$v_omena: #A8E4A0;
+$v_keskiyo: #1A4876;
+$v_farkku: #2B6CC4;
+$v_taivaansini: #1DACD6;
+$v_vaaleansininen: #80DAEB;
+$v_munakoiso: #6E5160;
+$v_luumu: #8E4584;
+$v_verenpisara: #C364C5;
+$v_sinisade: #CDA4DE;
+$v_musta: #232323;
+$v_avaruus: #414A4C;
+$v_manaatti: #979AAA;
+$v_talvio: #C5D0E6;
+$v_valkoinen: #EDEDED;
+
+
+
+@font-face {
+    font-family: 'ldfComicSans';
+    src: url('../misc/comicSansMs.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'schoolbell';
+    src: url('../misc/schoolbell.ttf') format('truetype');
+}
+
+$font-family-sans-serif: 'ldfComicSans';
+$font-family-header: 'schoolbell';
+
+$body-bg-image: url("../img/bg.png");
+$divider-max-height: 120px;
+$divider-width: 90%;
+
+$ERROR: red;
+
+
+$body-color: $v_musta;
+
+$primary: $v_taivaansini;
+$secondary: $v_farkku;
+
+$bg-1: $v_farkku;
+$bg-2: $primary;
+
+$link-color: $v_luumu;
+$link-decoration: none;
+$link-hover-color: $v_verenpisara;
+$link-hover-decoration: none;
+
+
+$title-color: $v_keskiyo;
+
+$box-border: none;
+$box-border-radius: 0;
+
+$main-box-bg: none;
+$main-box-border-radius: 0;
+
+
+$table-header-color: $title-color;
+$table-row-color: $body-color;
+$table-border-color: $primary;
+
+$speechbubble-bg: $v_valkoinen;
+
+
+// Incentives
+$incentive-label-color: $v_valkoinen;
+$incentive-dropdown-text-color: $v_musta;
+$incentive-dropdown-hover-color: $v_appelsiini;
+$incentive-closed-text-color: $v_seepia;
+
+$incentive-button-color: $secondary;
+$incentive-button-font-size: 1.2rem;
+
+$incentive-copy-button-color: $secondary;
+$incentive-copy-button-hover-color: $v_valkoinen;
+
+$incentive-bar-border-radius: 2px;
+$incentive-bar-bg-color: $v_munakoiso;
+$incentive-bar-fill-color: $v_sademetsa;
+
+$incentive-count-text-color: $v_musta;
+$incentive-popup-bg-color: $v_sademetsa;
+
+// Donate bar
+
+$donate-bar-border: none;
+$donate-bar-fill-border: none;
+$donate-bar-bg-color: $v_luumu;
+$donate-bar-color: $v_appelsiini;
+$donate-bar-text-color: $v_valkoinen;
+$donate-bar-color-full: $v_vihrea;
+$donate-bar-text-color-full: $v_musta;
+
+
+// timetable
+
+$twitch-link-color: $link-color;
+$twitch-link-hover-color: $link-hover-color;
+
+
+$ttt-game-bg-color: $bg-2;
+$ttt-game-hover-bg-color: $bg-1;
+
