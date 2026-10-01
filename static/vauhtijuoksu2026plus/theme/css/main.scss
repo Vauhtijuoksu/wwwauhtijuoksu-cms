@@ -1,0 +1,88 @@
+
+body{
+  background-image: $body-bg-image;
+  background-attachment: fixed;
+  font-family: $font-family-sans-serif;
+  image-rendering: pixelated;
+  color: $v_musta;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $font-family-header;
+}
+
+.title{
+    padding: 0.2vw 0 0.4vw 0;
+}
+$base_text_shadow: $v_talvio;
+
+.side-page-layout {
+  & .content-side {
+    background-color: transparent;
+    background-image: url("../img/contentBg.png"), url("../img/contentBg.png"), url("../img/contentBg.png"), url("../img/contentBorder.png"), url("../img/contentBorder.png"), url("../img/contentBorder.png");
+    background-size: 100% auto, 100% calc(100% - 200px), 100% auto, 100% auto, 100% calc(100% - 200px), 100% auto;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: top, center, bottom, top, center, bottom;
+    border: none;
+    filter: none;
+    border-radius:0;
+    padding-top: 1vw;
+    & .main-box {
+      margin: 8px;
+      padding: 6% 0px;
+      background-color: transparent;
+      background-image: url("../img/contentInnerBg.png"), url("../img/contentInnerBg.png"), url("../img/contentInnerBorder.png"), url("../img/contentInnerBorder.png"), url("../img/contentInnerBorder.png");
+      background-size: 100% auto, 100% auto, 100% auto, 100% calc(100% - 200px), 100% auto;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: top, bottom, top, center 50%, bottom;
+      & .main-box-content {
+        padding: 0px 6%;
+        background-image: url("../img/contentInnerMid.png");
+        background-size: 100% auto;
+        background-repeat: repeat-y;
+        background-clip: padding-box;
+        border-top: transparent 50px solid;
+        & .user-content {
+          & p {
+            text-shadow: 1px 0 0 $base_text_shadow, -1px 0 0 $base_text_shadow, 0 1px 0 $base_text_shadow, 0 -1px 0 $base_text_shadow, 2px 0 0 $base_text_shadow, -2px 0 0 $base_text_shadow, 0 2px 0 $base_text_shadow, 0 -2px 0 $base_text_shadow;
+          }
+        }
+        & > .menu {
+          margin-top: -50px;
+        }
+      }
+    }
+  }
+}
+
+.divider-0 {
+  background-image: url("../img/divider_0.png");
+}
+.divider-1 {
+  background-image: url("../img/divider_1.png");
+}
+.divider-2 {
+  background-image: url("../img/divider_2.png");
+}
+.divider-3 {
+  background-image: url("../img/divider_3.png");
+}
+footer {
+  display: none;
+}
+.line-divider{
+  background-color: $v_taivaansini;
+}
+
+a {
+  color: $link-color
+}
+a:active {
+  color: $link-color
+}
+a:visited {
+  color: $link-color
+}
+a:hover {
+  color: $link-hover-color
+}

@@ -1,0 +1,62 @@
+
+$menu-link-text-color: $v_musta;
+$menu-link-hover-text-color: $v_munakoiso;
+$menu-link-font-size-normal: 30px;
+$menu-link-font-size-small: 24px;
+$menu-link-border: none;
+$menu-link-border-radius: 0;
+
+.menu {
+  justify-content: center;
+  .menu-link {
+    background-color: transparent;
+    border: transparent;
+    border-radius: 0;
+    color: $menu-link-text-color;
+    background-image: url("../img/button/buttonRight.png"), url("../img/button/buttonLeft.png"), url("../img/button/buttonMid.png");
+    background-position: right, left, center center;
+    background-size: 18px 46px, 19px 46px, 100% 46px;
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-clip: border-box, border-box, content-box;
+    height: 46px;
+    padding: 0px 16px;
+    line-height: 46px;
+    font-family: $font-family-header;
+    font-size: 30px;
+    font-weight: bold;
+    flex-grow: 0.2;
+  }
+  .menu-link:hover{
+    background-color: transparent;
+    background-image: url("../img/button/buttonRighthover.png"), url("../img/button/buttonLefthover.png"), url("../img/button/buttonMidhover.png");
+    color: $menu-link-hover-text-color;
+  }
+  @include media-breakpoint-down(md) {
+    .menu-link {
+      font-size: $menu-link-font-size-small;
+    }
+  }
+  .anchor-menu-link:hover {
+    background-color: $viuhti-blue;
+  }
+}
+#vj-scrolldown-menu{
+  background-color: transparent;
+  background-image: url("../img/top_barbg.png");
+  border: none;
+  background-position: bottom;
+  padding: 20px 8px 12px 8px;
+  .menu {
+    mask-image: linear-gradient(90deg, #000 99%, transparent);
+    .menu-link:hover{
+      background-color: transparent;
+    }
+    .anchor-menu-link:hover {
+      background-color: transparent;
+    }
+    #scroll_to_top_btn:hover {
+      background-color: transparent;
+
+    }
+  }
+}

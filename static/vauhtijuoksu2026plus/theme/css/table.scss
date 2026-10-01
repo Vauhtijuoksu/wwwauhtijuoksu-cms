@@ -1,0 +1,125 @@
+
+$twitch-icon-image: url("../img/twitch.png");
+
+
+$twitch-link-color: $link-color;
+$twitch-link-hover-color: $link-hover-color;
+$twitch-icon-image: url("../img/twitch.png");
+
+.playplayer .twitch-link, .twitch-link {
+  color: unset;
+  text-decoration: underline;
+  transition: text-decoration-color 0.6s ease;
+  & > span {
+    color: $twitch-link-color;
+    transition: text-decoration-color 0.6s ease;
+  }
+  &:hover{
+    color: $twitch-link-hover-color;
+    & > span {
+      color: $twitch-link-hover-color;
+    }
+  }
+  .twitch-icon {
+    content: $twitch-icon-image;
+    &.twitch-icon-sm {
+      width: $twitch-icon-sm-width;
+    }
+  }
+}
+
+.playplayer{
+  .twitch-link{
+    color: unset;
+    text-decoration: underline;
+    text-decoration-color: $viuhti-darkextramegafade;
+    transition: text-decoration-color 0.6s ease;
+    & > span {
+      color: unset;
+      text-decoration: underline;
+      text-decoration-color: $viuhti-darkextramegafade;
+      transition: text-decoration-color 0.6s ease;
+    }
+    &:hover{
+      text-decoration-color: $viuhti-darkextrafade;
+      & > span {
+        text-decoration-color: $viuhti-darkextrafade;
+      }
+    }
+  }
+}
+.timetable {
+  .ttplay {
+  }
+  .playdate {
+  }
+
+  .playleft {
+  }
+
+  .playblob {
+  }
+  .timetable-char {
+
+    img.char {
+      image-rendering: smooth;
+      max-width: 120%;
+      left: 40%;
+      top: 48%
+    }
+  }
+  .charOutline {
+  }
+
+  .playright {
+  }
+  .playgame {
+  }
+  .playcategory {
+  }
+}
+
+img.char {
+  image-rendering: smooth;
+}
+.tabletimetable {
+  .fullscreen & {
+    height: 200vh;
+  }
+  .timestamps {
+      color: $v_valkoinen;
+    > div {
+      > div {
+      }
+      > div:nth-child(3) {
+      }
+    }
+  }
+
+  .tttheader {
+    .tttday {
+      color: $v_valkoinen;
+    }
+  }
+  .tttcontent {
+     .tttday {
+    }
+  }
+  .tttgame {
+    background-color: $ttt-game-bg-color;
+    border: $black 2px solid;
+    &.end-cut {
+      border-bottom: 2px dotted  $black;
+    }
+    &.start-cut {
+      border-top: 2px dotted  $black;
+    }
+    &:hover {
+      > div {
+        box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.26);
+        border: $black 2px solid;
+        background-color: $ttt-game-hover-bg-color;
+      }
+    }
+  }
+}

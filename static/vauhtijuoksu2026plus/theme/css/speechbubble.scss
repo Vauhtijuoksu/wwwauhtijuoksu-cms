@@ -1,0 +1,28 @@
+.viuhti-speech{
+  filter: drop-shadow(2px 2px 4px $viuhti-darkfade);
+}
+.speechbubble {
+  background-color: $speechbubble-bg;
+  border-radius: 50px;
+  filter: drop-shadow(1px 0px 0px $viuhti-dark) drop-shadow(0px 1px 0px $viuhti-dark) drop-shadow(0px -1px 0px $viuhti-dark) drop-shadow(-1px 0px 0px $viuhti-dark) drop-shadow(1px 1px 0px $viuhti-dark) drop-shadow(-1px 1px 0px $viuhti-dark) drop-shadow(-1px -1px 0px $viuhti-dark) drop-shadow(1px -1px 0px $viuhti-dark) drop-shadow(5px 5px 4px $viuhti-darkfade);
+  > * {
+    filter: none;
+  }
+  a {
+    color: #020728;
+    text-decoration: underline;
+  }
+  a:active {
+    color: #020728;
+  }
+  a:visited {
+    color: #020728;
+  }
+  a:hover {
+    color: $viuhti-violet;
+  }
+}
+ /* triangle */
+.speechbubble:after {
+    border-top-color: $speechbubble-bg;
+}

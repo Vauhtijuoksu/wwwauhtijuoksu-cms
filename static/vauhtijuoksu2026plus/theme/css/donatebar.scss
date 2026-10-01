@@ -1,0 +1,20 @@
+.donate-bar {
+  color: $donate-bar-text-color;
+  background-color: $donate-bar-bg-color;
+  border-radius: $donate-bar-border-radius;
+  border: $donate-bar-border;
+
+  .bar {
+    background-color: $donate-bar-color;
+    border-radius: $donate-bar-border-radius;
+    border: $donate-bar-fill-border;
+  }
+
+  .bar.full {
+    background-color: $donate-bar-color-full;
+  }
+
+  .bar-done{
+    color: $donate-bar-text-color-full;
+  }
+}
