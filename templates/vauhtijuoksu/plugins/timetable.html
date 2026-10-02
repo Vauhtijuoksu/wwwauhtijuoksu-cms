@@ -3,16 +3,16 @@
 <div class="timetable">
 
     {% for day in games %}
-        <div class="ttplay">
+        <div class="ttplay ttplaydate">
             <div class="playdate">{{ day.0.start_time|date:"w"|fiweekday }} {{ day.0.start_time|date:"j.n." }}</div>
         </div>
         {% for game in day %}
+            <div class="ttplay playtimehold">
+
+                <div class="playstart">{{ game.start_time|date:"H:i" }} <div class="playtimearrow">-&gt;</div> <span class="playtimeend">{{ game.end_time|date:"H:i" }}</span></div>
+            </div>
             <div class="ttplay">
                 <div class="playleft">
-                    <div class="playstart">{{ game.start_time|date:"H:i" }}-{{ game.end_time|date:"H:i" }}</div>
-                    <div class="playduration playcategory">{{ game.duration }}</div>
-                </div>
-                <div class="playblob">
                     <div class="timetable-char">
                         <div class="charOutline">
                             <img class="char" src="{% static 'vauhtijuoksu2026plus/img/char/'|add:game.img_filename %}">

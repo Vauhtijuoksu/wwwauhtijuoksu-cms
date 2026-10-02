@@ -16,6 +16,17 @@ from datetime import datetime, timedelta
 client = VJClient(settings.VJ_API_URL)
 
 @plugin_pool.register_plugin
+class HideContentPlugin(CMSPluginBase):
+    name = 'Hide Content'
+    model = CMSPlugin
+    render_template = "vauhtijuoksu/plugins/hideContent.html"
+    cache = False
+    allow_children = True
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+@plugin_pool.register_plugin
 class SponsorLogoHolderPlugin(CMSPluginBase):
     name = 'Sponsor Logo Holder'
     model = SponsorLogoHolder
