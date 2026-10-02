@@ -93,7 +93,7 @@ $twitch-icon-image: url("../img/twitch.png");
   .timetable-char {
     height: 100%;
     img.char {
-      image-rendering: smooth;
+      image-rendering: auto;
       max-width: 100%;
       max-height: 160px;
       position: relative;
@@ -122,7 +122,7 @@ $twitch-icon-image: url("../img/twitch.png");
 }
 
 img.char {
-  image-rendering: smooth;
+  image-rendering: auto;
 }
 .tabletimetable {
   .fullscreen & {
