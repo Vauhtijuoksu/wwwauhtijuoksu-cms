@@ -58,7 +58,7 @@
             <div class="fixed">
                 <div class="viuhti-speech">
                   {% include "vauhtijuoksu/components/speechbubble.html" %}
-                    {% with "sloth1.png,sloth2.png,karo1.png,karo2.png,karo3.png,iida1.png,iida2.png"|split:","|random as image %}
+                    {% with "karo1.png,karo2.png,karo3.png,sloth1.png,sloth2.png,iida1.png,iida2.png,keksi1.png,nanni1.png,ich1.png,ich2.png,ich3.png,ich4.png,ich5.png,ich6.png"|split:","|random as image %}
                       <img src="{% static 'vauhtijuoksu2026plus/img/sideviuht/'|add:image %}"/>
                     {% endwith %}
                 </div>
