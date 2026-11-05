@@ -10,7 +10,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 
 from vj_cms.client import VJClient
-from vj_cms.models import GameInfo, Timetable, Donatebar, AnchorLink, TweakSettings, SponsorLogoHolder
+from vj_cms.models import GameInfo, Timetable, Donatebar, AnchorLink, TweakSettings, SponsorLogoHolder, DonatebarIndividual
 from datetime import datetime, timedelta
 
 client = VJClient(settings.VJ_API_URL)
@@ -270,10 +270,46 @@ class DonatebarPlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
 
+        charities = client.get("charities")
         donations = client.get("donations")
-        sum = 0
-        for d in donations:
-            sum += d["amount"]
+        total = 0
+        charity_total = {}
+        for charity in charities:
+            charity_total[charity["id"]] = {"total": 0, "name": charity["name"].split(" - ")[0]}
 
-        context['donation_sum'] = sum
+        for d in donations:
+            total += d["amount"]
+            if d["charity"] in charity_total:
+                charity_total[d["charity"]]["total"] += d["amount"]
+        charity_totals = []
+        for charity in charities:
+            charity_totals.append(charity_total[charity["id"]])
+        context['donation_total'] = total
+        context['charity_total'] = charity_totals
         return context
+
+
+    @plugin_pool.register_plugin
+    class DonatebarIndividualPlugin(CMSPluginBase):
+        name = 'DonatebarIndividual'
+        model = DonatebarIndividual
+        render_template = "vauhtijuoksu/plugins/donatebarIndividual.html"
+        cache = False
+
+        def render(self, context, instance, placeholder):
+            context = super().render(context, instance, placeholder)
+
+            charities = client.get("charities")
+            donations = client.get("donations")
+            index = instance.charity_index
+            if len(charities) <= index:
+                context['donation_total'] = -1
+                return context
+            total = 0
+            charity = charities[index]
+            for d in donations:
+                if d["charity"] == charity["id"]:
+                    total += d["amount"]
+            context['donation_total'] = total
+            context['charity_index'] = index
+            return context

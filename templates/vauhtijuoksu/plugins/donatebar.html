@@ -4,16 +4,30 @@
             <div></div>
             <div></div>
         </div>
-    <div class="donate-bar {% if donation_sum >= instance.goal %}full{% endif %}">
-        {% if donation_sum >= instance.goal %}
-            <div class="bar full"></div>
+    {% if donation_total == -1 %}
+    <div> Error. </div>
+    {% else %}
+    <div class="donate-bar {% if donation_total >= instance.goal %}full{% endif %}">
+        {% if donation_total >= instance.goal %}
+            <div class="bar full">
+            {% for charity in charity_total %}
+                <div class="single charity-{{ forloop.counter0 }}" style="width:{{ charity.total|percentof:instance.goal }}%">{{ charity.name }}</div>
+            {% endfor %}
+            </div>
         {% else %}
-            <div class="bar" style="width:{{ donation_sum|percentof:instance.goal }}%"></div>
+            <div class="bar" style="width:{{ donation_total|percentof:instance.goal }}%">
+                {% for charity in charity_total %}
+                    {% if charity.total > 0 %}
+                    <div class="single charity-{{ forloop.counter0 }}" style="width:{{ charity.total|percentof:donation_total }}%">{{ charity.name }}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
         {% endif %}
-        <div class="sum bar-text">{{ donation_sum|toint }}<span class="euro"> €</span></div>
+        <div class="sum bar-text">{{ donation_total|toint }}<span class="euro"> €</span></div>
         <div class="goal bar-text">{{ instance.goal }}<span class="euro"> €</span></div>
-        {% if donation_sum >= instance.goal %}
+        {% if donation_total >= instance.goal %}
             <div class="bar-done bar-text">Tavoite saavutettu!</div>
         {% endif %}
     </div>
+    {% endif %}
 </div>
