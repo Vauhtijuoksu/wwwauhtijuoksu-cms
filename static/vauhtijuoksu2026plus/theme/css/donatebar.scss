@@ -1,20 +1,50 @@
 .donate-bar {
-  color: $donate-bar-text-color;
   background-color: $donate-bar-bg-color;
   border-radius: $donate-bar-border-radius;
   border: $donate-bar-border;
 
   .bar {
+    color: $v_musta;
     background-color: $donate-bar-color;
     border-radius: $donate-bar-border-radius;
     border: $donate-bar-fill-border;
   }
+  .bar > .single.charity-0 {
+    background-color: $v_vesimeloni;
+  }
+  .bar > .single.charity-1 {
+    background-color: $v_porkkana;
+  }
+  .bar > .single.charity-2 {
+    background-color: $v_sitruuna;
+  }
+  .bar > .single.charity-3 {
+    background-color: $v_vihrea;
+  }
+  .bar > .single.charity-4 {
+    background-color: $v_farkku;
+  }
 
+  .bar.full > .single.charity-0 {
+    background-color: $v_malva;
+  }
+  .bar.full > .single.charity-1 {
+    background-color: $v_persikka;
+  }
+  .bar.full > .single.charity-2 {
+    background-color: $v_banaani;
+  }
+  .bar.full > .single.charity-3 {
+    background-color: $v_omena;
+  }
+  .bar.full > .single.charity-4 {
+    background-color: $v_vaaleansininen;
+  }
   .bar.full {
     background-color: $donate-bar-color-full;
   }
 
   .bar-done{
-    color: $donate-bar-text-color-full;
+    color: $v_musta;
   }
 }

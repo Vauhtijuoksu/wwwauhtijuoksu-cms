@@ -58,6 +58,9 @@ class Timetable(CMSPlugin):
 class Donatebar(CMSPlugin):
     goal = models.PositiveIntegerField('Goal', default=1000)
 
+class DonatebarIndividual(CMSPlugin):
+    goal = models.PositiveIntegerField('Goal', default=1000)
+    charity_index = models.PositiveIntegerField('Charity index', default=0)
 
 class AnchorLink(CMSPlugin):
     anchor_tag = models.CharField("Anchor tag", null=True, default="", max_length=255)

@@ -1,20 +1,34 @@
 .donate-bar {
   width: 100%;
-  color: $donate-bar-text-color;
   background-color: $donate-bar-bg-color;
   height: $donate-bar-height;
   position: relative;
-  overflow: hidden;
   border-radius: $donate-bar-border-radius;
   padding: $donate-bar-padding;
   margin: $donate-bar-margin;
   border: $donate-bar-border;
-  
+  margin-top: 1.5em;
   .bar {
+    overflow: hidden;
     background-color: $donate-bar-color;
     height: 100%;
+    font-size: 0.6em;
+    align-items: center;
     border-radius: $donate-bar-border-radius;
     border: $donate-bar-fill-border;
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    color: $donate-bar-text-color;
+  }
+  .bar > .single {
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    line-height: 1;
   }
   
   .bar.full {
@@ -24,8 +38,7 @@
   
   .bar-text {
     position: absolute;
-    top: -2px;
-    line-height: $donate_bar_height;
+    bottom: $donate_bar_height;
     padding: 0 20px;
   }
   
