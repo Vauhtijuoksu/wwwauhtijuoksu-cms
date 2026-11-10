@@ -42,6 +42,7 @@ $v_valkoinen: #EDEDED;
     src: url('../misc/schoolbell.ttf') format('truetype');
 }
 
+
 $font-family-sans-serif: 'ldfComicSans';
 $font-family-header: 'schoolbell';
 
@@ -83,7 +84,7 @@ $speechbubble-bg: $v_valkoinen;
 
 
 // Incentives
-$incentive-label-color: $v_valkoinen;
+$incentive-label-color: $v_luumu;
 $incentive-dropdown-text-color: $v_musta;
 $incentive-dropdown-hover-color: $v_appelsiini;
 $incentive-closed-text-color: $v_seepia;
